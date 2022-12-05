@@ -45,6 +45,19 @@ $color-unity-grey: #222c37;
 $color-weave-green: #0f9d58;
 
 
+/* Postman Colors */
+$postman-gray: #E6E6E6;
+$postman-orange: #FF6C37;
+$stroke-brown: #3A3836;
+$background-navy: #01213C;
+
+$category-colors: (
+  $postman-gray: #E6E6E6,
+  $postman-orange: #FF6C37,
+  $stroke-brown: #3A3836,
+  $background-navy: #01213C,
+);
+
 /* Snowflake Colors */
 $snowflake-blue:   #29B5E8;
 $mid-blue:         #11567F;
