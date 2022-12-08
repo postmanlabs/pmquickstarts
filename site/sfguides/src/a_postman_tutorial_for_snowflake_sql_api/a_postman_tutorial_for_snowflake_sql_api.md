@@ -7,7 +7,7 @@ status: Published
 feedback link: https://github.com/loopDelicious/sfquickstarts
 tags: Getting Started, REST, API, Postman
 
-# A Postman Tutorial for the Snowflake SQL API
+# Get Started with the Snowflake SQL API in Postman
 
 <!-- ------------------------ -->
 
