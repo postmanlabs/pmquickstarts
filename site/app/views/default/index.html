@@ -99,7 +99,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div id="mainToolbar" class="paper-header">
       <div class="site-width layout horizontal">
         <a href="/">
-          <img src="/images/postman-logo-orange.svg" class="logo-devs" alt="Snowflake Logo">
+          <img src="/images/postman-logo-orange.svg" class="logo-devs" alt="Postman Logo">
         </a>
         <div id="searchbar">
           <paper-input-container no-label-float>
@@ -116,15 +116,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <header id="banner" {% if view.id != 'default' -%}down{%- else %}down$="[[_toBoolean(selectedFilter)]]"{%- endif %}>
       <div class="site-width">
         {% if view.id == 'default' %}
-        <h2 class="banner-title">Getting Started with Snowflake</h2>
+        <h2 class="banner-title">Getting Started with Postman</h2>
         <div class="banner-description"
              data-filter-selected$="{% raw %}[[_toBoolean(selectedFilter)]]{% endraw %}">
           <p class="banner-info">
-            Follow along with our tutorials to get you up and running with the Snowflake Data Cloud.
+            Follow along with our tutorials to get you up and running with Postman and APIs.
             <br>
-            <a href="https://github.com/Snowflake-Labs/devlabs" target="_blank">Snowflake Quickstarts on GitHub</a> 
-            <a href="https://www.snowflake.com/virtual-hands-on-lab/?topic=data-applications" target="_blank">Virtual Hands-on Labs</a>
-            <a href="https://signup.snowflake.com/?utm_cta=trial-en-www-quickstart-nav-ss-evg" target="_blank">Free Trial</a>
+            <a href="https://www.postman.com/events/intergalactic/" target="_blank">Virtual Hands-on Labs</a> 
+            <a href="https://learning.postman.com/#upcoming-events" target="_blank">Upcoming Events</a>
+            <a href="https://identity.getpostman.com/signup" target="_blank">Sign Up for Free</a>
           </p>
         {%- else -%}
           <div class="banner-description">
@@ -141,7 +141,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </header>
 
     <main>
-      <a href="http://snowflake.com/build/?utm_source=quickstart&amp;utm_medium=cpc&amp;utm_campaign=na-us-en-developers-quickstart&amp;utm_content=-evv-build-summit" target="_blank" style="
+      <!-- <a href="http://snowflake.com/build/?utm_source=quickstart&amp;utm_medium=cpc&amp;utm_campaign=na-us-en-developers-quickstart&amp;utm_content=-evv-build-summit" target="_blank" style="
     display: block;
     background: black;
     text-align: center;
@@ -150,7 +150,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     color: white;
     line-height: 36px;
 " id="mainbanner">JOYCE 2022 - Postman's Global Virtual Developer Conference. Register now for free<svg style="width: 20px;margin-top: 9px;color: white;display: inline-block;margin: 0px 0 -3px 5px;" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 13C12.5523 13 13 12.5523 13 12V3C13 2.44771 12.5523 2 12 2H3C2.44771 2 2 2.44771 2 3V6.5C2 6.77614 2.22386 7 2.5 7C2.77614 7 3 6.77614 3 6.5V3H12V12H8.5C8.22386 12 8 12.2239 8 12.5C8 12.7761 8.22386 13 8.5 13H12ZM9 6.5C9 6.5001 9 6.50021 9 6.50031V6.50035V9.5C9 9.77614 8.77614 10 8.5 10C8.22386 10 8 9.77614 8 9.5V7.70711L2.85355 12.8536C2.65829 13.0488 2.34171 13.0488 2.14645 12.8536C1.95118 12.6583 1.95118 12.3417 2.14645 12.1464L7.29289 7H5.5C5.22386 7 5 6.77614 5 6.5C5 6.22386 5.22386 6 5.5 6H8.5C8.56779 6 8.63244 6.01349 8.69139 6.03794C8.74949 6.06198 8.80398 6.09744 8.85143 6.14433C8.94251 6.23434 8.9992 6.35909 8.99999 6.49708L8.99999 6.49738" fill="white"></path> </svg>
-      </a>
+      </a> -->
       <div id="filters" class="site-width layout horizontal center justified">
         <div id="sortby">
           <paper-tabs selected="0" noink on-iron-activate="sortBy">
@@ -246,32 +246,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <footer id="footer">
       <div class="footer-wrapper site-width">
         <div class="link-list">
-          <img class="" data-src="https://1amiydhcmj36tz3733v94f15-wpengine.netdna-ssl.com/wp-content/themes/snowflake/assets/img/logo-white.svg" alt="Snowflake Inc." src="https://1amiydhcmj36tz3733v94f15-wpengine.netdna-ssl.com/wp-content/themes/snowflake/assets/img/logo-white.svg">
+          <img class="logo-devs" data-src="/images/postman-logo-white.svg" alt="Postman" src="/images/postman-logo-white.svg">
           </div>
         <div class="link-list">
-          <label>Platform</label>
+          <label>Product</label>
           <ul>
-            <li><a href="https://www.snowflake.com/cloud-data-platform/">Cloud Data Platform</a></li>
-            <li><a href="https://www.snowflake.com/product/architecture/">Architecture</a></li>
-            <li><a href="https://www.snowflake.com/pricing/">Pricing</a></li>
-            <li><a href="https://www.snowflake.com/data-marketplace/">Data Marketplace</a></li>
+            <li><a href="https://www.postman.com/product/what-is-postman/">What is Postman?</a></li>
+            <li><a href="https://www.postman.com/pricing/">Pricing</a></li>
+            <li><a href="https://www.postman.com/explore">Explore</a></li>
           </ul>
         </div>
         <div class="link-list">
           <label>Connect</label>
           <ul>
-            <li><a href="https://community.snowflake.com/s/">Community</a></li>
-            <li><a href="https://developers.snowflake.com/">Developers</a></li>
-            <li><a href="https://medium.com/snowflake">Blog</a></li>
+            <li><a href="https://community.postman.com/">Community</a></li>
+            <li><a href="https://github.com/postmanlabs">GitHub</a></li>
+            <li><a href="https://twitter.com/getpostman">Twitter</a></li>
+            <li><a href="https://www.linkedin.com/company/postman-platform">LinkedIn</a></li>
           </ul>
         </div>
         <div class="link-list">
           <label>Resources</label>
           <ul>
-            <li><a href="https://resources.snowflake.com/">Resource Library</a></li>
-            <li><a href="https://www.snowflake.com/about/webinars/">Webinars</a></li>
-            <li><a href="https://docs.snowflake.com/">Documentation</a></li>
-            <li><a href="https://www.snowflake.com/legal/">Legal</a></li>
+            <li><a href="https://learning.postman.com/">Learning Center</a></li>
+            <li><a href="https://learning.postman.com/docs/getting-started/introduction/">Documentation</a></li>
+            <li><a href="https://www.snowflake.com/about/webinars/">Videos</a></li>
+            <li><a href="https://www.postman.com/events/intergalactic/">Webinars</a></li>
+            <li><a href="https://blog.postman.com/">Blog</a></li>
           </ul>
         </div>
       </div>
@@ -280,9 +281,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="footerbar">
       <div class="site-width layout horizontal center justified">
         <span>
-          <a href="https://www.snowflake.com/terms-of-service/">Terms</a>
+          <a href="https://www.postman.com/legal/terms/">Terms</a>
           &nbsp; | &nbsp;
-          <a href="https://www.snowflake.com/privacy-policy/">Privacy</a>
+          <a href="https://www.postman.com/legal/privacy-policy/">Privacy</a>
         </span>
       </div>
     </div>
