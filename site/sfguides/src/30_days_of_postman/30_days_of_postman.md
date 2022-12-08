@@ -746,9 +746,9 @@ Duration: 2
 
 Duration: 1
 
-This tutorial was a hands-on introduction to Postman for developers. To see what else you can do with the Postman, check out the following resources:
+This tutorial was a hands-on introduction to Postman for developers. To see what else you can do with Postman, check out the following resources:
 
-- Additional [hands-on learning courses](https://www.postman.com/events/intergalactic/) by Postman
+- Additional [hands-on learning courses]() by Postman
 - Other opportunities to [earn badges from Postman](https://badgr.com/public/issuers/BC0x4AQaQPC7lFilsBP_tQ/badges)
 - Videos including [how-to, level ups, and exploratories](https://www.youtube.com/@postman)
 - Virtual learning [webinars](https://www.postman.com/events/intergalactic/)
