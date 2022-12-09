@@ -1,13 +1,13 @@
 author: AUTHOR_NAME
-id: SFGUIDE_NAME
-summary: This is a sample Snowflake Guide
+id: PMGUIDE_NAME
+summary: This is a sample Postman Guide
 categories: Getting Started
 environments: web
 status: Published 
 feedback link: https://github.com/Snowflake-Labs/sfguides/issues
-tags: Getting Started, Data Science, Data Engineering, Twitter 
+tags: Getting Started, Developer, Tester, Automation 
 
-# Snowflake Guide Template
+# Postman Guide Template
 <!-- ------------------------ -->
 ## Overview 
 Duration: 1
