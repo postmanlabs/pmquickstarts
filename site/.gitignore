@@ -18,5 +18,5 @@ app/js/bundle
 /build/
 /dist/
 
-/sfguides/dist/*
+/pmguides/dist/*
 temp/
