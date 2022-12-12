@@ -4,7 +4,7 @@ summary: Improve your skills by tackling a new Postman challenge for 30 days in 
 categories: Getting Started
 environments: web
 status: Published
-feedback link: https://github.com/Snowflake-Labs/sfguides/issues
+feedback link: https://github.com/loopDelicious/pmquickstarts
 tags: Getting Started, Developer
 
 # 30 Days of Postman - for developers

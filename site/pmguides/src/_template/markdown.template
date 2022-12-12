@@ -4,7 +4,7 @@ summary: This is a sample Postman Guide
 categories: Getting Started
 environments: web
 status: Published 
-feedback link: https://github.com/Snowflake-Labs/sfguides/issues
+feedback link: https://github.com/loopDelicious/pmquickstarts
 tags: Getting Started, Developer, Tester, Automation 
 
 # Postman Guide Template
@@ -12,11 +12,11 @@ tags: Getting Started, Developer, Tester, Automation
 ## Overview 
 Duration: 1
 
-Please use [this markdown file](https://raw.githubusercontent.com/Snowflake-Labs/sfguides/master/site/sfguides/sample.md) as a template for writing your own Snowflake Quickstarts. This example guide has elements that you will use when writing your own guides, including: code snippet highlighting, downloading files, inserting photos, and more. 
+Please use [this markdown file](https://raw.githubusercontent.com/Snowflake-Labs/sfguides/master/site/sfguides/sample.md) as a template for writing your own Postman Quickstarts. This example guide has elements that you will use when writing your own guides, including: code snippet highlighting, downloading files, inserting photos, and more. 
 
-It is important to include on the first page of your guide the following sections: Prerequisites, What you'll learn, What you'll need, and What you'll build. Remember, part of the purpose of a Snowflake Guide is that the reader will have **built** something by the end of the tutorial; this means that actual code needs to be included (not just pseudo-code).
+It is important to include on the first page of your guide the following sections: Prerequisites, What you'll learn, What you'll need, and What you'll build. Remember, part of the purpose of a Postman Guide is that the reader will have **built** something by the end of the tutorial; this means that actual code needs to be included (not just pseudo-code).
 
-The rest of this Snowflake Guide explains the steps of writing your own guide. 
+The rest of this Postman Guide explains the steps of writing your own guide. 
 
 ### Prerequisites
 - Familiarity with Markdown syntax
@@ -35,16 +35,16 @@ The rest of this Snowflake Guide explains the steps of writing your own guide.
 - [GoLang](https://golang.org/doc/install) Installed
 
 ### What You’ll Build 
-- A Snowflake Guide
+- A Postman Guide
 
 <!-- ------------------------ -->
 ## Metadata Configuration
 Duration: 2
 
-It is important to set the correct metadata for your Snowflake Guide. The metadata contains all the information required for listing and publishing your guide and includes the following:
+It is important to set the correct metadata for your Postman Guide. The metadata contains all the information required for listing and publishing your guide and includes the following:
 
 
-- **summary**: This is a sample Snowflake Guide 
+- **summary**: This is a sample Postman Guide 
   - This should be a short, 1 sentence description of your guide. This will be visible on the main landing page. 
 - **id**: sample 
   - make sure to match the id here with the name of the file, all one word.
@@ -53,12 +53,12 @@ It is important to set the correct metadata for your Snowflake Guide. The metada
 - **environments**: web 
   - `web` is default. If this will be published for a specific event or  conference, include it here.
 - **status**: Published
-  - (`Draft`, `Published`, `Deprecated`, `Hidden`) to indicate the progress and whether the sfguide is ready to be published. `Hidden` implies the sfguide is for restricted use, should be available only by direct URL, and should not appear on the main landing page.
-- **feedback link**: https://github.com/Snowflake-Labs/sfguides/issues
+  - (`Draft`, `Published`, `Deprecated`, `Hidden`) to indicate the progress and whether the pmguide is ready to be published. `Hidden` implies the pmguide is for restricted use, should be available only by direct URL, and should not appear on the main landing page.
+- **feedback link**: https://github.com/loopDelicious/pmquickstarts
 - **tags**: Getting Started, Data Science, Twitter 
-  - Add relevant  tags to make your sfguide easily found and SEO friendly.
+  - Add relevant  tags to make your pmguide easily found and SEO friendly.
 - **authors**: Daniel Myers 
-  - Indicate the author(s) of this specific sfguide.
+  - Indicate the author(s) of this specific pmguide.
 
 ---
 
@@ -85,13 +85,13 @@ All the content for the step goes here.
 
 To indicate how long each step will take, set the `Duration` under the step title (i.e. `##`) to an integer. The integers refer to minutes. If you set `Duration: 4` then a particular step will take 4 minutes to complete. 
 
-The total sfguide completion time is calculated automatically for you and will be displayed on the landing page. 
+The total pmguide completion time is calculated automatically for you and will be displayed on the landing page. 
 
 <!-- ------------------------ -->
 ## Code Snippets, Info Boxes, and Tables
 Duration: 2
 
-Look at the [markdown source for this sfguide](https://raw.githubusercontent.com/Snowflake-Labs/sfguides/master/site/sfguides/sample.md) to see how to use markdown to generate code snippets, info boxes, and download buttons. 
+Look at the [markdown source for this pmguide](https://raw.githubusercontent.com/Snowflake-Labs/sfguides/master/site/sfguides/sample.md) to see how to use markdown to generate code snippets, info boxes, and download buttons. 
 
 ### JavaScript
 ```javascript
@@ -155,7 +155,7 @@ Videos from youtube can be directly embedded:
 
 ### Inline Surveys
 <form>
-  <name>How do you rate yourself as a user of Snowflake?</name>
+  <name>How do you rate yourself as a user of Postman?</name>
   <input type="radio" value="Beginner">
   <input type="radio" value="Intermediate">
   <input type="radio" value="Advanced">
@@ -168,9 +168,9 @@ Videos from youtube can be directly embedded:
 ## Conclusion
 Duration: 1
 
-At the end of your Snowflake Guide, always have a clear call to action (CTA). This CTA could be a link to the docs pages, links to videos on youtube, a GitHub repo link, etc. 
+At the end of your Postman Guide, always have a clear call to action (CTA). This CTA could be a link to the docs pages, links to videos on youtube, a GitHub repo link, etc. 
 
-If you want to learn more about Snowflake Guide formatting, checkout the official documentation here: [Formatting Guide](https://github.com/googlecodelabs/tools/blob/master/FORMAT-GUIDE.md)
+If you want to learn more about Postman Guide formatting, checkout the official documentation here: [Formatting Guide](https://github.com/googlecodelabs/tools/blob/master/FORMAT-GUIDE.md)
 
 ### What we've covered
 - creating steps and setting duration

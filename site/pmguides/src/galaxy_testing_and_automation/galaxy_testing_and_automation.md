@@ -4,8 +4,8 @@ summary: This is a tutorial for testing and automation in Postman
 categories: Getting Started
 environments: web
 status: Published
-feedback link: https://github.com/Snowflake-Labs/sfguides/issues
-tags: Getting Started, Data Science, Data Engineering, Twitter
+feedback link: https://github.com/loopDelicious/pmquickstarts
+tags: Getting Started, Developer, Tester, Automation
 
 # Galaxy Testing and Automation
 

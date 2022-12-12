@@ -4,7 +4,7 @@ summary: This is a beginner's introduction to HTTP APIs in Postman
 categories: Getting Started
 environments: web
 status: Published
-feedback link: https://github.com/Snowflake-Labs/sfguides/issues
+feedback link: https://github.com/loopDelicious/pmquickstarts
 tags: Getting Started, Developer
 
 # Introduction to HTTP APIs in Postman

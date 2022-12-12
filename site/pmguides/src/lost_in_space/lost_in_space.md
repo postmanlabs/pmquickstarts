@@ -1,10 +1,10 @@
 author: Joyce
 id: lost_in_space
-summary: This is a sample Snowflake Guide
+summary: This is a Postman puzzle game
 categories: Game
 environments: web
 status: Published
-feedback link: https://github.com/Snowflake-Labs/sfguides/issues
+feedback link: https://github.com/loopDelicious/pmquickstarts
 tags: Game
 
 # Lost in Space: puzzle hunt

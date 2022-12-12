@@ -4,7 +4,7 @@ summary: Explore the Snowflake SQL API with Postman
 categories: Getting Started
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/sfquickstarts
+feedback link: https://github.com/loopDelicious/pmquickstarts
 tags: Getting Started, REST, API, Postman
 
 # Get Started with the Snowflake SQL API in Postman
