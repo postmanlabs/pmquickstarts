@@ -38,6 +38,7 @@ This is an introduction to testing and automation in Postman. Complete this enti
 ### What You’ll Build
 
 - A Postman Collection consisting of requests, variables, and tests.
+- Badge for [Postman API Tester](https://badgr.com/public/badges/Q10KBL_YQXSW0lCQgYWx6Q).
 
 <!-- ------------------------ -->
 
