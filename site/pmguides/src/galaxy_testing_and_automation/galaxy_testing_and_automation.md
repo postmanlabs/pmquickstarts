@@ -475,7 +475,7 @@ Hopefully everything is good with your collection (if not plz try going back thr
 
 If you need support figuring out how to complete your collection please ask in the session chat or in the [Postman community forum using the "training" category](https://community.postman.com/c/training).
 
-_**When your collection is complete, fill out the form**_ [**go.pstmn.io/submit-badge**](go.pstmn.io/submit-badge) _**including the export of your collection (**_[_see how here_](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-collections)_**) and we will process your submission for the API Tester badge!**_
+_**When your collection is complete, fill out the form**_ [**go.pstmn.io/submit-badge**](https://go.pstmn.io/submit-badge) _**including the export of your collection (**_[_see how here_](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-collections)_**) and we will process your submission for the API Tester badge!**_
 
 On successful submission you will receive the [Postman API Tester](https://badgr.com/public/badges/Q10KBL_YQXSW0lCQgYWx6Q) badge! 🎉🏆🚀
 
