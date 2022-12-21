@@ -15,9 +15,7 @@ tags: Getting Started, Developer
 
 Duration: 1
 
-This is a beginner's introduction to HTTP APIs in Postman. Complete this entire course to claim a badge to show the boss during your next performance review.
-
-![Puppy](assets/SAMPLE.jpg)
+This is a beginner's introduction to HTTP APIs in Postman. Complete this entire course to show the boss during your next performance review, and get started on your API journey with Postman.
 
 ### Prerequisites
 
@@ -125,8 +123,6 @@ To use Postman in a web browser, as we do in this module, you’re prompted to d
 1. Once you’ve downloaded the agent, run it on your machine.
    The agent is not the same as the Postman app. On a Mac, the icon for the Postman agent running in the status menu is located on the top right of your computer screen. On a Windows machine, the Postman agent icon displays in the system tray at the bottom right of your computer screen.
 
-![Puppy](assets/SAMPLE.jpg)
-
 Negative
 : If you don’t want to use Postman in a web browser with the agent, you can instead download and install the Postman app for Mac, Windows, or Linux.
 
@@ -147,7 +143,7 @@ Now that you’ve imported a request into your Postman workspace, take a look at
 
 Click the Send button and inspect the response received from the server. In one place, you’ll find the response Body (1), Headers (2), Status (3), Time (4), and Size (5).
 
-![Puppy](assets/SAMPLE.jpg)
+![response elements](assets/response.png)
 
 Let’s update your parameters.
 
@@ -156,11 +152,11 @@ Let’s update your parameters.
 
 ```
 KEY: date
-VALUE: 2020-02-20
+VALUE: 2022-11-30
 ```
 
 1. Click **Send**.
-1. Inspect the response received from the server. You see that the image comes from February 20 as you’ve set out in the parameters.
+1. Inspect the response received from the server. You see that the image comes from November 30 as you’ve set out in the parameters.
 
 Review the [NASA Astronomy Picture of the Day](https://api.nasa.gov/#apod) API documentation to see what other parameters are supported by the API.
 
@@ -172,7 +168,7 @@ Highlight the request.
 Expand the context bar on the right, and click the **Code** icon.
 In the dropdown, select a programming language and framework like JavaScript - Fetch.
 
-![Puppy](assets/SAMPLE.jpg)
+![code generation](assets/fetch.png)
 
 If the generated code isn’t formatted the way you like, additional settings can be tweaked under the gear icon. You can also make inline edits to the code snippet. When you’re ready, this is code that can be copied and pasted into your own applications.
 
@@ -260,33 +256,33 @@ The History tab on the left sidebar maintains a record of the most recent reques
 1. Add your second call to the same collection. Hover over the call and click `+`.
    The destination should already be `Intro to HTTP APIs Module`. Go ahead and click **Save**.
 
-![Puppy](assets/SAMPLE.jpg)
+![save to collection](assets/collection.png)
 
-Update the name of the first call to Picture of the Day and the name of the second call to Pictures from November 2020.
+Update the name of the first call to Picture of the Day and the name of the second call to Pictures from November 2022.
 
 1. Click **Collections** in the left sidebar.
 1. Click the disclosure arrow next to `Intro to HTTP APIs Module`.
 1. Hover over the top request and click the more actions icon.
 1. Click **rename**.
 1. Enter `Picture of the Day`.
-1. Rename the second request in your collection `Pictures from November 2020`. Ensure that the request retrieves all pictures from that month.
+1. Rename the second request in your collection `Pictures from November 2022`. Ensure that the request retrieves all pictures from that month.
 
-Edit the second call to retrieve all the images from the month of November in 2020.
+Edit the second call to retrieve all the images from the month of November in 2022.
 
-1. Click **Pictures from November 2020**.
+1. Click **Pictures from November 2022**.
 1. Hover over the date key you created and click **X** to remove it.
 1. Enter a new key to start your retrieval array on the first day of November.
 
 ```
 KEY: start_date
-VALUE : 2020-11-01
+VALUE : 2022-11-01
 ```
 
 1. Enter another key to conclude the retrieval array on the last day.
 
 ```
 KEY: end_date
-VALUE : 2020-11-30
+VALUE : 2022-11-30
 ```
 
 1. **Save** your work.
@@ -398,7 +394,7 @@ If a variable with the same name is declared in two different scopes, the value 
 
 In text areas of the Postman request builder, like the request URL or parameters, you can use double curly braces to reference variables. Let’s learn a shortcut for creating new variables at any scope.
 
-1. Select **Pictures from November 2020**.
+1. Select **Pictures from November 2022**.
 1. In the request URL field, highlight the data you want to make a variable. In this example, it’s `DEMO_KEY`.
 1. This opens an interactive tooltip. Click **Set as variable**.
 1. Click **Set as a new variable**.
@@ -437,14 +433,14 @@ Add a third request to your collection called “Retrieve image” to make a GET
 1. Rename the new request `Retrieve image`.
 1. In the request URL field, enter `{{nasa_image_url}`. This variable doesn’t mean anything at the moment. You’ll change that in a few steps.
 1. Click **Save**.
-1. Now click back into `Pictures from November 2020`.
+1. Now click back into `Pictures from November 2022`.
 1. Click the **Tests** tab.
 1. Enter `pm.collectionVariables.set("nasa_image_url", pm.response.json()[0].url)` in the editor. This script defines the variable `nasa_image_url` once you get a response from the NASA server.
 1. Click **Send**.
 
 We are using the [`pm.collectionVariables.set()`](https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/#using-collection-variables-in-scripts) function to set a collection variable. The function accepts two parameters. The first parameter is the variable key as a string, like nasa_image_url. The second parameter is the variable value. In this example, we are accessing the response data with the [`pm.response`](https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/#scripting-with-response-data) object.
 
-Take a look at the collection variable editor to see that Postman has set the new variable. In this case, it’s the first image URL from the array of `Pictures from November 2020`.
+Take a look at the collection variable editor to see that Postman has set the new variable. In this case, it’s the first image URL from the array of `Pictures from November 2022`.
 
 1. Navigate back to `Retrieve image`.
 1. Hover over `{{nasa_image_url}}` and see that your new variable now works.
@@ -506,9 +502,9 @@ The [NASA Astronomy Picture of the Day API](https://api.nasa.gov/#apod) requires
 1. **Save** your update.
 1. Then click **Send**. You see an error response.
 
-![Puppy](assets/SAMPLE.jpg)
+![error no api key](assets/error.png)
 
-Go ahead and deselect the `api_key` query parameter in `Pictures from November 2020` as well.
+Go ahead and deselect the `api_key` query parameter in `Pictures from November 2022` as well.
 
 Make sure you **Save** your update.
 
@@ -579,13 +575,13 @@ The Postman console can help with debugging when an API is not behaving as you e
 
 Open the console from the icon on the bottom left of Postman [alt: Console]. Every request sent from Postman is logged in the console in both its raw and pretty form. In the console, you can inspect headers, certificates, requests, and responses from these network calls. Let’s see it in action. Send the second request in your collection and inspect the console output.
 
-1. Open **Pictures from November 2020**.
+1. Open **Pictures from November 2022**.
 1. Click **Send**.
 1. Then click the Console icon at the bottom left of Postman.
 1. Click the disclosure arrow of your latest request to explore the log.
 1. Click **X** to close the console.
 
-![Puppy](assets/SAMPLE.jpg)
+![network call in console](assets/console.png)
 
 ### Insert Console Statements
 
@@ -593,7 +589,7 @@ Using log statements at appropriate locations in your scripts helps identify the
 
 For example, we previously extracted data from a response to pass along information to another request as a collection variable. We can log response data to inspect the data type and ensure that we are parsing an object properly.
 
-1. With **Pictures from November 2020** still open, insert the following code on the first line of the **Tests** tab.
+1. With **Pictures from November 2022** still open, insert the following code on the first line of the **Tests** tab.
 
 ```
 console.log(`From the Tests tab, number of pictures is: ${pm.response.json().length}`)
@@ -601,7 +597,7 @@ console.log(`From the Tests tab, number of pictures is: ${pm.response.json().len
 
 Send the request and inspect the console output. You’ll see the statement response.
 
-![Puppy](assets/SAMPLE.jpg)
+![log statement](assets/log.png)
 
 ### Knowledge check
 
@@ -635,12 +631,6 @@ You’ve gone through a lot in this module, from setting up your Postman workspa
 ## Next Steps
 
 Duration: 1
-
-### Claim your badge
-
-To claim your badge of completion, complete [this form](https://go.pstmn.io/submit-badge) with the required information for **Introduction to HTTP APIs in Postman**.
-
-![Puppy](assets/SAMPLE.jpg)
 
 ### Next Steps
 

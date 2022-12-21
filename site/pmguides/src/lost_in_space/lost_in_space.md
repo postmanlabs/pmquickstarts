@@ -32,7 +32,7 @@ Watch this video:
 3. **Submit final solution**: When you think you've gathered all the data, validate your solution by providing the required information to [**Mission Control**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b?ctx=documentation).
 4. **Claim badge**: Successfully completing the mission allows you to join the leaderboard and claim your [**Lost in Space** Postman badge](https://badgr.com/public/badges/hkQxukdrTd6bEw9RT4MQcQ).
 
-<p><img src="assets/lost.png" height="100"></p>
+<img src="assets/lost.png" alt="game badge" width="200">
 
 ### Prerequisites
 
@@ -68,7 +68,7 @@ Negative
 
 Duration: 180
 
-Fork the 👩‍🚀 [**`Read Me First`**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351) collection to your own workspace.
+Fork the 📓 [**`Read Me First`**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351) collection to your own workspace.
 
 [![Run in Postman](assets/button.svg)](https://god.gw.postman.com/run-collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351?action=collection%2Ffork&collection-url=entityId%3D1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351%26entityType%3Dcollection%26workspaceId%3Dbe17b38e-55a7-40d6-931a-6c394d6f5dec)
 
