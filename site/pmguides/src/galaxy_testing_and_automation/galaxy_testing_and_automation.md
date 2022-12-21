@@ -20,7 +20,7 @@ Negative
 
 This is an introduction to testing and automation in Postman. Complete this entire course to claim a badge to display on your social media profiles.
 
-![API tester badge](assets/tester.png)
+<img src="assets/tester.png" alt="API tester badge" width="200"/>
 
 ### Prerequisites
 

@@ -17,17 +17,17 @@ Duration: 2
 
 Improve your skills by tackling a new Postman challenge for 15 days in a row.
 
-![[15 days badge](assets/tester.png)](assets/tester.png)
+<img src="assets/tester.png" alt="15 day challenge badge" width="200"/>
 
 ### How it works
 
 1. **Get the daily challenge**: Fork the parent collection for each day to your own public Postman workspace.
 1. **Review the instructions**: Read the corresponding collection documentation for instructions on how to complete each challenge. Additional resources are available if you want to dive deeper into any of the topics.
 1. **Check your solutions**: When you think you've got it, validate your solution by following the instructions in the `Submit your solution` folder. For each day, you check your own work.
-1. **Claim your badge**: For the final challenge, submit your final solution to the Postman team. Successfully completing all the challenges allows you to claim your [15 days of Postman badge](https://badgr.com/issuers/5f33b10fdfde1067be427b6b/badges/63a0d29940c8bd1a41be6250/overview).
+1. **Claim your badge**: For the final challenge, submit your final solution to the Postman team. Successfully completing all the challenges allows you to claim your [15 days of Postman badge](https://badgr.com/public/badges/bG6IYzbkTsKrP3t6C2q0BQ).
 
 **Watch this video** for some 15-day-challenge tips:
-<video id="bmQdaXaFjmM"></video>
+<video id="3_w2Bz0BnlY"></video>
 
 ### Prerequisites
 
@@ -60,6 +60,7 @@ Negative
 - **How long does it take to complete the 15 days of Postman challenge?** Plan to spend 5 to 45 minutes every day to explore the topic and dive deeper into the topics you find interesting. Go at your own pace. There is no penalty for taking longer. **Note**: if a very long period of time elapses from when you fork a challenge to when you submit the final solution, you may need to pull the latest changes to ensure the solution you submit is up to date.
 - **Do I need to complete all 15 challenges?** Completing all the challenges is required to claim your **15 days of Postman** badge. You are welcome to dive into any of the topics that you find interesting. However, some challenges build on concepts and samples introduced in earlier challenges. So you will receive less guidance for concepts covered earlier in the series.
 - **I am new to code.** Is this challenge for me? The challenges are designed for testers and suitable for novice testers. If you know basic software programming concepts and beginner JavaScript (or some other programming language), this challenge is for you. If you're an API professional, but don't identify as a tester, you may need to do extra research to complete some challenges.
+- **Do I need to create a public workspace?**: Yes. The validation requires all of your work to be located in a public workspace. If you belong to your company's Postman team, your company may not want the public workspace to be listed under their public team profile. In this case, use your personal Postman account, or create a separate Postman account, to complete the challenge.
 - **I'm stuck. Can someone please help?**
   - Re-read the instructions carefully, and check out the documentation and additional resources listed in the instructions.
   - Try submitting an incomplete solution locally to reveal clues in the test results.
@@ -563,7 +564,7 @@ Fork the parent collection and environment to your own workspace.
 </br>
 [![Run in Postman](_shared_assets/button.svg)](https://god.gw.postman.com/run-collection/1559645-b9fe5159-54c3-4fbc-a2fd-78969be49b8b?action=collection%2Ffork&collection-url=entityId%3D1559645-b9fe5159-54c3-4fbc-a2fd-78969be49b8b%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c#?env%5Bsecret%5D=W3sia2V5IjoidXJsIiwidmFsdWUiOiJodHRwczovL2YzMWY1MTFkLTYyNzEtNGE0ZS1iZWQ5LTQwMTAyNDc3MjU5MS5tb2NrLnBzdG1uLmlvIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJodHRwczovL2YzMWY1MTFkLTYyNzEtNGE0ZS1iZWQ5LTQwMTAyNDc3MjU5MS5tb2NrLnBzdG1uLmlvIiwic2Vzc2lvbkluZGV4IjowfV0=)
 
-On successful submission, you will receive the **[15 days of Postman - for testers](https://badgr.com/issuers/5f33b10fdfde1067be427b6b/badges/63a0d29940c8bd1a41be6250/overview)** badge.
+On successful submission, you will receive the **[15 days of Postman - for testers](https://badgr.com/public/badges/bG6IYzbkTsKrP3t6C2q0BQ)** badge.
 
 <!-- ------------------------ -->
 
