@@ -391,6 +391,9 @@ Fork the parent collection to your own workspace.
 
 - [Looping through a data file with the Postman collection runner](https://blog.postman.com/looping-through-a-data-file-in-the-postman-collection-runner/) blog
 - [Loop through a data file](https://youtu.be/RH8b3gbujPY) video
+- [How to break an API](https://youtu.be/c-5UMf6sWk4) stream
+- [Unbreakable API](https://www.postman.com/postman/workspace/unbreakable-api/overview) code samples
+- [Big List of Naughty Strings](https://github.com/minimaxir/big-list-of-naughty-strings)
 
 <!-- ------------------------ -->
 

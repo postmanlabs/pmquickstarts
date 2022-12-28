@@ -4,9 +4,9 @@ VIDEO DEMO
 
 ## What are Postman Quickstarts?
 
-Postman Quickstarts are interactive tutorials and self-serve demos written in markdown syntax. Quickstarts provide a step-by-step reading experience and automatically saves tutorial progress for readers. These tutorials are published at [quickstarts.snowflake.com](https://guides.snowflake.com/)
+Postman Quickstarts are interactive tutorials and self-serve demos written in markdown syntax. Quickstarts provide a step-by-step reading experience and automatically saves tutorial progress for readers. These tutorials are published at [quickstarts.postman.com](https://quickstarts.postman.com/)
 
-You can submit your own Quickstarts to be published on Postman's website by submitting a pull request to this repo. This repository contains all the tools and documentation you’ll need for building, writing, and submitting your own Quickstart!
+You can submit your own Quickstarts to be published on Postman's website by submitting a pull request to this repo. This repository contains all the tools and documentation you’ll need for building, writing, and submitting your own Quickstart.
 
 ## What's special about the Quickstart format?
 
@@ -17,7 +17,7 @@ You can submit your own Quickstarts to be published on Postman's website by subm
 - Support for multiple target environments or events (conferences, kiosk, web, offline, etc.)
 - Support for anonymous use - ideal for public computers at developer events
 - Looks great, with a responsive web implementation
-- Remembers where the student left off when returning to a quickstarts
+- Remembers where the student left off when returning to a quickstart
 - Mobile friendly user experience
 
 ## Getting Started
@@ -34,8 +34,8 @@ You can submit your own Quickstarts to be published on Postman's website by subm
 ### Run locally
 
 1. Fork this repository to your personal github account (top right of webpage, `fork` button)
-2. Clone your new fork `git clone git@github.com:<YOUR-USERNAME>/sfquickstarts.git sfquickstarts`
-3. Navigate to the site directory `cd sfquickstarts/site`
+2. Clone your new fork `git clone git@github.com:<YOUR-USERNAME>/pmquickstarts.git pmquickstarts`
+3. Navigate to the site directory `cd pmquickstarts/site`
 4. Install node dependencies `npm install`
 5. Run the site `npm run serve`
 
@@ -82,16 +82,15 @@ You can always read the [sample Quickstart](site/pmguides/src/sample/sample.md) 
 - Checkout [how to use VS Code to write markdown files](https://code.visualstudio.com/docs/languages/markdown)
 - If you want to learn more about Quickstarts, check out this [excellent tutorial](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
-## How do I get my Postman Quickstart on [quickstarts.snowflake.com](https://quickstarts.snowflake.com)?
+## How do I get my Postman Quickstart on [quickstarts.postman.com](https://postman.snowflake.com)?
 
-1. You will need to sign Snowflake's CLA
-2. Fork this repository
-3. Clone it to your local system
-4. Make a new branch
-5. Make your changes
-6. Push it back to your repo
-7. Open this repository on GitHub.com
-8. Click the Pull Request button to open a new pull request
-9. Postman will review and approve the submission
+1. Fork this repository
+1. Clone it to your local system
+1. Make a new branch
+1. Make your changes
+1. Push it back to your repo
+1. Open this repository on GitHub.com
+1. Click the Pull Request button to open a new pull request
+1. Postman will review and approve the submission
 
 To learn more how to submit a pull request on GitHub in general, checkout github's [official documentation](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
