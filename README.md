@@ -82,7 +82,7 @@ You can always read the [sample Quickstart](site/pmguides/src/sample/sample.md) 
 - Checkout [how to use VS Code to write markdown files](https://code.visualstudio.com/docs/languages/markdown)
 - If you want to learn more about Quickstarts, check out this [excellent tutorial](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
 
-## How do I get my Postman Quickstart on [quickstarts.postman.com](https://postman.snowflake.com)?
+## How do I get my Postman Quickstart on [quickstarts.postman.com](https://quickstarts.postman.com)?
 
 1. Fork this repository
 1. Clone it to your local system
@@ -94,3 +94,7 @@ You can always read the [sample Quickstart](site/pmguides/src/sample/sample.md) 
 1. Postman will review and approve the submission
 
 To learn more how to submit a pull request on GitHub in general, checkout github's [official documentation](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
+
+## How to deploy
+
+npm run deploy
