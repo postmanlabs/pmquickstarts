@@ -97,4 +97,7 @@ To learn more how to submit a pull request on GitHub in general, checkout github
 
 ## How to deploy
 
-npm run deploy
+Change into the `site/` directory, and run the deploy script, which builds and publishes site at `https://loopdelicious.github.io/pmquickstarts/`.
+
+    $ cd site
+    $ npm run deploy
