@@ -1,0 +1,28 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.snowflake.com/elements",
+  "mainga": "UA-41491190-9",
+  "updated": "2022-12-19T09:25:31-08:00",
+  "id": "snapshot_testing",
+  "duration": 17,
+  "title": "Snapshot testing using Postman",
+  "summary": "Three different snapshot testing strategies",
+  "source": "snapshot_testing/snapshot_testing.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "intermediate"
+  ],
+  "tags": [
+    "automation",
+    "developer",
+    "intermediate",
+    "tester",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "snapshot_testing"
+}

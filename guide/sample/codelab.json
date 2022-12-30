@@ -1,0 +1,28 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.snowflake.com/elements",
+  "mainga": "UA-41491190-9",
+  "updated": "2022-12-21T12:59:37-08:00",
+  "id": "sample",
+  "duration": 10,
+  "title": "Postman Guide Template",
+  "summary": "This is a sample Postman Guide",
+  "source": "sample/sample.md",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "gettingstarted"
+  ],
+  "tags": [
+    "automation",
+    "developer",
+    "gettingstarted",
+    "tester",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "sample"
+}

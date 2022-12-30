@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.snowflake.com/elements",
+  "mainga": "UA-41491190-9",
+  "updated": "2022-12-21T13:51:58-08:00",
+  "id": "introduction_to_postman",
+  "duration": 34,
+  "title": "Introduction to HTTP APIs in Postman",
+  "summary": "This is a beginner’s introduction to HTTP APIs in Postman",
+  "source": "introduction_to_apis/introduction_to_postman.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "gettingstarted"
+  ],
+  "tags": [
+    "developer",
+    "gettingstarted",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "introduction_to_postman"
+}

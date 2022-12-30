@@ -1,0 +1,136 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Snapshot testing using Postman</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.snowflake.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-41491190-9"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="snapshot_testing"
+                  title="Snapshot testing using Postman"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>Negative : This course was originally created by <a href="https://www.linkedin.com/in/prashantagrawal1" target="_blank">Prashant Agrawal</a> and has been modified to suit the Quickstart format.</p>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>A Postman account</li>
+<li>Introductory knowledge of APIs</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>Extend the Postman sandbox with external libraries.</li>
+<li>Run tests locally using the Postman runner.</li>
+<li>Automate testing as part of your continuous integration (CI) pipeline using Newman, Postman&#39;s command-line runner.</li>
+<li>Streamline regression testing cycles using Postman monitors.</li>
+<li>Perform snapshot testing using Postman mock servers.</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman Collection consisting of requests, variables, and tests.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="What is Snapshot Testing?" duration="7">
+        <p>Writing tests, most of the times is not a breeze. <a href="https://hackernoon.com/common-excuses-why-developers-dont-test-their-software-908a465e122c" target="_blank">Writing good tests with acceptable code coverage takes time, effort, practice, and patience</a>. Probably that&#39;s why you would find &#34;Write Tests&#34; as the last to-do item in most developers&#39; task list. This situation gets worse in the case of startups or early-stage companies because the time, effort and resources spent on writing tests are not justified by the business.</p>
+<p>In this lesson, we will talk about <strong>Snapshot Testing</strong>, a style of testing which removes much of the manual coding and boilerplate, leaving the test runner to compare the produced result against a saved <em>snapshot</em>. Snapshot testing became a major thing for UI tests, thanks to <a href="https://jestjs.io/docs/en/snapshot-testing" target="_blank">Jest test runner</a> by Facebook that includes it by default. Before starting on how to get this working in Postman, let us first understand what is Snapshot Testing in principle.</p>
+<h2 is-upgraded>What is Snapshot Testing?</h2>
+<p>Imagine a unit test.</p>
+<pre><code language="language-javascript" class="language-javascript">const add = (a, b) =&gt; a + b;
+it(&#34;adds numbers&#34;, () =&gt; {
+  expect(add(2, 3)).toBe(5);
+});
+</code></pre>
+<p>The test computes a value using a call to <code>add(2, 3)</code> and compares it to a hard-coded value of <code>5</code>. How did we get this expected value <code>5</code>? Well, I (the human developer) took a piece of paper and a pencil and added <code>2 + 3</code>. Easy.</p>
+<p>Imagine a real-world unit test. Would computing the expected value be as simple as adding two small numbers? No. A more complex algorithm would generate a large object as a result, not a single number. For example, if we are unit testing an API response that response could be a really big nested JSON object.</p>
+<p>Ideally, you would either write tests for each and every individual property of the response or write a huge schema that this response will validate against. This sounds good if you have 2–5 requests but imagine doing this same tedious task for 100s of requests.</p>
+<p>Now imagine what if you could test this something like</p>
+<pre><code language="language-javascript" class="language-javascript">it(&#34;returns top seller item&#34;, () =&gt;
+  api.get().then((item) =&gt; expect(item).toMatchSnapshot()));
+</code></pre>
+<p>The <code>item</code> returned from the API should match its saved snapshot. Here a snapshot is nothing but just the <strong>Gold Standard</strong> of how your <code>item</code> should look like.</p>
+<h2 is-upgraded>Snapshot testing strategies</h2>
+<p>Ideally, a snapshot should be exactly equal to the result that you are trying to test but in reality, this might not be true (especially in the case of APIs). Therefore, based on your specific needs and type of responses that you are trying to test, you can choose any of the following snapshot testing strategies for your APIs:</p>
+<ol type="1">
+<li><strong>Response should exactly match the saved snapshot.</strong> This strategy is useful if your API response is static and doesn&#39;t change often. The downside of this approach is that it is too rigid, any small change (even the one that you are not worried about) will cause the test to fail.</li>
+<li><strong>Response should have a snapshot as its subset.</strong> This strategy makes sure that if new properties get added to the response, it doesn&#39;t affect your test. This strategy is not helpful if your response consists of properties whose values are dynamic.</li>
+<li><strong>Response should match the JSON Schema generated from the saved snapshot.</strong> This strategy generates a basic schema from your save snapshot and check the validity of the API response against this generated Schema. If you want more control on how this Schema should look like then you can create the Schema manually and save it as a snapshot, rather than saving the expected API response. This requires a bit of effort when creating a Schema but it will make sure that it establishes a defined contract about the structure of response with the author of the API.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Snapshot Testing in Postman" duration="5">
+        <p>Now that we have seen what is a Snapshot and what Snapshot Testing is about, let us build it out for the requests inside Postman. <a href="https://www.postman.com/" target="_blank">Postman</a> is an API Development Environment (ADE) which means it comes with all the building blocks that we would need to achieve snapshot testing.</p>
+<ol type="1">
+<li><a href="https://learning.getpostman.com/docs/postman/collections/creating_collections/" target="_blank">Create a collection</a> and save a request in that collection. This will be the request for which we will be saving as a snapshot.</li>
+<li>As we saw in the previous section, snapshots are nothing but an ideal representation of how the result should look like. We will save our request and its response as <a href="https://learning.getpostman.com/docs/postman/collections/examples/" target="_blank">Example in Postman</a>, which in essence will behave as a snapshot of this request. This is very helpful because rather than a separate place, your snapshots can exist alongside the request you want to test. This makes it really easy to debug in case of failing tests. So, now we go ahead, send the request and save the response as an example.</li>
+<li>In the previous step we saved our snapshot, but how will we use them in our Test Scripts?? Well, Postman allows you to create Mock Servers on top of your collection and the response of these Mock requests is the response that you saved in the Example. So let&#39;s create a mock server on the collection.</li>
+<li>Now what we need to do is fetch the snapshot from the Mock server that we created, inside our test script so that we can compare it against the actual API response. We need to first <a href="https://learning.getpostman.com/docs/postman/mock_servers/setting_up_mock" target="_blank">create the Mock</a> endpoint from where we will be fetching the snapshot and then use <a href="http://blog.getpostman.com/2017/10/03/send-asynchronous-requests-with-postmans-pm-api/" target="_blank"><code>pm.sendRequest()</code></a> to fetch the snapshot.</li>
+<li>I recommend adding this script at the <a href="https://learning.getpostman.com/docs/postman/scripts/pre_request_scripts/#adding-a-pre-request-script-to-a-collection-or-folder" target="_blank">collection or folder level</a> so that whenever you add any new request, all you need to do is save its response as an Example and you will get a snapshot test for that request out of the box. Also updating the Test becomes as simple as updating the Example response with the updated snapshot.</li>
+</ol>
+<p class="image-container"><img alt="Snapshot testing workflow using Postman" src="img/51b20f24973e4bfc.png"></p>
+<p>To help you get started with snapshot testing I have already published a Postman collection with all the above strategies. Fork the sample collection in the next section.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Fork the collection" duration="3">
+        <p class="image-container"><img alt="Setting up snapshot testing collection" src="img/fec876ab19f86395.png"></p>
+<p>To set up Snapshot Testing for your APIs you can use this collection as reference.</p>
+<ol type="1">
+<li>Fork the collection to your own workspace. The collection Test Script already contains all the script required for this. Select the collection, tab over to <strong>Tests</strong> and review the code. <br><a href="https://god.gw.postman.com/run-collection/1559645-f8f51fd3-13eb-4049-8603-9e8f7b787fbe?action=collection%2Ffork&collection-url=entityId%3D1559645-f8f51fd3-13eb-4049-8603-9e8f7b787fbe%26entityType%3Dcollection%26workspaceId%3D70c7199b-6aee-49a6-a90f-025ad614f294" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li>Send the request and get a response for the API you want to create a Snapshot test.</li>
+<li>Save the response as <a href="https://learning.postman.com/docs/sending-requests/examples/" target="_blank">an Example</a> to that request. This will work as your Snapshot.</li>
+<li><a href="https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/mocking-with-examples/" target="_blank">Create a Mock server</a> on top of the collection.</li>
+<li>Update the <code>snapshotURL</code> in <strong>Collection Variables</strong> with the Mock server url that you created above.</li>
+</ol>
+<p>This collection contains three different Snapshot testing strategies. You can choose any of them according to your use case and your response structure.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <p>So as you can see how simply we created our very own snapshot testing framework using Postman. It also fits very well with other testing strategies like <a href="https://medium.com/postman-engineering/consumer-driven-contract-testing-using-postman-f3580dba5370" target="_blank">Consumer-driven Contract Testing</a>.</p>
+<p>For more interesting workflows and testing strategies, follow <a href="https://medium.com/postman-engineering" target="_blank">Postman Engineering</a>.</p>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://medium.com/better-practices/snapshot-testing-for-apis-using-postman-7f9f26295d6b" target="_blank">Snapshot testing for APIs using Postman</a> blog</li>
+<li><a href="https://www.postman.com/postman/workspace/test-examples-in-postman/overview" target="_blank">Test examples in Postman</a> workspace</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.snowflake.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.snowflake.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.snowflake.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.snowflake.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

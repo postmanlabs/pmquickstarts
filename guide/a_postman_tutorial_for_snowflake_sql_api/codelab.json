@@ -1,0 +1,28 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.snowflake.com/elements",
+  "mainga": "UA-41491190-9",
+  "updated": "2022-12-12T11:18:10-08:00",
+  "id": "a_postman_tutorial_for_snowflake_sql_api",
+  "duration": 24,
+  "title": "Get Started with the Snowflake SQL API in Postman",
+  "summary": "Explore the Snowflake SQL API with Postman",
+  "source": "a_postman_tutorial_for_snowflake_sql_api/a_postman_tutorial_for_snowflake_sql_api.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "gettingstarted"
+  ],
+  "tags": [
+    "api",
+    "gettingstarted",
+    "postman",
+    "rest",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "a_postman_tutorial_for_snowflake_sql_api"
+}
