@@ -1,8 +1,8 @@
 {
   "environment": "web",
   "format": "../../../claat/render/template.html",
-  "prefix": "https://quickstarts.snowflake.com/elements",
-  "mainga": "UA-41491190-9",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
   "updated": "2022-12-21T12:57:37-08:00",
   "id": "30_days_of_postman",
   "duration": 127,
