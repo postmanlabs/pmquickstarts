@@ -3,7 +3,7 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2022-12-21T13:51:58-08:00",
+  "updated": "2022-12-30T15:57:13-08:00",
   "id": "introduction_to_postman",
   "duration": 34,
   "title": "Introduction to HTTP APIs in Postman",
@@ -14,11 +14,11 @@
     "published"
   ],
   "category": [
-    "gettingstarted"
+    "getting-started"
   ],
   "tags": [
     "developer",
-    "gettingstarted",
+    "getting-started",
     "web"
   ],
   "feedback": "https://github.com/loopDelicious/pmquickstarts",

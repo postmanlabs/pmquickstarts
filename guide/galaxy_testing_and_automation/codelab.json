@@ -3,7 +3,7 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2022-12-21T12:57:18-08:00",
+  "updated": "2022-12-30T15:57:03-08:00",
   "id": "galaxy_testing_and_automation",
   "duration": 28,
   "title": "Galaxy Testing and Automation",
@@ -14,12 +14,12 @@
     "published"
   ],
   "category": [
-    "gettingstarted"
+    "getting-started"
   ],
   "tags": [
     "automation",
     "developer",
-    "gettingstarted",
+    "getting-started",
     "tester",
     "web"
   ],
