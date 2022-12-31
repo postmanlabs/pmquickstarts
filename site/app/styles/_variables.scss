@@ -14,16 +14,21 @@
  * limitations under the License.
  */
 
- /* Snowflake Colors */
+ /* Postman Colors */
+
+ $postman-gray: #E6E6E6;
+ $postman-orange: #FF6C37;
+ $second-orange: #FF8E64;
+ $second-yellow: #FFDE83;
+ $background-navy: #01213C;
+
+ $stroke-brown: #3A3836;
+
+  /* Snowflake Colors */
 
  $black:            #000000;
  $white:            #FFFFFF;
  $grey:             #F8F8F9;
-
- $postman-gray: #E6E6E6;
- $postman-orange: #FF6C37;
- $stroke-brown: #3A3836;
- $background-navy: #01213C;
 
  $snowflake-blue:   #29B5E8;
  $blue:             $snowflake-blue;

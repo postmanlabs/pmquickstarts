@@ -24,24 +24,11 @@
 
 /* Postman specific category classes */
 
-$color-resource-optimization: #134369;
-$color-getting-started: #FF6C37;
-$color-game: #c7477a;
-$color-intermediate: #347c3e;
-$color-architecture-patterns: #097e89;
-$color-data-applications: #282A72;
-$color-data-exchange: #282A72;
+$color-getting-started: $postman-orange;
+$color-game: $second-yellow;
+$color-tester: $background-navy;
+$color-developer: #097e89;
 @include codelab-card(['getting-started'], $color-getting-started, '');
-@include codelab-card(['resource-optimization'], $color-resource-optimization, '');
-@include codelab-card(['architecture-patterns'], $color-architecture-patterns, '');
 @include codelab-card(['game'], $color-game, '');
-@include codelab-card(['intermediate'], $color-intermediate, '');
-@include codelab-card(['data-engineering'], $snowflake-blue, 'data-engineering.svg');
-@include codelab-card(['data-lake'], $star-blue, 'data-lake.svg');
-@include codelab-card(['data-warehouse'], $mid-blue, 'data-warehouse.svg');
-@include codelab-card(['data-science'], $first-light, 'data-science.svg');
-@include codelab-card(['data-applications'], $color-data-applications, 'data-applications.svg');
-@include codelab-card(['data-exchange'], $color-data-exchange, 'data-exchange.svg');
-@include codelab-card(['retail'], $snowflake-blue, 'data-engineering.svg');
-@include codelab-card(['energy'], $snowflake-blue, 'data-engineering.svg');
-@include codelab-card(['healthcare'], $snowflake-blue, 'data-engineering.svg');
+@include codelab-card(['tester'], $color-tester, '');
+@include codelab-card(['healthcare'], $color-developer, 'data-engineering.svg');
