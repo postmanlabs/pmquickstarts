@@ -1,11 +1,11 @@
 author: Joyce
 id: galaxy_testing_and_automation
 summary: This is a tutorial for testing and automation in Postman
-categories: Getting Started
+categories: Getting-Started
 environments: web
 status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts
-tags: Getting Started, Developer, Tester, Automation
+tags: Getting-Started, Developer, Tester, Automation
 
 # Galaxy Testing and Automation
 

@@ -1,11 +1,11 @@
 author: Joyce
 id: introduction_to_postman
 summary: This is a beginner's introduction to HTTP APIs in Postman
-categories: Getting Started
+categories: Getting-Started
 environments: web
 status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts
-tags: Getting Started, Developer
+tags: Getting-Started, Developer
 
 # Introduction to HTTP APIs in Postman
 

@@ -1,11 +1,11 @@
 author: Joyce
 id: a_postman_tutorial_for_snowflake_sql_api
 summary: Explore the Snowflake SQL API with Postman
-categories: Getting Started
+categories: Getting-Started
 environments: web
 status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts
-tags: Getting Started, REST, API, Postman
+tags: Getting-Started, REST, API, Postman
 
 # Get Started with the Snowflake SQL API in Postman
 
