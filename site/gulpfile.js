@@ -56,7 +56,7 @@ const DEFAULT_CATEGORY = "Default";
 // BASE_URL is the canonical base URL where the site will reside. This should
 // always include the protocol (http:// or https://) and NOT including a
 // trailing slash.
-const BASE_URL = args.baseUrl || "https://quickstarts.postman.com";
+const BASE_URL = args.baseUrl || "https://quickstarts.snowflake.com";
 
 // [Dash] TEMP WORKAROUND to fix codelabs issue -- https://groups.google.com/g/codelab-authors/c/WwSdRF4bjBE/m/tA96pyWOEAAJ
 const CODELABS_ELEMENTS_PREFIX = BASE_URL + "/elements";
