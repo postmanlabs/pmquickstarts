@@ -97,7 +97,9 @@ To learn more how to submit a pull request on GitHub in general, checkout github
 
 ## How to deploy
 
-Change into the `site/` directory, and run the deploy script, which builds and publishes site at `https://loopdelicious.github.io/pmquickstarts/`.
+Change into the `site/` directory, and run the deploy script, which builds and publishes site at `https://quickstarts.meowsergirl.com/`.
 
     $ cd site
     $ npm run deploy
+
+Note: To update custom domain, update the CNAME file in app/CNAME and `BASE_URL` in gulpfile.js
