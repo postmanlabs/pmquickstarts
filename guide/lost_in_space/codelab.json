@@ -3,7 +3,7 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.meowsergirl.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2022-12-21T13:11:45-08:00",
+  "updated": "2023-01-03T12:43:17-08:00",
   "id": "lost_in_space",
   "duration": 186,
   "title": "Lost in Space: puzzle hunt",
@@ -17,6 +17,7 @@
     "game"
   ],
   "tags": [
+    "badge",
     "game",
     "web"
   ],

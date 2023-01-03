@@ -3,7 +3,7 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.meowsergirl.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2022-12-30T15:57:28-08:00",
+  "updated": "2023-01-03T13:15:38-08:00",
   "id": "sample",
   "duration": 10,
   "title": "Postman Guide Template",
@@ -11,7 +11,7 @@
   "source": "sample/sample.md",
   "theme": "",
   "status": [
-    "draft"
+    "hidden"
   ],
   "category": [
     "getting-started"

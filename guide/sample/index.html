@@ -29,7 +29,7 @@
     
       <google-codelab-step label="Overview" duration="1">
         <p>Please use <a href="https://raw.githubusercontent.com/loopDelicious/pmquickstarts/master/site/pmguides/src/sample/sample.md" target="_blank">this markdown file</a> as a template for writing your own Postman Quickstarts. This example guide has elements that you will use when writing your own guides, including: code snippet highlighting, downloading files, inserting photos, and more.</p>
-<p>It is important to include on the first page of your guide the following sections: Prerequisites, What you&#39;ll learn, What you&#39;ll need, and What you&#39;ll build. Remember, part of the purpose of a Postman Guide is that the reader will have <strong>built</strong> something by the end of the tutorial; this means that actual code needs to be included (not just pseudo-code).</p>
+<p>It is important to include on the first page of your guide the following sections: Prerequisites, What you&#39;ll learn, What you&#39;ll need, and What you&#39;ll build. Remember, part of the purpose of a Postman Guide is that the reader will have <strong>built</strong> something by the end of the tutorial; this means that actual code may need to be included (not just pseudo-code).</p>
 <p>The rest of this Postman Guide explains the steps of writing your own guide.</p>
 <h2 is-upgraded>Prerequisites</h2>
 <ul>
@@ -86,7 +86,7 @@
 <li>Add relevant tags to make your pmguide easily found and SEO friendly.</li>
 </ul>
 </li>
-<li><strong>authors</strong>: Daniel Myers <ul>
+<li><strong>authors</strong>: Joyce Lin <ul>
 <li>Indicate the author(s) of this specific pmguide.</li>
 </ul>
 </li>
@@ -97,7 +97,7 @@
       </google-codelab-step>
     
       <google-codelab-step label="Creating a Step" duration="2">
-        <p>A single sfguide consists of multiple steps. These steps are defined in Markdown using Header 2 tag <code>##</code>.</p>
+        <p>A single Postman Quickstart consists of multiple steps. These steps are defined in Markdown using Header 2 tag <code>##</code>.</p>
 <pre><code language="language-markdown" class="language-markdown">## Step 1 Title
 
 Duration: 3
@@ -111,7 +111,7 @@ Duration: 1
 All the content for the step goes here.
 </code></pre>
 <p>To indicate how long each step will take, set the <code>Duration</code> under the step title (i.e. <code>##</code>) to an integer. The integers refer to minutes. If you set <code>Duration: 4</code> then a particular step will take 4 minutes to complete.</p>
-<p>The total pmguide completion time is calculated automatically for you and will be displayed on the landing page.</p>
+<p>The total Postman Quickstarts completion time is calculated automatically for you and will be displayed on the landing page.</p>
 
 
       </google-codelab-step>
@@ -134,7 +134,8 @@ All the content for the step goes here.
 <p>Positive : This will appear in a positive info box.</p>
 <p>Negative : This will appear in a negative info box.</p>
 <h2 is-upgraded>Buttons</h2>
-<p><br>  [This is a download button](link.com)<br></p>
+<p><br>  [This is a button](https://link.com)<br></p>
+<p><a href="https://god.gw.postman.com/run-collection/1559645-032fb22a-9afb-4c56-b8f0-4042db96a4f3?action=collection%2Ffork&collection-url=entityId%3D1559645-032fb22a-9afb-4c56-b8f0-4042db96a4f3%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
 <h2 is-upgraded>Tables</h2>
 <table>
 <tr><td colspan="2" rowspan="1"><p> **The table header** </p>
@@ -152,10 +153,10 @@ All the content for the step goes here.
       <google-codelab-step label="Images, Videos, and Surveys, and iFrames" duration="2">
         <p>Look at the <a href="https://raw.githubusercontent.com/loopDelicious/pmquickstarts/master/site/pmguides/src/sample/sample.md" target="_blank">markdown source for this guide</a> to see how to use markdown to generate these elements.</p>
 <h2 is-upgraded>Images</h2>
-<p class="image-container"><img alt="Puppy" src="img/f0c5546d153b4249.jpg"></p>
+<p class="image-container"><img alt="Postman illustration" src="img/180255189adcf97d.jpg"></p>
 <h2 is-upgraded>Videos</h2>
 <p>Videos from youtube can be directly embedded: </p>
-<iframe class="youtube-video" src="https://www.youtube.com/embed/KmeiFXrZucE?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe class="youtube-video" src="https://www.youtube.com/embed/tw7x3yBpU1Y?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h2 is-upgraded>Inline Surveys</h2>
 <google-codelab-survey survey-id="sample-1">
 <h4>How do you rate yourself as a user of Postman?</h4>

@@ -3,7 +3,7 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.meowsergirl.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2022-12-31T08:09:13-08:00",
+  "updated": "2023-01-03T13:03:18-08:00",
   "id": "15_days_of_postman",
   "duration": 82,
   "title": "15 Days of Postman - for testers",
@@ -14,10 +14,12 @@
     "published"
   ],
   "category": [
-    "tester"
+    "tester",
+    "intermediate"
   ],
   "tags": [
     "automation",
+    "badge",
     "intermediate",
     "tester",
     "web"
