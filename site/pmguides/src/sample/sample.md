@@ -3,7 +3,7 @@ id: sample
 summary: This is a sample Postman Guide
 categories: Getting-Started
 environments: web
-status: Draft
+status: Hidden
 feedback link: https://github.com/loopDelicious/pmquickstarts
 tags: Getting-Started, Developer, Tester, Automation
 
@@ -17,7 +17,7 @@ Duration: 1
 
 Please use [this markdown file](https://raw.githubusercontent.com/loopDelicious/pmquickstarts/master/site/pmguides/src/sample/sample.md) as a template for writing your own Postman Quickstarts. This example guide has elements that you will use when writing your own guides, including: code snippet highlighting, downloading files, inserting photos, and more.
 
-It is important to include on the first page of your guide the following sections: Prerequisites, What you'll learn, What you'll need, and What you'll build. Remember, part of the purpose of a Postman Guide is that the reader will have **built** something by the end of the tutorial; this means that actual code needs to be included (not just pseudo-code).
+It is important to include on the first page of your guide the following sections: Prerequisites, What you'll learn, What you'll need, and What you'll build. Remember, part of the purpose of a Postman Guide is that the reader will have **built** something by the end of the tutorial; this means that actual code may need to be included (not just pseudo-code).
 
 The rest of this Postman Guide explains the steps of writing your own guide.
 
@@ -65,7 +65,7 @@ It is important to set the correct metadata for your Postman Guide. The metadata
 - **feedback link**: https://github.com/loopDelicious/pmquickstarts
 - **tags**: Getting Started, Data Science, Twitter
   - Add relevant tags to make your pmguide easily found and SEO friendly.
-- **authors**: Daniel Myers
+- **authors**: Joyce Lin
   - Indicate the author(s) of this specific pmguide.
 
 ---
@@ -78,7 +78,7 @@ You can see the source metadata for this guide you are reading now, on [the gith
 
 Duration: 2
 
-A single sfguide consists of multiple steps. These steps are defined in Markdown using Header 2 tag `##`.
+A single Postman Quickstart consists of multiple steps. These steps are defined in Markdown using Header 2 tag `##`.
 
 ```markdown
 ## Step 1 Title
@@ -96,7 +96,7 @@ All the content for the step goes here.
 
 To indicate how long each step will take, set the `Duration` under the step title (i.e. `##`) to an integer. The integers refer to minutes. If you set `Duration: 4` then a particular step will take 4 minutes to complete.
 
-The total pmguide completion time is calculated automatically for you and will be displayed on the landing page.
+The total Postman Quickstarts completion time is calculated automatically for you and will be displayed on the landing page.
 
 <!-- ------------------------ -->
 
@@ -135,8 +135,10 @@ Negative
 ### Buttons
 
 <button>
-  [This is a download button](link.com)
+  [This is a button](https://link.com)
 </button>
+
+[![Run in Postman](_shared_assets/button.svg)](https://god.gw.postman.com/run-collection/1559645-032fb22a-9afb-4c56-b8f0-4042db96a4f3?action=collection%2Ffork&collection-url=entityId%3D1559645-032fb22a-9afb-4c56-b8f0-4042db96a4f3%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c)
 
 ### Tables
 
@@ -168,12 +170,12 @@ Look at the [markdown source for this guide](https://raw.githubusercontent.com/l
 
 ### Images
 
-![Puppy](assets/SAMPLE.jpg)
+![Postman illustration](assets/SAMPLE.jpg)
 
 ### Videos
 
 Videos from youtube can be directly embedded:
-<video id="KmeiFXrZucE"></video>
+<video id="tw7x3yBpU1Y"></video>
 
 ### Inline Surveys
 

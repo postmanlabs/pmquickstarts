@@ -5,7 +5,7 @@ categories: Game
 environments: web
 status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts
-tags: Game
+tags: Game, Badge
 
 # Lost in Space: puzzle hunt
 

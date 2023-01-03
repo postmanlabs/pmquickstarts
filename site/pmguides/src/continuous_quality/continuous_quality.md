@@ -1,7 +1,7 @@
 author: Joyce
 id: continuous_quality
 summary: Advanced testing workflows in Postman
-categories: Tester
+categories: Tester, Intermediate
 environments: web
 status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts

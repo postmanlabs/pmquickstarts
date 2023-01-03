@@ -1,7 +1,7 @@
 author: Prashant Agrawal
 id: snapshot_testing
 summary: Three different snapshot testing strategies
-categories: Tester
+categories: Tester, Intermediate
 environments: web
 status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts

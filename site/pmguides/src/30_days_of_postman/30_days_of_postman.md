@@ -1,11 +1,11 @@
 author: Joyce
 id: 30_days_of_postman
 summary: Improve your skills by tackling a new Postman challenge for 30 days in a row
-categories: Getting-Started
+categories: Getting-Started, Developer
 environments: web
 status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts
-tags: Getting-Started, Developer
+tags: Getting-Started, Developer, Badge
 
 # 30 Days of Postman - for developers
 
