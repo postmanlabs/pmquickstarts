@@ -158,7 +158,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <paper-tab>Duration</paper-tab>
           </paper-tabs>
         </div>
-        <!-- {% if view.id == 'default' && views|length > 1 %}
+        {% if view.id == 'default' && views|length > 1 %}
         <paper-dropdown-menu
           label="Choose a language"
           class="dropdown-filter"
@@ -172,14 +172,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           >
             {%- for view in views -%}
               {%- if view.id != 'default' && !view.hidden -%}
-                <a href="/{{view.url}}/" tabindex="-1">
+                <a href="{{view.url}}/" tabindex="-1">
                   <paper-item>{{view.title}}</paper-item>
                 </a>
               {%- endif -%}
             {%- endfor %}
           </paper-listbox>
         </paper-dropdown-menu>
-        {% endif %} -->
+        {% endif %}
 
         {%- if showcats -%}
         <paper-dropdown-menu

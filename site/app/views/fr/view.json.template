@@ -1,15 +1,15 @@
 // app/views/my-event/view.json
 {
   // Required: page and view title.
-  "title": "Snowflake Quickstarts",
+  "title": "Postman Quickstarts",
 
   // Required: Text description of the event. This will appear in the view
   // landing page.
-  "description": "Follow along with our tutorials and step-by-step walkthroughs to get you up and running with the Snowflake Data Cloud",
+  "description": "Follow along with our French tutorials and step-by-step walkthroughs to get you up and running with Postman and APIs",
 
   // Required: list of string tags by which to include codelabs. Tags are
   // specified in the codelab by the codelab author.
-  "tags": [],
+  "tags": ["fr"],
 
   // Optional: list of string categories by which to include codelabs.
   // Categories are specified in the codelab by the codelab author.
@@ -52,5 +52,5 @@
 
   // Optional: If true, do not include this view in the list of views on
   // the home page. It will still be accessible via the direct URL.
-  "hidden": false,
+  "hidden": true,
 }

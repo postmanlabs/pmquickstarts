@@ -73,14 +73,11 @@ export PATH=$PATH:$HOME/go/bin
 4. Run the website again `npm run serve`
 5. As you edit and save changes, your changes will automatically load in the browser.
 
-You can always read the [sample Quickstart](site/pmguides/src/sample/sample.md) online.
-
 ### Tips
 
-- Review the [sample.md](site/pmguides/src/sample/sample.md) file to learn more about to to structure your Quickstart for the claat tool.
-- You can see the supported Quickstart categories [here](site/app/styles/_overrides.scss). If you want to suggest a new category please create a github issue!
-- Checkout [how to use VS Code to write markdown files](https://code.visualstudio.com/docs/languages/markdown)
-- If you want to learn more about Quickstarts, check out this [excellent tutorial](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
+- Review the [sample.md](site/pmguides/src/sample/sample.md) file to learn more about how to structure and format your Quickstart for the claat tool.
+- You can see the supported Quickstart categories [here](site/app/styles/_overrides.scss). If you want to suggest a new category please create a github issue.
+- Check out [how to use VS Code to write markdown files](https://code.visualstudio.com/docs/languages/markdown)
 
 ## How do I get my Postman Quickstart on [quickstarts.postman.com](https://quickstarts.postman.com)?
 
@@ -93,7 +90,7 @@ You can always read the [sample Quickstart](site/pmguides/src/sample/sample.md) 
 1. Click the Pull Request button to open a new pull request
 1. Postman will review and approve the submission
 
-To learn more how to submit a pull request on GitHub in general, checkout github's [official documentation](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
+To learn more about how to submit a pull request on GitHub in general, check out GitHub's [official documentation](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
 
 ## How to deploy
 
@@ -103,3 +100,23 @@ Change into the `site/` directory, and run the deploy script, which builds and p
     $ npm run deploy
 
 Note: To update custom domain, update the CNAME file in app/CNAME and `BASE_URL` in gulpfile.js
+
+## Create language tutorial
+
+From the `/site` directory, create the name of the tutorial and include the language tag at the end of the name, such as `fr` for French language.
+
+    $ cd site
+    $ npm run template lost_in_space_fr
+
+In the page metadata at the top, update `status` to "Hidden". Add language tag to `tags` in the metadata.
+
+```markdown
+author: Joyce
+id: lost_in_space_fr
+summary: This is an API game
+categories: Game
+environments: web
+status: Hidden
+feedback link: https://github.com/loopDelicious/pmquickstarts
+tags: Game, fr
+```
