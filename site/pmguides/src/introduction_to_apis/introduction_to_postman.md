@@ -15,7 +15,9 @@ tags: Getting-Started, Developer
 
 Duration: 1
 
-This is a beginner's introduction to HTTP APIs in Postman. Complete this entire course to show the boss during your next performance review, and get started on your API journey with Postman.
+This is a beginner's introduction to HTTP APIs in Postman. Complete this entire course to get started on your API journey with Postman, and claim your [Introduction to Postman - HTTP APIs](https://badgr.com/public/badges/RAhpkJyBReKgLWVLx-Z7GA) badge. Spelling and capitalization matter, so make sure to follow the instructions precisely.
+
+<img src="assets/badge.png" alt="Intro to Postman and HTTP APIs badge" width="200"/>
 
 ### Prerequisites
 
@@ -631,6 +633,14 @@ You’ve gone through a lot in this module, from setting up your Postman workspa
 ## Next Steps
 
 Duration: 1
+
+### Claim your badge
+
+To submit your solution for validation, your collection must be located in a public workspace. You will need your collection ID. First, select Collections in the sidebar and select the "Intro to HTTP APIs Module" collection. Then select the information icon in the right sidebar to access the collection ID.
+
+Go to [this page](http://go.pstmn.io/submit-badge) to claim your `Postman Introduction - HTTP API` badge.
+
+<img src="assets/badge.png" alt="Intro to Postman and HTTP APIs badge" width="200"/>
 
 ### Next Steps
 
