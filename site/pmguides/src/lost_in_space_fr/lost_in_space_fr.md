@@ -10,95 +10,96 @@ tags: Game, Badge, fr
 # Postman Guide Template
 <!-- ------------------------ -->
 
-## Overview
+## Résumé
 
 Durée : 3 heures
 
-Ce puzzle en ligne peut être résolu seul, a deux, ou en équipe. Jouez depuis le meme ordinateur ou a distance en communiquant virtuellement.
+Ce puzzle en ligne peut être résolu seul, a deux, ou en équipe. Jouez depuis le même ordinateur ou à distance en communiquant virtuellement.
 
-- **Taille de l'equipe**: 1 a 6 joueurs recommande
-- **Duree**: 2 a 4 heures estime
-- **Niveau**: Complique
+- **Taille de l'équipe**: 1 à 6 joueurs recommandé
+- **Durée**: 2 à 4 heures estimé
+- **Niveau**: Compliqué
 
-Regardez cette video :
+Regardez cette vidéo :
 
 <video id="izbtF66EO1U"></video>
+Pour activer les sous-titres automatiques en Français, consulter [cette page d'aide](https://support.google.com/youtube/answer/6373554?hl=fr).
 
-### Comment ca marche [🛰️](https://4d0c1c01-a3d2-45f5-bf3c-4361da46203f.mock.pstmn.io/hints)
+### Comment ça marche [🛰️](https://4d0c1c01-a3d2-45f5-bf3c-4361da46203f.mock.pstmn.io/hints)
 
-1. **Get instructions**: Fork the [**Read Me First**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351) collection to your own workspace. Share your work in a [team or public workspace](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-new-workspace) so others can review issues.
-2. **Review mission**: Send the API call in the collection for instructions on how to collect the clues.
-3. **Submit final solution**: When you think you've gathered all the data, validate your solution by providing the required information to [**Mission Control**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b?ctx=documentation).
-4. **Claim badge**: Successfully completing the mission allows you to join the leaderboard and claim your [**Lost in Space** Postman badge](https://badgr.com/public/badges/hkQxukdrTd6bEw9RT4MQcQ).
+1. **Récupérer les instructions**: Forkez la collection [**Read Me First**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351) dans votre propre workspace. Partagez votre travail dans un [workspace de team ou workspace public](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-new-workspace) pour que vos co-équipiers puissent vous aider.
+2. **Éxaminer la mission**: Envoyez la requête API dans la collection pour savoir comment récupérer les indices.
+3. **Soumettre la solution finale**: Quand vous pensez avoir collecté toutes les données, validez votre solution en envoyant les informations nécessaires au [**Mission Control**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b?ctx=documentation).
+4. **Réclamer votre badge**: Compléter la mission avec succès vous permet de rejoindre le classement et de réclamer votre badge Postman [**Lost in Space**](https://badgr.com/public/badges/hkQxukdrTd6bEw9RT4MQcQ).
 
-<img src="assets/lost.png" alt="game badge" width="200">
+<img src="assets/lost.png" alt="badge du jeu" width="200">
 
-### Prerequisites
+### Prérequis 
 
-1. **Sign in to Postman:** Create a Postman account if you don't have one already, and log into [Postman for the web](https://go.postman.co) in your browser. To use Postman in a web browser, download and run the [Postman agent](https://www.postman.com/downloads/) on your local machine to overcome cross-origin resource sharing (CORS) limitations. The agent is not the same as the app. On a Mac, you will see an icon for the Postman agent running in the status menu at the top right of your computer screen. On a Windows machine, the Postman agent icon displays in the system tray at the bottom right of your computer screen.
-1. **Create a workspace**: [Create a new Postman workspace](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-public-workspace) with visibility set to `Team` if you are collaborating with teammates.
-
-Negative
-: If you don't want to use Postman in a web browser with the agent, you can instead download and install the Postman app for Mac, Windows, or Linux.
-
-### What You’ll Learn
-
-- Basic Postman skills like how to send API requests
-- It's possible to use higher-level Postman skills to help solve some of the puzzles.
+1. **Se connecter à Postman:** Créez un compte Postman si vous n'en avez pas déjà un puis connectez vous à [Postman web](https://go.postman.co) dans votre navigateur. Pour utiliser Postman dans un navigateur, téléchargez et lancez [l'agent Postman](https://www.postman.com/downloads/) sur votre machine pour éviter les soucis de "cross-origin resource sharing" (CORS). L'agent est différent de l'application. Sur Mac, vous verrez un icone montrant que l'agent Postman est lancé dans la barre de menu en haut à droite. Sur Windows, l'icone de l'agent Postman apparait dans la barre des tâches en bas a droite de votre écran.
+1. **Créez un workspace**: [Créez un nouveau workspace Postman](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-public-workspace) avec une visibilité de `Team` si vous collaborez avec des co-équipiers.
 
 Negative
-: This challenge is not intended to be a comprehensive or structured learning experience. It's possible that you acquire some technical skills. But the primary purpose of this challenge is for fun, if you like this kind of thing.
+: Si vous ne voulez pas utiliser Postman dans votre navigateur avec l'agent, vous pouvez à la place télécharger et installer l'application Postman pour Mac, Windows, ou Linux.
 
-### Frequently Asked Questions
+### Ce que vous apprendrez
 
-- **How long does it take to complete the Lost in Space mission?** Plan to spend 2 to 4 hours or longer. Go at your own pace. There is no penalty for taking longer, collaborating with teammates, or taking a break and returning to try again. It is **highly encouraged** to form a team, since everyone's brain works differently and humans can accomplish more together than individually.
-- **I am new to code and APIs. Is this challenge for me?** Some of the puzzles are designed for developers and suitable for novice developers. If you know basic web API concepts and beginner JavaScript, you are in good shape. If you're an API professional, but don't identify as a developer, you may need to do extra research to complete some steps. Or invite a coding buddy to join your team.
-- **I am not a native English speaker. Is this challenge for me?** Some of the puzzles are extremely challenging if you are not a native English speaker, or are visually-impaired or hearing-impaired. It is highly encouraged to form a team with diverse capabilities and perspectives.
-- **Can I search the Internet?** Yes. Use any available resources to solve the puzzles.
-- **I'm stuck. Can someone please help?**
+- Compétences basiques sur Postman, par exemple comment envoyer des requêtes API
+- Il est possible d'utiliser des compétences plus avancées pour vous aider à résoudre certain des puzzles.
 
-- Re-read the instructions carefully for hints.
-- If your question is about APIs or Postman, look in the [community forum](https://community.postman.com/). If you're asking for help, make sure to include a thorough explanation of your question, what you've tried already, and include a direct link to your own public workspace so others can see where you're stuck.
-- If your question is related to the rules of the game or administration of this badge (e.g. not a technical Postman question), you can ask for guidance in the [Training](https://community.postman.com/c/training/38) section of the community forum.
+Negative
+: Ce challenge n'a pas pour but d'être une façon structurée ou compréhensive d'apprentissage. Il est possible d'acquérir des compétences techniques mais le but principal de ce challenge est de s'amuser, si vous aimez ce genre de chose.
+
+### Foire Aux Questions
+
+- **Combien de temps est nécessaire pour compléter la mission Lost in Space?** Prévoyez de passer 2 à 4 heures, ou plus. Allez à votre propre rythme. Il n'y a pas de pénalité si vous prenez plus de temps, collaborez avec vos co-équipiers, ou prenez une pause pour vous y remettre plus tard. Il est **fortement recomandé** de former une équipe, comme chaque personne à un cerveau fonctionnant différement et que les humains peuvent accomplir plus de choses en groupe que seuls.
+- **Je débute avec le code et les APIs. Est-ce que ce challenge est pour moi ?** Certains des puzzles ont été créés par des développeurs et sont résolubles par des développeurs novices. Si vous connaissez les concepts de base d'API web et de JavaScript, vous n'aurez pas de soucis. Si vous êtes un pro des APIs, mais ne vous considérez pas comme développeur, vous devrez peut être effectuer quelques recherches pour compléter certaines étapes. Ou inviter un ami développeur dans votre équipe.
+- **L'anglais n'est pas ma langue natale. Est-ce que challenge est pour moi?** Certains des puzzles sont très complexes so vous ne parlez pas anglais couramment, ou avez des problèmes de vision ou d'audition. Il est fortement recommandé de former une équipe une diverses capacités et perspectives.
+- **Puis-je chercher sur Internet?** Oui. Utilisez toutes les ressources que vous souhaitez pour résoudre les puzzles.
+- **Je suis bloqué. Quelqu'un peut m'aider?**
+
+- Lisez les instructions à nouveau et faites attention aux indices.
+- Si votre question est sur les APIs ou Postman, cherchez sur le [forum de la communauté](https://community.postman.com/). Si vous demandez de l'aide, soyez sûrs d'inclure une explication détaillée de votre question, ce que vous avez déjà essayé, et mettez le lien de votre workspace public pour que les autres puissent constater où vous êtes coincé.
+- Si votre question est à propos des règles du jeu ou de de l'administration du badge (i.e. pas une question technique sur Postman), vous pouvez demander de l'ade dans la catégorie [Training](https://community.postman.com/c/training/38) du forum de la communauté.
 
 <!-- ------------------------ -->
 
-## Read Me First
+## À lire en premier
 
-Duration: 180
+Durée : 180 minutes
 
-Fork the 📓 [**`Read Me First`**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351) collection to your own workspace.
+Forkez la collection 📓 [**`Read Me First`**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351) dans votre workspace.
 
 [![Run in Postman](assets/button.svg)](https://god.gw.postman.com/run-collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351?action=collection%2Ffork&collection-url=entityId%3D1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351%26entityType%3Dcollection%26workspaceId%3Dbe17b38e-55a7-40d6-931a-6c394d6f5dec)
 
-Then **Send** the API call in the collection for instructions on how to collect the clues.
+Puis **envoyez** la requête API dans la collection pour savoir comment récupérer les indices.
 
 <!-- ------------------------ -->
 
-## Submit the Final Solution
+## Soumettre la solution finale
 
-Duration: 2
+Durée : 2 minutes
 
-When you think you've gathered all the data, validate your final solution by providing the required information to 👩‍🚀 [**`Mission Control`**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b?ctx=documentation).
+Quand vous pensez avoir collecté toutes les données, validez votre solution en envoyant les informations nécessaires au 👩‍🚀 [**`Mission Control`**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b?ctx=documentation).
 
 [![Run in Postman](assets/button.svg)](https://god.gw.postman.com/run-collection/1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b?action=collection%2Ffork&collection-url=entityId%3D1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b%26entityType%3Dcollection%26workspaceId%3Dbe17b38e-55a7-40d6-931a-6c394d6f5dec)
 
 <!-- ------------------------ -->
 
-## Next Steps
+## Étapes suivantes
 
-Duration: 1
+Durée : 1 minute
 
-This challenge is not intended to be a comprehensive or structured learning experience. It's possible that you acquire some technical skills. But the primary purpose of this challenge is for fun, if you like this kind of thing.
+Ce challenge n'a pas pour but d'être une façon structurée ou compréhensive d'apprentissage. Il est possible d'acquérir des compétences techniques mais le but principal de ce challenge est de s'amuser, si vous aimez ce genre de chose.
 
-To see what else you can do with Postman, check out the following resources:
+Pour voir les autres choses que vous pouvez faire avec Postman, consultez les ressources suivantes:
 
-- Additional [hands-on learning courses]() by Postman
-- Other opportunities to [earn badges from Postman](https://badgr.com/public/issuers/BC0x4AQaQPC7lFilsBP_tQ/badges)
-- Videos including [how-to, level ups, and exploratories](https://www.youtube.com/@postman)
-- Virtual learning [webinars](https://www.postman.com/events/intergalactic/)
+- [Cours pratiques additionels]() par Postman
+- Autres opportunités de [gagner des badges Postman](https://badgr.com/public/issuers/BC0x4AQaQPC7lFilsBP_tQ/badges)
+- Vidéos incluant [how-to, level ups, and exploratories](https://www.youtube.com/@postman)
+- Leçons en lignes [wébinaires]](https://www.postman.com/events/intergalactic/)
 
-If you want to play more games, check these out:
+Si vous voulez jouer à d'autres jeux, consultez les liens suivants :
 
-- [Save The Postman Space Station](https://www.postman.com/galaxy-quest-996184/workspace/affb729a-14e7-46e1-a238-bcfe9d615b28/overview) puzzle
-- [Postman IQ](https://www.postman.com/postman/workspace/postman-games/collection/13059338-c3e32cda-40a2-4ea3-a521-3109c720af80) trivia game
+- Puzzle [Save The Postman Space Station](https://www.postman.com/galaxy-quest-996184/workspace/affb729a-14e7-46e1-a238-bcfe9d615b28/overview)
+- Jeu-questionnaire [Postman IQ](https://www.postman.com/postman/workspace/postman-games/collection/13059338-c3e32cda-40a2-4ea3-a521-3109c720af80)
