@@ -28,7 +28,7 @@ You can submit your own Quickstarts to be published on Postman's website by subm
    - Install gulp-cli `npm i -g gulp-cli`
 2. [Install Go](https://golang.org/doc/install); Homebrew installed? `brew install golang`
    - Install claat `go install github.com/googlecodelabs/tools/claat@latest`
-   - Ensure go and claat is in your `PATH` [claat path setup](#claat-related-errors)
+   - Ensure go and claat is in your `PATH` [claat path setup](#claat-related-ecrrors)
 3. **Optional**: install the live-reload plugin for Chrome: [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
 
 ### Run locally
