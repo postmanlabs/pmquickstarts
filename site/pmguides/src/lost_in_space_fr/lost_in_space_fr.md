@@ -7,12 +7,12 @@ status: Hidden
 feedback link: https://github.com/loopDelicious/pmquickstarts
 tags: Game, Badge, fr 
 
-# Postman Guide Template
+# Puzzle : Lost in Space
 <!-- ------------------------ -->
 
-## Résumé
+## Vue d'ensemble
 
-Durée : 3 heures
+Duration: 3
 
 Ce puzzle en ligne peut être résolu seul, a deux, ou en équipe. Jouez depuis le même ordinateur ou à distance en communiquant virtuellement.
 
@@ -66,7 +66,7 @@ Negative
 
 ## À lire en premier
 
-Durée : 180 minutes
+Duration: 180 
 
 Forkez la collection 📓 [**`Read Me First`**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351) dans votre workspace.
 
@@ -78,7 +78,7 @@ Puis **envoyez** la requête API dans la collection pour savoir comment récupé
 
 ## Soumettre la solution finale
 
-Durée : 2 minutes
+Duration: 2 
 
 Quand vous pensez avoir collecté toutes les données, validez votre solution en envoyant les informations nécessaires au 👩‍🚀 [**`Mission Control`**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b?ctx=documentation).
 
@@ -88,7 +88,7 @@ Quand vous pensez avoir collecté toutes les données, validez votre solution en
 
 ## Étapes suivantes
 
-Durée : 1 minute
+Duration: 1 
 
 Ce challenge n'a pas pour but d'être une façon structurée ou compréhensive d'apprentissage. Il est possible d'acquérir des compétences techniques mais le but principal de ce challenge est de s'amuser, si vous aimez ce genre de chose.
 
