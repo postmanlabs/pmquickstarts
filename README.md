@@ -94,7 +94,7 @@ To learn more about how to submit a pull request on GitHub in general, check out
 
 ## How to deploy
 
-Change into the `site/` directory, and run the deploy script, which builds and publishes site at `https://quickstarts.meowsergirl.com/`.
+Change into the `site/` directory, and run the deploy script, which builds and publishes site at `https://quickstarts.postman.com/`.
 
     $ cd site
     $ npm run deploy
