@@ -1,7 +1,7 @@
 {
   "environment": "web",
   "format": "../../../claat/render/template.html",
-  "prefix": "https://quickstarts.meowsergirl.com/elements",
+  "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
   "updated": "2023-01-03T13:04:05-08:00",
   "id": "continuous_quality",
