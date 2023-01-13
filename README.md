@@ -92,18 +92,13 @@ export PATH=$PATH:$HOME/go/bin
 
 To learn more about how to submit a pull request on GitHub in general, check out GitHub's [official documentation](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
 
-## How to deploy
+## Create tutorial in a non-English language
 
-Change into the `site/` directory, and run the deploy script, which builds and publishes site at `https://quickstarts.meowsergirl.com/`.
+If you are interested in submitting a tutorial in a non-English language, we require at least two learning modules along with a separate reviewer for the new language before adding it to the site. Currently, the site supports the following non-English languages.
 
-    $ cd site
-    $ npm run deploy
+- `fr` - French
 
-Note: To update custom domain, update the CNAME file in app/CNAME and `BASE_URL` in gulpfile.js
-
-## Create language tutorial
-
-From the `/site` directory, create the name of the tutorial and include the language tag at the end of the name, such as `fr` for French language.
+Change into the `/site` directory. Create the name of the tutorial and include the language tag at the end of the name, such as `fr` for French language.
 
     $ cd site
     $ npm run template lost_in_space_fr
@@ -120,3 +115,12 @@ status: Hidden
 feedback link: https://github.com/loopDelicious/pmquickstarts
 tags: Game, fr
 ```
+
+## How to deploy (for project maintainers)
+
+Change into the `site/` directory, and run the deploy script, which builds and publishes site at `https://quickstarts.postman.com/`.
+
+    $ cd site
+    $ npm run deploy
+
+Note: To update custom domain, update the CNAME file in app/CNAME and `BASE_URL` in gulpfile.js

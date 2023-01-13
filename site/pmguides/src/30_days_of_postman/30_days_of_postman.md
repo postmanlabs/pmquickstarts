@@ -748,12 +748,12 @@ Duration: 1
 
 This tutorial was a hands-on introduction to Postman for developers. To see what else you can do with Postman, check out the following resources:
 
-- Additional [hands-on learning courses]() by Postman
+- Additional [hands-on learning courses](https://quickstarts.postman.com) by Postman
 - Other opportunities to [earn badges from Postman](https://badgr.com/public/issuers/BC0x4AQaQPC7lFilsBP_tQ/badges)
 - Videos including [how-to, level ups, and exploratories](https://www.youtube.com/@postman)
 - Virtual learning [webinars](https://www.postman.com/events/intergalactic/)
 
 Or explore the following topics:
 
-- For API testing professionals
-- API-first design and development
+- For API testing professionals: [15 Days of Postman - for Testers](https://quickstarts.postman.com/guide/15_days_of_postman/index.html) test challenge
+- API-first design and development: [OpenAPI 3.0: From Idea to Implementation](https://youtu.be/JEBd78U9aBo) video

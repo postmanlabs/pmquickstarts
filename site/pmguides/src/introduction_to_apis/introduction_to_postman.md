@@ -5,7 +5,7 @@ categories: Getting-Started
 environments: web
 status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts
-tags: Getting-Started, Developer
+tags: Getting-Started, Badge
 
 # Introduction to HTTP APIs in Postman
 
