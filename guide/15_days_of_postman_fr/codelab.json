@@ -4,14 +4,14 @@
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
   "updated": "2023-01-13T08:16:45-08:00",
-  "id": "15_days_of_postman",
+  "id": "15_days_of_postman_fr",
   "duration": 82,
-  "title": "15 Days of Postman - for testers",
-  "summary": "Improve your skills by tackling a new Postman challenge for 15 days in a row",
-  "source": "15_days_of_postman/15_days_of_postman.md",
+  "title": "15 Jours de Postman - pour les testeurs",
+  "summary": "This is a sample Postman Guide",
+  "source": "15_days_of_postman_fr/15_days_of_postman_fr.md",
   "theme": "",
   "status": [
-    "published"
+    "hidden"
   ],
   "category": [
     "tester",
@@ -20,10 +20,11 @@
   "tags": [
     "automation",
     "badge",
+    "fr",
     "intermediate",
     "tester",
     "web"
   ],
   "feedback": "https://github.com/loopDelicious/pmquickstarts",
-  "url": "15_days_of_postman"
+  "url": "15_days_of_postman_fr"
 }

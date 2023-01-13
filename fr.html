@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Follow along with our French tutorials and step-by-step walkthroughs to get you up and running with Postman and APIs.">
+  <meta name="description" content="Suivez nos tutoriels et guides pas à pas en Français pour commencer avec Postman et les APIs.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Quickstarts French">
   <meta name="application-name" content="Quickstarts French">
@@ -70,7 +70,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <meta name="og:type" property="og:type" content="website" />
   <meta name="og:title" property="og:title" content="Quickstarts French" />
-  <meta name="og:description" property="og:description" content="Follow along with our French tutorials and step-by-step walkthroughs to get you up and running with Postman and APIs." />
+  <meta name="og:description" property="og:description" content="Suivez nos tutoriels et guides pas à pas en Français pour commencer avec Postman et les APIs." />
   <meta name="og:url" property="og:url" content="https://quickstarts.postman.com/fr/" />
   <meta name="og:site_name" property="og:site_name" content="Postman Quickstarts" />
   <meta name="og:determiner" property="og:determiner" content="" />
@@ -84,7 +84,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <meta name="twitter:card" property="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" property="twitter:title" content="Quickstarts French" />
-  <meta name="twitter:description" property="twitter:description" content="Follow along with our French tutorials and step-by-step walkthroughs to get you up and running with Postman and APIs." />
+  <meta name="twitter:description" property="twitter:description" content="Suivez nos tutoriels et guides pas à pas en Français pour commencer avec Postman et les APIs." />
   <meta name="twitter:image" property="twitter:image" content="/images/og-image.png" />
   <meta name="twitter:url" property="twitter:url" content="https://quickstarts.postman.com/fr/" />
 </head>
@@ -115,7 +115,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <!-- <img id="logo" src="/images/og-image.png" alt="Event logo"> -->
             <div class="banner-meta">
               <h3>Quickstarts French</h3>
-              <p>Follow along with our French tutorials and step-by-step walkthroughs to get you up and running with Postman and APIs.</p>
+              <p>Suivez nos tutoriels et guides pas à pas en Français pour commencer avec Postman et les APIs.</p>
               
             </div>
           </div>
@@ -141,10 +141,69 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <paper-tab>Duration</paper-tab>
           </paper-tabs>
         </div>
-        </div>
+        <paper-dropdown-menu
+          label="Filter by category"
+          class="dropdown-filter"
+          no-label-float
+          noink no-animations
+        >
+          <paper-listbox
+            id="categorylist"
+            slot="dropdown-content"
+            class="dropdown-content"
+            on-iron-activate="onCategoryActivate"
+            attr-for-selected="filter"
+          >
+              <paper-item filter="game">game</paper-item>
+                <paper-item filter="tester">tester</paper-item>
+                
+          </paper-listbox>
+        </paper-dropdown-menu></div>
 
       <card-sorter id="cards" class="site-width">
         
+          
+            
+            <a href="/guide/lost_in_space_fr/index.html?index=..%2F..fr" on-tap="navigate"
+               class="codelab-card category-game"
+               data-category="game"
+               data-title="Puzzle : Lost in Space"
+               data-duration="186"
+               data-updated="2023-01-13T08:16:46-08:00"
+               data-tags="badge,fr,game,web"
+               data-pin="">
+              <div class="description">Puzzle : Lost in Space</div>
+              <div class="card-duration">
+                <span>186 min </span>
+                <span>Updated Jan 13, 2023</span>
+              </div>
+              <div class="card-footer">
+                <div class="category-icon game-icon"></div>
+                <paper-button class="game-bg">Start</paper-button>
+              </div>
+            </a>
+          
+          
+            
+            <a href="/guide/15_days_of_postman_fr/index.html?index=..%2F..fr" on-tap="navigate"
+               class="codelab-card category-tester"
+               data-category="tester,intermediate"
+               data-title="15 Jours de Postman - pour les testeurs"
+               data-duration="82"
+               data-updated="2023-01-13T08:16:45-08:00"
+               data-tags="automation,badge,fr,intermediate,tester,web"
+               data-pin="">
+              <div class="description">15 Jours de Postman - pour les testeurs</div>
+              <div class="card-duration">
+                <span>82 min </span>
+                <span>Updated Jan 13, 2023</span>
+              </div>
+              <div class="card-footer">
+                <div class="category-icon tester-icon"></div>
+                <paper-button class="tester-bg">Start</paper-button>
+              </div>
+            </a>
+          
       </card-sorter>
 
       <div id="loading-placeholder" class="site-width">
