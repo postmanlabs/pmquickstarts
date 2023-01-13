@@ -59,7 +59,7 @@ Negative
 
 - **How long does it take to complete the 15 days of Postman challenge?** Plan to spend 5 to 45 minutes every day to explore the topic and dive deeper into the topics you find interesting. Go at your own pace. There is no penalty for taking longer. **Note**: if a very long period of time elapses from when you fork a challenge to when you submit the final solution, you may need to pull the latest changes to ensure the solution you submit is up to date.
 - **Do I need to complete all 15 challenges?** Completing all the challenges is required to claim your **15 days of Postman** badge. You are welcome to dive into any of the topics that you find interesting. However, some challenges build on concepts and samples introduced in earlier challenges. So you will receive less guidance for concepts covered earlier in the series.
-- **I am new to code.** Is this challenge for me? The challenges are designed for testers and suitable for novice testers. If you know basic software programming concepts and beginner JavaScript (or some other programming language), this challenge is for you. If you're an API professional, but don't identify as a tester, you may need to do extra research to complete some challenges.
+- **I am new to code. Is this challenge for me?** The challenges are designed for testers and suitable for novice testers. If you know basic software programming concepts and beginner JavaScript (or some other programming language), this challenge is for you. If you're an API professional, but don't identify as a tester, you may need to do extra research to complete some challenges.
 - **Do I need to create a public workspace?**: Yes. The validation requires all of your work to be located in a public workspace. If you belong to your company's Postman team, your company may not want the public workspace to be listed under their public team profile. In this case, use your personal Postman account, or create a separate Postman account, to complete the challenge.
 - **I'm stuck. Can someone please help?**
   - Re-read the instructions carefully, and check out the documentation and additional resources listed in the instructions.
@@ -83,7 +83,7 @@ After completing this challenge, you’ll be able to:
 - Inspect API requests and responses
 - Use collection variables to store data
 
-### Get Started
+### Getting Started
 
 1.  **Get the challenge:** Fork the parent collection `Day 01: API client` to your own public workspace.
     </br>
@@ -452,8 +452,7 @@ Fork the parent collection to your own workspace.
 - [Visualize responses](https://learning.postman.com/docs/sending-requests/visualizer/)
 - [Use external libraries](https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/#using-external-libraries)
 - [Reuse test scripts and requests](https://www.postman.com/postman/workspace/test-examples-in-postman/collection/1559645-e86aead2-0cb9-4144-b568-46d84251af9b?ctx=documentation) code samples
-
-* [Send HTTP request from scripts](https://learning.postman.com/docs/sending-requests/grpc/postman-sandbox-api/#sending-http-request-from-scripts)
+- [Send HTTP request from scripts](https://learning.postman.com/docs/sending-requests/grpc/postman-sandbox-api/#sending-http-request-from-scripts)
 
 ### Additional resources
 
