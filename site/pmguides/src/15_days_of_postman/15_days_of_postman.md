@@ -589,3 +589,7 @@ There's also a number of [integrations](https://learning.postman.com/docs/integr
 
 - [Postman Quick Reference guide](https://postman-quick-reference-guide.readthedocs.io/en/latest/cheatsheet.html) community cheatsheet
 - [Community showcase](https://community.postman.com/c/content-showcase/7) with blog posts, tutorials, collections, and other really cool stuff by community members, just like you!
+- Additional [hands-on learning courses](https://quickstarts.postman.com) by Postman
+- Other opportunities to [earn badges from Postman](https://badgr.com/public/issuers/BC0x4AQaQPC7lFilsBP_tQ/badges)
+- Videos including [how-to, level ups, and exploratories](https://www.youtube.com/@postman)
+- Virtual learning [webinars](https://www.postman.com/events/intergalactic/)

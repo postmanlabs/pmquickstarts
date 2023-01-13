@@ -94,7 +94,7 @@ This challenge is not intended to be a comprehensive or structured learning expe
 
 To see what else you can do with Postman, check out the following resources:
 
-- Additional [hands-on learning courses]() by Postman
+- Additional [hands-on learning courses](https://quickstarts.postman.com) by Postman
 - Other opportunities to [earn badges from Postman](https://badgr.com/public/issuers/BC0x4AQaQPC7lFilsBP_tQ/badges)
 - Videos including [how-to, level ups, and exploratories](https://www.youtube.com/@postman)
 - Virtual learning [webinars](https://www.postman.com/events/intergalactic/)
