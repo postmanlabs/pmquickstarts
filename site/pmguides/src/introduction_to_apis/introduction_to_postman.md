@@ -243,7 +243,7 @@ Since tests are assertions about a server response, tests execute after you run 
 
 1. With your test added to the request, click **Send** to run the request.
 1. Open **Test Results** in the response section at the bottom.
-   If the call returns a `200` HTTP status code, the test will pass, otherwise it will fail. Try changing the expected status code in your test script to `404`, and run the request again. You’ll see that the Test Result gives you a fail and error message.
+   If the call returns a `200` HTTP status code, the test will pass, otherwise it will fail. Try changing the expected status code in your test script to `404`, and run the request again. You’ll see that the Test Result gives you a fail and error message. Revert your test to be `200` for it to pass.
 
 ### Save the Request to a Collection
 
