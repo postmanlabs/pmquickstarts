@@ -1,7 +1,7 @@
 author: Joyce
 id: websockets_node
 summary: Set up a WebSockets server in Node.js
-categories: Getting Started
+categories: Getting-Started
 environments: web
 status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts
