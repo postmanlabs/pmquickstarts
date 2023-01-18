@@ -1,6 +1,8 @@
 # Postman Quickstarts
 
-VIDEO DEMO
+Watch the [How to Contribute to Postman Quickstarts](https://youtu.be/aLehVZegyXk) video demo:
+
+
 
 ## What are Postman Quickstarts?
 
