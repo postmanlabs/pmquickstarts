@@ -19,6 +19,14 @@ Improve your skills by tackling a new Postman challenge for 15 days in a row.
 
 <img src="assets/tester.png" alt="15 day challenge badge" width="200"/>
 
+### Assess your Postman experience level
+
+- Take [the Postman skills quiz](https://loopdelicious.github.io/postman-skills/)
+
+### Experience level for this test challenge
+
+- Intermediate
+
 ### How it works
 
 1. **Get the daily challenge**: Fork the parent collection for each day to your own public Postman workspace.

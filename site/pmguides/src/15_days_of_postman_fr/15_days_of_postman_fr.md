@@ -3,7 +3,7 @@ id: 15_days_of_postman_fr
 summary: This is a sample Postman Guide
 categories: Tester, Intermediate
 environments: web
-status: Hidden 
+status: Hidden
 feedback link: https://github.com/loopDelicious/pmquickstarts
 tags: Intermediate, Tester, Automation, Badge, fr
 
@@ -19,6 +19,14 @@ Améliorez vos compétences en vous attaquant à un challenge Postman par jour p
 
 <img src="assets/tester.png" alt="badge du challenge 15 jours" width="200"/>
 
+### Evaluez votre niveau d’expérience sur Postman
+
+- Répondez au [quiz sur les compétences Postman](https://loopdelicious.github.io/postman-skills/)
+
+### Niveau d’expérience pour ce défi
+
+- Intermédiaire
+
 ### Comment ça marche
 
 1. **Récupérer les challenges journaliers**: Forkez la collection correspondante à chaque jour dans votre propre workspace public sur Postman.
@@ -26,11 +34,11 @@ Améliorez vos compétences en vous attaquant à un challenge Postman par jour p
 1. **Vérifier vos solutions**: Quand vous pensez avoir la solution, validez la en suivant les instructions dans le dossier `Submit your solution`. Vous pouvez vérifier votre travail pour chaque jour.
 1. **Réclamer votre badge**: Pour le challenge final, soumettez votre solution final à l'équipe Postman. Compléter tous les challenges avec succès vous permet de réclamer le badge [15 days of Postman](https://badgr.com/public/badges/bG6IYzbkTsKrP3t6C2q0BQ).
 
-**Regardez cette vidéo**  pour des conseils sur le challenge de 15 jours :
+**Regardez cette vidéo** pour des conseils sur le challenge de 15 jours :
 <video id="3_w2Bz0BnlY"></video>
 Pour activer les sous-titres automatiques en Français, consulter [cette page d'aide](https://support.google.com/youtube/answer/6373554?hl=fr).
 
-### Prérequis 
+### Prérequis
 
 1. **Se connecter à Postman:** Créez un compte Postman si vous n'en avez pas déjà un puis connectez vous à [Postman web](https://go.postman.co) dans votre navigateur. Pour utiliser Postman dans un navigateur, téléchargez et lancez [l'agent Postman](https://www.postman.com/downloads/) sur votre machine pour éviter les soucis de "cross-origin resource sharing" (CORS). L'agent est différent de l'application. Sur Mac, vous verrez un icone montrant que l'agent Postman est lancé dans la barre de menu en haut à droite. Sur Windows, l'icone de l'agent Postman apparait dans la barre des tâches en bas a droite de votre écran.
 1. **Créer un workspace public**: [Créez un nouveau workspace Postman](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-public-workspace) avec une visibilité `Public` pour montrer votre travail. Choisissez un nom de workspace unique pour évitez que d'autres copient vos solutions directement.
@@ -45,7 +53,7 @@ Negative
 
 - Compétences de test basiques, comme écrire et envoyer des tests APIs avec Postman
 - Compétences plus avancées de test, comme utiliser les variables, les scripts, et de l'automatisation
-- Compétences avancées de test, comme générer des variables dynamiquement, utiliser des librairies et des serveurs de mock  
+- Compétences avancées de test, comme générer des variables dynamiquement, utiliser des librairies et des serveurs de mock
 
 ### Ce dont vous avez besoin
 
@@ -58,14 +66,14 @@ Negative
 ### Foire Aux Questions
 
 - **Combien de temps est néssaire pour compléter le challenge des 15 jours de Postman ?** Prévoyez de passer entre 5 et 45 minutes chaque jour pour explorer le sujet et approfondir ceux que vous trouvez intéressant. Allez à votre propre vitesse. Il n'y a pas de pénalité si vous prenez plus longtemps. **Note** : si beaucoup de temps passe entre le moment où vous forkez le challenge et le moment où vous soumettez la solution finale, il est possible que vous deviez récupérer les derniers changements pour vous assurer que la solution que vous soumettez est à jour.
-- **Dois-je compléter tous les 15 challenges ?** Compléter tous les challenges est requis pour réclamer votre badge  **15 days of Postman**. Vous pouvez approfondir n'importe lequel des sujets que vous trouvez intéressant, cependant certains challenges sont basés sur des examples et concepts introduits dans des challenges précédents. Vous recevrez donc moins d'aide pour les concepts ayant été introduits plus tôt dans la série.
+- **Dois-je compléter tous les 15 challenges ?** Compléter tous les challenges est requis pour réclamer votre badge **15 days of Postman**. Vous pouvez approfondir n'importe lequel des sujets que vous trouvez intéressant, cependant certains challenges sont basés sur des examples et concepts introduits dans des challenges précédents. Vous recevrez donc moins d'aide pour les concepts ayant été introduits plus tôt dans la série.
 - **Je débute avec le code et les APIs. Est-ce que ce challenge est pour moi ?** Les challenges sont faits pour les testeurs et conviennent aux testeurs débutants. Si vous connaissez les concepts de base de programmation et de JavaScript (ou autre language de programmation), ce challenge est fait pour vous. Si vous travaillez avec des APIs mais ne vous identifiez pas comme un testeur, vous devrez peut être effectuer quelques recherches pour compléter certains challenges.
 - **Ais-je besoin de créer un workspace public ?**: Oui. La vérification nécessite que tout votre travail soit dans un workspace public. Si vous faites partie du compte Postman de votre entreprise, cette dernière ne voudra peut être pas que le workspace apparaisse sur leur profil d'équipe public. Dans ce cas, utilisez votre compte Postman personnel, ou créez un compte séparé pour compléter le challenge.
 - **Je suis bloqué. Quelqu'un peut m'aider?**
   - Relisez les instructions avec attention, et vérifiez la documentation ainsi que les ressources additionelles listées dans les instructions.
   - Essayez de soumettre une solution incomplète pour révèler des indices dans les résultats de tests.
   - Cherchez des examples similaires sur le [forum de la communauté](https://community.postman.com/).
-  - Si vous cherchez de l'aide, postez dans la catégorie [Training](https://community.postman.com/c/training/38) do forum de la communauté.  Soyez sûrs d'inclure une explication détaillée de votre question, ce que vous avez déjà essayé, et mettez le lien de votre workspace public pour que les autres puissent constater où vous êtes coincé
+  - Si vous cherchez de l'aide, postez dans la catégorie [Training](https://community.postman.com/c/training/38) do forum de la communauté. Soyez sûrs d'inclure une explication détaillée de votre question, ce que vous avez déjà essayé, et mettez le lien de votre workspace public pour que les autres puissent constater où vous êtes coincé
   - Si votre question est à propos de l'administration du badge (i.e. pas une question technique sur Postman), vous pouvez demander de l'ade dans la catégorie [Training](https://community.postman.com/c/training/38) du forum de la communauté.
 
 <!-- ------------------------ -->
@@ -171,7 +179,7 @@ Forkez la collection dans votre workspace.
 
 <!-- ------------------------ -->
 
-## Day 04: Authentification 
+## Day 04: Authentification
 
 Duration: 5
 
@@ -360,7 +368,7 @@ Forkez la collection dans votre workspace.
 
 ### Ressources complémentaires
 
-- [Example](https://www.postman.com/postman/workspace/postman-answers/collection/9215231-b9133e48-73c3-4aa4-b189-e038ee4c5e00?ctx=documentation) dans le workspace Postman Answers 
+- [Example](https://www.postman.com/postman/workspace/postman-answers/collection/9215231-b9133e48-73c3-4aa4-b189-e038ee4c5e00?ctx=documentation) dans le workspace Postman Answers
 - [Sending asynchronous requests](https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/#sending-requests-from-scripts)
 
 <!-- ------------------------ -->
