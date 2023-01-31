@@ -21,6 +21,10 @@ The [WebSocket protocol](https://www.rfc-editor.org/rfc/rfc6455) provides a way 
 
 In this tutorial, let’s create a WebSocket server, and use Postman to send and receive messages across the WebSocket connection.
 
+Watch this video:
+
+<video id="e__oWJ4wNtw"></video>
+
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/) installed on your machine
