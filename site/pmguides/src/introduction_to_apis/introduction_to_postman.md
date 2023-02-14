@@ -636,7 +636,7 @@ Duration: 1
 
 ### Claim your badge
 
-To submit your solution for validation, your collection must be located in a public workspace. You will need your collection ID. First, select Collections in the sidebar and select the "Intro to HTTP APIs Module" collection. Then select the information icon in the right sidebar to access the collection ID.
+To submit your solution for validation, your collection must be located in a public workspace. You will need your collection URL (see [instructions here](https://learning.postman.com/docs/collaborating-in-postman/sharing/#sharing-using-the-postman-api)). 
 
 Go to [this page](http://go.pstmn.io/submit-badge) to claim your `Postman Introduction - HTTP API` badge.
 
