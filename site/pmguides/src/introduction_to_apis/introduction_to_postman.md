@@ -433,7 +433,7 @@ Add a third request to your collection called “Retrieve image” to make a GET
 1. Hover over your collection **Intro to HTTP APIs Module** and click the more options icon.
 1. Click **Add request**.
 1. Rename the new request `Retrieve image`.
-1. In the request URL field, enter `{{nasa_image_url}`. This variable doesn’t mean anything at the moment. You’ll change that in a few steps.
+1. In the request URL field, enter `{{nasa_image_url}}`. This variable doesn’t mean anything at the moment. You’ll change that in a few steps.
 1. Click **Save**.
 1. Now click back into `Pictures from November 2022`.
 1. Click the **Tests** tab.
