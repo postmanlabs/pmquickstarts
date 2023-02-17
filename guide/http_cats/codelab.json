@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
+  "updated": "2023-02-17T11:25:37-08:00",
+  "id": "http_cats",
+  "duration": 14,
+  "title": "Learn HTTP Status Codes with HTTP Cats",
+  "summary": "Learn HTTP Status Codes with HTTP Cats",
+  "source": "http_cats/http_cats.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "getting-started"
+  ],
+  "tags": [
+    "gettingstarted",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "http_cats"
+}
