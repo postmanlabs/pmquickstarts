@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
+  "updated": "2023-02-24T13:39:00-08:00",
+  "id": "microsoft_graph",
+  "duration": 18,
+  "title": "Use Postman with the Microsoft Graph API",
+  "summary": "Use Postman with the Microsoft Graph API",
+  "source": "microsoft_graph/microsoft_graph.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "getting-started"
+  ],
+  "tags": [
+    "developer",
+    "gettingstarted",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "microsoft_graph"
+}
