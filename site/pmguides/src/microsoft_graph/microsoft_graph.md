@@ -1,13 +1,13 @@
 author: Joyce
 id: microsoft_graph
-summary: Use Postman with the Microsoft Graph API
+summary: Get Started with the Microsoft Graph API in Postman
 categories: Getting-Started
 environments: web
 status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts
 tags: Getting Started, Developer
 
-# Use Postman with the Microsoft Graph API
+# Get Started with the Microsoft Graph API in Postman
 
 <!-- ------------------------ -->
 
