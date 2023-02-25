@@ -1,0 +1,129 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Get Started with PayPal REST APIs</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="paypal"
+                  title="Get Started with PayPal REST APIs"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>Negative: <em>This tutorial was originally published </em><a href="https://developer.paypal.com/api/rest/postman/" target="_blank"><em>here</em></a><em>.</em></p>
+<p>Use Postman to explore PayPal&#39;s REST APIs without a developer account. You can customize requests and receive responses for any of PayPal&#39;s core APIs.</p>
+<p>To do more with Postman:</p>
+<ul>
+<li>Create your own fork of the collection</li>
+<li>Link your collection to your PayPal <a href="https://developer.paypal.com/developer/applications" target="_blank">Developer Dashboard</a> account</li>
+<li>Start making API calls</li>
+</ul>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Create a PayPal developer account on the <a href="https://developer.paypal.com/developer/applications" target="_blank">Developer Dashboard</a></li>
+<li><a href="https://identity.getpostman.com/signup" target="_blank">Sign up</a> for a free Postman account, and then <a href="https://go.postman.co/" target="_blank">sign in</a>.</li>
+<li><a href="https://www.postman.com/downloads/postman-agent/" target="_blank">Download and install</a> the Postman desktop agent, which will enable you to use the web version of Postman</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>Authorize the PayPal API</li>
+<li>Start making API calls with Postman</li>
+<li>Capture payments in both your personal and business sandbox accounts</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman Collection with authorized API requests</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Fork the PayPal Postman collection" duration="1">
+        <ol type="1">
+<li>Sign in to your <a href="https://www.postman.com/" target="_blank">Postman</a> account.</li>
+<li>Select the Run in Postman below. <br><a href="https://god.gw.postman.com/run-collection/19024122-92a85d0e-51e7-47da-9f83-c45dcb1cdf24?action=collection%2Ffork&collection-url=entityId%3D19024122-92a85d0e-51e7-47da-9f83-c45dcb1cdf24%26entityType%3Dcollection%26workspaceId%3D345300e6-346e-42e0-aed1-53717919aef0#?env%5BPayPal%20Override%20Env%5D=W3sia2V5IjoiUGxlYXNlIE5vdGUgLS0+IiwidmFsdWUiOiI8IFBheVBhbCBQdWJsaWMgQ29sbGVjdGlvbiBjb21lcyB3aXRoIGRlZmF1bHQgcHVibGljIHNldCBvZiBjcmVkZW50aWFscyBzdG9yZWQgYXQgdGhlIENvbGxlY3Rpb24gbGV2ZWwuIFxuVGhpcyBlbnZpcm9ubWVudCBvdmVycmlkZXMgdGhvc2UgZGVmYXVsdCB2YXJpYWJsZXMuIFlvdSBtYXkgYnJpbmcgeW91ciBvd24gY3JlZGVudGlhbHMgZnJvbSBQYXlQYWwgRGV2ZWxvcGVyIERhc2hib2FyZCBhbmQgcGFzdGUgdGhlbSBoZXJlLiBEbyBub3QgZm9yZ290IHRvIGVuYWJsZSB0aGUgdmFpYWJsZSBieSBjaGVja2luZyB0aGUgYm94IGFuZCBoaXQgXCJTYXZlXCIgYmVmb3JlIGludm9raW5nIHRoZSBQYXlQYWwgQVBJcy4gPiIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoiY2xpZW50X2lkIiwidmFsdWUiOiI8IGNvcHkgY3JlZGVudGlhbHMgZnJvbSB5b3VyIGRldmVsb3Blci5wYXlwYWwuY29tIGFuZCBwYXN0ZSB0aGVtIGhlcmUgPiIsImVuYWJsZWQiOmZhbHNlfSx7ImtleSI6ImNsaWVudF9zZWNyZXQiLCJ2YWx1ZSI6IjwgY29weSBjcmVkZW50aWFscyBmcm9tIHlvdXIgZGV2ZWxvcGVyLnBheXBhbC5jb20gYW5kIHBhc3RlIHRoZW0gaGVyZSA+IiwiZW5hYmxlZCI6ZmFsc2V9LHsia2V5IjoiYmFzZV91cmwiLCJ2YWx1ZSI6Imh0dHBzOi8vYXBpLW0ucGF5cGFsLmNvbSIsImVuYWJsZWQiOmZhbHNlfV0=" target="_blank"><img alt="Fork the PayPal collection" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li>Select Fork Collection.</li>
+<li>Name your fork and select a workspace.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Authentication" duration="3">
+        <p>An access token is automatically generated using a default <code>client_id</code> and <code>client_secret</code>. Replace the default access tokens with your own <code>client_id</code> and <code>client_secret</code> from the <a href="https://developer.paypal.com/developer/applications" target="_blank">Developer Dashboard</a>.</p>
+<ol type="1">
+<li>On the Developer Dashboard, find your <code>client_id</code> and <code>client_secret</code> under Dashboard &gt; My Apps &amp; Credentials.</li>
+<li>In Postman, select your fork of the PayPal collection.</li>
+<li>Under the Variables tab, enter your <code>client_id</code> and <code>client_secret</code>.</li>
+<li>Select Save.</li>
+</ol>
+<p>A pre-request script generates and manages the <code>access_token</code> automatically. Use the <code>access_token</code> allows you to call any API in the collection.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Start making API calls with Postman" duration="4">
+        <p>This example uses the Orders API to create an order and capture payment using <a href="https://developer.paypal.com/developer/accounts" target="_blank">sandbox accounts</a> linked to your Developer Dashboard account. To find your sandbox account credentials, log into the Developer Dashboard and select Sandbox &gt; Accounts.</p>
+<p>To create an order:</p>
+<ol type="1">
+<li>In your Postman workspace, navigate to your fork of the PayPal collection.</li>
+<li>Select Orders &gt; Create Order &gt; Send. On a successful call, the API returns a 201 order created response code.</li>
+<li>Find the approve link in the response.</li>
+<li>Open the approve link in a browser.</li>
+<li>Log in with your Developer Dashboard sandbox personal account credentials.</li>
+</ol>
+<h2 is-upgraded>Capture payments</h2>
+<p>Capture payments in both your personal and business sandbox accounts as follows:</p>
+<ol type="1">
+<li>Find the <code>id</code> in the response of the order you created and copy the value.</li>
+<li>In the left panel, select your fork of the PayPal collection.</li>
+<li>In the Variables tab, enter the value you copied in the <code>order_id</code> field.</li>
+<li>Select Orders &gt; Capture payment for order.</li>
+<li>Select Send. The API returns an HTTP <code>201 order created</code> response code in response to a successful call.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <p>The <a href="https://developer.paypal.com/api/rest/" target="_blank">PayPal REST API</a> is organized around transaction workflows, including: orders, payments, subscriptions, invoicing, and disputes. Check out these additional resources.</p>
+<ul>
+<li>Review the <a href="https://developer.paypal.com/api/rest/requests/" target="_blank">documentation</a>.</li>
+<li>Learn more about <a href="https://developer.paypal.com/api/rest/authentication/" target="_blank">OAuth 2.0 authentication</a></li>
+<li><a href="https://www.postman.com/paypal/workspace/paypal-public-api-workspace/overview" target="_blank">PayPal public workspace on Postman</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

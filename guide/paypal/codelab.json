@@ -3,12 +3,12 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-02-24T16:05:33-08:00",
-  "id": "mongodb_atlas_data",
-  "duration": 17,
-  "title": "Get Started with the MongoDB Atlas Data API",
-  "summary": "Get Started with the MongoDB Atlas Data API",
-  "source": "mongodb_atlas_data/mongodb_atlas_data.md",
+  "updated": "2023-02-24T16:21:43-08:00",
+  "id": "paypal",
+  "duration": 10,
+  "title": "Get Started with PayPal REST APIs",
+  "summary": "Get Started with PayPal REST APIs",
+  "source": "paypal/paypal.md",
   "theme": "",
   "status": [
     "published"
@@ -22,5 +22,5 @@
     "web"
   ],
   "feedback": "https://github.com/loopDelicious/pmquickstarts",
-  "url": "mongodb_atlas_data"
+  "url": "paypal"
 }
