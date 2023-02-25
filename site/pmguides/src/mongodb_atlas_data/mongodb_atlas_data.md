@@ -18,8 +18,7 @@ Duration: 1
 Negative:
 _This tutorial was originally published [here](https://www.mongodb.com/developer/products/atlas/data-api-postman/)._
 
-MongoDB's
-[Data API](https://www.mongodb.com/data-api/lp)
+MongoDB's[Data API](https://www.mongodb.com/data-api/lp)
 is a way to access your MongoDB Atlas data using a REST-like interface. When enabled, the API creates a series of serverless endpoints that can be accessed without using [native drivers](https://docs.mongodb.com/drivers/). This API can be helpful when you need to access your data from an application that doesn't use those drivers, such as a bash script, a Google Sheet document, or even another database.
 
 To explore the new MongoDB Data API, you can use the
