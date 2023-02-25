@@ -1,0 +1,102 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Get Started with the Lob API</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="lob"
+                  title="Get Started with the Lob API"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>Negative: <em>This tutorial was originally published </em><a href="https://www.postman.com/lobteam/workspace/lob-public-workspace/documentation/16169677-975ecb9f-ea22-4d8f-a4f9-53a42f2aee03?entity=&branch=&version=" target="_blank"><em>here</em></a><em>.</em></p>
+<p>Let&#39;s make the world programmable.</p>
+<p>Lob helps creators extend their applications into the physical world with automated direct mail and address verification APIs.</p>
+<p>We&#39;ve created a 10 min walkthrough showing how to get started with Lob API collections.</p>
+<iframe class="youtube-video" src="https://www.youtube.com/embed/JDrxdzqghuQ?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Sign up for a <a href="https://dashboard.lob.com/#/register" target="_blank">free Lob account</a></li>
+<li><a href="https://identity.getpostman.com/signup" target="_blank">Sign up</a> for a free Postman account, and then <a href="https://go.postman.co/" target="_blank">sign in</a>.</li>
+<li><a href="https://www.postman.com/downloads/postman-agent/" target="_blank">Download and install</a> the Postman desktop agent, which will enable you to use the web version of Postman</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>Authorize the Lob API</li>
+<li>Start making API calls with Postman</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman Collection with authorized API requests</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Fork the collection" duration="1">
+        <p>In order to use the collections in <a href="https://www.postman.com/lobteam/workspace/lob-public-workspace/overview" target="_blank">this public workspace</a>, you&#39;ll select the Lob API collection and fork it into your personal workspace.</p>
+<ul>
+<li><a href="https://www.postman.com/lobteam/workspace/lob-public-workspace/collection/16169677-975ecb9f-ea22-4d8f-a4f9-53a42f2aee03/fork" target="_blank">Fork the collection</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Set up environment variables" duration="2">
+        <p>You&#39;ll also want to setup environment variables. A short cut is to fork Lob Public Env from Lob&#39;s public workspace. You also have the option to create them yourself.</p>
+<ul>
+<li><a href="https://www.postman.com/lobteam/workspace/lob-public-workspace/environment/16169677-366827ee-d369-4332-b2ed-feccf5941f95/fork" target="_blank">Fork the environment</a></li>
+</ul>
+<p>Your API keys are located under <a href="https://dashboard.lob.com/#/settings/account" target="_blank">Settings</a>. You&#39;ll use the SECRET API KEYS that begin with test*. for your Test API key and live*. for your Live API key.</p>
+<p class="image-container"><img alt="postman get api keys" src="img/5c2527b61245c0a9.png"></p>
+<p>Set the <strong>Current Value</strong> for <code>LIVE_API_KEY</code> and <code>TEST_API_KEY</code> to your Lob &#34;live&#34; and &#34;test&#34; API keys and click <strong>Save</strong>.</p>
+<p class="image-container"><img alt="postman set api keys" src="img/d2a120017287f2d3.png"></p>
+<p>Make sure <strong>Lob Public Env</strong> is selected in the environment menu.</p>
+<p class="image-container"><img alt="postman select environment" src="img/b7351a22b4994a89.png"></p>
+<p>Start exploring Lob&#39;s API collection.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <p>The Test API key is used for all print &amp; mail related endpoints while the Live API key is used for the address verification endpoint.</p>
+<ul>
+<li>For our full documentation visit <code>docs.lob.com</code></li>
+<li>Need more help? Contact us at <code>support@lob.com</code></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

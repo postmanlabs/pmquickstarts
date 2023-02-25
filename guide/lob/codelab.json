@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
+  "updated": "2023-02-24T16:49:14-08:00",
+  "id": "lob",
+  "duration": 5,
+  "title": "Get Started with the Lob API",
+  "summary": "Get Started with the Lob API",
+  "source": "lob/lob.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "getting-started"
+  ],
+  "tags": [
+    "developer",
+    "gettingstarted",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "lob"
+}
