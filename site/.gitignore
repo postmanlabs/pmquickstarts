@@ -20,3 +20,6 @@ app/js/bundle
 
 /pmguides/dist/*
 temp/
+
+yarn.lock
+package-lock.json
