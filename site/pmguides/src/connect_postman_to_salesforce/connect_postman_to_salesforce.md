@@ -199,6 +199,10 @@ Duration: 1
 
 This course was originally created by [Salesforce](https://trailhead.salesforce.com/content/learn/projects/quick-start-connect-postman-to-salesforce) and has been modified to suit the Quickstart format. Complete this lesson in Trailhead to collect your Salesforce learning badge.
 
+- [Quick Start: Connect Postman to Salesforce](https://trailhead.salesforce.com/content/learn/projects/quick-start-connect-postman-to-salesforce)
+- [Set Up Your Org](https://trailhead.salesforce.com/content/learn/projects/quick-start-connect-postman-to-salesforce/set-up-your-org)
+- [Set Up and Connect Postman](https://trailhead.salesforce.com/content/learn/projects/quick-start-connect-postman-to-salesforce/set-up-and-connect-postman)
+
 ### Resources
 
 - [GitHub: Salesforce APIs for Postman](https://github.com/forcedotcom/postman-salesforce-apis)
