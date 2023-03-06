@@ -59,7 +59,7 @@ Search for “Google Sheets API” and enable it. While you can make use of any 
 
 <!-- ------------------------ -->
 ## Get your credentials
-Duration: 5
+Duration: 3
 
 When you’re done enabling the API you intend to work with, click the Create Credentials button at the top right of the API dashboard.
 
@@ -100,6 +100,7 @@ You will see your client credentials(client ID and client secret) on the right-h
 
 <!-- ------------------------ -->
 ## Authorize with Postman
+Duration: 5
 
 Now that you have your client ID and client secret, you can use Postman in your automated API testing or API development workflow to authorize Google APIs. 
 
@@ -170,7 +171,7 @@ If you rerun the same request in Postman by clicking the Send button, you will n
 
 <!-- ------------------------ -->
 ## Managing Tokens
-Duration: 2
+Duration: 1
 
 You can generate new tokens after expiration using the same process above, but you won’t have to go through the entire process again. If you have a token added, you can manage all your tokens. 
 
@@ -184,6 +185,8 @@ Here, you can see a list of added tokens alongside their validity. You can choos
 
 <!-- ------------------------ -->
 ## Revoking Access
+Duration: 1
+
 Google allows you to manage all third-party applications you’ve connected to on your Google account. You can revoke authorization access you’ve granted to any third-party application. Navigating to https://myaccount.google.com/permissions gives you a list of all connected third-party applications with access to your account. You can click on any of the third-party applications to remove access. In our case, the application to look out for will be Postman x Google.
 
 ![Revoke Access](assets/revoke-access.png)
