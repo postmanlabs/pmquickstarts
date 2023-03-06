@@ -105,11 +105,11 @@ Now that you have your client ID and client secret, you can use Postman in your 
 
 Once you have your collection created in Postman and you’ve created a new request. Navigate to https://sheets.new, this will automatically create a new Google sheet on your Google account. Populate this sheet with random data and give it a random name. 
 
-In your URL navigation bar, you can get the ID of this spreadsheet. The ID is often after the **spreadsheets/d/** */ as shown in the screenshot below. Copy this ID to your clipboard.
+In your URL navigation bar, you can get the ID of this spreadsheet. The ID is often after the **spreadsheets/d/** as shown in the screenshot below. Copy this ID to your clipboard.
 
 ![Test Spreadsheet](assets/test-spreadsheet.png)
 
-In your Postman app, add the base URL **https://sheets.googleapis.com/v4/spreadsheets** in the URL tab and include the sheets ID as a path variable in the URL. This will fetch the data of that Google sheet in JSON.
+In your Postman app, add the URL **https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}** in the request URL tab and include the sheets ID as a path variable in the URL. This will fetch the data of that Google sheet in JSON.
 
 ![Get Spreadsheets](assets/get-spreadsheets.png)
 
@@ -123,7 +123,7 @@ Scroll down to the “configure new token” section and fill in the following d
 
 - **Grant Type**: Select “Authorization Code”. This lets Postman know that the resources server will be providing it with an AUthorization code that it will use to get an access token. 
 
-- **Callback URL**: This is the redirect URL you specified in your Google Cloud Console. It is automatically set for you and will vary depending on if you’re on the Postman Desktop or web client. 
+- **Callback URL**: This is the redirect URL you specified in your Google Cloud Console. It is automatically set for you and will vary depending on if you’re on the Postman Desktop or web client.
 
 - **Auth URL**: This is the authorization server endpoint. It presents the user with a UI interface to authorize the client(so far, the user is logged in). The requested scopes are displayed, and the user can choose to accept/decline access to their data. When the user accepts, it navigates to the callback URL with an authorization code included as a query parameter. This callback URL navigates back to Postman, Postman will then use the authorization code to fetch the access token from the resource server. Set this field to https://accounts.google.com/o/oauth2/v2/auth 
 
@@ -166,7 +166,7 @@ In your Postman client, you will see a modal pop-up that looks as shown below. T
 
 If you rerun the same request in Postman by clicking the Send button, you will notice that it now returns the sheet's data in JSON, indicating that you are now authorized to request this resource.
 
-![Get Spreadsheet](assets/get-spreadsheets.png)
+![Get Spreadsheet](assets/get-single-spreadsheet.png)
 
 <!-- ------------------------ -->
 ## Managing Tokens
