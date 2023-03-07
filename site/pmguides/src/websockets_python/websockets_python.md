@@ -1,181 +1,182 @@
 author: Greg Bulmash
 id: websockets_python
-summary: This is a sample Postman Guide
+summary: Set up a WebSockets server in Python
 categories: Getting-Started
 environments: web
-status: Published 
+status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts
-tags: Getting Started, Developer, Tester, Automation 
+tags: Getting Started, Developer
 
-# Postman Guide Template
+# Set up a WebSockets server in Python
+
 <!-- ------------------------ -->
-## Overview 
+
+## Overview
+
 Duration: 1
 
-Please use [this markdown file](https://raw.githubusercontent.com/loopDelicious/pmquickstarts/master/site/pmguides/src/sample/sample.md) as a template for writing your own Postman Quickstarts. This example guide has elements that you will use when writing your own guides, including: code snippet highlighting, downloading files, inserting photos, and more. 
+WebSockets are a way to create an always-on connection between an app or web-app and a server. This can be help you get as close as possible to real-time for constantly updating data like a stock ticker or text chat.
 
-It is important to include on the first page of your guide the following sections: Prerequisites, What you'll learn, What you'll need, and What you'll build. Remember, part of the purpose of a Postman Guide is that the reader will have **built** something by the end of the tutorial; this means that actual code may need to be included (not just pseudo-code).
+The [WebSocket protocol](https://www.rfc-editor.org/rfc/rfc6455) defines how this is done. The connection is both persistent and low-latency, so communication can be initiated by the client or the server, instead of the client request / server response communication model many developers associate with the web.
 
-The rest of this Postman Guide explains the steps of writing your own guide. 
+In this tutorial, you'll create a simple WebSocket server in Python, and use Postman to send and receive messages across the WebSocket connection.
+
 
 ### Prerequisites
-- Familiarity with Markdown syntax
 
-### What You’ll Learn 
-- how to set the metadata for a guide (category, author, id, etc)
-- how to set the amount of time each slide will take to finish 
-- how to include code snippets 
-- how to hyperlink items 
-- how to include images 
+- [Python 3](https://www.python.org/downloads/) installed on your machine
 
-### What You’ll Need 
-- A [GitHub](https://github.com/) Account 
-- [VSCode](https://code.visualstudio.com/download) Installed
-- [NodeJS](https://nodejs.org/en/download/) Installed
-- [GoLang](https://golang.org/doc/install) Installed
+### What You’ll Learn
 
-### What You’ll Build 
-- A Postman Guide
+- how to run a WebSockets server locally with Python
+- how to establish a WebSockets connection
+- how to send and receive WebSocket messages
 
-<!-- ------------------------ -->
-## Metadata Configuration
-Duration: 2
+### What You’ll Need
 
-It is important to set the correct metadata for your Postman Guide. The metadata contains all the information required for listing and publishing your guide and includes the following:
+- [Python](https://www.python.org/downloads/) Installed and in your path (required)
+- [The Visual Studio Code editor](https://code.visualstudio.com/download) Installed (recommended)
 
+### What You’ll Build
 
-- **summary**: This is a sample Postman Guide 
-  - This should be a short, 1 sentence description of your guide. This will be visible on the main landing page. 
-- **id**: sample 
-  - make sure to match the id here with the name of the file, all one word.
-- **categories**: getting-started
-  - You can have multiple categories, but the first one listed is used for the icon.
-- **environments**: web 
-  - `web` is default. If this will be published for a specific event or  conference, include it here.
-- **status**: Published
-  - (`Draft`, `Published`, `Deprecated`, `Hidden`) to indicate the progress and whether the pmguide is ready to be published. `Hidden` implies the pmguide is for restricted use, should be available only by direct URL, and should not appear on the main landing page.
-- **feedback link**: https://github.com/loopDelicious/pmquickstarts
-- **tags**: Getting Started, Data Science, Twitter 
-  - Add relevant  tags to make your pmguide easily found and SEO friendly.
-- **authors**: Joyce Lin
-  - Indicate the author(s) of this specific pmguide.
-
----
-
-You can see the source metadata for this guide you are reading now, on [the github repo](https://raw.githubusercontent.com/loopDelicious/pmquickstarts/master/site/pmguides/src/sample/sample.md).
-
+- A WebSockets server in Python
 
 <!-- ------------------------ -->
-## Creating a Step
-Duration: 2
 
-A single Postman Quickstart consists of multiple steps. These steps are defined in Markdown using Header 2 tag `##`. 
+## Create the Python server
 
-```markdown
-## Step 1 Title
+Duration: 1
+
+In your terminal, install [the `websockets` library for Python](https://websockets.readthedocs.io/en/stable/), then create a file for your server code.
+
+```bash
+$ pip install websockets
+$ touch websockets.py
+```
+
+Next open the websockets.py file in your favorite editor and add this code for a basic echo server (borrowed from the example in the `websockets` library documentation). Then save the file.
+
+```python
+import asyncio
+import websockets
+
+async def echo(websocket):
+    async for message in websocket:
+        await websocket.send(message)
+
+async def main():
+    async with websockets.serve(echo, "localhost", 8765):
+        await asyncio.Future()  # run forever
+
+asyncio.run(main())
+```
+
+It’s time to run our server locally from the command line.
+
+```bash
+$ python websockets.py
+```
+
+In the next step, let's begin sending and receiving messages.
+
+<!-- ------------------------ -->
+
+## Send and receive WebSocket messages
+
 Duration: 3
 
-All the content for the step goes here.
+In Postman, select **New > WebSocket Request** to open a new tab. Enter the WebSocket server URL. A WebSocket URL begins with `ws://` or `wss://` but they're not interchangeable. `ws` is for a standard connection and `wss` is for a secure connection. 
 
-## Step 2 Title
+Unless you've gone **well** beyond this tutorial and set up a secure server, usae `ws://localhost:8765` as as the URL. 
+
+A WebSocket URL begins with `ws://` or `wss://` and our server is running on `localhost:8765`. Click **Connect**.
+
+![Connect to local server](./assets/WebsocketSetup.png)
+
+After Postman establishes a successful connection to your local server, the **Messages** pane displays a list of messages for the WebSocket connection, including incoming, outgoing, and network messages. You can further inspect the connection details by clicking on “Connected to ws://localhost:8765”.
+
+![Inspect handshake details](./assets/expand.png)
+
+The connection we established between the Postman client and local server is bidirectional and the server will echo your message back to you. Under the **Message** tab for the connection, write "Hello World!" and **Send**.
+
+![Message sent and received](./assets/MessageEcho.png)
+
+Above the connection message, there are now two new ones. One has an up-arrow icon next to it, showing it's outgoing, and one has a down-arrow icon, showing it's incoming. The message was sent and the echo arrived back in the same second, and if you expand them, they're just the message text. 
+
+
+
+<!-- ------------------------ -->
+
+## Broadcasting Messages
+
+Duration: 3
+
+Let's pretend we're building an extremely simple chat room. In this room, any message sent to the server will be broadcast to every connection.
+
+### Update the code
+
+Terminate the running server (**Ctrl + C**), update `websockets.py` to the code below, and save the changes.
+
+```python
+import asyncio
+import websockets
+
+CONNECTIONS = set()
+
+async def echo(websocket):
+  if websocket not in CONNECTIONS:
+    CONNECTIONS.add(websocket)
+  async for message in websocket:
+    websockets.broadcast(CONNECTIONS,message)
+ 
+async def main():
+    async with websockets.serve(echo, "localhost", 8765):
+        await asyncio.Future()  # run forever
+
+asyncio.run(main())
+```
+
+Run it.
+
+```bash
+$ python websockets.py
+```
+
+### Open a second WebSockets connection
+
+Select **New > WebSocket Request** to open a second tab and set the URL for the second tab to `ws://localhost:8765`, just like the first.
+
+In each tab, connect to the WebSockets server.
+
+### Send some messages
+
+In the first tab, try sending the message: "Hello! How are you?"
+
+In the second tab, try sending the message: "I'm well!"
+
+You'll get something like this:
+![Connections side by side](./assets/Broadcast.png)
+
+Note that the sender of the message sees both the outgoing message to the server and the incoming broadcast of what they sent. The other person or people connected to the server only see the incoming broadcast of messages they didn't send. 
+
+<!-- ------------------------ -->
+
+## Next Steps
+
 Duration: 1
 
-All the content for the step goes here.
-```
+More and more developers are exploring [WebSocket APIs in Postman](https://learning.postman.com/docs/sending-requests/websocket/websocket/). According to Postman’s [State of the API 2022](https://www.postman.com/state-of-api/api-technologies/#api-technologies) report, WebSockets are used by 26% of respondents.
 
-To indicate how long each step will take, set the `Duration` under the step title (i.e. `##`) to an integer. The integers refer to minutes. If you set `Duration: 4` then a particular step will take 4 minutes to complete. 
+![WebSockets are used by 26% of survey respondents](./assets/graph.png)
 
-The total Postman Quickstarts completion time is calculated automatically for you and will be displayed on the landing page. 
+### Additional Resources
 
-<!-- ------------------------ -->
-## Code Snippets, Info Boxes, and Tables
-Duration: 2
+Check out these Postman resources to learn more about WebSockets.
 
-Look at the [markdown source for this pmguide](https://raw.githubusercontent.com/loopDelicious/pmquickstarts/master/site/pmguides/src/sample/sample.md) to see how to use markdown to generate code snippets, info boxes, and download buttons. 
+- [Guide to Postman WebSockets](https://www.postman.com/postman/workspace/websockets/documentation/14057978-712d684f-c252-4bd9-a7a6-6a893e41adea) collection
+- [Using WebSocket requests](https://learning.postman.com/docs/sending-requests/websocket/websocket/) docs
+- [WebSocket requests](https://youtu.be/H-7EZVj9D-k) video
 
-### JavaScript
-```javascript
-{ 
-  key1: "string", 
-  key2: integer,
-  key3: "string"
-}
-```
+### Next Steps
 
-### Java
-```java
-for (statement 1; statement 2; statement 3) {
-  // code block to be executed
-}
-```
-
-### Info Boxes
-Positive
-: This will appear in a positive info box.
-
-
-Negative
-: This will appear in a negative info box.
-
-### Buttons
-<button>
-  [This is a button](https://link.com)
-</button>
-
-[![Run in Postman](_shared_assets/button.svg)](https://god.gw.postman.com/run-collection/1559645-032fb22a-9afb-4c56-b8f0-4042db96a4f3?action=collection%2Ffork&collection-url=entityId%3D1559645-032fb22a-9afb-4c56-b8f0-4042db96a4f3%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c)
-
-### Tables
-<table>
-    <thead>
-        <tr>
-            <th colspan="2"> **The table header** </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>The table body</td>
-            <td>with two columns</td>
-        </tr>
-    </tbody>
-</table>
-
-### Hyperlinking
-[Youtube - Halsey Playlists](https://www.youtube.com/user/iamhalsey/playlists)
-
-<!-- ------------------------ -->
-## Images, Videos, and Surveys, and iFrames
-Duration: 2
-
-Look at the [markdown source for this guide](https://raw.githubusercontent.com/loopDelicious/pmquickstarts/master/site/pmguides/src/sample/sample.md) to see how to use markdown to generate these elements. 
-
-### Images
-![Postman illustration](assets/SAMPLE.jpg)
-
-### Videos
-Videos from youtube can be directly embedded:
-<video id="tw7x3yBpU1Y"></video>
-
-### Inline Surveys
-<form>
-  <name>How do you rate yourself as a user of Postman?</name>
-  <input type="radio" value="Beginner">
-  <input type="radio" value="Intermediate">
-  <input type="radio" value="Advanced">
-</form>
-
-### Embed an iframe
-![https://codepen.io/MarioD/embed/Prgeja](https://en.wikipedia.org/wiki/File:Example.jpg "Try Me Publisher")
-
-<!-- ------------------------ -->
-## Conclusion
-Duration: 1
-
-At the end of your Postman Guide, always have a clear call to action (CTA). This CTA could be a link to the docs pages, links to videos on youtube, a GitHub repo link, etc. 
-
-If you want to learn more about Postman Guide formatting, checkout the official documentation here: [Formatting Guide](https://github.com/googlecodelabs/tools/blob/master/FORMAT-GUIDE.md)
-
-### What we've covered
-- creating steps and setting duration
-- adding code snippets
-- embedding images, videos, and surveys
-- importing other markdown files
+You can use this starter application to explore how to use WebSockets for real-time communications in a larger application, whether it's a chat function or broadcasting a player's most recent move to the clients of all the other players.
