@@ -15,7 +15,7 @@ tags: Getting Started, Developer
 
 Duration: 1
 
-WebSockets are a way to create an always-on connection between an app or web-app and a server. This can be help you get as close as possible to real-time for constantly updating data like a stock ticker or text chat.
+WebSockets are a way to create a persistent connection between an app or web app and a server. This can help you get as close as possible to real-time for constantly updating data like a stock ticker or text chat.
 
 The [WebSocket protocol](https://www.rfc-editor.org/rfc/rfc6455) defines how this is done. The connection is both persistent and low-latency, so communication can be initiated by the client or the server, instead of the client request / server response communication model many developers associate with the web.
 
@@ -26,18 +26,18 @@ In this tutorial, you'll create a simple WebSocket server in Python, and use Pos
 
 - [Python 3](https://www.python.org/downloads/) installed on your machine
 
-### What You’ll Learn
+### What You Will Learn
 
-- how to run a WebSockets server locally with Python
-- how to establish a WebSockets connection
-- how to send and receive WebSocket messages
+- How to run a WebSockets server locally with Python.
+- How to establish a WebSockets connection.
+- How to send and receive WebSocket messages.
 
-### What You’ll Need
+### What You Will Need
 
 - [Python](https://www.python.org/downloads/) Installed and in your path (required)
 - [The Visual Studio Code editor](https://code.visualstudio.com/download) Installed (recommended)
 
-### What You’ll Build
+### What You Will Build
 
 - A WebSockets server in Python
 
@@ -54,7 +54,7 @@ $ pip install websockets
 $ touch websockets.py
 ```
 
-Next open the websockets.py file in your favorite editor and add this code for a basic echo server (borrowed from the example in the `websockets` library documentation). Then save the file.
+Next, open the `websockets.py` file in your favorite editor and add this code for a basic echo server (borrowed from the example in the `websockets` library documentation). Then save the file.
 
 ```python
 import asyncio
@@ -85,24 +85,22 @@ In the next step, let's begin sending and receiving messages.
 
 Duration: 3
 
-In Postman, select **New > WebSocket Request** to open a new tab. Enter the WebSocket server URL. A WebSocket URL begins with `ws://` or `wss://` but they're not interchangeable. `ws` is for a standard connection and `wss` is for a secure connection. 
+In Postman, select **New > WebSocket Request** to open a new tab where you can enter the server URL. A WebSocket URL begins with `ws://` or `wss://` but they're not interchangeable. `ws` is for a standard connection and `wss` is for a TLS/SSL connection which requires a more-complicated set-up. 
 
-Unless you've gone **well** beyond this tutorial and set up a secure server, usae `ws://localhost:8765` as as the URL. 
+Use `ws://localhost:8765` as the URL for this demo server and make sure you have the [Postman Desktop Agent](https://learning.postman.com/docs/getting-started/installation-and-updates/#installing-the-postman-desktop-agent) running.
 
-A WebSocket URL begins with `ws://` or `wss://` and our server is running on `localhost:8765`. Click **Connect**.
-
-![Connect to local server](./assets/WebsocketSetup.png)
+Click **Connect**.
+![Connect to the local server](./assets/WebsocketSetup.png)
 
 After Postman establishes a successful connection to your local server, the **Messages** pane displays a list of messages for the WebSocket connection, including incoming, outgoing, and network messages. You can further inspect the connection details by clicking on “Connected to ws://localhost:8765”.
 
 ![Inspect handshake details](./assets/expand.png)
 
-The connection we established between the Postman client and local server is bidirectional and the server will echo your message back to you. Under the **Message** tab for the connection, write "Hello World!" and **Send**.
+The connection we established between the Postman client and the local server is bidirectional and the server will echo your message back to you. Under the **Message** tab for the connection, write "Hello World!" and **Send**.
 
 ![Message sent and received](./assets/MessageEcho.png)
 
-Above the connection message, there are now two new ones. One has an up-arrow icon next to it, showing it's outgoing, and one has a down-arrow icon, showing it's incoming. The message was sent and the echo arrived back in the same second, and if you expand them, they're just the message text. 
-
+Above the connection message, there are now two new messages. One has an up-arrow icon next to it, showing it's outgoing, and one has a down-arrow icon, showing it's incoming. The message was sent and the echo arrived back in the same second. If you expand them, they're just the message text. 
 
 
 <!-- ------------------------ -->
@@ -111,11 +109,13 @@ Above the connection message, there are now two new ones. One has an up-arrow ic
 
 Duration: 3
 
-Let's pretend we're building an extremely simple chat room. In this room, any message sent to the server will be broadcast to every connection.
+Let's pretend we're building an extremely simple chat room server. In this chat room, any message sent to the server will be broadcast to every connection.
 
 ### Update the code
 
-Terminate the running server (**Ctrl + C**), update `websockets.py` to the code below, and save the changes.
+Terminate the running server (**Ctrl + C**). This shuts down the server and Postman will register that the connection terminated. 
+
+Update `websockets.py` to the code below so it will now *broadcast* incoming messages to all connected clients. Save the changes.
 
 ```python
 import asyncio
