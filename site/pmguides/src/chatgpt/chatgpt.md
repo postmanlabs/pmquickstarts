@@ -39,7 +39,7 @@ This is a beginner's introduction to OpenAI's API in Postman. Make your first AP
 
 ## Fork the OpenAI collection
 
-Duration: 3
+Duration: 2
 
 1. Sign in to your [Postman](https://www.postman.com/) account.
 1. Select the **Run in Postman** button below to [fork](https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-entities/#creating-a-fork) the [public collection](https://www.postman.com/devrel/workspace/openai/collection/13183464-90abb798-cb85-43cb-ba3a-ae7941e968da?ctx=documentation) to your own workspace.
@@ -55,7 +55,7 @@ If you leave the checkbox selected to `Watch original collection`, you will rece
 
 ## Authorization
 
-Duration: 3
+Duration: 2
 
 Update the collection variable `token` with your own OpenAI API key.
 
@@ -76,7 +76,7 @@ To change the way Postman configures the authorization, you can update the setti
 
 ## Make an API call with Postman
 
-Duration: 4
+Duration: 2
 
 This example uses the [Completions API](https://platform.openai.com/docs/api-reference/completions) and the `text-davinci-003` artificial intelligence model to to perform a query similar to what you can do on [the ChatGPT website](https://chat.openai.com/).
 
@@ -129,7 +129,7 @@ Negative
 
 ## Generate a code sample
 
-Duration: 3
+Duration: 1
 
 Now that you have the API request working the way you want it to, let's generate code so we can use the API in our own applications.
 
