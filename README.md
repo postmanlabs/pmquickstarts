@@ -41,7 +41,7 @@ You can submit your own Quickstarts to be published on Postman's website by subm
 4. Install node dependencies `npm install`
 5. Run the site `npm run serve`
 
-Congratulations! You now have the Postman Quickstarts landing page running.
+Congratulations! You now have the Postman Quickstarts landing page running and can be accessed via `http://localhost:8000/`.
 
 ### Common Errors
 
