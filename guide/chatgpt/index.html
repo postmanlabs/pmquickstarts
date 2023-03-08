@@ -1,0 +1,164 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Get Started with the ChatGPT API</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="chatgpt"
+                  title="Get Started with the ChatGPT API"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>This is a beginner&#39;s introduction to OpenAI&#39;s API in Postman. Make your first API request to simulate a ChatGPT query.</p>
+<p class="image-container"><img alt="OpenAI logo" src="img/c0f4e98ff1ba583e.png"></p>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>An <a href="https://platform.openai.com/" target="_blank">OpenAI account</a></li>
+<li>A <a href="https://identity.getpostman.com/signup" target="_blank">Postman account</a></li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>Discover different AI models provided by OpenAI</li>
+<li>Authorize and send HTTP API requests</li>
+<li>Use variables to store and reuse information</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman Collection with authorized API requests.</li>
+<li>Code samples to integrate into your own bots or applications.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Fork the OpenAI collection" duration="3">
+        <ol type="1">
+<li>Sign in to your <a href="https://www.postman.com/" target="_blank">Postman</a> account.</li>
+<li>Select the <strong>Run in Postman</strong> button below to <a href="https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-entities/#creating-a-fork" target="_blank">fork</a> the <a href="https://www.postman.com/devrel/workspace/openai/collection/13183464-90abb798-cb85-43cb-ba3a-ae7941e968da?ctx=documentation" target="_blank">public collection</a> to your own workspace. <br><a href="https://god.gw.postman.com/run-collection/13183464-90abb798-cb85-43cb-ba3a-ae7941e968da?action=collection%2Ffork&collection-url=entityId%3D13183464-90abb798-cb85-43cb-ba3a-ae7941e968da%26entityType%3Dcollection%26workspaceId%3D6f729c41-9538-4a0f-a4e0-8a02d92d1e73" target="_blank"><img alt="Fork the OpenAI collection" src="img/512b3ab5f8f0d855.svg"></a><br></li>
+<li>Enter a label for your fork, and select a workspace to save it to. <img alt="fork the collection modal" src="img/b1b357528970d84f.png"></li>
+</ol>
+<p>If you leave the checkbox selected to <code>Watch original collection</code>, you will receive notifications when new endpoints are added to the collection.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Authorization" duration="3">
+        <p>Update the collection variable <code>token</code> with your own OpenAI API key.</p>
+<ol type="1">
+<li>On the <a href="https://platform.openai.com/account/api-keys" target="_blank">API Keys page of the OpenAI website</a>, create a new API key under API Keys &gt; <code>+ Create new secret key</code>, and then copy the key to your clipboard for the next step. <img alt="openAI API key" src="img/9cce460dc4682948.png"></li>
+<li>In Postman, select your fork of the OpenAI collection.</li>
+<li>Under the <strong>Variables</strong> tab, create a new collection variable <code>token</code> and paste the value of your API key. <img alt="add API key" src="img/9080cb75bd6e297.png"></li>
+<li>Select <strong>Save</strong>.</li>
+</ol>
+<p>You can look under the <strong>Authorization</strong> tab and see how Postman will now add an <code>Authorization</code> header with your API key to every request in the collection, unless otherwise specified. Look under the <strong>Headers</strong> tab of any request to see for yourself. You may need to un-hide the auto-generated headers.</p>
+<p class="image-container"><img alt="auto-generated headers" src="img/db05db7db0e01158.png"></p>
+<p>To change the way Postman configures the authorization, you can update the settings under the <strong>Authorization</strong> tab of the request, folder, or collection.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Make an API call with Postman" duration="4">
+        <p>This example uses the <a href="https://platform.openai.com/docs/api-reference/completions" target="_blank">Completions API</a> and the <code>text-davinci-003</code> artificial intelligence model to to perform a query similar to what you can do on <a href="https://chat.openai.com/" target="_blank">the ChatGPT website</a>.</p>
+<p>To create a query:</p>
+<ol type="1">
+<li>In your Postman workspace, navigate to your fork of the OpenAI collection.</li>
+<li>Select <code>Completions</code> &gt; <code>Create completion</code>. Under the <strong>Body</strong> tab, add a request body formatted like the following example:<pre><code language="language-json" class="language-json">{
+  &#34;model&#34;: &#34;text-davinci-003&#34;,
+  &#34;prompt&#34;: &#34;What is OpenAPI?&#34;,
+  &#34;max_tokens&#34;: 60,
+  &#34;temperature&#34;: 0.5
+}
+</code></pre>
+</li>
+<li>Click <strong>Send</strong> to see a response body like the following example:<pre><code language="language-json" class="language-json">{
+  &#34;id&#34;: &#34;cmpl-6rYA5kupLv09lmy5eNPkV43hCAr7u&#34;,
+  &#34;object&#34;: &#34;text_completion&#34;,
+  &#34;created&#34;: 1678220721,
+  &#34;model&#34;: &#34;text-davinci-003&#34;,
+  &#34;choices&#34;: [
+    {
+      &#34;text&#34;: &#34;\n\nOpenAPI is a standardized, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without any prior knowledge of how the service works. It uses a language-agnostic interface definition to describe the capabilities of an API, which&#34;,
+      &#34;index&#34;: 0,
+      &#34;logprobs&#34;: null,
+      &#34;finish_reason&#34;: &#34;length&#34;
+    }
+  ],
+  &#34;usage&#34;: {
+    &#34;prompt_tokens&#34;: 5,
+    &#34;completion_tokens&#34;: 60,
+    &#34;total_tokens&#34;: 65
+  }
+}
+</code></pre>
+</li>
+</ol>
+<p>Upon a successful <code>200 OK</code> response, you can inspect the response body, including the property <code>choices</code> which contains <code>text</code> responding to the query.</p>
+<p class="image-container"><img alt="successful API request" src="img/70072654751885b6.png"></p>
+<p>Negative : Be careful hitting <strong>Send</strong> too many times, since you might reach <a href="https://platform.openai.com/docs/guides/rate-limits" target="_blank">OpenAI rate limits</a> if you&#39;re on a free account.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Generate a code sample" duration="3">
+        <p>Now that you have the API request working the way you want it to, let&#39;s generate code so we can use the API in our own applications.</p>
+<ol type="1">
+<li>Select the request you want to use for a code snippet, then select the code icon in the right pane.</li>
+<li>Select a language or framework from the dropdown list. <img alt="code generation" src="img/8e3f3765a20b8b09.png"></li>
+<li>Select the copy icon to copy the code snippet to your clipboard.</li>
+</ol>
+<p>You can now paste this code into your own applications or bots.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
+<ul class="checklist">
+<li>Fork the OpenAI collection to your own workspace</li>
+<li>Discover different AI models provided by OpenAI</li>
+<li>Authorize and send HTTP API requests</li>
+<li>Use variables to store and reuse information for authorization</li>
+</ul>
+<p>Now that you made your first call with the OpenAI API, continue exploring the other endpoints in the <code>OpenAI</code> collection and other artificial intelligence models.</p>
+<h2 is-upgraded>Additional resources</h2>
+<p>To continue your journey with OpenAI, here are some additional resources to check out.</p>
+<ul>
+<li>Review the <a href="https://platform.openai.com/docs/introduction/overview" target="_blank">OpenAI API introduction</a></li>
+<li>Try <a href="https://platform.openai.com/docs/models" target="_blank">other OpenAI models</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

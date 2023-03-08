@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
+  "updated": "2023-03-07T16:44:12-08:00",
+  "id": "chatgpt",
+  "duration": 15,
+  "title": "Get Started with the ChatGPT API",
+  "summary": "Make your first OpenAI API call",
+  "source": "chatgpt/chatgpt.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "getting-started"
+  ],
+  "tags": [
+    "developer",
+    "gettingstarted",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "chatgpt"
+}
