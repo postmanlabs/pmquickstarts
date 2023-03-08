@@ -80,6 +80,9 @@ Duration: 2
 
 This example uses the [Completions API](https://platform.openai.com/docs/api-reference/completions) and the `text-davinci-003` artificial intelligence model to to perform a query similar to what you can do on [the ChatGPT website](https://chat.openai.com/).
 
+Negative
+: You can also use the [Chat API](https://platform.openai.com/docs/api-reference/chat) and the `gpt-3.5-turbo` artificial intelligence model to perform a single-turn or turn-based chat. Learn about the difference between [chat and completions](https://platform.openai.com/docs/guides/chat/chat-vs-completions)
+
 To create a query:
 
 1. In your Postman workspace, navigate to your fork of the OpenAI collection.
@@ -161,3 +164,4 @@ To continue your journey with OpenAI, here are some additional resources to chec
 
 - Review the [OpenAI API introduction](https://platform.openai.com/docs/introduction/overview)
 - Try [other OpenAI models](https://platform.openai.com/docs/models)
+- Learn about the difference between [chat and completions](https://platform.openai.com/docs/guides/chat/chat-vs-completions)
