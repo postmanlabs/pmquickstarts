@@ -1,6 +1,6 @@
 author: Debo
 id: google-oauth-in-postman
-summary: Authorize your Google API's in Postman using OAuth 2.0
+summary: Authorize your Google APIs in Postman using OAuth 2.0
 categories: Getting-Started
 environments: web
 status: Published 
@@ -14,9 +14,9 @@ Duration: 1
 
 Authentication and authorization are fundamental parts of working with APIs, and while there are different standards that define how both are done, the most popular and widely used standard for authorization is the [Open Authorization 2.0 standard](https://www.rfc-editor.org/rfc/rfc6749), referred to as OAuth 2.0 for short. 
 
-Large scale and enterprise organizations use the OAuth 2.0 as a standard way of authorizing access to their users data, and it has grown over the years to become an industry standard.
+Large scale and enterprise organizations use OAuth 2.0 as a standard way of authorizing access to their users data, and it has grown over the years to become an industry standard.
 
-The Postman API client let’s you work with different types of API authorization methods, including the OAuth 2.0. It makes the process of generating an authorization code and exchanging this code for an access token easy, and even provides you with an option that automatically refreshes your authorization tokens when they expire, given that a refresh token was returned from the authorization server.
+The Postman API client lets you work with different types of API authorization methods, including OAuth 2.0. It makes the process of generating an authorization code and exchanging this code for an access token easy, and even provides you with an option that automatically refreshes your authorization tokens when they expire, given that a refresh token was returned from the authorization server.
 
 Millions of people across the globe use OAuth to authorize third party access to their data. In this tutorial, you will learn how you can use Postman to Authorize a Google API, and how this can be used in your API development and testing workflow. 
 
@@ -25,7 +25,7 @@ Millions of people across the globe use OAuth to authorize third party access to
 
 
 ### What You’ll Learn   
-- How to create and Setup a new project on GCP
+- How to create and set up a new project on GCP
 - How to Authorize Google APIs using OAuth 2.0 on Postman
 
 ### What You’ll Need 
@@ -33,7 +33,7 @@ Millions of people across the globe use OAuth to authorize third party access to
 
 
 <!-- ------------------------ -->
-## Create and setup a new Project
+## Create and set up a new Project
 Duration: 2
 
 Navigate to [console.cloud.google.com](https://console.cloud.google.com) and select the drop down at the top navigation menu. Click on the "New project" button.
@@ -44,7 +44,7 @@ Give your project a name, select a location and an organization.
 
 ![Project Details](assets/project-details.png)
 
-The notification modal will pop up. Click the "Select Project" button fro the newly created project. 
+The notification modal will pop up. Click the "Select Project" button for the newly created project. 
 
 ![Select Project](assets/select-project.png)
 
@@ -104,17 +104,17 @@ Duration: 5
 
 Now that you have your client ID and client secret, you can use Postman in your automated API testing or API development workflow to authorize Google APIs. 
 
-Once you have your collection created in Postman and you’ve created a new request. Navigate to https://sheets.new, this will automatically create a new Google sheet on your Google account. Populate this sheet with random data and give it a random name. 
+Once you have your collection created in Postman and you’ve created a new request, navigate to https://sheets.new. This will automatically create a new Google sheet on your Google account. Populate this sheet with random data and give it a random name. 
 
 In your URL navigation bar, you can get the ID of this spreadsheet. The ID is often after the **spreadsheets/d/** as shown in the screenshot below. Copy this ID to your clipboard.
 
 ![Test Spreadsheet](assets/test-spreadsheet.png)
 
-In your Postman app, add the URL **https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}** in the request URL tab and include the sheets ID as a path variable in the URL. This will fetch the data of that Google sheet in JSON.
+In your Postman app, add the URL **https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}** in the request URL tab and include the sheet's ID as a path variable in the URL. This will fetch the data of that Google sheet in JSON.
 
 ![Get Spreadsheets](assets/get-spreadsheets.png)
 
-If you hit send on this request, you will get a 401 UNAUTHENTICATED error response. This is because we’ve not provided the right authentication credentials to make this request. Postman is a third-party application(client) trying to fetch google sheets data from your Google account(resource server). As the resource owner, you need to first authorize Postman and grant it the necessary scopes needed to fetch this data.
+If you hit send on this request, you will get a 401 UNAUTHENTICATED error response. This is because we’ve not provided the right authentication credentials to make this request. Postman is a third-party application (client) trying to fetch google sheets data from your Google account (resource server). As the resource owner, you need to first authorize Postman and grant it the necessary scopes needed to fetch this data.
 
 To do this, navigate to the Authorization tab in your Postman account and select OAuth 2.0 as your authorization type.
 
@@ -122,11 +122,11 @@ To do this, navigate to the Authorization tab in your Postman account and select
 
 Scroll down to the “configure new token” section and fill in the following details.
 
-- **Grant Type**: Select “Authorization Code”. This lets Postman know that the resources server will be providing it with an AUthorization code that it will use to get an access token. 
+- **Grant Type**: Select “Authorization Code”. This lets Postman know that the resources server will be providing it with an authorization code that it will use to get an access token. 
 
 - **Callback URL**: This is the redirect URL you specified in your Google Cloud Console. It is automatically set for you and will vary depending on if you’re on the Postman Desktop or web client.
 
-- **Auth URL**: This is the authorization server endpoint. It presents the user with a UI interface to authorize the client(so far, the user is logged in). The requested scopes are displayed, and the user can choose to accept/decline access to their data. When the user accepts, it navigates to the callback URL with an authorization code included as a query parameter. This callback URL navigates back to Postman, Postman will then use the authorization code to fetch the access token from the resource server. Set this field to https://accounts.google.com/o/oauth2/v2/auth 
+- **Auth URL**: This is the authorization server endpoint. It presents the user with a UI interface to authorize the client (so far, the user is logged in). The requested scopes are displayed, and the user can choose to accept/decline access to their data. When the user accepts, it navigates to the callback URL with an authorization code included as a query parameter. This callback URL navigates back to Postman, Postman will then use the authorization code to fetch the access token from the resource server. Set this field to https://accounts.google.com/o/oauth2/v2/auth 
 
 - **Access Token URL**: This is the interface exposed by the resource server for exchanging an authorization code with an access token. Set this field to https://oauth2.googleapis.com/token
 
@@ -154,7 +154,7 @@ After you select an account to authenticate with, Google displays the scopes req
 
 Selecting allow will generate an authorization code and redirect you back to the callback URL with the authorization code included in the callback URL.
 
-The callback URL will prompt you to navigate back to Postman to complete the authorization process or cancel. You will see a successful model once you accept this prompt and will be navigated back to Postman.
+The callback URL will prompt you to navigate back to Postman to complete the authorization process or cancel. You will see a successful modal once you accept this prompt and will be navigated back to Postman.
 
 ![Open Postman Prompt](assets/open-postman-prompt.png)
 
