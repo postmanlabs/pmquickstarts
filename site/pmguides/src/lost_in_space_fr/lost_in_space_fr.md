@@ -39,16 +39,16 @@ Pour activer les sous-titres automatiques en Français, consulter [cette page d'
 1. **Se connecter à Postman:** Créez un compte Postman si vous n'en avez pas déjà un puis connectez vous à [Postman web](https://go.postman.co) dans votre navigateur. Pour utiliser Postman dans un navigateur, téléchargez et lancez [l'agent Postman](https://www.postman.com/downloads/) sur votre machine pour éviter les soucis de "cross-origin resource sharing" (CORS). L'agent est différent de l'application. Sur Mac, vous verrez un icone montrant que l'agent Postman est lancé dans la barre de menu en haut à droite. Sur Windows, l'icone de l'agent Postman apparait dans la barre des tâches en bas a droite de votre écran.
 1. **Créez un workspace**: [Créez un nouveau workspace Postman](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-public-workspace) avec une visibilité de `Team` si vous collaborez avec des co-équipiers.
 
-Negative
-: Si vous ne voulez pas utiliser Postman dans votre navigateur avec l'agent, vous pouvez à la place télécharger et installer l'application Postman pour Mac, Windows, ou Linux.
+> aside negative
+> Si vous ne voulez pas utiliser Postman dans votre navigateur avec l'agent, vous pouvez à la place télécharger et installer l'application Postman pour Mac, Windows, ou Linux.
 
 ### Ce que vous apprendrez
 
 - Compétences basiques sur Postman, par exemple comment envoyer des requêtes API
 - Il est possible d'utiliser des compétences plus avancées pour vous aider à résoudre certain des puzzles.
 
-Negative
-: Ce challenge n'a pas pour but d'être une façon structurée ou compréhensive d'apprentissage. Il est possible d'acquérir des compétences techniques mais le but principal de ce challenge est de s'amuser, si vous aimez ce genre de chose.
+> aside negative
+> Ce challenge n'a pas pour but d'être une façon structurée ou compréhensive d'apprentissage. Il est possible d'acquérir des compétences techniques mais le but principal de ce challenge est de s'amuser, si vous aimez ce genre de chose.
 
 ### Foire Aux Questions
 

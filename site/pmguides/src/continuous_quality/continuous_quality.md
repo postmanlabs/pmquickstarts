@@ -15,8 +15,8 @@ tags: Intermediate, Tester, Automation
 
 Duration: 1
 
-Negative
-: This course was originally created by [Neil Studd](https://www.linkedin.com/in/neilstudd) and has been modified to suit the Quickstart format.
+> aside negative
+> This course was originally created by [Neil Studd](https://www.linkedin.com/in/neilstudd) and has been modified to suit the Quickstart format.
 
 ### Prerequisites
 
@@ -164,8 +164,8 @@ In this exercise, we'll build upon the work from the "Automating with Monitors" 
 
 [Newman](https://github.com/postmanlabs/newman) is the highly configurable command-line runner which allows you to extend the power of Postman's testing interface, allowing you to integrate execution into your continuous integration servers and build systems.
 
-Negative
-: Before completing this exercise, you will need to install Node.js and Newman; see the [Getting Started guide](https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/#getting-started) for more information.
+> aside negative
+> Before completing this exercise, you will need to install Node.js and Newman; see the [Getting Started guide](https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/#getting-started) for more information.
 
 Once you've set up these prerequisites, it's incredibly simple to perform your first command-line run:
 

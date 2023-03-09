@@ -34,8 +34,8 @@ Improve your skills by tackling a new Postman challenge for 30 days in a row.
 1. **Sign in to Postman:** Create a Postman account if you don't have one already, and log into [Postman for the web](https://go.postman.co) in your browser. To use Postman in a web browser, download and run the [Postman agent](https://www.postman.com/downloads/) on your local machine to overcome cross-origin resource sharing (CORS) limitations. The agent is not the same as the app. On a Mac, you will see an icon for the Postman agent running in the status menu at the top right of your computer screen. On a Windows machine, the Postman agent icon displays in the system tray at the bottom right of your computer screen.
 1. **Create a public workspace**: [Create a new Postman workspace](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-public-workspace) with visibility set to `Public` to show your work. Every day, fork a new challenge from [the parent workspace](https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/overview) to your own, and work through the day's challenge. Change the name of your public workspace to deter others from directly copying your answers.
 
-Negative
-: If you don't want to use Postman in a web browser with the agent, you can instead download and install the Postman app for Mac, Windows, or Linux.
+> aside negative
+> If you don't want to use Postman in a web browser with the agent, you can instead download and install the Postman app for Mac, Windows, or Linux.
 
 ### What You’ll Learn
 
