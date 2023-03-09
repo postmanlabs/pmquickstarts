@@ -43,11 +43,11 @@ Pour activer les sous-titres automatiques en Français, consulter [cette page d'
 1. **Se connecter à Postman:** Créez un compte Postman si vous n'en avez pas déjà un puis connectez vous à [Postman web](https://go.postman.co) dans votre navigateur. Pour utiliser Postman dans un navigateur, téléchargez et lancez [l'agent Postman](https://www.postman.com/downloads/) sur votre machine pour éviter les soucis de "cross-origin resource sharing" (CORS). L'agent est différent de l'application. Sur Mac, vous verrez un icone montrant que l'agent Postman est lancé dans la barre de menu en haut à droite. Sur Windows, l'icone de l'agent Postman apparait dans la barre des tâches en bas a droite de votre écran.
 1. **Créer un workspace public**: [Créez un nouveau workspace Postman](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-public-workspace) avec une visibilité `Public` pour montrer votre travail. Choisissez un nom de workspace unique pour évitez que d'autres copient vos solutions directement.
 
-Negative
-: Si vous ne voulez pas utiliser Postman dans votre navigateur avec l'agent, vous pouvez à la place télécharger et installer l'application Postman pour Mac, Windows, ou Linux.
+> aside negative
+> Si vous ne voulez pas utiliser Postman dans votre navigateur avec l'agent, vous pouvez à la place télécharger et installer l'application Postman pour Mac, Windows, ou Linux.
 
-Negative
-: Si vous faites déjà parti d'une équipe Postman et votre organisation ne veut pas publier ce workspace sous leur profile d'équipe, vous pouvez créer un compte séparé pour que le workspace s'affiche sous votre propre nom.
+> aside negative
+> Si vous faites déjà parti d'une équipe Postman et votre organisation ne veut pas publier ce workspace sous leur profile d'équipe, vous pouvez créer un compte séparé pour que le workspace s'affiche sous votre propre nom.
 
 ### Ce que vous apprendrez
 
