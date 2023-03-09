@@ -28,14 +28,16 @@
                   feedback-link="https://github.com/loopDelicious/pmquickstarts">
     
       <google-codelab-step label="Overview" duration="1">
-        <p>Negative: <em>This tutorial was originally published </em><a href="https://learn.microsoft.com/en-us/graph/use-postman" target="_blank"><em>here</em></a><em>.</em></p>
+        <aside class="warning"><p><em>This tutorial was originally published </em><a href="https://learn.microsoft.com/en-us/graph/use-postman" target="_blank"><em>here</em></a><em>.</em></p>
+</aside>
 <p>Postman is an API platform for building and using APIs. Postman simplifies each step of the API lifecycle and streamlines collaboration so that you can create better APIs faster.</p>
 <p>You can use the Microsoft Graph Postman collection to get started with Microsoft Graph APIs in minutes.</p>
 <p><a target="_blank"><img alt="Microsoft Graph API" src="img/7e0ae4d1dac0c1db.png"></a></p>
 <p>This article explains how to get up and running with Postman and Microsoft Graph. You can also explore Microsoft Graph APIs directly in your web browser by using <a href="https://developer.microsoft.com/graph/graph-explorer" target="_blank">Graph Explorer</a>.</p>
 <p>For details about how to use Postman, follow the steps in this article or watch the <a href="https://youtu.be/3RTHY3jScmA" target="_blank">Getting started with Microsoft Graph Postman workspace</a> video.</p>
 <iframe class="youtube-video" src="https://www.youtube.com/embed/3RTHY3jScmA?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p>Negative: 💡 Tip The Microsoft Graph Postman collection is configured to authenticate with the global Azure AD service and access the global Microsoft Graph service (<code>graph.microsoft.com</code>). If you want to use the collection to connect to a national cloud deployment, you must modify your fork of the collection.</p>
+<aside class="warning"><p> 💡 Tip The Microsoft Graph Postman collection is configured to authenticate with the global Azure AD service and access the global Microsoft Graph service (<code>graph.microsoft.com</code>). If you want to use the collection to connect to a national cloud deployment, you must modify your fork of the collection.</p>
+</aside>
 <ul>
 <li>Update the request URL, replacing <code>graph.microsoft.com</code> with the Microsoft Graph service root endpoint for your national cloud.</li>
 <li>Update the Auth URL and Access Token URL values on the Authorization tab of the Delegated and Application folders, replacing <code>login.microsoftonline.com</code> with the Azure AD endpoint for your national cloud.</li>

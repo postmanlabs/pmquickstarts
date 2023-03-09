@@ -28,7 +28,8 @@
                   feedback-link="https://github.com/loopDelicious/pmquickstarts">
     
       <google-codelab-step label="Overview" duration="1">
-        <p>Negative : This course was originally created by <a href="https://github.com/SueSmith" target="_blank">Sue Smith</a> and has been modified to suit the Quickstart format.</p>
+        <aside class="warning"><p> This course was originally created by <a href="https://github.com/SueSmith" target="_blank">Sue Smith</a> and has been modified to suit the Quickstart format.</p>
+</aside>
 <p>This is an introduction to testing and automation in Postman. Complete this entire course to claim a badge to display on your social media profiles.</p>
 <p class="image-container"><img alt="API tester badge" style="width: 200.00px" src="img/52c86be9e22c00e7.png"></p>
 <h2 is-upgraded>Prerequisites</h2>
@@ -57,7 +58,8 @@
         <h2 is-upgraded>Welcome to Testing and Automation training! 🕵️🔍</h2>
 <p>FORK the following collection to create a copy in your own workspace.</p>
 <p><a href="https://god.gw.postman.com/run-collection/9065401-7450715a-4607-4648-9fe9-9f0a481072c5?action=collection%2Ffork&collection-url=entityId%3D9065401-7450715a-4607-4648-9fe9-9f0a481072c5%26entityType%3Dcollection%26workspaceId%3D13009b3b-31e2-4048-b3c5-de29cf9a0270" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
-<p>Negative : Once you fork the collection to your own workspace, you can complete the rest of the course solely in Postman. The collection contains this documentation as well as other details in the code comments. Or you can optionally refer to this quickstart throughout the remainder of this lesson as you continue working in Postman.</p>
+<aside class="warning"><p> Once you fork the collection to your own workspace, you can complete the rest of the course solely in Postman. The collection contains this documentation as well as other details in the code comments. Or you can optionally refer to this quickstart throughout the remainder of this lesson as you continue working in Postman.</p>
+</aside>
 <p>The collection will walk you through writing scripts to test your response data in Postman, passing data between requests using variables, validating responses against schema, as well as automating your testing using dynamic faker data and the collection runner, defining control flow, and running collections on the command line with Newman.</p>
 <p>This collection uses a mock API with a few demo endpoints that return order data. We will use these endpoints to model a typical workflow so that you can go on to apply what you&#39;ve learned when you&#39;re working with real-world APIs.</p>
 <p>In the next section, we&#39;ll send our first request.</p>
@@ -73,9 +75,11 @@
 </code></pre>
 <h2 is-upgraded>Writing scripts &amp; tests</h2>
 <p>Open the <strong>Tests</strong> for this request. We are primarily going to be working in this tab for each request. The <strong>Tests</strong> script is where you write JavaScript to execute <em>when your request response is received</em>.</p>
-<p>Negative : ✏️ When you have the docs view open Postman will condense the UI for the request builder in the center, so you may need to use the drop-down lists to select <strong>Tests</strong> and <strong>Test Results</strong> in the request and response areas.</p>
+<aside class="warning"><p> ✏️ When you have the docs view open Postman will condense the UI for the request builder in the center, so you may need to use the drop-down lists to select <strong>Tests</strong> and <strong>Test Results</strong> in the request and response areas.</p>
+</aside>
 <p>You can also write <strong>Pre-request Scripts</strong> to execute before a request is sent, and can add scripts to collections and folders–these will execute for every request contained inside.</p>
-<p>Negative : ✏️ Notice that the address for this request starts with a base URL which is stored in a variable that you imported as part of the collection. Hover over the var (surrounded by curly braces) in the address to see the value. We set this mock server up in advance–you can create your own mocks and they will return whatever you have defined in the <strong>examples</strong> for a request.</p>
+<aside class="warning"><p> ✏️ Notice that the address for this request starts with a base URL which is stored in a variable that you imported as part of the collection. Hover over the var (surrounded by curly braces) in the address to see the value. We set this mock server up in advance–you can create your own mocks and they will return whatever you have defined in the <strong>examples</strong> for a request.</p>
+</aside>
 <h2 is-upgraded>Step 1: Parse the response JSON</h2>
 <p>The <strong>Tests</strong> tab contains some comments indicating the different tests and other processing we&#39;re going to add during the session. Let&#39;s handle the first one–we&#39;re going to need the response JSON data pulled into the script in a way that we can process, so save it as a variable:</p>
 <pre><code language="language-js" class="language-js">const response = pm.response.json();
@@ -108,7 +112,8 @@
 });
 </code></pre>
 <p><strong>Send</strong> and check out the <strong>Test Results</strong>.</p>
-<p>Negative : ✏️ Try changing <code>string</code> to <code>number</code> to see the test fail.</p>
+<aside class="warning"><p> ✏️ Try changing <code>string</code> to <code>number</code> to see the test fail.</p>
+</aside>
 <p><strong>Save</strong> this request, then open the next request <code>Get product code</code>, open its docs to the right, and <strong>Send</strong> it.</p>
 
 
@@ -146,7 +151,8 @@
     }
 ]
 </code></pre>
-<p>Negative : ✏️ The request accepts a query parameter indicating the product name–you can experiment by checking and unchecking it to see the difference in what it returns.</p>
+<aside class="warning"><p> ✏️ The request accepts a query parameter indicating the product name–you can experiment by checking and unchecking it to see the difference in what it returns.</p>
+</aside>
 <h2 is-upgraded>Step 1: Get the array</h2>
 <p>In the <strong>Tests</strong> tab you&#39;ll see comments again for each step. First get the response array in a variable and write the length out to the console–<strong>Send</strong> and check the console:</p>
 <pre><code language="language-js" class="language-js">const phones = pm.response.json().results;
@@ -157,7 +163,8 @@ console.info(&#34;Phones returned: &#34; + phones.length);
 <pre><code language="language-js" class="language-js">const redPhone = phones.filter((phone) =&gt; phone.color === &#34;red&#34;)[0];
 </code></pre>
 <h2 is-upgraded>✅ Assignment 1</h2>
-<p>Negative : Throughout the session you will encounter assignments to complete independently, and so these will not include full instructions–if you need help pop a question in the Q&amp;A or use the Postman forum if the session has ended.</p>
+<aside class="warning"><p> Throughout the session you will encounter assignments to complete independently, and so these will not include full instructions–if you need help pop a question in the Q&amp;A or use the Postman forum if the session has ended.</p>
+</aside>
 <p>Save the <code>sku</code> property of the first red iPhone you can find to a global Postman variable.</p>
 <p>You will be able to use the SKU in the request body of the <code>3. Send order</code> request instead of the hardcoded value.</p>
 <h2 is-upgraded>Step 3: Test the filtered object</h2>
@@ -234,7 +241,8 @@ pm.globals.set(&#34;deliveryDate&#34;, deliveryDate.toISOString().substr(0, 10))
 }
 </code></pre>
 <p>We&#39;re going to specify a schema to validate the response JSON against. The schema will be defined as a JSON object inside the script, and will match the response structure above–we will write a script to check that the response has the same structure and properties.</p>
-<p>Negative : ✏️ You can also validate your responses against an API specification, for example, defined as an OpenAPI spec in <strong>APIs</strong> on the left of Postman.</p>
+<aside class="warning"><p> ✏️ You can also validate your responses against an API specification, for example, defined as an OpenAPI spec in <strong>APIs</strong> on the left of Postman.</p>
+</aside>
 <p>✅ Remember that one of your assignments in the previous request was to save the order variable from the response–<strong>now alter the value you&#39;re sending to the path parameter here to use the variable instead of the hard-coded value</strong>.</p>
 <h2 is-upgraded>Step 1: Define the schema</h2>
 <p>In <strong>Tests</strong>, create an object to represent the schema we expect the order data to match:</p>
@@ -319,7 +327,8 @@ if (pm.response.code === 404)
 <li>Replace <code>&#123;&#123;your-collection-url}}</code> with your collection link in the <code>Complete training</code><br> request (you can save it as a variable using this name or just paste it straight into the address).</li>
 <li>Check out the <strong>Test Results</strong> to see if your collection is complete!</li>
 </ol>
-<p>Negative : Note that if you change your collection, you need to go back through the <strong>Share</strong> flow and update the link.</p>
+<aside class="warning"><p> Note that if you change your collection, you need to go back through the <strong>Share</strong> flow and update the link.</p>
+</aside>
 <h2 is-upgraded>Submitting your collection</h2>
 <p>Hopefully everything is good with your collection (if not plz try going back through the steps, referring to the request docs in each case, and remember to save your collection before sending this request after making changes to your scripts).</p>
 <p>If you need support figuring out how to complete your collection please ask in the session chat or in the <a href="https://community.postman.com/c/training" target="_blank">Postman community forum using the &#34;training&#34; category</a>.</p>

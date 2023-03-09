@@ -63,7 +63,8 @@
       <google-codelab-step label="Fork the sample collection" duration="2">
         <h2 is-upgraded>Fork the collection</h2>
 <p>In Postman, <a href="https://learning.postman.com/docs/collaborating-in-postman/version-control/#forking-postman-entities" target="_blank">fork</a> the following collection to your own workspace.</p>
-<p>Negative : <a href="https://www.postman.com/devrel/workspace/snowflake-build/collection/13191452-d6d009f2-8cd0-48ee-9b5a-989ad77fd403" target="_blank">Get Started with Snowflake in Postman</a></p>
+<aside class="warning"><p><a href="https://www.postman.com/devrel/workspace/snowflake-build/collection/13191452-d6d009f2-8cd0-48ee-9b5a-989ad77fd403" target="_blank">Get Started with Snowflake in Postman</a></p>
+</aside>
 <ul>
 <li>Select the collection in the sidebar.</li>
 <li>In the overview tab that appears, select the <strong>Fork</strong> icon in the upper right. <img alt="fork icon" src="img/be8dcd853068cb05.png"></li>
@@ -81,7 +82,8 @@
         <p>Select the sample collection in the sidebar, and update the <code>baseUrl</code> collection variable under the <strong>Variables</strong> tab with your version of the following URL, replacing <code>*account_locator*</code> with the account locator for your own Snowflake account:</p>
 <pre><code>https://*account_locator*.snowflakecomputing.com/api/v2
 </code></pre>
-<p>Negative : Note that the account locator might include additional segments for your region and cloud provider. See <a href="https://docs.snowflake.com/en/user-guide/intro-regions.html#label-region-ids" target="_blank">Specifying Region Information in Your Account Hostname</a> for details.</p>
+<aside class="warning"><p> Note that the account locator might include additional segments for your region and cloud provider. See <a href="https://docs.snowflake.com/en/user-guide/intro-regions.html#label-region-ids" target="_blank">Specifying Region Information in Your Account Hostname</a> for details.</p>
+</aside>
 <p>In Postman, your <code>baseUrl</code> should look like this.</p>
 <p class="image-container"><img alt="baseUrl collection variable" src="img/14a494bbc9f1b733.png"></p>
 <p>Now let&#39;s break down the parts of the API before we begin using it. You can follow along more closely by inspecting each request within the <code>Quickstart</code> folder.</p>
@@ -102,7 +104,8 @@
 <p>You can test to make sure you can successfully connect to Snowflake Key Pairs using the following command in your terminal:</p>
 <pre><code>$ snowsql -a &lt;account&gt; -u &lt;user&gt; --private-key-path &lt;path to private key&gt;
 </code></pre>
-<p>Negative : If you&#39;d rather authenticate with OAuth, please visit our documentation on authenticating with <a href="https://docs.snowflake.com/en/developer-guide/sql-api/guide.html#using-oauth" target="_blank">OAuth</a>.</p>
+<aside class="warning"><p> If you&#39;d rather authenticate with OAuth, please visit our documentation on authenticating with <a href="https://docs.snowflake.com/en/developer-guide/sql-api/guide.html#using-oauth" target="_blank">OAuth</a>.</p>
+</aside>
 <p>After you&#39;ve verified you can connect to Snowflake using key-pair authentication, you&#39;ll need to generate a JWT token. This JWT token is time limited token which has been signed with your key and Snowflake will know that you authorized this token to be used to authenticate as you for the SQL API.</p>
 <pre><code>$ snowsql -a &lt;account&gt; -u &lt;user&gt; --private-key-path &lt;path to private key&gt; --generate-jwt
 &lt;returns JWT token&gt;
@@ -118,7 +121,8 @@
 <p class="image-container"><img alt="authorization helper" src="img/cda410babf910387.png"></p>
 <p>Let&#39;s update our <code>token</code> variable value next. Tab over to the <strong>Variables</strong> tab, and update the <code>token</code> variable with the JWT token generated with the previous SnowSQL command, and save your changes.</p>
 <p class="image-container"><img alt="current value variables" src="img/6e26ec4f8dc134fa.png"></p>
-<p>Negative : ⚠️ If you are working in a team or public workspace, you can keep the data private by pasting the token under the CURRENT VALUE only when working in a team or public workspace. You can also work privately in a personal workspace. If you are working in a team or public workspace and you want to share this data with others, persist values under INITIAL VALUE. Read <a href="https://learning.postman.com/docs/sending-requests/variables/#sharing-and-persisting-data" target="_blank">the docs about sharing and persisting data in Postman</a>.</p>
+<aside class="warning"><p> ⚠️ If you are working in a team or public workspace, you can keep the data private by pasting the token under the CURRENT VALUE only when working in a team or public workspace. You can also work privately in a personal workspace. If you are working in a team or public workspace and you want to share this data with others, persist values under INITIAL VALUE. Read <a href="https://learning.postman.com/docs/sending-requests/variables/#sharing-and-persisting-data" target="_blank">the docs about sharing and persisting data in Postman</a>.</p>
+</aside>
 <p>Once you set up these authorization details for the collection, select one of the API requests. The <strong>Authorization</strong> tab indicates the request inherits the authorization method that we just set up for the collection.</p>
 <p class="image-container"><img alt="inherit authorization method" src="img/6ce47ef59ebfce5c.png"></p>
 <p>Under the <strong>Headers</strong> tab of the request, find the <code>Authorization</code> key. You may need to expand the auto-generated headers. Hover over the <code>Bearer &#123;&#123;token}}</code> to see how Postman is updating the header with your credentials saved in a variable.</p>
@@ -167,7 +171,8 @@ X-Snowflake-Authorization-Token-Type: KEYPAIR_JWT
 <li>To specify the warehouse, database, schema, and role to use, set the <code>warehouse</code>, <code>database</code>, <code>schema</code>, and <code>role</code> fields.</li>
 </ul>
 <p class="image-container"><img alt="request body" src="img/ed1e37ede8fb041.png"></p>
-<p>Negative : Note: the values in these fields are case-sensitive.</p>
+<aside class="warning"><p> Note: the values in these fields are case-sensitive.</p>
+</aside>
 <p>In Postman, <strong>Send</strong> the API request. If the statement was executed successfully, Snowflake returns the HTTP response code 200 and the first results in a <a href="https://docs.snowflake.com/en/developer-guide/sql-api/reference.html#resultset" target="_blank">ResultSet</a> object. Review the server response on the bottom.</p>
 <p class="image-container"><img alt="response body" src="img/762de4d1f0e3380a.png"></p>
 <p>Select the collection, and tab over to <strong>Variables</strong> to verify that your <code>uuid</code> and <code>statementHandle</code> are stored as variables.</p>
