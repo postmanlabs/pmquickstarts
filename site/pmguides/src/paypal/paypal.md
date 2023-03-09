@@ -15,8 +15,8 @@ tags: Getting Started, Developer
 
 Duration: 1
 
-Negative:
-_This tutorial was originally published [here](https://developer.paypal.com/api/rest/postman/)._
+> aside negative
+> _This tutorial was originally published [here](https://developer.paypal.com/api/rest/postman/)._
 
 Use Postman to explore PayPal's REST APIs without a developer account. You can customize requests and receive responses for any of PayPal's core APIs.
 

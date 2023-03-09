@@ -15,8 +15,8 @@ tags: Getting Started, Developer
 
 Duration: 1
 
-Negative:
-_This tutorial was originally published [here](https://www.postman.com/lobteam/workspace/lob-public-workspace/documentation/16169677-975ecb9f-ea22-4d8f-a4f9-53a42f2aee03?entity=&branch=&version=)._
+> aside negative
+> _This tutorial was originally published [here](https://www.postman.com/lobteam/workspace/lob-public-workspace/documentation/16169677-975ecb9f-ea22-4d8f-a4f9-53a42f2aee03?entity=&branch=&version=)._
 
 Let's make the world programmable.
 
