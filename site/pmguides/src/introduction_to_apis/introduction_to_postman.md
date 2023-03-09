@@ -125,8 +125,8 @@ To use Postman in a web browser, as we do in this module, you’re prompted to d
 1. Once you’ve downloaded the agent, run it on your machine.
    The agent is not the same as the Postman app. On a Mac, the icon for the Postman agent running in the status menu is located on the top right of your computer screen. On a Windows machine, the Postman agent icon displays in the system tray at the bottom right of your computer screen.
 
-Negative
-: If you don’t want to use Postman in a web browser with the agent, you can instead download and install the Postman app for Mac, Windows, or Linux.
+> aside negative
+> If you don’t want to use Postman in a web browser with the agent, you can instead download and install the Postman app for Mac, Windows, or Linux.
 
 ### Import Data into Postman
 
