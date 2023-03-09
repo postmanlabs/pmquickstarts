@@ -39,16 +39,16 @@ Watch this video:
 1. **Sign in to Postman:** Create a Postman account if you don't have one already, and log into [Postman for the web](https://go.postman.co) in your browser. To use Postman in a web browser, download and run the [Postman agent](https://www.postman.com/downloads/) on your local machine to overcome cross-origin resource sharing (CORS) limitations. The agent is not the same as the app. On a Mac, you will see an icon for the Postman agent running in the status menu at the top right of your computer screen. On a Windows machine, the Postman agent icon displays in the system tray at the bottom right of your computer screen.
 1. **Create a workspace**: [Create a new Postman workspace](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-public-workspace) with visibility set to `Team` if you are collaborating with teammates.
 
-> aside negative
-> If you don't want to use Postman in a web browser with the agent, you can instead download and install the Postman app for Mac, Windows, or Linux.
+Negative
+: If you don't want to use Postman in a web browser with the agent, you can instead download and install the Postman app for Mac, Windows, or Linux.
 
 ### What You’ll Learn
 
 - Basic Postman skills like how to send API requests
 - It's possible to use higher-level Postman skills to help solve some of the puzzles.
 
-> aside negative
-> This challenge is not intended to be a comprehensive or structured learning experience. It's possible that you acquire some technical skills. But the primary purpose of this challenge is for fun, if you like this kind of thing.
+Negative
+: This challenge is not intended to be a comprehensive or structured learning experience. It's possible that you acquire some technical skills. But the primary purpose of this challenge is for fun, if you like this kind of thing.
 
 ### Frequently Asked Questions
 

@@ -15,8 +15,8 @@ tags: Developer, Tester, Automation, Intermediate
 
 Duration: 1
 
-> aside negative
-> This course was originally created by [Prashant Agrawal](https://www.linkedin.com/in/prashantagrawal1) and has been modified to suit the Quickstart format.
+Negative
+: This course was originally created by [Prashant Agrawal](https://www.linkedin.com/in/prashantagrawal1) and has been modified to suit the Quickstart format.
 
 ### Prerequisites
 

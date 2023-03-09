@@ -57,8 +57,8 @@ Duration: 2
 
 In Postman, [fork](https://learning.postman.com/docs/collaborating-in-postman/version-control/#forking-postman-entities) the following collection to your own workspace.
 
-> aside negative
-> [Get Started with Snowflake in Postman](https://www.postman.com/devrel/workspace/snowflake-build/collection/13191452-d6d009f2-8cd0-48ee-9b5a-989ad77fd403)
+Negative
+: [Get Started with Snowflake in Postman](https://www.postman.com/devrel/workspace/snowflake-build/collection/13191452-d6d009f2-8cd0-48ee-9b5a-989ad77fd403)
 
 - Select the collection in the sidebar.
 - In the overview tab that appears, select the **Fork** icon in the upper right.
@@ -85,8 +85,8 @@ Select the sample collection in the sidebar, and update the `baseUrl` collection
 https://*account_locator*.snowflakecomputing.com/api/v2
 ```
 
-> aside negative
-> Note that the account locator might include additional segments for your region and cloud provider. See [Specifying Region Information in Your Account Hostname](https://docs.snowflake.com/en/user-guide/intro-regions.html#label-region-ids) for details.
+Negative
+: Note that the account locator might include additional segments for your region and cloud provider. See [Specifying Region Information in Your Account Hostname](https://docs.snowflake.com/en/user-guide/intro-regions.html#label-region-ids) for details.
 
 In Postman, your `baseUrl` should look like this.
 
@@ -118,8 +118,8 @@ You can test to make sure you can successfully connect to Snowflake Key Pairs us
 $ snowsql -a <account> -u <user> --private-key-path <path to private key>
 ```
 
-> aside negative
-> If you'd rather authenticate with OAuth, please visit our documentation on authenticating with [OAuth](https://docs.snowflake.com/en/developer-guide/sql-api/guide.html#using-oauth).
+Negative
+: If you'd rather authenticate with OAuth, please visit our documentation on authenticating with [OAuth](https://docs.snowflake.com/en/developer-guide/sql-api/guide.html#using-oauth).
 
 After you've verified you can connect to Snowflake using key-pair authentication, you'll need to generate a JWT token. This JWT token is time limited token which has been signed with your key and Snowflake will know that you authorized this token to be used to authenticate as you for the SQL API.
 
@@ -146,8 +146,8 @@ Let's update our `token` variable value next. Tab over to the **Variables** tab,
 
 ![current value variables](assets/current-value.png)
 
-> aside negative
-> ⚠️ If you are working in a team or public workspace, you can keep the data private by pasting the token under the CURRENT VALUE only when working in a team or public workspace. You can also work privately in a personal workspace. If you are working in a team or public workspace and you want to share this data with others, persist values under INITIAL VALUE. Read [the docs about sharing and persisting data in Postman](https://learning.postman.com/docs/sending-requests/variables/#sharing-and-persisting-data).
+Negative
+: ⚠️ If you are working in a team or public workspace, you can keep the data private by pasting the token under the CURRENT VALUE only when working in a team or public workspace. You can also work privately in a personal workspace. If you are working in a team or public workspace and you want to share this data with others, persist values under INITIAL VALUE. Read [the docs about sharing and persisting data in Postman](https://learning.postman.com/docs/sending-requests/variables/#sharing-and-persisting-data).
 
 Once you set up these authorization details for the collection, select one of the API requests. The **Authorization** tab indicates the request inherits the authorization method that we just set up for the collection.
 
@@ -220,8 +220,8 @@ For the [body of the request](https://docs.snowflake.com/en/developer-guide/sql-
 
 ![request body](assets/request-body.png)
 
-> aside negative
-> Note: the values in these fields are case-sensitive.
+Negative
+: Note: the values in these fields are case-sensitive.
 
 In Postman, **Send** the API request. If the statement was executed successfully, Snowflake returns the HTTP response code 200 and the first results in a [ResultSet](https://docs.snowflake.com/en/developer-guide/sql-api/reference.html#resultset) object. Review the server response on the bottom.
 

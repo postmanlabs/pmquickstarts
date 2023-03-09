@@ -15,8 +15,8 @@ tags: Getting Started, Developer
 
 Duration: 1
 
-> aside negative
-> _This tutorial was originally published [here](https://learn.microsoft.com/en-us/graph/use-postman)._
+Negative:
+_This tutorial was originally published [here](https://learn.microsoft.com/en-us/graph/use-postman)._
 
 Postman is an API platform for building and using APIs. Postman simplifies each step of the API lifecycle and streamlines collaboration so that you can create better APIs faster.
 
@@ -30,9 +30,9 @@ For details about how to use Postman, follow the steps in this article or watch 
 
 <video id="3RTHY3jScmA"></video>
 
-> aside negative
->💡 Tip
-> The Microsoft Graph Postman collection is configured to authenticate with the global Azure AD service and access the global Microsoft Graph service (`graph.microsoft.com`). If you want to use the collection to connect to a national cloud deployment, you must modify your fork of the collection.
+Negative:
+💡 Tip
+The Microsoft Graph Postman collection is configured to authenticate with the global Azure AD service and access the global Microsoft Graph service (`graph.microsoft.com`). If you want to use the collection to connect to a national cloud deployment, you must modify your fork of the collection.
 
 - Update the request URL, replacing `graph.microsoft.com` with the Microsoft Graph service root endpoint for your national cloud.
 - Update the Auth URL and Access Token URL values on the Authorization tab of the Delegated and Application folders, replacing `login.microsoftonline.com` with the Azure AD endpoint for your national cloud.
