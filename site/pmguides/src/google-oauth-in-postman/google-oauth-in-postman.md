@@ -12,6 +12,10 @@ tags: Getting Started, Developer
 ## Overview 
 Duration: 1
 
+> aside negative
+>  [Get Started with Snowflake in Postman](https://www.postman.com/devrel/workspace/snowflake-build/collection/13191452-d6d009f2-8cd0-48ee-9b5a-989ad77fd403)
+
+
 Authentication and authorization are fundamental parts of working with APIs, and while there are different standards that define how both are done, the most popular and widely used standard for authorization is the [Open Authorization 2.0 standard](https://www.rfc-editor.org/rfc/rfc6749), referred to as OAuth 2.0 for short. 
 
 Large scale and enterprise organizations use the OAuth 2.0 as a standard way of authorizing access to their users data, and it has grown over the years to become an industry standard.
