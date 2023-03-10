@@ -28,7 +28,8 @@
                   feedback-link="https://github.com/loopDelicious/pmquickstarts">
     
       <google-codelab-step label="Overview" duration="1">
-        <p>Negative : This course was originally created by <a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-connect-postman-to-salesforce" target="_blank">Salesforce</a> and has been modified to suit the Quickstart format. Complete this lesson in Trailhead to collect your Salesforce learning badge.</p>
+        <aside class="warning"><p> This course was originally created by <a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-connect-postman-to-salesforce" target="_blank">Salesforce</a> and has been modified to suit the Quickstart format. Complete this lesson in Trailhead to collect your Salesforce learning badge.</p>
+</aside>
 <h2 is-upgraded>Prerequisites</h2>
 <ul>
 <li>A Salesforce org</li>
@@ -66,7 +67,8 @@
 <p>The Salesforce Platform APIs for Postman collection is a resource that wraps together 200+ request templates for many Salesforce Platform APIs. This open source collection uses the configurable Postman environment and variables so that you can easily authenticate and try the requests on multiple Salesforce orgs.</p>
 <h2 is-upgraded>Create a New Trailhead Playground</h2>
 <p>For this project, you need to create a new Trailhead Playground. Scroll to the bottom of this page, click the playground name, then click <strong>Create Playground</strong>. It typically takes 3–4 minutes to create a new Trailhead Playground.</p>
-<p>Negative : Note: Yes, we really mean a brand-new Trailhead playground! If you use an existing org or playground, you can run into problems completing the project.</p>
+<aside class="warning"><p> Note: Yes, we really mean a brand-new Trailhead playground! If you use an existing org or playground, you can run into problems completing the project.</p>
+</aside>
 <h2 is-upgraded>Get Your Trailhead Playground Username and Password</h2>
 <p>Let&#39;s get started by opening your Trailhead Playground. Scroll to the bottom of this page and click <strong>Launch</strong>. If you see a tab in your org labeled Get Your Login Credentials, great! Skip ahead to step 1. Otherwise, from the App Launcher, find and open <strong>Playground Starter</strong> and follow the steps.</p>
 <ol type="1">
@@ -121,7 +123,9 @@
 <li>In Postman, under Collections, <strong>Salesforce Platform APIs</strong> should be selected.</li>
 <li>The Authorization tab should be open.</li>
 <li>Type should be OAuth 2.0.</li>
-<li>Click <strong>Get New Access Token</strong>. Negative : Note - If you&#39;re not logged in to a Trailhead Playground or Salesforce org, a browser tab opens with the Salesforce login screen. Enter the username and password you saved in the previous step to log in.</li>
+<li>Click <strong>Get New Access Token</strong>. <aside class="warning"><p> Note - If you&#39;re not logged in to a Trailhead Playground or Salesforce org, a browser tab opens with the Salesforce login screen. Enter the username and password you saved in the previous step to log in.</p>
+</aside>
+</li>
 <li>Click <strong>Allow</strong> to let the &#34;Salesforce Platform APIs Collection for Postman&#34; access your Trailhead Playground <img alt="allow access" style="width: 200.00px" src="img/3c948016270e45db.webp"></li>
 <li>A success message appears briefly, and then you&#39;re redirected to the Manage Access Tokens dialog. <img alt="tokens dialog" src="img/7f8750ff8c45e473.webp"></li>
 <li>Verify that the <code>instance_url</code> points to your Trailhead Playground.</li>
@@ -138,7 +142,9 @@
 <li>Select <strong>REST</strong> to expand it.</li>
 <li>Select <strong>GET Limits</strong>. Limits opens in the main panel.</li>
 <li>Click <strong>Send</strong>. <img alt="send request" src="img/4ba5e2c013f8309.webp"></li>
-<li>Verify that the status is 200 OK. Negative : You may need to turn <strong>Follow Authorization</strong> header configuration ON to retain authorization header when a redirect happens to a different hostname. <img alt="follow authorization header" src="img/23e95c477438046a.webp"></li>
+<li>Verify that the status is 200 OK. <aside class="warning"><p> You may need to turn <strong>Follow Authorization</strong> header configuration ON to retain authorization header when a redirect happens to a different hostname. <img alt="follow authorization header" src="img/23e95c477438046a.webp"></p>
+</aside>
+</li>
 </ol>
 <p>You&#39;ve successfully authenticated with Salesforce. Now you can use other requests in the collection.</p>
 <h2 is-upgraded>Post an Account</h2>
@@ -158,7 +164,8 @@
 <li>Click <strong>Send</strong>. Postman returns the id for the new account. <img alt="returns id" src="img/fb4a613310d1e983.webp"></li>
 <li>Verify that the status is 201 Created.</li>
 </ol>
-<p>Negative : Note: If you don&#39;t get the status 201 Created then you might be signed into a different org. Verify that your instance_url is set to your Trailhead Playground.</p>
+<aside class="warning"><p> Note: If you don&#39;t get the status 201 Created then you might be signed into a different org. Verify that your instance_url is set to your Trailhead Playground.</p>
+</aside>
 <p>Excellent! You&#39;ve set up Postman to interact with your org. The Salesforce APIs for Postman collection that you loaded will aid you in your quest to discover the Salesforce APIs.</p>
 
 

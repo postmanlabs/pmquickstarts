@@ -77,44 +77,51 @@
       </google-codelab-step>
     
       <google-codelab-step label="Make an API call with Postman" duration="2">
-        <p>This example uses the <a href="https://platform.openai.com/docs/api-reference/completions" target="_blank">Completions API</a> and the <code>text-davinci-003</code> artificial intelligence model to to perform a query similar to what you can do on <a href="https://chat.openai.com/" target="_blank">the ChatGPT website</a>.</p>
-<p>Negative : You can also use the <a href="https://platform.openai.com/docs/api-reference/chat" target="_blank">Chat API</a> and the <code>gpt-3.5-turbo</code> artificial intelligence model to perform a single-turn or turn-based chat. Learn about the difference between <a href="https://platform.openai.com/docs/guides/chat/chat-vs-completions" target="_blank">chat and completions</a></p>
+        <p>This example uses the <a href="https://platform.openai.com/docs/api-reference/chat" target="_blank">Chat API</a> and the <code>gpt-3.5-turbo</code> artificial intelligence model to perform a single-turn query or turn-based chat, similar to what you can do on <a href="https://chat.openai.com/" target="_blank">the ChatGPT website</a>.</p>
+<aside class="warning"><p> You can also use the <a href="https://platform.openai.com/docs/api-reference/completions" target="_blank">Completions API</a> and the older <code>text-davinci-003</code> artificial intelligence model to perform a single-turn query. Learn about the difference between <a href="https://platform.openai.com/docs/guides/chat/chat-vs-completions" target="_blank">chat and completions</a></p>
+</aside>
 <p>To create a query:</p>
 <ol type="1">
 <li>In your Postman workspace, navigate to your fork of the OpenAI collection.</li>
-<li>Select <code>Completions</code> &gt; <code>Create completion</code>. Under the <strong>Body</strong> tab, add a request body formatted like the following example:<pre><code language="language-json" class="language-json">{
-  &#34;model&#34;: &#34;text-davinci-003&#34;,
-  &#34;prompt&#34;: &#34;What is OpenAPI?&#34;,
-  &#34;max_tokens&#34;: 60,
-  &#34;temperature&#34;: 0.5
+<li>Select <code>Chat</code> &gt; <code>Creates a completion for the chat message</code>. Under the <strong>Body</strong> tab, add a request body formatted like the following example:<pre><code language="language-json" class="language-json">{
+  &#34;model&#34;: &#34;gpt-3.5-turbo&#34;,
+  &#34;messages&#34;: [
+    {
+      &#34;role&#34;: &#34;user&#34;,
+      &#34;content&#34;: &#34;What is OpenAPI?&#34;
+    }
+  ]
 }
 </code></pre>
 </li>
 <li>Click <strong>Send</strong> to see a response body like the following example:<pre><code language="language-json" class="language-json">{
-  &#34;id&#34;: &#34;cmpl-6rYA5kupLv09lmy5eNPkV43hCAr7u&#34;,
-  &#34;object&#34;: &#34;text_completion&#34;,
-  &#34;created&#34;: 1678220721,
-  &#34;model&#34;: &#34;text-davinci-003&#34;,
+  &#34;id&#34;: &#34;chatcmpl-6sf37lXn5paUcuf8UaurpMIKRMsTe&#34;,
+  &#34;object&#34;: &#34;chat.completion&#34;,
+  &#34;created&#34;: 1678485525,
+  &#34;model&#34;: &#34;gpt-3.5-turbo-0301&#34;,
+  &#34;usage&#34;: {
+    &#34;prompt_tokens&#34;: 12,
+    &#34;completion_tokens&#34;: 99,
+    &#34;total_tokens&#34;: 111
+  },
   &#34;choices&#34;: [
     {
-      &#34;text&#34;: &#34;\n\nOpenAPI is a standardized, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without any prior knowledge of how the service works. It uses a language-agnostic interface definition to describe the capabilities of an API, which&#34;,
-      &#34;index&#34;: 0,
-      &#34;logprobs&#34;: null,
-      &#34;finish_reason&#34;: &#34;length&#34;
+      &#34;message&#34;: {
+        &#34;role&#34;: &#34;assistant&#34;,
+        &#34;content&#34;: &#34;\n\nOpenAPI (formerly called Swagger) is a specification for building APIs (Application Programming Interfaces). It describes the operations and parameters that an API can accept, as well as the data structures that are returned from API calls. The specification supports both JSON and YAML formats and provides a standard format for describing RESTful APIs. By using OpenAPI, developers can describe their APIs in a consistent, machine-readable format that can be easily consumed by API documentation tools, code generators, and other programming tools.&#34;
+      },
+      &#34;finish_reason&#34;: &#34;stop&#34;,
+      &#34;index&#34;: 0
     }
-  ],
-  &#34;usage&#34;: {
-    &#34;prompt_tokens&#34;: 5,
-    &#34;completion_tokens&#34;: 60,
-    &#34;total_tokens&#34;: 65
-  }
+  ]
 }
 </code></pre>
 </li>
 </ol>
 <p>Upon a successful <code>200 OK</code> response, you can inspect the response body, including the property <code>choices</code> which contains <code>text</code> responding to the query.</p>
-<p class="image-container"><img alt="successful API request" src="img/70072654751885b6.png"></p>
-<p>Negative : Be careful hitting <strong>Send</strong> too many times, since you might reach <a href="https://platform.openai.com/docs/guides/rate-limits" target="_blank">OpenAI rate limits</a> if you&#39;re on a free account.</p>
+<p class="image-container"><img alt="successful API request" src="img/effb37fedb963638.png"></p>
+<aside class="warning"><p> Be careful hitting <strong>Send</strong> too many times, since you might reach <a href="https://platform.openai.com/docs/guides/rate-limits" target="_blank">OpenAI rate limits</a> if you&#39;re on a free account.</p>
+</aside>
 
 
       </google-codelab-step>
@@ -123,7 +130,7 @@
         <p>Now that you have the API request working the way you want it to, let&#39;s generate code so we can use the API in our own applications.</p>
 <ol type="1">
 <li>Select the request you want to use for a code snippet, then select the code icon in the right pane.</li>
-<li>Select a language or framework from the dropdown list. <img alt="code generation" src="img/8e3f3765a20b8b09.png"></li>
+<li>Select a language or framework from the dropdown list. <img alt="code generation" src="img/46d40698f3f87086.png"></li>
 <li>Select the copy icon to copy the code snippet to your clipboard.</li>
 </ol>
 <p>You can now paste this code into your own applications or bots.</p>
