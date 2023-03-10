@@ -1,0 +1,163 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Google OAuth in Postman</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="google-oauth-in-postman"
+                  title="Google OAuth in Postman"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>Authentication and authorization are fundamental parts of working with APIs, and while there are different standards that define how both are done, the most popular and widely used standard for authorization is the <a href="https://www.rfc-editor.org/rfc/rfc6749" target="_blank">Open Authorization 2.0 standard</a>, referred to as OAuth 2.0 for short.</p>
+<p>Large scale and enterprise organizations use OAuth 2.0 as a standard way of authorizing access to their users data, and it has grown over the years to become an industry standard.</p>
+<p>The Postman API client lets you work with different types of API authorization methods, including OAuth 2.0. It makes the process of generating an authorization code and exchanging this code for an access token easy, and even provides you with an option that automatically refreshes your authorization tokens when they expire, given that a refresh token was returned from the authorization server.</p>
+<p>Millions of people across the globe use OAuth to authorize third party access to their data. In this tutorial, you will learn how you can use Postman to Authorize a Google API, and how this can be used in your API development and testing workflow.</p>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Familiarity with OAuth concepts</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>How to create and set up a new project on GCP</li>
+<li>How to Authorize Google APIs using OAuth 2.0 on Postman</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Need</h2>
+<ul>
+<li>A <a href="https://console.cloud.google.com/" target="_blank">GCP account</a></li>
+<li>The collection built in this tutorial can be accessed by clicking the button below.</li>
+</ul>
+<p><a href="https://god.gw.postman.com/run-collection/20781379-ed5f3dfd-2aba-45a2-91ed-02e4e4f0dc2a?action=collection%2Ffork&collection-url=entityId%3D20781379-ed5f3dfd-2aba-45a2-91ed-02e4e4f0dc2a%26entityType%3Dcollection%26workspaceId%3Daa5fb3b8-0090-4b5e-b3b4-fa5c1f2d080d" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create and set up a new Project" duration="2">
+        <p>Navigate to <a href="https://console.cloud.google.com" target="_blank">console.cloud.google.com</a> and select the drop down at the top navigation menu. Click on the &#34;New project&#34; button.</p>
+<p class="image-container"><img alt="New project" src="img/87c98c30f51e25da.png"></p>
+<p>Give your project a name, select a location and an organization.</p>
+<p class="image-container"><img alt="Project Details" src="img/b7c40efc52597305.png"></p>
+<p>The notification modal will pop up. Click the &#34;Select Project&#34; button for the newly created project.</p>
+<p class="image-container"><img alt="Select Project" src="img/6343405dc53f19ae.png"></p>
+<p>Next, in the side navigation menu, hover on APIs and Services and select Library.</p>
+<p class="image-container"><img alt="Services Library" src="img/407375ada93fe221.png"></p>
+<p>Search for &#34;Google Sheets API&#34; and enable it. While you can make use of any other API and still have the same flow documented in this blog post, the Google sheets API will be used for our Authorization example.</p>
+<p class="image-container"><img alt="Enable Sheets" src="img/5bd153ebf0694601.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Get your credentials" duration="3">
+        <p>When you&#39;re done enabling the API you intend to work with, click the Create Credentials button at the top right of the API dashboard.</p>
+<p class="image-container"><img alt="Create Credentials" src="img/f783e5f1d1307960.png"></p>
+<p>Under the <strong>Credentials Type</strong> section, the Google sheets API should be auto-selected, but you can change this to any other API you intend to work with. Select <strong>user data</strong> as the data you want to access and click next.</p>
+<p class="image-container"><img alt="Credentia&amp;rsquo;s Type" src="img/20a2d326451657ff.png"></p>
+<p>Give your app a name, select a support email address, and upload a logo for your app if you have one. Save and continue.</p>
+<p>Click the <strong>Add or remove scopes</strong> button, and search for &#34;sheets.&#34; Select the read-only option and click the update button.</p>
+<p class="image-container"><img alt="Scopes" src="img/479ae0bef3134935.png"></p>
+<p>Click <strong>Save and continue</strong>. In the OAuth Client ID, select <strong>Web Application</strong>  as your application type and give the client a name.</p>
+<p class="image-container"><img alt="Oauth Client ID" src="img/f2717bb6c93ba461.png"></p>
+<p>In the <strong>Authorized redirect URIs</strong>, click the <strong>Add URI</strong> button. The URI you add will depend on what Postman environment you&#39;re testing from. If you&#39;re testing from Postman&#39;s web application, add the redirect URI https://oauth.pstmn.io/v1/browser-callback.</p>
+<p>If you&#39;re testing from the Postman Desktop, add the URI https://oauth.pstmn.io/v1/callback. If you switch between the web and desktop application during your development workflow, you should add both URIs as redirect URI.</p>
+<p class="image-container"><img alt="Authorized redirect URIs" src="img/6858db8f2f9645a1.png"></p>
+<p>Copy your client ID and ensure that you click the download button to download all your credentials.</p>
+<p class="image-container"><img alt="Download Your Credentials" src="img/4c46d37869516ac2.png"></p>
+<p>When your credentials have been successfully downloaded, navigate to the credentials tab and click on the name of the newly added credential.</p>
+<p class="image-container"><img alt="Sheets API Credentials" src="img/dcf99fe2ebbdd032.png"></p>
+<p>You will see your client credentials(client ID and client secret) on the right-hand side of your dashboard.</p>
+<p class="image-container"><img alt="Credentials" src="img/62fe132371537197.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Authorize with Postman" duration="5">
+        <p>Now that you have your client ID and client secret, you can use Postman in your automated API testing or API development workflow to authorize Google APIs.</p>
+<p>Once you have your collection created in Postman and you&#39;ve created a new request, navigate to https://sheets.new. This will automatically create a new Google sheet on your Google account. Populate this sheet with random data and give it a random name.</p>
+<p>In your URL navigation bar, you can get the ID of this spreadsheet. The ID is often after the <strong>spreadsheets/d/</strong> as shown in the screenshot below. Copy this ID to your clipboard.</p>
+<p class="image-container"><img alt="Test Spreadsheet" src="img/7afd94faf51eec76.png"></p>
+<p>In your Postman app, add the URL <strong>https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}</strong> in the request URL tab and include the sheet&#39;s ID as a path variable in the URL. This will fetch the data of that Google sheet in JSON.</p>
+<p class="image-container"><img alt="Get Spreadsheets" src="img/61dffbe1ec680dc7.png"></p>
+<p>If you hit send on this request, you will get a 401 UNAUTHENTICATED error response. This is because we&#39;ve not provided the right authentication credentials to make this request. Postman is a third-party application (client) trying to fetch google sheets data from your Google account (resource server). As the resource owner, you need to first authorize Postman and grant it the necessary scopes needed to fetch this data.</p>
+<p>To do this, navigate to the Authorization tab in your Postman account and select OAuth 2.0 as your authorization type.</p>
+<p class="image-container"><img alt="Select Authorization" src="img/94343099079df223.png"></p>
+<p>Scroll down to the &#34;configure new token&#34; section and fill in the following details.</p>
+<ul>
+<li><strong>Grant Type</strong>: Select &#34;Authorization Code&#34;. This lets Postman know that the resources server will be providing it with an authorization code that it will use to get an access token.</li>
+<li><strong>Callback URL</strong>: This is the redirect URL you specified in your Google Cloud Console. It is automatically set for you and will vary depending on if you&#39;re on the Postman Desktop or web client.</li>
+<li><strong>Auth URL</strong>: This is the authorization server endpoint. It presents the user with a UI interface to authorize the client (so far, the user is logged in). The requested scopes are displayed, and the user can choose to accept/decline access to their data. When the user accepts, it navigates to the callback URL with an authorization code included as a query parameter. This callback URL navigates back to Postman, Postman will then use the authorization code to fetch the access token from the resource server. Set this field to https://accounts.google.com/o/oauth2/v2/auth</li>
+<li><strong>Access Token URL</strong>: This is the interface exposed by the resource server for exchanging an authorization code with an access token. Set this field to https://oauth2.googleapis.com/token</li>
+<li><strong>Client ID</strong>: This is the Client ID generated in your Google Cloud Console Credential. Store this ID in a variable to keep sensitive data secure.</li>
+<li><strong>Client Secret</strong>: This is the Client Secret generated in your Google Cloud Console Credential. Store the secret in a variable to keep sensitive data secure.</li>
+<li><strong>Scope</strong>: These are the scopes you want to request access to from the client/user. Multiple scopes are separated by a space. Set this field to https://spreadsheets.google.com/feeds/</li>
+</ul>
+<p>Once all the data has been provided to the respective fields, click the <strong>Gen New Access Token</strong> button.</p>
+<p class="image-container"><img alt="Get New Access Token" src="img/16d0c49857acd985.png"></p>
+<p>When you click the button, Postman automatically opens up a new tab on your web browser.</p>
+<p class="image-container"><img alt="Authorizing via browser" src="img/4859293003beea4.png"></p>
+<p>Google prompts you to select an account to authenticate with or sign in to another account that you will love to use.</p>
+<p class="image-container"><img alt="Choose an Account" src="img/c359806b477a4a5e.png"></p>
+<p>After you select an account to authenticate with, Google displays the scopes requested to you in plain user-friendly text and prompts you to either allow this request or cancel it.</p>
+<p class="image-container"><img alt="Allow Auth" src="img/1b8422d4d3b3a6b.png"></p>
+<p>Selecting allow will generate an authorization code and redirect you back to the callback URL with the authorization code included in the callback URL.</p>
+<p>The callback URL will prompt you to navigate back to Postman to complete the authorization process or cancel. You will see a successful modal once you accept this prompt and will be navigated back to Postman.</p>
+<p class="image-container"><img alt="Open Postman Prompt" src="img/602d3bd2d478ff7c.png"></p>
+<p class="image-container"><img alt="Open Postman Prompt" src="img/1cb35ca97a416910.png"></p>
+<p>In your Postman client, you will see a modal pop-up that looks as shown below. This modal will include your newly generated access token and other relevant metadata. This access token was generated by providing your authorization code to your resource server, which in return gives you an access token. Click on the <strong>Use Token</strong> button to make use of this token. This will automatically include it in the <strong>Token</strong> field. Any token specified in the Token field will automatically be included in your request headers and will hence, authenticate you to make the necessary requests.</p>
+<p class="image-container"><img alt="New OAuth Token" src="img/20239bb0abc8ee3c.png"></p>
+<p>If you rerun the same request in Postman by clicking the Send button, you will notice that it now returns the sheet&#39;s data in JSON, indicating that you are now authorized to request this resource.</p>
+<p class="image-container"><img alt="Get Spreadsheet" src="img/5552a1cc041f8a4d.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Managing Tokens" duration="1">
+        <p>You can generate new tokens after expiration using the same process above, but you won&#39;t have to go through the entire process again. If you have a token added, you can manage all your tokens.</p>
+<p>In the Authorization tab, click on the token list option and select manage tokens.</p>
+<p class="image-container"><img alt="Manage Tokens" src="img/a8bb4e5314137ead.png"></p>
+<p>Here, you can see a list of added tokens alongside their validity. You can choose to delete tokens you no longer need.</p>
+<p class="image-container"><img alt="Manage Access Tokens" src="img/b77622588383c2d1.png"></p>
+<p>Check out this collection by clicking the button below.</p>
+<p><a href="https://god.gw.postman.com/run-collection/20781379-ed5f3dfd-2aba-45a2-91ed-02e4e4f0dc2a?action=collection%2Ffork&collection-url=entityId%3D20781379-ed5f3dfd-2aba-45a2-91ed-02e4e4f0dc2a%26entityType%3Dcollection%26workspaceId%3Daa5fb3b8-0090-4b5e-b3b4-fa5c1f2d080d" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Revoking Access" duration="1">
+        <p>Google allows you to manage all third-party applications you&#39;ve connected to on your Google account. You can revoke authorization access you&#39;ve granted to any third-party application. Navigating to https://myaccount.google.com/permissions gives you a list of all connected third-party applications with access to your account. You can click on any of the third-party applications to remove access. In our case, the application to look out for will be Postman x Google.</p>
+<p class="image-container"><img alt="Revoke Access" src="img/30cb76106a7025b0.png"></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>
