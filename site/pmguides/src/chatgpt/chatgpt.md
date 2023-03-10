@@ -78,22 +78,25 @@ To change the way Postman configures the authorization, you can update the setti
 
 Duration: 2
 
-This example uses the [Completions API](https://platform.openai.com/docs/api-reference/completions) and the `text-davinci-003` artificial intelligence model to to perform a query similar to what you can do on [the ChatGPT website](https://chat.openai.com/).
+This example uses the [Chat API](https://platform.openai.com/docs/api-reference/chat) and the `gpt-3.5-turbo` artificial intelligence model to perform a single-turn query or turn-based chat, similar to what you can do on [the ChatGPT website](https://chat.openai.com/).
 
-Negative
-: You can also use the [Chat API](https://platform.openai.com/docs/api-reference/chat) and the `gpt-3.5-turbo` artificial intelligence model to perform a single-turn or turn-based chat. Learn about the difference between [chat and completions](https://platform.openai.com/docs/guides/chat/chat-vs-completions)
+> aside negative
+> You can also use the [Completions API](https://platform.openai.com/docs/api-reference/completions) and the older `text-davinci-003` artificial intelligence model to perform a single-turn query. Learn about the difference between [chat and completions](https://platform.openai.com/docs/guides/chat/chat-vs-completions)
 
 To create a query:
 
 1. In your Postman workspace, navigate to your fork of the OpenAI collection.
-1. Select `Completions` > `Create completion`. Under the **Body** tab, add a request body formatted like the following example:
+1. Select `Chat` > `Creates a completion for the chat message`. Under the **Body** tab, add a request body formatted like the following example:
 
    ```json
    {
-     "model": "text-davinci-003",
-     "prompt": "What is OpenAPI?",
-     "max_tokens": 60,
-     "temperature": 0.5
+     "model": "gpt-3.5-turbo",
+     "messages": [
+       {
+         "role": "user",
+         "content": "What is OpenAPI?"
+       }
+     ]
    }
    ```
 
@@ -101,23 +104,25 @@ To create a query:
 
    ```json
    {
-     "id": "cmpl-6rYA5kupLv09lmy5eNPkV43hCAr7u",
-     "object": "text_completion",
-     "created": 1678220721,
-     "model": "text-davinci-003",
+     "id": "chatcmpl-6sf37lXn5paUcuf8UaurpMIKRMsTe",
+     "object": "chat.completion",
+     "created": 1678485525,
+     "model": "gpt-3.5-turbo-0301",
+     "usage": {
+       "prompt_tokens": 12,
+       "completion_tokens": 99,
+       "total_tokens": 111
+     },
      "choices": [
        {
-         "text": "\n\nOpenAPI is a standardized, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without any prior knowledge of how the service works. It uses a language-agnostic interface definition to describe the capabilities of an API, which",
-         "index": 0,
-         "logprobs": null,
-         "finish_reason": "length"
+         "message": {
+           "role": "assistant",
+           "content": "\n\nOpenAPI (formerly called Swagger) is a specification for building APIs (Application Programming Interfaces). It describes the operations and parameters that an API can accept, as well as the data structures that are returned from API calls. The specification supports both JSON and YAML formats and provides a standard format for describing RESTful APIs. By using OpenAPI, developers can describe their APIs in a consistent, machine-readable format that can be easily consumed by API documentation tools, code generators, and other programming tools."
+         },
+         "finish_reason": "stop",
+         "index": 0
        }
-     ],
-     "usage": {
-       "prompt_tokens": 5,
-       "completion_tokens": 60,
-       "total_tokens": 65
-     }
+     ]
    }
    ```
 
@@ -125,8 +130,8 @@ Upon a successful `200 OK` response, you can inspect the response body, includin
 
 ![successful API request](assets/success.png)
 
-Negative
-: Be careful hitting **Send** too many times, since you might reach [OpenAI rate limits](https://platform.openai.com/docs/guides/rate-limits) if you're on a free account.
+> aside negative
+> Be careful hitting **Send** too many times, since you might reach [OpenAI rate limits](https://platform.openai.com/docs/guides/rate-limits) if you're on a free account.
 
 <!-- ------------------------ -->
 
