@@ -97,7 +97,7 @@ Public workspaces are a valuable tool to assist in making polished presentations
 
 [Public Portfolio](https://www.postman.com/devrel/workspace/f3bda588-0f0b-4519-b57d-9c4f8655bf41/overview): Kevin organizes his contributions to the community such as videos, blogs, streams and other workspaces or collections as well as important links in a “master” workspace.
 
-[Content](https://www.postman.com/odevodyssey/workspace/dev-odyssey-s-public-workspace/overview): Supernova Orest Danylewycz uses his public workspace to show how use Postman in unique and interesting ways.
+[Content](https://www.postman.com/odevodyssey/workspace/dev-odyssey-s-public-workspace/overview): Supernova Orest Danylewycz uses his public workspace to show how to use Postman in unique and interesting ways.
 
 [Postman Tips & Tricks](https://www.postman.com/praveendvd-public/workspace/postman-tricks-and-tips/overview): Supernova Praveen Mathew documents his answers when he helps others on the Postman Community form and Stack Overflow.
 
