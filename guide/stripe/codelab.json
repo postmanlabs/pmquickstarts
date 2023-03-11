@@ -4,11 +4,11 @@
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
   "updated": "2023-03-10T16:35:25-08:00",
-  "id": "chatgpt",
-  "duration": 9,
-  "title": "Get Started with the ChatGPT API",
-  "summary": "Make your first OpenAI API call",
-  "source": "chatgpt/chatgpt.md",
+  "id": "stripe",
+  "duration": 7,
+  "title": "Get Started with the Stripe API",
+  "summary": "Get started with the Stripe API",
+  "source": "stripe/stripe.md",
   "theme": "",
   "status": [
     "published"
@@ -22,5 +22,5 @@
     "web"
   ],
   "feedback": "https://github.com/loopDelicious/pmquickstarts",
-  "url": "chatgpt"
+  "url": "stripe"
 }
