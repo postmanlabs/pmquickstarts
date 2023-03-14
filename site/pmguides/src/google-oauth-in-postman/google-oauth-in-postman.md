@@ -34,6 +34,8 @@ Millions of people across the globe use OAuth to authorize third party access to
 
 [![Run in Postman](_shared_assets/button.svg)](https://god.gw.postman.com/run-collection/20781379-ed5f3dfd-2aba-45a2-91ed-02e4e4f0dc2a?action=collection%2Ffork&collection-url=entityId%3D20781379-ed5f3dfd-2aba-45a2-91ed-02e4e4f0dc2a%26entityType%3Dcollection%26workspaceId%3Daa5fb3b8-0090-4b5e-b3b4-fa5c1f2d080d)
 
+- If you're interested in understanding how OAuth 2.0 works, [this article](https://blog.postman.com/how-to-access-google-apis-using-oauth-in-postman/) breaks down OAuth 2.0, it's concepts, and terminologies.
+
 
 <!-- ------------------------ -->
 ## Create and set up a new Project
