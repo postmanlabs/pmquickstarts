@@ -1,11 +1,11 @@
 author: Joyce
 id: postman_flows_tutorials
-summary: This is a sample Postman Guide
+summary: Get started with different types of Postman Flows
 categories: Getting-Started
 environments: web
 status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts
-tags: Getting Started, Developer, Tester, Automation
+tags: Getting Started
 
 # Postman Flows Tutorials
 
@@ -17,6 +17,8 @@ Duration: 1
 
 > aside negative
 > These tutorials were originally published [here](https://learning.postman.com/docs/postman-flows/tutorials/building-your-first-flow/).
+
+[Postman Flows](https://learning.postman.com/docs/postman-flows/gs/flows-overview/) is a visual tool for creating API workflows. You can use flows to chain requests, handle data, and create real-world workflows in your Postman workspace.
 
 ### Prerequisites
 
@@ -488,7 +490,7 @@ In the **Runs** section, select **View** to observe the flow running in the clou
 
 Duration: 1
 
-If you want to learn more about Postman Flows, review the [official documentation](https://learning.postman.com/docs/postman-flows/tutorials/building-your-first-flow/) for more details.
+If you want to learn more about Postman Flows, review the [official documentation]([https://learning.postman.com/docs/postman-flows/tutorials/building-your-first-flow/](https://learning.postman.com/docs/postman-flows/gs/flows-overview/)) for more details.
 
 - Examples of flows: [Brewing Postman Flows workspace](https://www.postman.com/postman/workspace/brewing-postman-flows/overview)
 - Reference for blocks and data types: [Postman Flows reference docs](https://learning.postman.com/docs/postman-flows/reference/blocks-list/)
