@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
+  "updated": "2023-03-14T12:24:36-07:00",
+  "id": "postman_flows_tutorials",
+  "duration": 23,
+  "title": "Postman Flows Tutorials",
+  "summary": "Get started with different types of Postman Flows",
+  "source": "postman_flows_tutorials/postman_flows_tutorials.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "getting-started"
+  ],
+  "tags": [
+    "gettingstarted",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "postman_flows_tutorials"
+}
