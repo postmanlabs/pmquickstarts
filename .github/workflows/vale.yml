@@ -1,4 +1,5 @@
 name: vale-linting
+on: [pull_request]
 
 jobs:
   vale:
