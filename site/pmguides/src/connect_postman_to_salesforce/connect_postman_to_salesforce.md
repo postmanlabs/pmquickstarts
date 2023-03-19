@@ -15,8 +15,8 @@ tags: Getting Started, Developer
 
 Duration: 1
 
-Negative
-: This course was originally created by [Salesforce](https://trailhead.salesforce.com/content/learn/projects/quick-start-connect-postman-to-salesforce) and has been modified to suit the Quickstart format. Complete this lesson in Trailhead to collect your Salesforce learning badge.
+> aside negative
+> This course was originally created by [Salesforce](https://trailhead.salesforce.com/content/learn/projects/quick-start-connect-postman-to-salesforce) and has been modified to suit the Quickstart format. Complete this lesson in Trailhead to collect your Salesforce learning badge.
 
 ### Prerequisites
 
@@ -68,8 +68,8 @@ The Salesforce Platform APIs for Postman collection is a resource that wraps tog
 
 For this project, you need to create a new Trailhead Playground. Scroll to the bottom of this page, click the playground name, then click **Create Playground**. It typically takes 3–4 minutes to create a new Trailhead Playground.
 
-Negative
-: Note: Yes, we really mean a brand-new Trailhead playground! If you use an existing org or playground, you can run into problems completing the project.
+> aside negative
+> Note: Yes, we really mean a brand-new Trailhead playground! If you use an existing org or playground, you can run into problems completing the project.
 
 ### Get Your Trailhead Playground Username and Password
 
@@ -134,8 +134,8 @@ You need to authenticate with Salesforce to access the APIs. Authentication gran
 1. The Authorization tab should be open.
 1. Type should be OAuth 2.0.
 1. Click **Get New Access Token**.
-   Negative
-   : Note - If you're not logged in to a Trailhead Playground or Salesforce org, a browser tab opens with the Salesforce login screen. Enter the username and password you saved in the previous step to log in.
+   > aside negative
+   > Note - If you're not logged in to a Trailhead Playground or Salesforce org, a browser tab opens with the Salesforce login screen. Enter the username and password you saved in the previous step to log in.
 1. Click **Allow** to let the “Salesforce Platform APIs Collection for Postman” access your Trailhead Playground
    <img src="assets/allow_access.webp" alt="allow access" width="200"/>
 1. A success message appears briefly, and then you're redirected to the Manage Access Tokens dialog.
@@ -157,9 +157,9 @@ Let's verify that the connection is working.
 1. Click **Send**.
    ![send request](assets/200OK.webp)
 1. Verify that the status is 200 OK.
-   Negative
-   : You may need to turn **Follow Authorization** header configuration ON to retain authorization header when a redirect happens to a different hostname.
-   ![follow authorization header](assets/follow_auth.webp)
+   > aside negative
+   > You may need to turn **Follow Authorization** header configuration ON to retain authorization header when a redirect happens to a different hostname.
+   > ![follow authorization header](assets/follow_auth.webp)
 
 You've successfully authenticated with Salesforce. Now you can use other requests in the collection.
 
@@ -186,8 +186,8 @@ You just pulled some data from the org. Let's try adding some new data to the or
    ![returns id](assets/returns_id.webp)
 1. Verify that the status is 201 Created.
 
-Negative
-: Note: If you don't get the status 201 Created then you might be signed into a different org. Verify that your instance_url is set to your Trailhead Playground.
+> aside negative
+> Note: If you don't get the status 201 Created then you might be signed into a different org. Verify that your instance_url is set to your Trailhead Playground.
 
 Excellent! You've set up Postman to interact with your org. The Salesforce APIs for Postman collection that you loaded will aid you in your quest to discover the Salesforce APIs.
 

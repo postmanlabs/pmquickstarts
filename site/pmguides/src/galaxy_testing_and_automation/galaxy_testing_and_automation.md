@@ -15,8 +15,8 @@ tags: Getting-Started, Developer, Tester, Automation, Badge
 
 Duration: 1
 
-Negative
-: This course was originally created by [Sue Smith](https://github.com/SueSmith) and has been modified to suit the Quickstart format.
+> aside negative
+> This course was originally created by [Sue Smith](https://github.com/SueSmith) and has been modified to suit the Quickstart format.
 
 This is an introduction to testing and automation in Postman. Complete this entire course to claim a badge to display on your social media profiles.
 
@@ -52,8 +52,8 @@ FORK the following collection to create a copy in your own workspace.
 
 [![Run in Postman](assets/button.svg)](https://god.gw.postman.com/run-collection/9065401-7450715a-4607-4648-9fe9-9f0a481072c5?action=collection%2Ffork&collection-url=entityId%3D9065401-7450715a-4607-4648-9fe9-9f0a481072c5%26entityType%3Dcollection%26workspaceId%3D13009b3b-31e2-4048-b3c5-de29cf9a0270)
 
-Negative
-: Once you fork the collection to your own workspace, you can complete the rest of the course solely in Postman. The collection contains this documentation as well as other details in the code comments. Or you can optionally refer to this quickstart throughout the remainder of this lesson as you continue working in Postman.
+> aside negative
+> Once you fork the collection to your own workspace, you can complete the rest of the course solely in Postman. The collection contains this documentation as well as other details in the code comments. Or you can optionally refer to this quickstart throughout the remainder of this lesson as you continue working in Postman.
 
 The collection will walk you through writing scripts to test your response data in Postman, passing data between requests using variables, validating responses against schema, as well as automating your testing using dynamic faker data and the collection runner, defining control flow, and running collections on the command line with Newman.
 
@@ -79,13 +79,13 @@ Open the first request, check out the docs on the right, and **Send**! The first
 
 Open the **Tests** for this request. We are primarily going to be working in this tab for each request. The **Tests** script is where you write JavaScript to execute _when your request response is received_.
 
-Negative
-: ✏️ When you have the docs view open Postman will condense the UI for the request builder in the center, so you may need to use the drop-down lists to select **Tests** and **Test Results** in the request and response areas.
+> aside negative
+> ✏️ When you have the docs view open Postman will condense the UI for the request builder in the center, so you may need to use the drop-down lists to select **Tests** and **Test Results** in the request and response areas.
 
 You can also write **Pre-request Scripts** to execute before a request is sent, and can add scripts to collections and folders–these will execute for every request contained inside.
 
-Negative
-: ✏️ Notice that the address for this request starts with a base URL which is stored in a variable that you imported as part of the collection. Hover over the var (surrounded by curly braces) in the address to see the value. We set this mock server up in advance–you can create your own mocks and they will return whatever you have defined in the **examples** for a request.
+> aside negative
+> ✏️ Notice that the address for this request starts with a base URL which is stored in a variable that you imported as part of the collection. Hover over the var (surrounded by curly braces) in the address to see the value. We set this mock server up in advance–you can create your own mocks and they will return whatever you have defined in the **examples** for a request.
 
 ### Step 1: Parse the response JSON
 
@@ -143,8 +143,8 @@ pm.test("orderReference exists", () => {
 
 **Send** and check out the **Test Results**.
 
-Negative
-: ✏️ Try changing `string` to `number` to see the test fail.
+> aside negative
+> ✏️ Try changing `string` to `number` to see the test fail.
 
 **Save** this request, then open the next request `Get product code`, open its docs to the right, and **Send** it.
 
@@ -190,8 +190,8 @@ results": [
 ]
 ```
 
-Negative
-: ✏️ The request accepts a query parameter indicating the product name–you can experiment by checking and unchecking it to see the difference in what it returns.
+> aside negative
+> ✏️ The request accepts a query parameter indicating the product name–you can experiment by checking and unchecking it to see the difference in what it returns.
 
 ### Step 1: Get the array
 
@@ -212,8 +212,8 @@ const redPhone = phones.filter((phone) => phone.color === "red")[0];
 
 ### ✅ Assignment 1
 
-Negative
-: Throughout the session you will encounter assignments to complete independently, and so these will not include full instructions–if you need help pop a question in the Q&A or use the Postman forum if the session has ended.
+> aside negative
+> Throughout the session you will encounter assignments to complete independently, and so these will not include full instructions–if you need help pop a question in the Q&A or use the Postman forum if the session has ended.
 
 Save the `sku` property of the first red iPhone you can find to a global Postman variable.
 
@@ -339,8 +339,8 @@ The request returns JSON with the following structure:
 
 We're going to specify a schema to validate the response JSON against. The schema will be defined as a JSON object inside the script, and will match the response structure above–we will write a script to check that the response has the same structure and properties.
 
-Negative
-: ✏️ You can also validate your responses against an API specification, for example, defined as an OpenAPI spec in **APIs** on the left of Postman.
+> aside negative
+> ✏️ You can also validate your responses against an API specification, for example, defined as an OpenAPI spec in **APIs** on the left of Postman.
 
 ✅ Remember that one of your assignments in the previous request was to save the order variable from the response–**now alter the value you're sending to the path parameter here to use the variable instead of the hard-coded value**.
 
@@ -466,8 +466,8 @@ You can generate a public link to share JSON representing your collection. **Fir
    request (you can save it as a variable using this name or just paste it straight into the address).
 5. Check out the **Test Results** to see if your collection is complete!
 
-Negative
-: Note that if you change your collection, you need to go back through the **Share** flow and update the link.
+> aside negative
+> Note that if you change your collection, you need to go back through the **Share** flow and update the link.
 
 ### Submitting your collection
 
