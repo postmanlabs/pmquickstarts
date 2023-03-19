@@ -14,92 +14,79 @@ Duration: 1
 
 PHP is the programming language behind major web applications like WordPress (blog), Drupal ([CMS](https://en.wikipedia.org/wiki/Content_management_system)), and Magento (e-commerce). It first appeared in 1995, less than 3 weeks after the Java programming language.
 
-It remains one of the top 10 programming languages in the world according to many lists and is the "P" in the famous LAMP stack (Linux, Apache, MySQL, and PHP).
+It remains one of the top 10 programming languages in the world, according to many lists, and is the "P" in the famous LAMP stack (Linux, Apache, MySQL, and PHP).
 
-In this tutorial, let's create a simple REST API, supporting a POST and a GET HTTP request. We'll set a value with the POST and retrieve it with the GET. 
+In this tutorial, let's create a simple API using one of PHP's most popular frameworks, [Laravel](https://laravel.com/), and then access it with Postman. 
 
 ### Prerequisites
 - PHP
 - Composer for PHP
 
 ### What You’ll Learn 
-- How to create a PHP-based API server with the Laravel framework.
-- How to create POST and GET API endpoints for it. 
+- How to create a simple PHP-based API with the [Laravel](https://laravel.com/) framework.
+- How to create GET and POST API endpoints for it. 
 - How to send requests to those endpoints with Postman. 
 
 ### What You’ll Need 
+- [Git](https://git-scm.com/downloads) Installed (Required) 
 - [PHP](https://www.php.net/manual/en/install.php) Installed (Required)
 - [Composer](https://getcomposer.org/download/) Installed (Required)
+- [Homebrew](https://brew.sh/) Installed (**only for Mac**)
 - [VSCode](https://code.visualstudio.com/download) Installed (Optional)
   - Or a code editor of your choice
 
-**You will not need Apache or Nginx for this guide as we'll use PHP's built in serving function to serve the API locally.**
+**You will not need Apache or Nginx for this guide as we'll use PHP's built-in serving functions.**
 
 ### What You’ll Build 
 - A simple API with PHP and Laravel
 
+Let's get started in the next step.
+
 <!-- ------------------------ -->
 ## Installing The Prerequisites
-Duration: 5
+Duration: 10
 
 ### Installing PHP
 
-Installing PHP can seem complicated. The first step is to check if you have it installed. Open a terminal and type the following.
-
-```bash
-$ php -v
-```
-
-If you already have it, you'll get a message like:
-```bash
-PHP 8.2.3 (cli) (built: Feb 15 2023 00:18:01) (NTS)
-Copyright (c) The PHP Group
-Zend Engine v4.2.3, Copyright (c) Zend Technologies
-    with Zend OPcache v8.2.3, Copyright (c), by Zend Technologies
-```
-
-If you know you have it installed, and this doesn't work, make sure its installation directory is in your path.
-
-If you don't have it, try one of these options.
+The methods below install PHP with all the module dependencies for running Laravel locally. If you have already installed PHP locally, ensure you have the modules in the [Laravel server requirements](https://laravel.com/docs/7.x#server-requirements) installed and enabled.
 
 #### MacOS
 
-1. PHP is most easily installed with [Homebrew](https://brew.sh): 
+PHP is most easily installed with [Homebrew](https://brew.sh).  
 ```bash
 brew install php
 ```
 
-When Homebrew finishes the installation, it will put PHP in your path. 
-
-Confirm PHP is installed with `php -v` in the command prompt.
+After installation, confirm PHP is installed with `php -v` in the terminal.
 
 #### Windows 
 
-1. Download and install [the Microsoft Visual C++ redistributable (2015-2022)](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) for your architecture. Almost all recent Intel and AMD CPUs will need the x64 version while Windows on ARM runs on ARM devices (some Windows laptops or running virtualized on Apple Silicon).
+The basic installation of PHP on Windows from the installer provided by [the PHP project](https://php.org) lacks module dependencies Laravel requires.
 
-2. Download PHP. The [PHP Windows downloads](https://windows.php.net/download) page has a lot of options. On most Windows 10 or 11 machines, downloading the **VS16 x64 Non Thread Safe** version will work well. Select the **Zip** download. 
+The PHP 8.2 version of [XAMPP](https://www.apachefriends.org/download.html) installs a version of PHP with the necessary dependencies. It will also install the Apache web server, MYSQL, and other software you don't necessarily need, but it isolates all of it in a unique directory so they're easy to remove.
 
-3. Unzip the downloaded file to the folder of your choice. 
+1. [Download XAMPP](https://www.apachefriends.org/download.html) for your architecture. The version with PHP 8.2 (or later) is recommended.
+2. Install it. It will warn against installing it to your regular program files location. That's fine. When it suggests `C:\xampp` as an installation directory, accept it.
+3. Accept the default set of items being installed or deselect options you don't need (like Filezilla and Tomcat).
+4. When it's complete, open a terminal/command window and issue the command: `setx PATH "%PATH%;C:\xampp\php"`. This adds your PHP executable to your path and makes it easy to call from the command line.
+5. Close the terminal/command window and open a new one to start a session with the updated path information. 
+6. Test your installation with `php -v` and you should get some information on the version of PHP you installed.
 
-4. Copy the path to the folder (like `C:users\youraccount\downloads\php`).
-
-5. In a command prompt type `setx PATH "%PATH%;[yourpath]"`, replacing **[yourpath]** with the path to the folder.
-
-6. Close the command prompt and open a new one which will now have the new directory in your path.
-
-Confirm PHP is installed with `php -v` in the command prompt.
+This was tested and worked with Windows 11 on both X86-64 and ARM architectures in March 2023.
 
 #### Linux
 
-1. Let's use Ubuntu as an example. If you're running another Linux distribution (Fedora, Arch, etc.), please look up instructions for installing PHP with your distribution's package manager.
+Using the default installation of PHP may create dependency issues when you try to start a Laravel project. We suggest the following:
 
+1. [Download XAMPP](https://www.apachefriends.org/download.html) for your Linux distribution and Intel/AMD architecture. At the time of writing, XAMPP doesn't support Linux on ARM.
+2. Follow the directions to install it for your Linux distribution.
+3. By default on Ubuntu, it will install to the `/opt/lampp/` folder. Open the `~/.bashrc` file in your favorite text editor, add the following line to the end of the file, and save:
 ```bash
-sudo apt install -y php
+EXPORT PATH="/opt/lampp/bin:$PATH"
 ```
+4. Open a new terminal for a session using the updated `.bashrc`. In that terminal try `php -v` to ensure it is installed and is in your path.
 
-At the time of this writing, that will install PHP 8.1. Anything over 7.4 will work for this tutorial.
-
-Confirm PHP is installed with `php -v` in the terminal.
+This was tested and worked with Ubuntu 22.04 LTS in March 2023. 
 
 ### Installing Composer
 
@@ -112,17 +99,17 @@ The [Composer download and installation instructions](https://getcomposer.org/do
 brew install composer
 ```
 
-If you don't have Homebrew, use the Linux instructions below.
+If you don't have Homebrew, get it or use the Linux instructions below.
 
 #### Windows
 
-Use the installer, per the [Composer installation instructions for Windows](https://getcomposer.org/doc/00-intro.md#installation-windows).
+Use the [Composer installer for Windows](https://getcomposer.org/doc/00-intro.md#installation-windows). This will automatically put Composer in your path as well, so it will be accessible from the command line.
 
 #### Linux
 
-Use the [Composer installation instructions for Linux/Unix](https://getcomposer.org/download/).
+Use the [Composer installation instructions for Linux/Unix](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos).
 
-Additionally follow the step to move the installed copy into a directory that's already in your path so it's easy to call from the terminal.
+**IMPORTANT** follow the step on that page to move the installed copy into a directory that's already in your path so it's easy to call from the terminal.
 
 ### Verifying Composer
 
@@ -132,152 +119,125 @@ Open a new terminal or command prompt and type `composer -h`.
 
 If you get an error or nothing, check your installation.
 
+Once this is complete, let's scaffold a Laravel project.
+
 <!-- ------------------------ -->
 ## Starting A Laravel Project
-Duration: 5
-
-
-
-
-<!-- ------------------------ -->
-## Metadata Configuration
-Duration: 2
-
-It is important to set the correct metadata for your Postman Guide. The metadata contains all the information required for listing and publishing your guide and includes the following:
-
-
-- **summary**: This is a sample Postman Guide 
-  - This should be a short, 1 sentence description of your guide. This will be visible on the main landing page. 
-- **id**: sample 
-  - make sure to match the id here with the name of the file, all one word.
-- **categories**: getting-started
-  - You can have multiple categories, but the first one listed is used for the icon.
-- **environments**: web 
-  - `web` is default. If this will be published for a specific event or  conference, include it here.
-- **status**: Published
-  - (`Draft`, `Published`, `Deprecated`, `Hidden`) to indicate the progress and whether the pmguide is ready to be published. `Hidden` implies the pmguide is for restricted use, should be available only by direct URL, and should not appear on the main landing page.
-- **feedback link**: https://github.com/loopDelicious/pmquickstarts
-- **tags**: Getting Started, Data Science, Twitter 
-  - Add relevant  tags to make your pmguide easily found and SEO friendly.
-- **authors**: Joyce Lin
-  - Indicate the author(s) of this specific pmguide.
-
----
-
-You can see the source metadata for this guide you are reading now, on [the github repo](https://raw.githubusercontent.com/loopDelicious/pmquickstarts/master/site/pmguides/src/sample/sample.md).
-
-
-<!-- ------------------------ -->
-## Creating a Step
-Duration: 2
-
-A single Postman Quickstart consists of multiple steps. These steps are defined in Markdown using Header 2 tag `##`. 
-
-```markdown
-## Step 1 Title
 Duration: 3
 
-All the content for the step goes here.
+### Scaffold your Laravel project
 
-## Step 2 Title
-Duration: 1
+Before we can write any code, we need to scaffold a [Laravel](https://laravel.com/) project. Thanks to Composer, this is relatively simple. Open a terminal and navigate to the directory where this project will live. Enter the following command in the terminal:
 
-All the content for the step goes here.
+```bash
+composer create-project laravel/laravel laravel_project
 ```
 
-To indicate how long each step will take, set the `Duration` under the step title (i.e. `##`) to an integer. The integers refer to minutes. If you set `Duration: 4` then a particular step will take 4 minutes to complete. 
+This could take some time. There are tens of megabytes to download and install. 
 
-The total Postman Quickstarts completion time is calculated automatically for you and will be displayed on the landing page. 
+When it's finished, you will have a project folder named `laravel_project`.
+
+### Give it a test
+
+Navigate into the `laravel_project` folder and enter the following command in the terminal:
+
+```bash
+php artisan serve --port=8080
+```
+
+This will launch your project at `http://localhost:8080`. Change the port to something else if you already have a process using the port. When it's running, visit the URL. It will return this homepage.
+
+![Laravel project default homepage](./assets/laravel_initial.png)
+
+Note down in the bottom right, you'll see the Laravel and PHP version numbers. If you're looking for tutorials, finding ones for Laravel and PHP that are as close to those versions as possible will help minimize problems.
+
+Let's move on to adding an API.
 
 <!-- ------------------------ -->
-## Code Snippets, Info Boxes, and Tables
+## Build Your First Endpoint
+Duration: 3
+
+### Create the route
+
+This will create a public API with no authentication. 
+
+Open `routes/api.php` in your Laravel project directory in your editor. Add the following code at the end:
+
+```php
+Route::get('/hello', function () {
+  return "Hello World!";
+});
+```
+
+This adds the `/api/hello` endpoint and returns "Hello World" in plain text to a GET request. 
+
+Note how the endpoint was prefixed with `/api` by Laravel.
+
+Next, let's call this endpoint in Postman.
+
+
+<!-- ------------------------ -->
+## Try Your First Endpoint
+Duration: 3
+
+To test this in Postman, open your personal workspace and start a collection. Name it **Laravel QuickStart** or something else you prefer.
+
+Once it's created, select **Add a request** to get started.
+
+![Create a collection](./assets/lv_pm_quickstart.png)
+
+Set the request **URL** to `localhost:8080/api/hello` and make sure your Postman Desktop Agent app is running on your machine to prevent any CORS issues while testing locally.
+
+Select **Send** and the response section below the request section will show a response of `Hello World!` in plain text with a `200 OK` response code.  
+
+Congratulations. You created your first API endpoint in Laravel and successfully called it with Postman.
+
+Next, let's make a simple POST endpoint for fun.
+
+<!-- ------------------------ -->
+## Add A POST Endpoint
 Duration: 2
 
-Look at the [markdown source for this pmguide](https://raw.githubusercontent.com/loopDelicious/pmquickstarts/master/site/pmguides/src/sample/sample.md) to see how to use markdown to generate code snippets, info boxes, and download buttons. 
+Go back to your `routes/api.php` file and add the following:
 
-### JavaScript
-```javascript
-{ 
-  key1: "string", 
-  key2: integer,
-  key3: "string"
-}
+```php
+Route::post('/reverse-me', function (Request $request) {
+  $reversed = strrev($request->input('reverse_this'));
+  return $reversed;
+});
 ```
 
-### Java
-```java
-for (statement 1; statement 2; statement 3) {
-  // code block to be executed
-}
-```
+This adds a POST route for the endpoint `api/reverse-me`. It will reverse a string you pass in the body of the post with the parameter name `reverse_this`.
 
-### Info Boxes
-Positive
-: This will appear in a positive info box.
-
-
-Negative
-: This will appear in a negative info box.
-
-### Buttons
-<button>
-  [This is a button](https://link.com)
-</button>
-
-[![Run in Postman](_shared_assets/button.svg)](https://god.gw.postman.com/run-collection/1559645-032fb22a-9afb-4c56-b8f0-4042db96a4f3?action=collection%2Ffork&collection-url=entityId%3D1559645-032fb22a-9afb-4c56-b8f0-4042db96a4f3%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c)
-
-### Tables
-<table>
-    <thead>
-        <tr>
-            <th colspan="2"> **The table header** </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>The table body</td>
-            <td>with two columns</td>
-        </tr>
-    </tbody>
-</table>
-
-### Hyperlinking
-[Youtube - Halsey Playlists](https://www.youtube.com/user/iamhalsey/playlists)
+Let's try this in the next section.
 
 <!-- ------------------------ -->
-## Images, Videos, and Surveys, and iFrames
-Duration: 2
+## Try Your POST Endpoint
+Duration: 4
 
-Look at the [markdown source for this guide](https://raw.githubusercontent.com/loopDelicious/pmquickstarts/master/site/pmguides/src/sample/sample.md) to see how to use markdown to generate these elements. 
+Return to your **Laravel QuickStart** collection in Postman and **add a request**. Name it "Reverse" and follow these steps:
 
-### Images
-![Postman illustration](assets/SAMPLE.jpg)
+- Set the request type to **POST**.
+- Set the endpoint to `localhost:8080/api/reverse-me`.
+- Select the **Body** tab.
+- In the top dropdown menu in the tab, select **x-www-form-urlencoded**.
+- Add a parameter of `reverse_this` with the value of `esrever`. That's "reverse" already reversed so the return value will be easy to read.
+- Select **Send**
 
-### Videos
-Videos from youtube can be directly embedded:
-<video id="tw7x3yBpU1Y"></video>
+![Post request and result](./assets/lv_pm_test2.png)
 
-### Inline Surveys
-<form>
-  <name>How do you rate yourself as a user of Postman?</name>
-  <input type="radio" value="Beginner">
-  <input type="radio" value="Intermediate">
-  <input type="radio" value="Advanced">
-</form>
-
-### Embed an iframe
-![https://codepen.io/MarioD/embed/Prgeja](https://en.wikipedia.org/wiki/File:Example.jpg "Try Me Publisher")
+The API will return the string `reverse` in plain text.
 
 <!-- ------------------------ -->
-## Conclusion
-Duration: 1
+## Next Steps
 
-At the end of your Postman Guide, always have a clear call to action (CTA). This CTA could be a link to the docs pages, links to videos on youtube, a GitHub repo link, etc. 
+Congratulations on creating an API in Laravel and accessing it with Postman.
 
-If you want to learn more about Postman Guide formatting, checkout the official documentation here: [Formatting Guide](https://github.com/googlecodelabs/tools/blob/master/FORMAT-GUIDE.md)
+You can deepen your knowledge of Laravel or Postman by trying the following.
 
-### What we've covered
-- creating steps and setting duration
-- adding code snippets
-- embedding images, videos, and surveys
-- importing other markdown files
+- Dive into the [Laravel 10.x documentation](https://laravel.com/docs/10.x/) to add a controller for handling more complex requests and/or add a model to connect a database.
+
+- Review the [Laravel 10.x error handling documentation](https://laravel.com/docs/10.x/errors) to learn best practices for error-handling in Laravel, such as what might happen if someone submitted a binary file instead of a string to your string-reversing endpoint.
+
+- Explore the [Postman testing documentation](https://learning.postman.com/docs/writing-scripts/test-scripts/) and write a test on the POST request to make sure the `reverse_this` string is being reversed properly.
+
