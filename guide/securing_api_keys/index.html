@@ -1,0 +1,131 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Securely Using API Keys in Postman</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="securing_api_keys"
+                  title="Securely Using API Keys in Postman"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <aside class="warning"><p> This tutorial was originally posted <a href="https://www.postman.com/postman/workspace/postman-team-collections/collection/1559645-3118cfc8-97a9-4133-a5c7-093784d50d20?ctx=documentation" target="_blank">here</a>.</p>
+</aside>
+<p>If you work with APIs, then you already know there&#39;s many ways to prove your identity and gain access to an API, such as API keys. To help you use API keys as effectively as possible, let&#39;s walk through some common pitfalls we see come up, and learn how to handle sensitive data in Postman.</p>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>Store API keys in variables</li>
+<li>Use initial and current values for variables</li>
+<li>Use placeholders to show users what info is required</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Need</h2>
+<ul>
+<li>a <a href="https://identity.getpostman.com/signup" target="_blank">Postman Account</a></li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman collection and environment with examples of authorizing APIs</li>
+</ul>
+<p>Let&#39;s look at three ways to securely work with API keys. Build your own example by following this step-by-step tutorial, or fork the example collection and environment in <a href="https://www.postman.com/postman/workspace/postman-team-collections/overview" target="_blank">this workspace</a> to follow along.</p>
+<ul>
+<li>Fork the <a href="https://www.postman.com/postman/workspace/postman-team-collections/collection/1559645-3118cfc8-97a9-4133-a5c7-093784d50d20" target="_blank">example collection</a>: Securely using API keys in Postman</li>
+<li>Fork the <a href="https://www.postman.com/postman/workspace/postman-team-collections/environment/1559645-8157cb13-916b-43bd-ba9b-40cc9c465c68" target="_blank">example environment</a>: Securely using API keys in Postman</li>
+<li>Or fork the collection and environment by clicking the <strong>Run in Postman</strong> button below. <br><a href="https://god.gw.postman.com/run-collection/1559645-3118cfc8-97a9-4133-a5c7-093784d50d20?action=collection%2Ffork&collection-url=entityId%3D1559645-3118cfc8-97a9-4133-a5c7-093784d50d20%26entityType%3Dcollection%26workspaceId%3D34f3a42c-18a7-4ad6-83fb-2c05767d63a7#?env%5BSecurely%20using%20API%20keys%20in%20Postman%5D=W3sia2V5IjoiYmFzZV91cmwiLCJ2YWx1ZSI6Imh0dHBzOi8vYXBpLmdldHBvc3RtYW4uY29tIiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJhcGlfa2V5IiwidmFsdWUiOiJ5b3VyLW5hc2Eta2V5IiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJwb3N0bWFuX2FwaV9rZXkiLCJ2YWx1ZSI6InlvdXItcG9zdG1hbi1rZXkiLCJlbmFibGVkIjp0cnVlfV0=" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Do not embed your API keys directly in code" duration="2">
+        <p class="image-container"><img alt="do not embed your api keys directly in code" src="img/20003ad03ff75d7b.png"></p>
+<p>Instead of hard-coding your API keys, you can store them as <a href="https://learning.postman.com/docs/sending-requests/variables/" target="_blank">variables</a> in Postman. In the same way you use variables for parameterized data, you can also use variables to decouple your secrets from the rest of your code. Storing your API key as a variable allows you to revoke, or refresh, the value in a single spot. There are different <a href="https://learning.postman.com/docs/sending-requests/variables/#variable-scopes" target="_blank">variable scopes</a> to suit different use cases.</p>
+<p class="image-container"><img alt="variable scopes" src="img/d406908429993457.jpeg"></p>
+<p>Let&#39;s follow an example to store an API key as an environment variable. Using Postman environments allows you to decouple specific variables so they can be used alongside different collections and shared separately with other team members and collaborators.</p>
+<p><a href="https://learning.postman.com/docs/sending-requests/managing-environments/#creating-environments" target="_blank">Create an environment</a> and add an environment variable called <code>api_key</code>, and <strong>Save</strong> your changes.</p>
+<p class="image-container"><img alt="create an environment" src="img/1b54c65ecdc39a80.png"></p>
+<p>Postman displays the active environment in the environment selector, located in the top right of the workbench. You can also access all environments from <strong>Environments</strong> in the sidebar and select the set active icon next to an environment to make it the active environment.</p>
+<p class="image-container"><img alt="set active environment" src="img/3ace98aa15ecb250.png"></p>
+<p>Variables can be referenced in text fields with double curly braces, as you can see here with the <strong>Authorization</strong> tab. Hover over the variable name to inspect the variable&#39;s value and scope.</p>
+<p class="image-container"><img alt="curly braces to reference variables" src="img/15bb8711c110c2d9.png"></p>
+<p>Variables can also be referenced in script fields, such as by using <code>pm.environment.get()</code>:</p>
+<p class="image-container"><img alt="scripts to reference variables" src="img/db024de86189d956.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Do not share your API keys with your team" duration="2">
+        <p class="image-container"><img alt="Do not share your API keys with your team" src="img/9e7a499a7ba82ebf.png"></p>
+<p>If you&#39;re sharing an environment with your team, keep your tokens private by only updating the current value. This also ensures that you don&#39;t override the team&#39;s value.</p>
+<p>For global, collection, and environment variables, you can distinguish between an <a href="https://learning.postman.com/docs/postman/variables-and-environments/managing-environments/#adding-environment-variables" target="_blank">initial and current value</a>. The current value is local to your session within your Postman app. If you log out of Postman, those values will disappear. The current value is never synced to your account or shared with your team—unless you choose to persist it—which keeps it more secure.</p>
+<p>Let&#39;s walk through an example in which I share an environment with my team without sharing my personal API key.</p>
+<p><a href="https://learning.postman.com/docs/sending-requests/managing-environments/#working-with-environments-as-a-team" target="_blank">Share the environment</a> with your team by moving it to a team workspace:</p>
+<p class="image-container"><img alt="move environment to team workspace" src="img/e75e11381e969979.png"></p>
+<p>Initial values are accessible to your team in the workspace. For example, if you want to share information like a base URL of <code>https://api.getpostman.com</code> for your API, those initial values will be accessible to the team. If someone with an environment editor role updates that initial value to v2 of the API like <code>https://api.getpostman.com/v2</code>, the updated initial value is shared with the team:</p>
+<p class="image-container"><img alt="initial value" src="img/ee307a42485e0ebc.png"></p>
+<p>Current values are restricted to your session within your Postman app. If you log out and log back into Postman, those values will be gone. The current value is never synced to your account or shared with your team—unless you choose to persist it. When you&#39;re working with a team, you can keep your private information as a current value so your team doesn&#39;t have access to it. Current values are restricted to your session:</p>
+<p class="image-container"><img alt="current value" src="img/ad9567753e6b42cc.png"></p>
+<p>You can also define environment variables by <strong>Type</strong>. Variables are automatically assigned the default type when created, which is shown as plain text and has no extra properties. Users with editor role can change sensitive variables to <a href="https://learning.postman.com/docs/sending-requests/variables/#variable-types" target="_blank">secret type</a>, which masks the initial and current values for all workspace members. Secret type can be used to prevent unintentional disclosure of sensitive data, including API secrets, passwords, tokens, and keys.</p>
+<p class="image-container"><img alt="secret type" src="img/798f65a4d262d270.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Do not leak your API keys publicly" duration="2">
+        <p class="image-container"><img alt="Do not leak your API keys publicly" src="img/f0feca05735727b0.png"></p>
+<p>If you&#39;re sharing <a href="https://learning.postman.com/docs/publishing-your-api/documenting-your-api/" target="_blank">Postman-generated documentation</a> with your team, or especially publicly, make sure you don&#39;t accidentally leak secrets.</p>
+<p>Let&#39;s walk through an example in which I <a href="https://learning.postman.com/docs/publishing-your-api/publishing-your-docs/" target="_blank">publish my API documentation</a> publicly without leaking secrets.</p>
+<p>Use placeholder text for your API key&#39;s value. Postman relies on string substitution to render the initial values of environment values in the documentation. Display a dummy token or placeholder text—like <code>your-nasa-key</code> seen in the next image—to indicate what value to use. (Note: If you leave the value blank, Postman will display no information in the rendered web documentation.)</p>
+<p class="image-container"><img alt="placeholder text" src="img/98166cd27eb3cbfb.png"></p>
+<p>When you&#39;re ready to publish the collection and environment, go ahead and <a href="https://learning.postman.com/docs/postman/api-documentation/publishing-your-docs/#configuring-your-public-docs" target="_blank">preview the documentation</a> to scan for secrets. Postman will warn you about anything that appears to be a sensitive token, so you can make any updates before publishing the documentation:</p>
+<p class="image-container"><img alt="token scanner" src="img/d9e8323269ac92ca.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <p class="image-container"><img alt="summary of tips" src="img/6bed476642d36624.png"></p>
+<h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
+<p>To sum it all up, when you&#39;re using API keys, keep your secrets safe with Postman by following these three tips:</p>
+<ul>
+<li>Store API keys in variables</li>
+<li>Use initial and current values</li>
+<li>Use placeholders to show users what info is required</li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<p>For more on API keys and security, see our <a href="https://blog.postman.com/how-were-protecting-your-postman-api-keys-in-github/" target="_blank">&#34;How We&#39;re Protecting Your Postman API Keys in GitHub&#34; blog post</a>. You can also check out <a href="https://support.google.com/googleapi/answer/6310037" target="_blank">Google&#39;s best practices for securely using API keys</a> in Google Cloud Platform (GCP) applications.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

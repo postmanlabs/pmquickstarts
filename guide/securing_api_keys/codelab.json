@@ -3,12 +3,12 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-03-16T08:31:15-07:00",
-  "id": "google-oauth-in-postman",
-  "duration": 13,
-  "title": "Google OAuth in Postman",
-  "summary": "Authorize your Google APIs in Postman using OAuth 2.0",
-  "source": "google-oauth-in-postman/google-oauth-in-postman.md",
+  "updated": "2023-03-20T12:43:08-07:00",
+  "id": "securing_api_keys",
+  "duration": 8,
+  "title": "Securely Using API Keys in Postman",
+  "summary": "Three ways to securely work with API keys",
+  "source": "securing_api_keys/securing_api_keys.md",
   "theme": "",
   "status": [
     "published"
@@ -19,8 +19,10 @@
   "tags": [
     "developer",
     "gettingstarted",
+    "security",
+    "tester",
     "web"
   ],
   "feedback": "https://github.com/loopDelicious/pmquickstarts",
-  "url": "google-oauth-in-postman"
+  "url": "securing_api_keys"
 }
