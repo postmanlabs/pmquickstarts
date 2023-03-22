@@ -1,6 +1,8 @@
 # Postman Quickstarts
 
-VIDEO DEMO
+Watch the [How to Contribute to Postman Quickstarts](https://youtu.be/aLehVZegyXk) video demo:
+
+[![Contribute to Postman Quickstarts thumbnail](http://i3.ytimg.com/vi/aLehVZegyXk/hqdefault.jpg)](https://youtu.be/aLehVZegyXk)
 
 ## What are Postman Quickstarts?
 
@@ -39,7 +41,7 @@ You can submit your own Quickstarts to be published on Postman's website by subm
 4. Install node dependencies `npm install`
 5. Run the site `npm run serve`
 
-Congratulations! You now have the Postman Quickstarts landing page running.
+Congratulations! You now have the Postman Quickstarts landing page running which can be reached at `http://localhost:8000/`.
 
 ### Common Errors
 

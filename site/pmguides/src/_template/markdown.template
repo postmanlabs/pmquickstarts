@@ -1,7 +1,7 @@
 author: AUTHOR_NAME
 id: PMGUIDE_NAME
 summary: This is a sample Postman Guide
-categories: Getting Started
+categories: Getting-Started
 environments: web
 status: Published 
 feedback link: https://github.com/loopDelicious/pmquickstarts
@@ -110,12 +110,11 @@ for (statement 1; statement 2; statement 3) {
 ```
 
 ### Info Boxes
-Positive
-: This will appear in a positive info box.
+> aside positive
+> This will appear in a positive info box.
 
-
-Negative
-: This will appear in a negative info box.
+> aside negative
+> This will appear in a negative info box.
 
 ### Buttons
 <button>

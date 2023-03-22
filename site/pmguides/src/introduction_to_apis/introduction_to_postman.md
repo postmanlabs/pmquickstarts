@@ -125,8 +125,8 @@ To use Postman in a web browser, as we do in this module, you’re prompted to d
 1. Once you’ve downloaded the agent, run it on your machine.
    The agent is not the same as the Postman app. On a Mac, the icon for the Postman agent running in the status menu is located on the top right of your computer screen. On a Windows machine, the Postman agent icon displays in the system tray at the bottom right of your computer screen.
 
-Negative
-: If you don’t want to use Postman in a web browser with the agent, you can instead download and install the Postman app for Mac, Windows, or Linux.
+> aside negative
+> If you don’t want to use Postman in a web browser with the agent, you can instead download and install the Postman app for Mac, Windows, or Linux.
 
 ### Import Data into Postman
 
@@ -243,7 +243,7 @@ Since tests are assertions about a server response, tests execute after you run 
 
 1. With your test added to the request, click **Send** to run the request.
 1. Open **Test Results** in the response section at the bottom.
-   If the call returns a `200` HTTP status code, the test will pass, otherwise it will fail. Try changing the expected status code in your test script to `404`, and run the request again. You’ll see that the Test Result gives you a fail and error message.
+   If the call returns a `200` HTTP status code, the test will pass, otherwise it will fail. Try changing the expected status code in your test script to `404`, and run the request again. You’ll see that the Test Result gives you a fail and error message. Revert your test to be `200` for it to pass.
 
 ### Save the Request to a Collection
 
@@ -433,7 +433,7 @@ Add a third request to your collection called “Retrieve image” to make a GET
 1. Hover over your collection **Intro to HTTP APIs Module** and click the more options icon.
 1. Click **Add request**.
 1. Rename the new request `Retrieve image`.
-1. In the request URL field, enter `{{nasa_image_url}`. This variable doesn’t mean anything at the moment. You’ll change that in a few steps.
+1. In the request URL field, enter `{{nasa_image_url}}`. This variable doesn’t mean anything at the moment. You’ll change that in a few steps.
 1. Click **Save**.
 1. Now click back into `Pictures from November 2022`.
 1. Click the **Tests** tab.
@@ -636,7 +636,7 @@ Duration: 1
 
 ### Claim your badge
 
-To submit your solution for validation, your collection must be located in a public workspace. You will need your collection ID. First, select Collections in the sidebar and select the "Intro to HTTP APIs Module" collection. Then select the information icon in the right sidebar to access the collection ID.
+To submit your solution for validation, your collection must be located in a public workspace. You will need your collection URL (see [instructions here](https://learning.postman.com/docs/collaborating-in-postman/sharing/#sharing-using-the-postman-api)). 
 
 Go to [this page](http://go.pstmn.io/submit-badge) to claim your `Postman Introduction - HTTP API` badge.
 

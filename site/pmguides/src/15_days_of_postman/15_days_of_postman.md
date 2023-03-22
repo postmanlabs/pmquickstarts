@@ -19,6 +19,14 @@ Improve your skills by tackling a new Postman challenge for 15 days in a row.
 
 <img src="assets/tester.png" alt="15 day challenge badge" width="200"/>
 
+### Assess your Postman experience level
+
+- Take [the Postman skills quiz](https://loopdelicious.github.io/postman-skills/)
+
+### Experience level for this test challenge
+
+- Intermediate
+
 ### How it works
 
 1. **Get the daily challenge**: Fork the parent collection for each day to your own public Postman workspace.
@@ -35,11 +43,11 @@ Improve your skills by tackling a new Postman challenge for 15 days in a row.
 
 1. **Create a public workspace**: [Create a new Postman workspace](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-public-workspace) with visibility set to `Public` to show your work. Choose a unique name for your workspace to deter others from directly copying your answers.
 
-Negative
-: If you don't want to use Postman in a web browser with the agent, you can instead download and install the Postman app for Mac, Windows, or Linux.
+> aside negative
+> If you don't want to use Postman in a web browser with the agent, you can instead download and install the Postman app for Mac, Windows, or Linux.
 
-Negative
-: If you already belong to a Postman team and the organization does not want you to publish this workspace under their team profile, you can create a separate account so the workspace displays under a personal profile.
+> aside negative
+> If you already belong to a Postman team and the organization does not want you to publish this workspace under their team profile, you can create a separate account so the workspace displays under a personal profile.
 
 ### What You’ll Learn
 
