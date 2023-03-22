@@ -19,9 +19,8 @@ It remains one of the top 10 programming languages in the world, according to ma
 In this tutorial, let's create a simple API using one of PHP's most popular frameworks, [Symfony](https://symfony.com/), and then access it with Postman. 
 
 ### Prerequisites
-- PHP
-- Symfony CLI
-- Composer
+- A basic familiarity with PHP.
+- Know how to use your operating system's built-in terminal.
 
 ### What You’ll Learn 
 - How to create a simple PHP-based API with the [Symfony](https://symfony.com/) framework.
