@@ -4,11 +4,11 @@
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
   "updated": "2023-03-22T15:00:19-07:00",
-  "id": "introduction_to_postman",
-  "duration": 34,
-  "title": "Introduction to HTTP APIs in Postman",
-  "summary": "This is a beginner’s introduction to HTTP APIs in Postman",
-  "source": "introduction_to_apis/introduction_to_postman.md",
+  "id": "php_laravel_API",
+  "duration": 26,
+  "title": "Create A REST API with PHP And Laravel",
+  "summary": "Create A REST API with PHP And Laravel",
+  "source": "php_laravel_API/laravel.md",
   "theme": "",
   "status": [
     "published"
@@ -17,10 +17,13 @@
     "getting-started"
   ],
   "tags": [
-    "badge",
-    "getting-started",
+    "automation",
+    "developer",
+    "gettingstarted",
+    "php",
+    "tester",
     "web"
   ],
   "feedback": "https://github.com/loopDelicious/pmquickstarts",
-  "url": "introduction_to_postman"
+  "url": "php_laravel_API"
 }
