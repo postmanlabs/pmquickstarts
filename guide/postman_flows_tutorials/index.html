@@ -30,11 +30,10 @@
       <google-codelab-step label="Overview" duration="1">
         <aside class="warning"><p> These tutorials were originally published <a href="https://learning.postman.com/docs/postman-flows/tutorials/building-your-first-flow/" target="_blank">here</a>.</p>
 </aside>
-<p><a href="https://learning.postman.com/docs/postman-flows/gs/flows-overview/" target="_blank">Postman Flows</a> is a visual tool for creating API workflows. You can use flows to chain requests, handle data, and create real-world workflows in your Postman workspace.</p>
+<p><a href="https://learning.postman.com/docs/postman-flows/gs/flows-overview/" target="_blank">Postman Flows</a> is a visual tool for building software for the API-First world. With Postman Flows, anyone can connect their web services&#39; APIs to build workflows, integrations, and API applications in a visual and collaborative development environment.orkflows in your Postman workspace.</p>
 <h2 is-upgraded>Prerequisites</h2>
 <ul>
-<li>a <a href="https://identity.getpostman.com/signup" target="_blank">Postman Account</a></li>
-<li>an <a href="https://beta.openai.com/account/api-keys" target="_blank">OpenAI API key</a></li>
+<li>Familiarity with Postman</li>
 </ul>
 <h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
 <ul class="checklist">
@@ -45,6 +44,11 @@
 <li>how to use response data in a request</li>
 <li>how to use webhooks with Postman Flows</li>
 </ul>
+<h2 is-upgraded>What You&#39;ll Need</h2>
+<ul>
+<li>a <a href="https://identity.getpostman.com/signup" target="_blank">Postman Account</a></li>
+<li>an <a href="https://beta.openai.com/account/api-keys" target="_blank">OpenAI API key</a></li>
+</ul>
 <h2 is-upgraded>What You&#39;ll Build</h2>
 <ul>
 <li>A group of Postman collections and flows</li>
@@ -54,9 +58,21 @@
       </google-codelab-step>
     
       <google-codelab-step label="Build your first flow" duration="5">
-        <p>This page walks you through your first flow, calling the Pokémon API and printing out the list to the console. The Pokémon API returns over 1,000 results, but this flow will print two hundred at a time to the console until it reaches the end of the list.</p>
+        <p>This page shows you how to create flows with a quick start tutorial and a more detailed tutorial. The quick start tutorial shows you how to create a flow in Postman that checks if a website is down.</p>
+<p>The more detailed tutorial starts with Creating a request and a collection. This tutorial creates a flow that gets a list of Pokémon, one page at a time, until it reaches the last page.</p>
+<h2 is-upgraded>Quick start</h2>
+<p>This quick start tutorial creates a flow to check if a website is down or not. It does this by sending a request to the website and looking for a <code>200</code> status code in the response. If the website is up and running, the flow&#39;s Output block will display <strong>True</strong>. If the website is down, it will display <strong>False</strong>.</p>
+<ol type="1">
+<li>Go to the <a href="https://www.postman.com/postman/workspace/devops-flows" target="_blank">DevOps Flows</a> workspace and <a href="https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-entities/" target="_blank">fork</a> the <a href="https://www.postman.com/postman/workspace/devops-flows/collection/23919558-2ea958e4-8647-4b79-859a-47a2c7608b4d?action=share&creator=23919558" target="_blank">DownDetector</a> collection to your workspace. Then, in your workspace, select <strong>New &gt; Flows</strong> and <a href="https://learning.postman.com/docs/getting-started/navigating-postman/#sidebar" target="_blank">hide the sidebar</a>. <img alt="create new flow" src="img/5a7016c8a5a459d0.gif"></li>
+<li>Right-click the canvas and select <strong>Send Request</strong> from the list of blocks. Connect the <strong>Send Request</strong> block to the <strong>Start</strong> block. <img alt="send request" src="img/f882dd52e675130b.gif"></li>
+<li>In the <strong>Send Request</strong> block, select <strong>Add request &gt; DownDetector &gt; sitemap</strong>. Then select the port next to <strong>Success</strong>, and drag and drop it to the right. Select <strong>Evaluate</strong> from the list that appears to add an <strong>Evaluate</strong> block. <img alt="evaluate block" src="img/711fa86cc7c55f8.gif"></li>
+<li>In the <strong>Evaluate</strong> block, select <code>value1</code> and change it to <code>status</code>. Then select <strong>Enter path...</strong>, scroll down, and select <strong>http.status</strong>. <img alt="select status" src="img/aedb67bdf9d92d95.gif"></li>
+<li>Select <strong>Start writing an FQL query...</strong> and enter <code>status=200</code>. <img alt="set FQL query" src="img/e4ee08b0d247ce07.gif"></li>
+<li>Drag and drop the port on the right side of the <strong>Evaluate</strong> block and add an <strong>Output</strong> block.</li>
+<li>Select <strong>Run</strong>. The <strong>Output</strong> block displays <strong>True</strong>, which means the website is up and running.</li>
+</ol>
 <h2 is-upgraded>Creating a request and a collection</h2>
-<p>Begin by creating a new collection and adding a GET request. You&#39;ll use this collection with the flow you&#39;ll create later.</p>
+<p>This is the beginning of a detailed tutorial that builds a flow that gets a list of Pokémon, one page at a time, until it reaches the last page. Start by creating a new collection and adding a GET request. You&#39;ll use this collection with the flow you&#39;ll create later.</p>
 <ol type="1">
 <li>In your workspace, select <strong>New</strong> &gt; <strong>Collection</strong>. Name the collection <code>Pokemon API</code>.</li>
 <li><a href="https://learning.postman.com/docs/getting-started/sending-the-first-request/" target="_blank">Add a GET request</a> with this URL: <code>https://pokeapi.co/api/v2/pokemon?limit=200</code>. <img alt="First request" src="img/fc26f955b10bbcb9.jpeg"></li>
@@ -83,7 +99,7 @@
 <ol type="1">
 <li>Create a <strong>Select</strong> block to the right of the <strong>Send Request</strong> block.</li>
 <li>Connect the <strong>Select</strong> block to the port next to <strong>Success</strong> on the <strong>Send Request</strong> block. <img alt="add select block" src="img/340c5654be8ea4af.jpeg"></li>
-<li>In the <strong>Select</strong> block, select <strong>Enter path...</strong> and select <code>/body/results</code>. <aside class="warning"><p> Because you saved an example earlier, the returned data&#39;s structure auto-populates in the block. <img alt="body results" src="img/d85ed39facd88125.jpeg"></p>
+<li>In the <strong>Select</strong> block, select <strong>Enter path...</strong> and select <code>body.results</code>. <aside class="warning"><p> Because you saved an example earlier, the returned data&#39;s structure auto-populates in the block. <img alt="body results" src="img/d85ed39facd88125.jpeg"></p>
 </aside>
 </li>
 <li>Create a <strong>Log</strong> block and connect it to the right side of the <strong>Select</strong> block, then select <strong>Run</strong>.</li>
@@ -92,28 +108,15 @@
 <h2 is-upgraded>Checking for the next page of results</h2>
 <ol type="1">
 <li>Create another <strong>Select</strong> block and connect it to the <strong>Success</strong> port on the <strong>Send Request</strong> block. <img alt="add another select" src="img/cd09834167f943d9.jpeg"></li>
-<li>In the <strong>Select</strong> block you created, select <strong>Enter path...</strong> and select <code>/body/next</code> to get the link to the next set of 200 results.</li>
-<li>Create an <strong>Evaluate</strong> block to the right of the <code>/body/next</code> <strong>Select</strong> block and connect it to right port on the <strong>Select</strong> block. <img alt="add eval block" src="img/d4463a53c40474bd.jpeg"></li>
-<li>In the <strong>Evaluate</strong> block, select <code>key</code> below <strong>Variables</strong> and replace <code>key</code> with <code>has_next</code>. This assigns the <code>/body/next</code> value from the <strong>Select</strong> block to the <code>has_next</code> variable in the <strong>Evaluate</strong> block.</li>
-<li>At the top of the <strong>Evaluate</strong> block, enter <code>has_next != null</code>. <aside class="warning"><p> If <code>has_next</code> is null, then the flow has reached the last set of 200 results. <img alt="add eval block" src="img/976a4d9a8781cb64.jpeg"></p>
+<li>In the <strong>Select</strong> block you created, select <strong>Enter path...</strong> and select <code>body.next</code> to get the link to the next set of 200 results.</li>
+<li>Create an <strong>If</strong> block to the right of the <code>body.next</code> <strong>Select</strong> block. Connect the <code>body.next</code> <strong>Select</strong> block to the <code>key</code> port. This creates a variable named <code>value1</code>.</li>
+<li>Also connect the <code>body.next</code> <strong>Select</strong> block to the <code>Data</code> port in the <strong>If</strong> block. <img alt="add if block" src="img/a07601ec3013078c.jpeg"></li>
+<li>In the <strong>If</strong> block, select <code>value1</code> and replace it with <code>has_next</code>. This assigns the <code>body.next</code> value from the <strong>Select</strong> block to the <code>has_next</code> variable in the <strong>If</strong> block. <img alt="enter has next" src="img/401e7ceae82733c0.jpeg"></li>
+<li>Select <strong>Write an FQL condition</strong> and enter ``has_next <code>!= null</code>. <aside class="warning"><p> If <code>has_next</code> is null, then the flow has reached the last set of 200 results.</p>
 </aside>
 </li>
-</ol>
-<h2 is-upgraded>Using an If block to branch based on response data</h2>
-<p>In this example, the <strong>Evaluate</strong> block outputs <code>true</code> if <code>has_next</code> isn&#39;t null, or <code>false</code> if <code>has_next</code> is null.</p>
-<ol type="1">
-<li>Create an <strong>If</strong> block and connect its <strong>True/False</strong> port to the <strong>Evaluate</strong> block&#39;s <strong>Out</strong> port. <aside class="warning"><p> The <strong>Evaluate</strong> block sends either <code>true</code> or <code>false</code>, which determines which branch the <strong>If</strong> block uses.</p>
-</aside>
-</li>
-<li>Connect the <code>/body/next</code> <strong>Select</strong> block to the <strong>If</strong> block&#39;s <strong>Data</strong> port. <aside class="warning"><p> The <strong>Select</strong> block sends the URL of the next set of Pokémon, used in the next step. <img alt="add if block" src="img/b5fb39c700512777.jpeg"></p>
-</aside>
-</li>
-</ol>
-<h2 is-upgraded>Calling the request with the next URL</h2>
-<p>In this example, <code>has_next</code> isn&#39;t null, so another set of Pokémon is available. Postman Flows calls the <strong>Send Request</strong> block again with the URL specified in <code>/body/next</code>.</p>
-<ol type="1">
-<li>Connect the <strong>If</strong> block&#39;s TRUE port to the <strong>Send Request</strong> block&#39;s URL port. This passes the new <code>URL</code> variable to the <strong>Send Request</strong> block.</li>
-<li>Also connect the <strong>If</strong> block&#39;s TRUE port to the <strong>Send Request</strong> block&#39;s <strong>Send</strong> port. This triggers the send event so it runs again. <img alt="connect if block" src="img/df203b5cb6d20a43.jpeg"></li>
+<li>Connect the <strong>If</strong> block&#39;s TRUE port to the <strong>Send Request</strong> block&#39;s URL port. This passes the new <code>has_next</code> value to the existing URL variable in the <strong>Send Request</strong> block.</li>
+<li>Also connect the <strong>If</strong> block&#39;s TRUE port to the <strong>Send Request</strong> block&#39;s Send port. This triggers the send event so it runs again. <img alt="connect if block" src="img/ff134b99f0a4d97a.jpeg"></li>
 </ol>
 <h2 is-upgraded>Watching it run</h2>
 <p>After completing the above steps, select <strong>Run</strong>. The flow runs and logs all the Pokémon to the console.</p>
