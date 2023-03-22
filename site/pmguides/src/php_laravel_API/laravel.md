@@ -19,8 +19,8 @@ It remains one of the top 10 programming languages in the world, according to ma
 In this tutorial, let's create a simple API using one of PHP's most popular frameworks, [Laravel](https://laravel.com/), and then access it with Postman. 
 
 ### Prerequisites
-- PHP
-- Composer for PHP
+- A basic familiarity with the PHP programming language.
+- Ability to use the built-in terminal in your operating system.
 
 ### What You’ll Learn 
 - How to create a simple PHP-based API with the [Laravel](https://laravel.com/) framework.
