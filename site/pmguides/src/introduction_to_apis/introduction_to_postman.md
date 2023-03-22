@@ -636,9 +636,9 @@ Duration: 1
 
 ### Claim your badge
 
-To submit your solution for validation, your collection must be located in a public workspace. You will need your collection URL (see [instructions here](https://learning.postman.com/docs/collaborating-in-postman/sharing/#sharing-using-the-postman-api)). 
+To submit your solution for validation, your collection must be located in a public workspace. You will need your collection URL (see [instructions to "Share using the Postman API" here](https://learning.postman.com/docs/collaborating-in-postman/sharing/#sharing-using-the-postman-api)). 
 
-Go to [this page](http://go.pstmn.io/submit-badge) to claim your `Postman Introduction - HTTP API` badge.
+Go to [this page](http://go.pstmn.io/submit-badge) to claim your `Postman Introduction - HTTP API` badge using the "Share via API" link previously created.
 
 <img src="assets/badge.png" alt="Intro to Postman and HTTP APIs badge" width="200"/>
 
