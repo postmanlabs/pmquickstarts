@@ -1,6 +1,6 @@
 # Postman Quickstarts
 
-[![deployment](https://github.com/loopDelicious/pmquickstarts/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/loopDelicious/pmquickstarts/actions/workflows/pages/pages-build-deployment)
+[![deployment](https://github.com/loopDelicious/pmquickstarts/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/loopDelicious/pmquickstarts/actions/workflows/pages/pages-build-deployment) [![Contributors](https://img.shields.io/github/contributors/loopDelicious/pmquickstarts.svg)](https://github.com/{username}/pmquickstarts/graphs/contributors)
 
 Watch the [How to Contribute to Postman Quickstarts](https://youtu.be/aLehVZegyXk) video demo:
 
