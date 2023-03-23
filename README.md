@@ -1,6 +1,6 @@
 # Postman Quickstarts
 
-[![pages-build-deployment](https://github.com/loopDelicious/pmquickstarts/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/loopDelicious/pmquickstarts/actions/workflows/pages/pages-build-deployment)
+[![deployment](https://github.com/loopDelicious/pmquickstarts/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/loopDelicious/pmquickstarts/actions/workflows/pages/pages-build-deployment)
 
 Watch the [How to Contribute to Postman Quickstarts](https://youtu.be/aLehVZegyXk) video demo:
 
