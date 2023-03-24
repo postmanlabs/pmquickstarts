@@ -504,6 +504,15 @@ If you want to learn more about Postman Flows, review the [official documentatio
 - Flows Query Language (FQL) can be used to parse and transform JSON data to get the fields and structure you want: [Introduction to FQL docs](https://learning.postman.com/docs/postman-flows/flows-query-language/introduction-to-fql/)
 - Livestream: [AI Powered Sentiment Analysis with Postman Flows and ChatGPT](https://youtube.com/live/0kAQb3Q4WCQ)
 
+### Flows Workspaces filled with examples
+- [Business Flows](https://www.postman.com/postman/workspace/business-flows)
+- [Integration Flows](https://www.postman.com/postman/workspace/integration-flows)
+- [Natural Language Processing (NLP) Flows](https://www.postman.com/postman/workspace/natural-language-processing-nlp-flows)
+- [Slack Integration Flows](https://www.postman.com/postman/workspace/slack-integration-flows)
+- [DevOps Flows](https://www.postman.com/postman/workspace/devops-flows)
+- [Utility Flows](https://www.postman.com/postman/workspace/utility-flows)
+- [Miscellaneous Flows](https://www.postman.com/postman/workspace/miscellaneous-flows)
+
 ### What we've covered
 
 - how to build your first flow
