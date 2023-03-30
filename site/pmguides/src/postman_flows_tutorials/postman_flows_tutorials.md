@@ -525,7 +525,7 @@ The following can be selected from the drop-down menu in the upper-right corner 
 
 Duration: 1
 
-If you want to learn more about Postman Flows, review the [official documentation](<[https://learning.postman.com/docs/postman-flows/tutorials/building-your-first-flow/](https://learning.postman.com/docs/postman-flows/gs/flows-overview/)>) for more details.
+If you want to learn more about Postman Flows, review the [official documentation](https://learning.postman.com/docs/postman-flows/tutorials/building-your-first-flow/) for more details.
 
 ### Additional resources
 
