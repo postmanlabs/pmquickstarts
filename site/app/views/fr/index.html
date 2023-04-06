@@ -215,7 +215,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
              All other views are explicitly opt-in via metadata. #}
           {% if codelab.status.indexOf('hidden') === -1 || view.id !== 'default' %}
             {% set cat = levelledCategory(codelab, view.catLevel) %}
-            <a href="{{codelabUrl(view, codelab).split('_').join('-')}}" on-tap="navigate"
+            <a href="{{codelabUrl(view, codelab)}}" on-tap="navigate"
                class="codelab-card category-{{categoryClass(codelab, cat.level)}}"
                data-category="{{codelab.category}}"
                data-title="{{codelab.title}}"
