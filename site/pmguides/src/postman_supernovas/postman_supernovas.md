@@ -1,5 +1,5 @@
 author: kcorb95
-id: postman_supernovas
+id: postman-supernovas
 summary: Become a Postman ambassador and empower the API developer & tester community by building community around the world today.
 categories: Getting-Started
 environments: web

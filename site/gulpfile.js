@@ -638,7 +638,14 @@ const generateView = () => {
 
     // Get the list of codelabs and categories for this view
     const filtered = filterCodelabs(view, all.codelabs);
-    const codelabs = filtered.codelabs;
+    let codelabs = filtered.codelabs;
+    // Convert all codelab IDs from underscore(_) to dash(-)
+    codelabs = codelabs.map(codelab => {
+      codelab.id = codelab.id.split('_').join('-')
+      codelab.url = codelab.url.split('_').join('-')
+      
+      return codelab;
+    });
     const categories = filtered.categories;
 
     let locals = {
@@ -723,6 +730,7 @@ const viewFuncs = {
   codelabUrl: (params) => {
     return (view, codelab) => {
       let url = codelab.url;
+
       if (params !== undefined) {
         url = `${url}?${params}`;
       }

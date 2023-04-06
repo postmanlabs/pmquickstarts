@@ -1,5 +1,5 @@
 author: Prashant Agrawal
-id: snapshot_testing
+id: snapshot-testing
 summary: Three different snapshot testing strategies
 categories: Tester, Intermediate
 environments: web

@@ -1,5 +1,5 @@
 author: Greg Bulmash
-id: php_laravel_API
+id: php-laravel-API
 summary: Create A REST API with PHP And Laravel 
 categories: Getting-Started
 environments: web

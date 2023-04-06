@@ -1,5 +1,5 @@
 author: Joyce
-id: http_cats
+id: http-cats
 summary: Learn HTTP Status Codes with HTTP Cats
 categories: Getting-Started
 environments: web

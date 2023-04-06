@@ -1,5 +1,5 @@
 author: Joyce
-id: galaxy_testing_and_automation
+id: galaxy-testing-and-automation
 summary: This is a tutorial for testing and automation in Postman
 categories: Getting-Started, Tester
 environments: web

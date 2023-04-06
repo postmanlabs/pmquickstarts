@@ -1,5 +1,5 @@
 author: Joyce
-id: continuous_quality
+id: continuous-quality
 summary: Advanced testing workflows in Postman
 categories: Tester, Intermediate
 environments: web

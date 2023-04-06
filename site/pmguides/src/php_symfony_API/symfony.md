@@ -1,5 +1,5 @@
 author: Greg Bulmash
-id: php_symfony_API
+id: php-symfony-API
 summary: Create A REST API with PHP And Symfony 
 categories: Getting-Started
 environments: web

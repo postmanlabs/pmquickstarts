@@ -1,5 +1,5 @@
 author: Greg Bulmash
-id: websockets_python
+id: websockets-python
 summary: Set up a WebSockets server in Python
 categories: Getting-Started
 environments: web

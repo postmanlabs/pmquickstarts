@@ -1,5 +1,5 @@
 author: Arlemi
-id: lost_in_space_fr
+id: lost-in-space-fr
 summary: Puzzle se jouant sur Postman
 categories: Game
 environments: web

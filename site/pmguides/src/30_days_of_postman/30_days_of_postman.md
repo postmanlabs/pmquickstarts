@@ -1,5 +1,5 @@
 author: Joyce
-id: 30_days_of_postman
+id: 30-days-of-postman
 summary: Improve your skills by tackling a new Postman challenge for 30 days in a row
 categories: Getting-Started, Developer
 environments: web
