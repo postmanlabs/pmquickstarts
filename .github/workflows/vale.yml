@@ -19,6 +19,7 @@ jobs:
     - name: Vale
       uses: errata-ai/vale-action@reviewdog
       with:
-        vale_flags: "--glob='!*{_fr}*'"
+        reporter: github-check
+        vale_flags: "--glob='!*{_fr.md}*'"
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
