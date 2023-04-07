@@ -1,5 +1,5 @@
 ---
-# Checks if your words exist in the dictionary. Any exceptions should be defined in `vale-styles/Vocab/word_list/accept.txt`
+# Checks if your words exist in the dictionary. Any exceptions should be defined in `vale-styles/Vocab/accept.txt`
 extends: spelling
 message: "Did you really mean '%s'?"
 level: warning

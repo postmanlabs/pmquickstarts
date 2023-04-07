@@ -20,5 +20,7 @@ jobs:
       uses: errata-ai/vale-action@reviewdog
       with:
         debug: true
+	fail_on_error: true
+	vale_flags: "--glob='!*{_fr}*'"
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
