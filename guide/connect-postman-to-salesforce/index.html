@@ -1,0 +1,213 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Connect Postman to Salesforce</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="connect-postman-to-salesforce"
+                  title="Connect Postman to Salesforce"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <aside class="warning"><p> This course was originally created by <a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-connect-postman-to-salesforce" target="_blank">Salesforce</a> and has been modified to suit the Quickstart format. Complete this lesson in Trailhead to collect your Salesforce learning badge.</p>
+</aside>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>A Salesforce org</li>
+<li>A Postman account</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>Get your org ready to use Postman.</li>
+<li>Load the Salesforce Platform APIs for Postman collection.</li>
+<li>Connect Postman to your org.</li>
+<li>Verify the connection with Postman.</li>
+<li>Add new data to your org.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Set Up Your Org" duration="10">
+        <h2 is-upgraded>Learning Objectives</h2>
+<ul>
+<li>Get your org ready to use Postman.</li>
+<li>Load the Salesforce Platform APIs for Postman collection.</li>
+<li>Connect Postman to your org.</li>
+<li>Verify the connection with Postman.</li>
+</ul>
+<h2 is-upgraded>Why Use Postman to Access the Salesforce Platform APIs?</h2>
+<p>Salesforce exposes a rich set of application program interfaces (APIs) that integrate with third-party systems. All of these APIs are thoroughly documented, but how can you quickly try them on a given org, or better yet, on multiple orgs? Postman helps you discover, explore, and test integration options with the Salesforce Platform APIs.</p>
+<h3 is-upgraded>About Salesforce Platform APIs</h3>
+<p>Salesforce provides programmatic access to your org&#39;s information through simple, powerful, and secure APIs. The APIs provided by Salesforce include REST, SOAP, Connect, User Interface, Analytics, Bulk, Metadata, and Streaming.</p>
+<h3 is-upgraded>About Postman</h3>
+<p>Postman is an application that you can use to configure and call HTTP-based APIs, such as REST or SOAP. You configure this powerful tool in an easy-to-use graphical user interface. It supports environment variables, team workspaces, and JavaScript automation.</p>
+<h3 is-upgraded>Web or Desktop?</h3>
+<p>Use Postman as a desktop app or in a web browser. In this project, you set up and use Postman in a web browser, because it doesn&#39;t require downloading and installing software.</p>
+<h3 is-upgraded>About the Salesforce Platform APIs for Postman Collection</h3>
+<p>The Salesforce Platform APIs for Postman collection is a resource that wraps together 200+ request templates for many Salesforce Platform APIs. This open source collection uses the configurable Postman environment and variables so that you can easily authenticate and try the requests on multiple Salesforce orgs.</p>
+<h2 is-upgraded>Create a New Trailhead Playground</h2>
+<p>For this project, you need to create a new Trailhead Playground. Scroll to the bottom of this page, click the playground name, then click <strong>Create Playground</strong>. It typically takes 3–4 minutes to create a new Trailhead Playground.</p>
+<aside class="warning"><p> Note: Yes, we really mean a brand-new Trailhead playground! If you use an existing org or playground, you can run into problems completing the project.</p>
+</aside>
+<h2 is-upgraded>Get Your Trailhead Playground Username and Password</h2>
+<p>Let&#39;s get started by opening your Trailhead Playground. Scroll to the bottom of this page and click <strong>Launch</strong>. If you see a tab in your org labeled Get Your Login Credentials, great! Skip ahead to step 1. Otherwise, from the App Launcher, find and open <strong>Playground Starter</strong> and follow the steps.</p>
+<ol type="1">
+<li>Click the <strong>Get Your Login Credentials</strong> tab and take note of your username.</li>
+<li>Click <strong>Reset My Password</strong>.</li>
+<li>This sends an email to the address associated with your username.</li>
+<li>Click the link in the email.</li>
+<li>Enter a new password, confirm it, and click <strong>Change Password</strong>.</li>
+</ol>
+<p>Save your username and password for use later in this project.</p>
+<h2 is-upgraded>Set Up Cross-Origin Resource Sharing in Salesforce</h2>
+<p>Cross-Origin Resource Sharing (CORS) allows code running in a web browser to communicate with Salesforce from a specific origin. Let&#39;s add the URL patterns for Postman.</p>
+<ol type="1">
+<li>In your Trailhead Playground, from Setup, enter <code>cors</code> in the Quick Find box and select <strong>CORS</strong>.</li>
+<li>In the Allowed Origins List, click <strong>New</strong>.</li>
+<li>Enter <code>https://_.postman.com</code> as the Origin URL Pattern.</li>
+<li>Click <strong>Save</strong>.</li>
+<li>Select <strong>CORS</strong> again.</li>
+<li>Click <strong>New</strong> and enter <code>https://_.postman.co</code> (note the .co domain extension) as the Origin URL Pattern.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p>Your playground is ready for you to connect Postman to it. You do that in the next step.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Set Up and Connect Postman" duration="10">
+        <h2 is-upgraded>Sign Up for Postman and Create a Workspace</h2>
+<p>Postman has two options for working with its app: desktop and web. You use the web browser app for this project.</p>
+<ol type="1">
+<li><a href="https://identity.getpostman.com/login?continue=https%3A%2F%2Fwww.postman.com%2F" target="_blank">Sign in</a> to your Postman account or <a href="https://identity.getpostman.com/signup" target="_blank">sign up</a> for an account.</li>
+<li>Select the <strong>Workspaces</strong> menu.</li>
+<li>Select <strong>Create Workspace</strong>.</li>
+<li>Name your workspace <code>SalesforceCollection</code>.</li>
+<li>Set Visibility to <strong>Personal</strong>.</li>
+<li>Click <strong>Create Workspace</strong>.</li>
+</ol>
+<h2 is-upgraded>Fork the Salesforce Collection</h2>
+<ol type="1">
+<li>Open the public <a href="https://www.postman.com/salesforce-developers/workspace/salesforce-developers" target="_blank">Salesforce Developers</a> workspace to create a fork of the Salesforce APIs collection.</li>
+<li>In Collections, select <strong>Salesforce Platform APIs</strong> to expand it.</li>
+<li>Click the <strong>Create Fork</strong> icon to create a fork of the collection.</li>
+<li>Enter <code>MySalesforceAPIFork</code>.</li>
+<li>Keep <strong>SalesforceCollection</strong> as the Workspace.</li>
+<li>Click <strong>Fork Collection</strong>.</li>
+</ol>
+<p>You now have the collection ready in Postman. Let&#39;s use the collection to authorize your org and test it.</p>
+<h2 is-upgraded>Authorize Your Org</h2>
+<p>You need to authenticate with Salesforce to access the APIs. Authentication grants you an access token that&#39;s valid for a certain duration. Repeat this process whenever your access token expires.</p>
+<ol type="1">
+<li>Be sure you&#39;re logged in to only one Trailhead Playground in your browser.</li>
+<li>In Postman, under Collections, <strong>Salesforce Platform APIs</strong> should be selected.</li>
+<li>The Authorization tab should be open.</li>
+<li>Type should be OAuth 2.0.</li>
+<li>Click <strong>Get New Access Token</strong>. <aside class="warning"><p> Note - If you&#39;re not logged in to a Trailhead Playground or Salesforce org, a browser tab opens with the Salesforce login screen. Enter the username and password you saved in the previous step to log in.</p>
+</aside>
+</li>
+<li>Click <strong>Allow</strong> to let the &#34;Salesforce Platform APIs Collection for Postman&#34; access your Trailhead Playground <img alt="allow access" style="width: 200.00px" src="img/3c948016270e45db.webp"></li>
+<li>A success message appears briefly, and then you&#39;re redirected to the Manage Access Tokens dialog. <img alt="tokens dialog" src="img/7f8750ff8c45e473.webp"></li>
+<li>Verify that the <code>instance_url</code> points to your Trailhead Playground.</li>
+<li>Copy the <code>instance_url</code> to use in step 12. Be sure to copy only the URL with no extra characters.</li>
+<li>Click <strong>Use Token</strong>.</li>
+<li>Open the <strong>Variables</strong> tab.</li>
+<li>In the _endpoint row, CURRENT VALUE column, paste the <code>instance_url</code> value that you copied in step 9.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<h2 is-upgraded>A Quick Connection Test</h2>
+<p>Let&#39;s verify that the connection is working.</p>
+<ol type="1">
+<li>In Collections, select <strong>Salesforce Platform APIs</strong> to expand it.</li>
+<li>Select <strong>REST</strong> to expand it.</li>
+<li>Select <strong>GET Limits</strong>. Limits opens in the main panel.</li>
+<li>Click <strong>Send</strong>. <img alt="send request" src="img/4ba5e2c013f8309.webp"></li>
+<li>Verify that the status is 200 OK. <aside class="warning"><p> You may need to turn <strong>Follow Authorization</strong> header configuration ON to retain authorization header when a redirect happens to a different hostname. <img alt="follow authorization header" src="img/23e95c477438046a.webp"></p>
+</aside>
+</li>
+</ol>
+<p>You&#39;ve successfully authenticated with Salesforce. Now you can use other requests in the collection.</p>
+<h2 is-upgraded>Post an Account</h2>
+<p>You just pulled some data from the org. Let&#39;s try adding some new data to the org.</p>
+<ol type="1">
+<li>Under REST, select <strong>SObject</strong>, and then select <strong>POST SObject Create</strong>.</li>
+<li>Open the <strong>Params</strong> tab.</li>
+<li>Under Path Variables, in the SOBJECT_API_NAME row, VALUE column, enter <code>Account</code>.</li>
+<li>Open the <strong>Body</strong> tab.</li>
+<li>Replace the body text with this code:<pre><code language="language-json" class="language-json">{
+  &#34;Name&#34;: &#34;Postman&#34;,
+  &#34;BillingState&#34;: &#34;CA&#34;
+}
+</code></pre>
+</li>
+<li>Click <strong>Save</strong>.</li>
+<li>Click <strong>Send</strong>. Postman returns the id for the new account. <img alt="returns id" src="img/fb4a613310d1e983.webp"></li>
+<li>Verify that the status is 201 Created.</li>
+</ol>
+<aside class="warning"><p> Note: If you don&#39;t get the status 201 Created then you might be signed into a different org. Verify that your instance_url is set to your Trailhead Playground.</p>
+</aside>
+<p>Excellent! You&#39;ve set up Postman to interact with your org. The Salesforce APIs for Postman collection that you loaded will aid you in your quest to discover the Salesforce APIs.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <p>This course was originally created by <a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-connect-postman-to-salesforce" target="_blank">Salesforce</a> and has been modified to suit the Quickstart format. Complete this lesson in Trailhead to collect your Salesforce learning badge.</p>
+<ul>
+<li><a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-connect-postman-to-salesforce" target="_blank">Quick Start: Connect Postman to Salesforce</a></li>
+<li><a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-connect-postman-to-salesforce/set-up-your-org" target="_blank">Set Up Your Org</a></li>
+<li><a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-connect-postman-to-salesforce/set-up-and-connect-postman" target="_blank">Set Up and Connect Postman</a></li>
+</ul>
+<h2 is-upgraded>Resources</h2>
+<ul>
+<li><a href="https://github.com/forcedotcom/postman-salesforce-apis" target="_blank">GitHub: Salesforce APIs for Postman</a></li>
+<li><a href="https://github.com/forcedotcom/postman-salesforce-apis/blob/master/install-with-web.md" target="_blank">GitHub: Installing with the Postman Web UI</a></li>
+<li><a href="https://www.youtube.com/watch?v=lxRNs4LsVdo" target="_blank">YouTube: Use the Salesforce APIs Collection with the Postman Web UI | Developer Quick Takes</a></li>
+<li><a href="https://help.salesforce.com/s/articleView?id=sf.integrate_what_is_api.htm&type=5" target="_blank">Salesforce Help: Which API Do I Use?</a></li>
+<li><a href="https://trailhead.salesforce.com/content/learn/modules/postman-api-client" target="_blank">Trailhead: Postman API Client</a></li>
+</ul>
+<h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
+<ul class="checklist">
+<li>Get your org ready to use Postman.</li>
+<li>Load the Salesforce Platform APIs for Postman collection.</li>
+<li>Connect Postman to your org.</li>
+<li>Verify the connection with Postman.</li>
+<li>Add new data to your org.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

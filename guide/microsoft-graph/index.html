@@ -1,0 +1,212 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Get Started with the Microsoft Graph API in Postman</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="microsoft-graph"
+                  title="Get Started with the Microsoft Graph API in Postman"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <aside class="warning"><p><em>This tutorial was originally published </em><a href="https://learn.microsoft.com/en-us/graph/use-postman" target="_blank"><em>here</em></a><em>.</em></p>
+</aside>
+<p>Postman is an API platform for building and using APIs. Postman simplifies each step of the API lifecycle and streamlines collaboration so that you can create better APIs faster.</p>
+<p>You can use the Microsoft Graph Postman collection to get started with Microsoft Graph APIs in minutes.</p>
+<p><a target="_blank"><img alt="Microsoft Graph API" src="img/7e0ae4d1dac0c1db.png"></a></p>
+<p>This article explains how to get up and running with Postman and Microsoft Graph. You can also explore Microsoft Graph APIs directly in your web browser by using <a href="https://developer.microsoft.com/graph/graph-explorer" target="_blank">Graph Explorer</a>.</p>
+<p>For details about how to use Postman, follow the steps in this article or watch the <a href="https://youtu.be/3RTHY3jScmA" target="_blank">Getting started with Microsoft Graph Postman workspace</a> video.</p>
+<iframe class="youtube-video" src="https://www.youtube.com/embed/3RTHY3jScmA?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<aside class="warning"><p> 💡 Tip The Microsoft Graph Postman collection is configured to authenticate with the global Azure AD service and access the global Microsoft Graph service (<code>graph.microsoft.com</code>). If you want to use the collection to connect to a national cloud deployment, you must modify your fork of the collection.</p>
+</aside>
+<ul>
+<li>Update the request URL, replacing <code>graph.microsoft.com</code> with the Microsoft Graph service root endpoint for your national cloud.</li>
+<li>Update the Auth URL and Access Token URL values on the Authorization tab of the Delegated and Application folders, replacing <code>login.microsoftonline.com</code> with the Azure AD endpoint for your national cloud.</li>
+<li>Update the Scope value on the Authorization tab of the Delegated and Application folders, replacing <code>graph.microsoft.com</code> with the Microsoft Graph service root endpoint for your national cloud.</li>
+</ul>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>A developer tenant through the <a href="https://developer.microsoft.com/microsoft-365/dev-program" target="_blank">Microsoft 365 Developer Program</a>.</li>
+<li><a href="https://identity.getpostman.com/signup" target="_blank">Sign up</a> for a free Postman account, and then <a href="https://go.postman.co/" target="_blank">sign in</a>.</li>
+<li><a href="https://www.postman.com/downloads/postman-agent/" target="_blank">Download and install</a> the Postman desktop agent, which will enable you to use the web version of Postman</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>Create an Azure AD application</li>
+<li>Run your first delegated request</li>
+<li>Run your first application request</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman Collection with authorized API requests</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Fork the Microsoft Graph Postman collection" duration="1">
+        <p>To use the Postman collection, fork it to your own Postman workspace. Do this from the web browser.</p>
+<ol type="1">
+<li>Go to <a href="https://www.postman.com/" target="_blank">Postman</a> and sign in.</li>
+<li>Go to the Postman collection labeled <a href="https://www.postman.com/microsoftgraph/workspace/microsoft-graph/collection/455214-085f7047-1bec-4570-9ed0-3a7253be148c/fork" target="_blank">Microsoft Graph</a>.</li>
+<li>Fill in a label for your own fork; this can be any text.</li>
+<li>Under <strong>Workspace</strong>, ensure that <strong>My Workspace</strong> is selected in the dropdown list.</li>
+<li>Select Fork Collection.</li>
+</ol>
+<p>You are redirected to a fork of the main Microsoft Graph Postman collection in your own workspace.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Download the Postman Agent (optional - Postman web browser only)" duration="1">
+        <p>To use this particular Postman collection in your web browser, download the <a href="https://www.postman.com/downloads" target="_blank">Postman Desktop Agent</a>. You can&#39;t use Postman for the web without this due to CORS restrictions in the web browser.</p>
+<p>You don&#39;t need the agent if you&#39;re using the Postman for Windows app. If you open Postman for Windows, you see this forked collection in your workspace.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create an Azure AD application" duration="5">
+        <p>To use this collection in your own developer tenant, create an Azure Active Directory (Azure AD) application and give it the appropriate permissions for the requests that you want to call. If you don&#39;t have a developer tenant, you can sign up for one through the <a href="https://developer.microsoft.com/microsoft-365/dev-program" target="_blank">Microsoft 365 Developer Program</a>.</p>
+<ol type="1">
+<li>Go to <a href="https://portal.azure.com/" target="_blank">portal.azure.com</a> and sign in with your developer tenant administrator account.</li>
+<li>Under <strong>Azure Services</strong>, select <strong>Azure Active Directory</strong>.</li>
+<li>On the left menu, select <strong>App registrations</strong>.</li>
+<li>On the horizontal menu, select <strong>New registration</strong>.</li>
+<li>Set the <strong>Application name</strong> to <code>Postman</code>.</li>
+<li>From the dropdown menu, select <strong>Web</strong>.</li>
+<li>Set the <strong>Redirect URI</strong> to <code>https://oauth.pstmn.io/v1/browser-callback</code>.</li>
+<li>Select <strong>Register</strong>.</li>
+<li>On the left menu, select <strong>API Permissions</strong>.</li>
+<li>On the horizontal menu, select <strong>Add a permission</strong>, select <strong>Microsoft Graph</strong>, and then select <strong>Delegated Permissions</strong>.</li>
+<li>Type <code>Mail.</code>, expand the <strong>Mail</strong> options, and then select <code>Mail.Read</code>.</li>
+<li>Select <strong>Application permissions</strong>, type <code>User.</code>, and then select <strong>Application Permissions</strong>.</li>
+<li>Expand the <strong>User</strong> options, and then select <code>User.Read.All</code>.</li>
+<li>Select <strong>Add permissions</strong>.</li>
+<li>On the horizontal menu, select <strong>Grant admin consent for</strong>, and then select <strong>Yes</strong>.</li>
+<li>On the left menu, select <strong>Overview</strong>. From here, you can get the <strong>application (client) ID</strong> and <strong>directory (tenant) ID</strong>. You&#39;ll need these in the next step.</li>
+<li>On the left menu, select <strong>Certificates and secrets</strong>.</li>
+<li>Select <strong>New client secret</strong>, enter a description, and then select <strong>Add</strong>. Hover over the new client secret <strong>Value</strong> and copy it; you&#39;ll need this in the next step.</li>
+</ol>
+<p>The application now has two permissions configured. <code>Mail.Read</code> is added as a delegated permission, which is a permission that requires a signed-in user. The application can read mail on behalf of the user. <code>User.Read.All</code> is added as an application permission, which is a permission that does not require a signed-in user. The application can read users in Azure AD.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Configure authentication" duration="3">
+        <p>In this step, you set up the environment variables in Postman that you use to retrieve an access token.</p>
+<ol type="1">
+<li>Go to <a href="https://www.postman.com/microsoftgraph/workspace/microsoft-graph/environment/455214-efbc69b2-69bd-402e-9e72-850b3a49bb21/fork" target="_blank">Fork environment</a>.</li>
+<li>Add a label for the fork. This can be any text.</li>
+<li>Under <strong>Workspace</strong>, ensure that <strong>My Workspace</strong> is selected in the dropdown list.</li>
+<li>Select <strong>Fork Environment</strong>.</li>
+<li>In <code>ClientID</code>, set the <strong>Current value</strong> to the application (client) ID value from the previous step.</li>
+<li>In <code>ClientSecret</code>, set the <strong>Current value</strong> to the client secret value from the previous step.</li>
+<li>In <code>TenantID</code>, set the <strong>Current value</strong> to the directory (tenant) ID value from the previous step.</li>
+<li>On the top right, select <strong>Save</strong>.</li>
+<li>Close the <strong>Manage Environments</strong> tab.</li>
+<li>On the top right, next to the eye icon, verify that <strong>M365 Environment</strong> is selected in the dropdown and not <strong>No environment</strong>.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Get a delegated access token" duration="3">
+        <p>Because this is the first time that you are running a request as a delegated authentication flow, you need to get an access token.</p>
+<ol type="1">
+<li>Select the <strong>Delegated</strong> folder.</li>
+<li>Select the <strong>Authorization</strong> tab.</li>
+<li>In the <strong>Configure New Token</strong> section, select the <strong>Configuration Options</strong> tab. 1. Make sure the call back URL matches with what you provided when you created the application registration. Leave all the fields as pre-configured, including the <strong>Grant type</strong>, which is set to <code>Authorization Code</code>.</li>
+<li>Scroll down on the right and select <strong>Get New Access Token</strong>.</li>
+<li>Sign in with your developer tenant administrator account.</li>
+<li>Select <strong>Proceed</strong>, and then select the <strong>Use Token</strong> button.</li>
+</ol>
+<p>You now have a valid access token to use for delegated requests.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Run your first delegated request" duration="1">
+        <p>Inside the <strong>Delegated</strong> folder are requests for various Microsoft Graph workloads that you can call.</p>
+<ol type="1">
+<li>Expand the <strong>Delegated</strong> folder, and then expand the <strong>Mail</strong> folder.</li>
+<li>Double-click <strong>Get my messages</strong> to open the request.</li>
+<li>On the top right, select <strong>Send</strong>.</li>
+</ol>
+<p>You have now successfully made a Microsoft Graph call using delegated authentication.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Get an application access token" duration="1">
+        <p>Because this is the first time that you are running a request as an application authentication flow, you need to get an access token.</p>
+<ol type="1">
+<li>Select the <strong>Application</strong> folder.</li>
+<li>Select the <strong>Authorization</strong> tab.</li>
+<li>In the <strong>Configure New Token</strong> section, select the <strong>Configuration Options</strong> tab. Leave all the fields as pre-configured, including the <strong>Grant type</strong>, which is set to 1Client Credentials1.</li>
+<li>Scroll down on the right and select <strong>Get New Access Token</strong>.</li>
+<li>Select <strong>Proceed</strong>, and then select the <strong>Use Token</strong> button.</li>
+</ol>
+<p>You now have a valid access token to use for application requests.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Run your first application request" duration="1">
+        <p>Inside the <strong>Application</strong> folder are requests for various Microsoft Graph workloads that you can call.</p>
+<ol type="1">
+<li>Expand the <strong>Application</strong> folder, and then expand the User folder.</li>
+<li>Double-click <strong>Get Users</strong> to open the request.</li>
+<li>On the top right, select <strong>Send</strong>.</li>
+</ol>
+<p>You have now successfully made a Microsoft Graph call using application authentication.</p>
+<p>You can follow these steps to make other requests to Microsoft Graph. Remember that you have to add permissions to your Azure AD application for other requests to work; otherwise, you get permission denied errors in your responses.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <h2 is-upgraded>Contribute to the collection</h2>
+<p>If you want to contribute your own requests, you need a Postman license. You can make your changes to the forked collection, and then hover over the collection top node and select <strong>Create pull request</strong>.</p>
+<h2 is-upgraded>Known issues</h2>
+<h3 is-upgraded>Authentication fails with &#34;You can&#39;t get there from here&#34;</h3>
+<p>Certain <a href="https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/overview" target="_blank">conditional access policies</a> configured by your organization&#39;s administrators can block the authentication flow from Postman. To explore alternatives, contact your administrators.</p>
+<h2 is-upgraded>See also</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/graph/connecting-external-content-connectors-api-postman" target="_blank">Use Postman with the Microsoft Graph connectors API</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

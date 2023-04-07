@@ -1,0 +1,725 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>30 Days of Postman - for developers</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="30-days-of-postman"
+                  title="30 Days of Postman - for developers"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="2">
+        <p>Improve your skills by tackling a new Postman challenge for 30 days in a row.</p>
+<p class="image-container"><img alt="30 day challenge badge" style="width: 200.00px" src="img/ade2464ca7876252.png"></p>
+<h2 is-upgraded>How it works</h2>
+<ol type="1">
+<li><strong>Get the daily challenge</strong>: Fork the parent collection for each day to your own public Postman workspace.</li>
+<li><strong>Review the instructions</strong>: Read the corresponding collection documentation for instructions on how to complete each challenge. Additional resources are available if you want to dive deeper into any of the topics.</li>
+<li><strong>Check your solutions</strong>: When you think you&#39;ve got it, validate your solution by following the instructions in the <code>Submit your solution</code> folder. For the first 29 days, you will be checking your own work.</li>
+<li><strong>Claim your badge</strong>: For the final challenge, submit your final solution to the Postman team. Successfully completing all 30 challenges allows you to join the leaderboard and claim your <a href="https://badgr.com/public/badges/dtlUH0IyTweMbXqk5P1KvA" target="_blank">30 days of Postman badge</a>.</li>
+</ol>
+<p><strong>Watch this video</strong> for some 30-day-challenge tips: </p>
+<iframe class="youtube-video" src="https://www.youtube.com/embed/bmQdaXaFjmM?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h2 is-upgraded>Prerequisites</h2>
+<ol type="1">
+<li><strong>Sign in to Postman:</strong> Create a Postman account if you don&#39;t have one already, and log into <a href="https://go.postman.co" target="_blank">Postman for the web</a> in your browser. To use Postman in a web browser, download and run the <a href="https://www.postman.com/downloads/" target="_blank">Postman agent</a> on your local machine to overcome cross-origin resource sharing (CORS) limitations. The agent is not the same as the app. On a Mac, you will see an icon for the Postman agent running in the status menu at the top right of your computer screen. On a Windows machine, the Postman agent icon displays in the system tray at the bottom right of your computer screen.</li>
+<li><strong>Create a public workspace</strong>: <a href="https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-public-workspace" target="_blank">Create a new Postman workspace</a> with visibility set to <code>Public</code> to show your work. Every day, fork a new challenge from <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/overview" target="_blank">the parent workspace</a> to your own, and work through the day&#39;s challenge. Change the name of your public workspace to deter others from directly copying your answers.</li>
+</ol>
+<aside class="warning"><p> If you don&#39;t want to use Postman in a web browser with the agent, you can instead download and install the Postman app for Mac, Windows, or Linux.</p>
+</aside>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>Basic development skills like how to send and authorize API requests</li>
+<li>Higher-level development skills like using variables, tests, and scripts</li>
+<li>Advanced development skills like visualizing data and generating dynamic requests</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A public Postman workspace with collections, monitors, mock servers, code samples, and more.</li>
+</ul>
+<h2 class="faq" is-upgraded>Frequently Asked Questions</h2>
+<ul class="faq">
+<li><strong>How long does it take to complete the 30 days of Postman challenge?</strong> Plan to spend 5 to 45 minutes every day to explore the topic and dive deeper into the topics you find interesting. Go at your own pace. There is no penalty for taking longer. <strong>Note</strong>: if a very long period of time elapses from when you fork a challenge to when you submit the final solution, you may need to pull the latest changes to ensure the solution you submit is up to date.</li>
+<li><strong>Do I need to complete all 30 challenges?</strong> Completing all 30 challenges is required to claim your <strong>30 days of Postman</strong> badge. You are welcome to dive into any of the topics that you find interesting. However, some challenges build on concepts introduced in earlier challenges. So you will receive less guidance for concepts covered earlier in the series.</li>
+<li><strong>I am new to code.</strong> Is this challenge for me? The challenges are designed for developers and suitable for novice developers. If you know basic software programming concepts and beginner JavaScript (or some other programming language), this challenge is for you. If you&#39;re an API professional, but don&#39;t identify as a developer, you may need to do extra research to complete some challenges.</li>
+<li><strong>I&#39;m stuck. Can someone please help?</strong><ul class="faq">
+<li>Re-read the instructions carefully, and check out the documentation and additional resources listed in the instructions.</li>
+<li>Try submitting an incomplete solution locally to reveal clues in the test results.</li>
+<li>Look for similar examples in the <a href="https://community.postman.com/" target="_blank">community forum</a>. If you&#39;re asking for help, make sure to include a thorough explanation of your question, what you&#39;ve tried already, and include a direct link to your own public workspace so others can see where you&#39;re stuck.</li>
+<li>If your question is related to the administration of this badge (e.g. not a technical Postman question), you can ask for guidance in the <a href="https://community.postman.com/c/training/38" target="_blank">Training</a> section of the community forum.</li>
+</ul>
+</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 01: Fork a collection" duration="2">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-02f21db3-4424-4a4d-8bae-1b1fe1f75987" target="_blank">the parent collection <code>Day 01: Fork a collection</code></a> to your own public workspace. <a href="https://god.gw.postman.com/run-collection/1559645-02f21db3-4424-4a4d-8bae-1b1fe1f75987?action=collection%2Ffork&collection-url=entityId%3D1559645-02f21db3-4424-4a4d-8bae-1b1fe1f75987%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"></a><a href="https://god.gw.postman.com/run-collection/1559645-02f21db3-4424-4a4d-8bae-1b1fe1f75987?action=collection%2Ffork&collection-url=entityId%3D1559645-02f21db3-4424-4a4d-8bae-1b1fe1f75987%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder <code>Fork a collection</code>. Expand the context bar on the right to follow the instructions in the collection documentation. If you find it bothersome to navigate between the documentation while working in a different area of Postman, remember that you can open a new tab to keep your place in the documentation, and then switch between tabs.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/collaborating-in-postman/version-control-for-collections/#forking-a-collection" target="_blank">Forking a collection</a></li>
+<li><a href="https://learning.postman.com/docs/publishing-your-api/viewing-documentation/" target="_blank">Viewing documentation</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/requests/" target="_blank">Sending a request</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://youtu.be/QKxukXJWRPI" target="_blank">Version Control for Collections</a> video</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7060859372649467183" target="_blank">Fork vs import</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 02: Collections and environments" duration="3">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-3e883267-c7b7-4696-81a8-13308d3fda7f" target="_blank">the parent collection <code>Day 02: Collections and environments</code></a> to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-3e883267-c7b7-4696-81a8-13308d3fda7f?action=collection%2Ffork&collection-url=entityId%3D1559645-3e883267-c7b7-4696-81a8-13308d3fda7f%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation. Remember, if you find it bothersome to navigate between the documentation while working in a different area of Postman, you can open a new tab to keep your place in the documentation, and then switch between tabs.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/intro-to-collections/#adding-requests" target="_blank">Adding requests</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/managing-environments/#creating-environments" target="_blank">Creating environments</a></li>
+<li><a href="https://learning.postman.com/docs/developer/intro-api/" target="_blank">Postman API</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://blog.postman.com/postman-environments-how-to-control-access-to-variables-workflows-and-more/" target="_blank">Postman Environments: How to Control Access to Variables, Workflows, and More</a> blog</li>
+<li><a href="https://youtu.be/I6vClap0ajU" target="_blank">Initial vs Current Values for Variables</a> video</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7061999729462250799" target="_blank">Collections and environments</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 03: Add request details" duration="3">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-969f4824-25ba-4ed6-8926-f71ce4ee079d" target="_blank">the parent collection <code>Day 03: Add request details</code></a> to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-969f4824-25ba-4ed6-8926-f71ce4ee079d?action=collection%2Ffork&collection-url=entityId%3D1559645-969f4824-25ba-4ed6-8926-f71ce4ee079d%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/requests/#sending-body-data" target="_blank">Sending body data</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/requests/#configuring-request-headers" target="_blank">Configuring request headers</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://youtu.be/S7bwkys6D0E" target="_blank">Upload a File via POST Request</a> video</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7062401624437951791" target="_blank">API requests</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 04: Authorization" duration="3">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-56245825-855e-4b97-ae54-b78441d511e4" target="_blank">the parent collection <code>Day 04: Authorization</code></a> to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-56245825-855e-4b97-ae54-b78441d511e4?action=collection%2Ffork&collection-url=entityId%3D1559645-56245825-855e-4b97-ae54-b78441d511e4%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://www.postman.com/postman/workspace/postman-public-workspace/collection/12959542-c8142d51-e97c-46b6-bd77-52bb66712c9a?ctx=documentation" target="_blank">Postman API</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/authorization/" target="_blank">Authorizing requests</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://youtu.be/WFiYsfSkyXE" target="_blank">Inheriting Auth Details</a> video</li>
+<li><a href="https://blog.postman.com/how-to-use-api-keys/" target="_blank">Securely using API keys in Postman</a> blog</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7062757613049580846?" target="_blank">Authorization</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 05: Variables" duration="3">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-7b48e949-713b-4922-bb69-73fb949cd5af" target="_blank">the parent collection <code>Day 05: Variables</code></a> to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-7b48e949-713b-4922-bb69-73fb949cd5af?action=collection%2Ffork&collection-url=entityId%3D1559645-7b48e949-713b-4922-bb69-73fb949cd5af%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/variables/" target="_blank">Variable scopes</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/variables/#defining-variables" target="_blank">Defining variables</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://blog.postman.com/10-tips-for-working-with-postman-variables/" target="_blank">10 tips for working with variables</a> blog</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7063092655215119663" target="_blank">Variables</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 06: Tests" duration="3">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-1ac59603-2ea0-4568-ac54-9f793bc06456" target="_blank">the parent collection <code>Day 06: Tests</code></a> to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-1ac59603-2ea0-4568-ac54-9f793bc06456?action=collection%2Ffork&collection-url=entityId%3D1559645-1ac59603-2ea0-4568-ac54-9f793bc06456%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/" target="_blank">Writing tests</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/#using-snippets" target="_blank">Test snippets</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/writing-scripts/script-references/test-examples/" target="_blank">Test script examples</a> in the docs</li>
+<li><a href="https://www.postman.com/postman/workspace/postman-team-collections/collection/1559645-13bd44c4-94ec-420a-8390-8ff44b60f14d?ctx=documentation" target="_blank">Intro to writing tests - with examples</a> sample collection</li>
+<li><a href="https://www.chaijs.com/" target="_blank">Chai.js</a> docs</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7063452982494547247" target="_blank">Tests</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 07: Debugging" duration="3">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-3a90a346-b978-4840-816d-abcec1df7111" target="_blank">the parent collection <code>Day 07: Debugging</code></a> to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-3a90a346-b978-4840-816d-abcec1df7111?action=collection%2Ffork&collection-url=entityId%3D1559645-3a90a346-b978-4840-816d-abcec1df7111%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/troubleshooting-api-requests/#debugging-and-logs" target="_blank">Debugging and logs</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://youtu.be/YCsURct9wCk" target="_blank">Debugging with the console</a> video</li>
+<li><a href="https://blog.postman.com/powerful-debugging-with-the-postman-console/" target="_blank">Powerful Debugging with the Postman Console</a> blog</li>
+<li><a href="https://www.postman.com/postman/workspace/postman-team-collections/collection/1559645-9349429e-3744-467b-a127-e3881f0dffc8?ctx=documentation" target="_blank">How to use the Postman Console</a> template</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7064627117618662703" target="_blank">Debugging</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 08: Run a collection" duration="3">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-1da88e07-1c0a-401c-996b-a3f2c9c3f486" target="_blank">the parent collection <code>Day 08: Run a collection</code></a> to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-1da88e07-1c0a-401c-996b-a3f2c9c3f486?action=collection%2Ffork&collection-url=entityId%3D1559645-1da88e07-1c0a-401c-996b-a3f2c9c3f486%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/running-collections/intro-to-collection-runs/" target="_blank">Collection Runner</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://youtu.be/UreV_7fHKiU" target="_blank">Log Response Data in Collection Runs</a> video</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7065010823349112111" target="_blank">Run collections</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 09: Scripting" duration="7">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-7b82a13b-7c2a-4b51-9620-66a51df3e313" target="_blank">the parent collection <code>Day 09: Scripting</code></a> to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-7b82a13b-7c2a-4b51-9620-66a51df3e313?action=collection%2Ffork&collection-url=entityId%3D1559645-7b82a13b-7c2a-4b51-9620-66a51df3e313%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">Scripting in Postman</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/building-workflows/" target="_blank">Building workflows</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/writing-scripts/script-references/test-examples/" target="_blank">Test script examples</a></li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7065370176992120110" target="_blank">Scripting</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 10: Mock services" duration="3">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-900c913f-3ce2-4445-9508-4f994faeff10" target="_blank">the main collection <code>Day 10: Mock services</code></a> to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-900c913f-3ce2-4445-9508-4f994faeff10?action=collection%2Ffork&collection-url=entityId%3D1559645-900c913f-3ce2-4445-9508-4f994faeff10%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/" target="_blank">Setting up mock servers</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://medium.com/better-practices/https-medium-com-postman-engineering-fake-it-till-you-make-it-mocks-for-agile-development-f4d050cad694" target="_blank">Fake it till you make it: mocks for agile development</a></li>
+<li><a href="https://www.postman.com/postman-marketing-legacy/workspace/postman-marketing-s-public-workspace/documentation/3967924-4f82b9cf-ca7f-4874-aabf-befa47e5d350" target="_blank">Mocks sample collection</a></li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7065715107577449774" target="_blank">Mock servers</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 11: Monitoring" duration="3">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-7e3a6d75-57cb-4e54-82ff-b4f9e402c8cc" target="_blank">the parent collection <code>Day 11: Monitoring</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-7e3a6d75-57cb-4e54-82ff-b4f9e402c8cc?action=collection%2Ffork&collection-url=entityId%3D1559645-7e3a6d75-57cb-4e54-82ff-b4f9e402c8cc%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/designing-and-developing-your-api/monitoring-your-api/monitoring-apis-websites/" target="_blank">Monitoring APIs and websites</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://blog.postman.com/using-a-postman-monitor-to-water-my-plants/" target="_blank">Using Postman to water my plants</a> tutorial</li>
+<li><a href="https://learning.postman.com/docs/designing-and-developing-your-api/view-and-analyze-api-reports/" target="_blank">Analyzing with reports</a> docs</li>
+<li><a href="https://www.postman.com/postman/workspace/postman-api-monitoring-examples/overview" target="_blank">Postman API Monitoring Examples</a> workspace</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7066058176470453550" target="_blank">Monitoring</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 12: Postman API" duration="4">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-2f4b05dd-10d6-4f0b-8844-b9e8679881d6" target="_blank">the parent collection <code>Day 12: Postman API</code></a> to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-2f4b05dd-10d6-4f0b-8844-b9e8679881d6?action=collection%2Ffork&collection-url=entityId%3D1559645-2f4b05dd-10d6-4f0b-8844-b9e8679881d6%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/developer/intro-api/" target="_blank">Postman API</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://www.postman.com/postman/workspace/postman-public-workspace/documentation/12959542-c8142d51-e97c-46b6-bd77-52bb66712c9a" target="_blank">Postman API</a> documentation collection</li>
+<li><a href="https://blog.postman.com/how-to-get-started-with-the-postman-api/" target="_blank">How to Get Started With the Postman API</a> blog</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7067547923520769326" target="_blank">APIs</a> tiktok#</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 13: Newman" duration="4">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-a509b7b4-4b46-4593-9dec-2bafbe7d9524" target="_blank">the parent collection <code>Day 13: Newman</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-a509b7b4-4b46-4593-9dec-2bafbe7d9524?action=collection%2Ffork&collection-url=entityId%3D1559645-a509b7b4-4b46-4593-9dec-2bafbe7d9524%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/variables/" target="_blank">Variables</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">Scripts</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/" target="_blank">Writing tests</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/" target="_blank">Running collections on the command line with Newman</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://github.com/postmanlabs/newman" target="_blank">Newman on GitHub</a></li>
+<li><a href="https://www.npmjs.com/package/newman" target="_blank">Newman on npm</a></li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7067909067594894638" target="_blank">Newman</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 14: OAuth" duration="4">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-0e372950-c58c-483d-aea9-fe676547e6f0" target="_blank">the parent collection <code>Day 14: OAuth</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-0e372950-c58c-483d-aea9-fe676547e6f0?action=collection%2Ffork&collection-url=entityId%3D1559645-0e372950-c58c-483d-aea9-fe676547e6f0%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/authorization/#oauth-20" target="_blank">OAuth 2.0</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/variables/" target="_blank">Variables</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">Scripts</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/" target="_blank">Writing tests</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://www.postman.com/postman/workspace/postman-team-collections/collection/1559645-e1dfc9cb-3de7-4a73-82cd-602334bae284?ctx=documentation" target="_blank">OAuth 2.0</a> examples</li>
+<li><a href="https://blog.postman.com/pkce-oauth-how-to/" target="_blank">OAuth 2.0: Implicit Flow is Dead, Try PKCE Instead</a> blog</li>
+<li><a href="https://blog.postman.com/generate-spotify-playlists-using-a-postman-collection/" target="_blank">Generate Spotify Playlists using a Postman Collection</a> blog</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7068281874887560494" target="_blank">OAuth</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 15: Write to file" duration="7">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-b9204eb2-a00b-46b5-b011-89375b39d28b" target="_blank">the parent collection <code>Day 15: Write to file</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-b9204eb2-a00b-46b5-b011-89375b39d28b?action=collection%2Ffork&collection-url=entityId%3D1559645-b9204eb2-a00b-46b5-b011-89375b39d28b%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/#sending-requests-from-scripts" target="_blank"><code>pm.sendRequest()</code></a> to send asynchronous requests</li>
+<li><a href="https://blog.postman.com/write-to-your-local-file-system-using-a-postman-collection/" target="_blank">Write to your local file system using a Postman Collection</a> blog</li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://github.com/postmanlabs/postman-app-support/issues/3033#issuecomment-301758179" target="_blank">Newman write to file</a> code sample</li>
+<li><a href="https://www.postman.com/postman/workspace/postman-answers/collection/3407886-888860dd-9e3c-4537-a78e-1c3f3db7535c?ctx=documentation" target="_blank">Write responses to file</a> template</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7068663207157583150" target="_blank">Write to file</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 16: Pagination" duration="7">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-e8bb1023-b130-4c60-a8d6-6d983b5b9613" target="_blank">the parent collection <code>Day 16: Pagination</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-e8bb1023-b130-4c60-a8d6-6d983b5b9613?action=collection%2Ffork&collection-url=entityId%3D1559645-e8bb1023-b130-4c60-a8d6-6d983b5b9613%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/variables/" target="_blank">Variables</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">Pre-request and Test Scripts</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/" target="_blank">Writing tests</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/building-workflows/" target="_blank">Building request workflows</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/intro-to-collection-runs/" target="_blank">Running a collection</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7070513310675930414" target="_blank">Pagination</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 17: Visualizations" duration="7">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-0b4d01c7-25b5-4296-91e2-bad1baaf3c6d" target="_blank">the parent collection <code>Day 17: Visualizations</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-0b4d01c7-25b5-4296-91e2-bad1baaf3c6d?action=collection%2Ffork&collection-url=entityId%3D1559645-0b4d01c7-25b5-4296-91e2-bad1baaf3c6d%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/visualizer/" target="_blank">Visualizing responses</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://youtu.be/i1jU-kivApg" target="_blank">Visualizer demo</a> video</li>
+<li><a href="https://blog.postman.com/how-to-visualize-api-data-in-postman/" target="_blank">Postman visualizer: More than meets the eye</a> blog</li>
+<li><a href="https://blog.postman.com/how-to-graphing-covid-time-series-data-using-chart-js-and-postman-visualizer/" target="_blank">Graphing COVID Time Series Data Using Chart.js</a> tutorial</li>
+<li><a href="https://blog.postman.com/visualizing-open-brewery-data-with-bootstrap/" target="_blank">Visualizing Open Brewery Data with Bootstrap</a> tutorial</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7070886360206363946" target="_blank">Visualization</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 18: API specifications" duration="3">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-c385b569-e55a-4d4f-b252-51a33311ca78" target="_blank">the parent collection <code>Day 18: API specifications</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-c385b569-e55a-4d4f-b252-51a33311ca78?action=collection%2Ffork&collection-url=entityId%3D1559645-c385b569-e55a-4d4f-b252-51a33311ca78%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-api-specifications" target="_blank">Importing API specifications</a></li>
+<li><a href="https://learning.postman.com/docs/designing-and-developing-your-api/the-api-workflow/" target="_blank">Using the API Builder</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://blog.postman.com/openapi-specification-postman-how-to/" target="_blank">How Postman Uses the OpenAPI Specification</a> blog</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7071254597150510378" target="_blank">API specifications</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 19: GraphQL" duration="4">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-bd7ff4ba-c209-47b3-85d7-514a7ce0f3bf" target="_blank">the parent collection <code>Day 19: GraphQL</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-bd7ff4ba-c209-47b3-85d7-514a7ce0f3bf?action=collection%2Ffork&collection-url=entityId%3D1559645-bd7ff4ba-c209-47b3-85d7-514a7ce0f3bf%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/supported-api-frameworks/graphql/" target="_blank">Querying with GraphQL</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://youtu.be/7pUbezVADQs" target="_blank">GraphQL demo</a> video</li>
+<li><a href="https://explore.postman.com/templates/1692/working-with-graphql" target="_blank">Working with GraphQL</a> template</li>
+<li><a href="https://medium.com/better-practices/rest-soap-graphql-gesundheit-6544053f65cf" target="_blank">REST, SOAP, GraphQL — Gesundheit!</a></li>
+<li><a href="https://philsturgeon.uk/api/2017/01/24/graphql-vs-rest-overview/" target="_blank">GraphQL vs REST: Overview</a></li>
+<li><a href="https://github.com/APIs-guru/graphql-apis" target="_blank">Public GraphQL APIs</a></li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7072443227168869678" target="_blank">GraphQL</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 20: Documentation" duration="3">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-0f00502d-d2d8-45fc-bd69-0fbb68eb5733" target="_blank">the parent collection <code>Day 20: Documentation</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-0f00502d-d2d8-45fc-bd69-0fbb68eb5733?action=collection%2Ffork&collection-url=entityId%3D1559645-0f00502d-d2d8-45fc-bd69-0fbb68eb5733%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/publishing-your-api/documenting-your-api/" target="_blank">Documenting your API</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://blog.postman.com/postman-good-documentation-checklist/" target="_blank">The Good Documentation checklist</a></li>
+<li><a href="https://medium.com/better-practices/the-ultimate-api-publishers-guide-be74a2692326" target="_blank">The Ultimate API Publisher&#39;s Guide</a></li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7072797681902521643" target="_blank">Documentation</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 21: WebSockets" duration="3">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-8b2c3197-1df3-44ba-9687-eba60470d270" target="_blank">the parent collection <code>Day 21: WebSockets</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-8b2c3197-1df3-44ba-9687-eba60470d270?action=collection%2Ffork&collection-url=entityId%3D1559645-8b2c3197-1df3-44ba-9687-eba60470d270%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/supported-api-frameworks/websocket/" target="_blank">Using WebSocket Requests</a></li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7073108636666481966" target="_blank">Websockets</a> tiktok</li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://youtu.be/H-7EZVj9D-k" target="_blank">WebSocket Requests</a> video</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 22: Public profile" duration="2">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-5cbfbc58-e32f-4e62-b6ee-558b38701d71" target="_blank">the parent collection <code>Day 22: Public profile</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-5cbfbc58-e32f-4e62-b6ee-558b38701d71?action=collection%2Ffork&collection-url=entityId%3D1559645-5cbfbc58-e32f-4e62-b6ee-558b38701d71%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/getting-started/postman-account/#making-your-profile-public" target="_blank">Making your profile public</a></li>
+<li><a href="https://learning.postman.com/docs/collaborating-in-postman/commenting-on-collections" target="_blank">Commenting on collections</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://youtu.be/w-EgqQ8Anvw" target="_blank">Public Profiles</a> video</li>
+<li><a href="https://youtu.be/fkYiyCj43uk" target="_blank">Comments</a> video</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7073479009077808430" target="_blank">Public profile</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 23: Data files" duration="3">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-087bf975-4820-44b2-82be-2664a55d9958" target="_blank">the parent collection <code>Day 23: Data files</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-087bf975-4820-44b2-82be-2664a55d9958?action=collection%2Ffork&collection-url=entityId%3D1559645-087bf975-4820-44b2-82be-2664a55d9958%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/running-collections/working-with-data-files/" target="_blank">Working with data files</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://blog.postman.com/looping-through-a-data-file-in-the-postman-collection-runner/" target="_blank">Looping through a data file with the Postman collection runner</a> blog</li>
+<li><a href="https://youtu.be/RH8b3gbujPY" target="_blank">Loop through a data file</a> video</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7073858695431638318" target="_blank">Data files</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 24: Using libraries" duration="7">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-c8009938-a174-48d3-82b2-8b2137068508" target="_blank">the parent collection <code>Day 24: Using libraries</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-c8009938-a174-48d3-82b2-8b2137068508?action=collection%2Ffork&collection-url=entityId%3D1559645-c8009938-a174-48d3-82b2-8b2137068508%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/writing-scripts/script-references/variables-list/" target="_blank">Dynamic variables using faker library</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/#using-external-libraries" target="_blank">Using external libraries</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7074945372291943723" target="_blank">Using libraries</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 25: Dynamic request" duration="5">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-2f480c99-4608-4210-b3c5-5a75c7e7a384" target="_blank">the parent collection <code>Day 25: Dynamic request bodies</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-2f480c99-4608-4210-b3c5-5a75c7e7a384?action=collection%2Ffork&collection-url=entityId%3D1559645-2f480c99-4608-4210-b3c5-5a75c7e7a384%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/variables/" target="_blank">Variables</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">Scripts</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/script-references/variables-list/" target="_blank">Using dynamic variables</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/#sending-requests-from-scripts" target="_blank">Sending asynchronous requests</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/" target="_blank">Writing tests</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://www.postman.com/postman/workspace/postman-answers/collection/9215231-b9133e48-73c3-4aa4-b189-e038ee4c5e00?ctx=documentation" target="_blank">Example</a> in Postman Answers workspace</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7075325324929666346" target="_blank">Dynamic requests</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 26: Parse HTML response" duration="6">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-9f9419fe-5249-4b44-b07f-4cb3ef913c81" target="_blank">the parent collection <code>Day 26: Parse HTML response</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-9f9419fe-5249-4b44-b07f-4cb3ef913c81?action=collection%2Ffork&collection-url=entityId%3D1559645-9f9419fe-5249-4b44-b07f-4cb3ef913c81%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/variables/" target="_blank">Variables</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">Scripts</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/#using-external-libraries" target="_blank">Using external libraries</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/" target="_blank">Writing tests</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://www.postman.com/postman/workspace/postman-answers/collection/9215231-cd114167-c5a1-495e-a50f-29d6dd5af4e0?ctx=documentation" target="_blank">Example</a> in Postman Answers workspace</li>
+<li><a href="https://blog.postman.com/check-for-broken-links-on-your-website-using-a-postman-collection/" target="_blank">Check for Broken Links on Your Website Using a Postman Collection</a> blog</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7075694107703692590" target="_blank">Parse HTML</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 27: Scenario testing" duration="7">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-e9968036-7ad8-4daa-97c3-331184213392" target="_blank">the parent collection <code>Day 27: Scenario testing</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-e9968036-7ad8-4daa-97c3-331184213392?action=collection%2Ffork&collection-url=entityId%3D1559645-e9968036-7ad8-4daa-97c3-331184213392%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/variables/" target="_blank">Variables</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">Scripts</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/" target="_blank">Writing tests</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://youtu.be/c-5UMf6sWk4" target="_blank">How to break an API</a> livestream</li>
+<li><a href="https://youtu.be/shT-Obfo-uk" target="_blank">How Secure are your APIs?</a> livestream</li>
+<li><a href="https://medium.com/better-practices/acing-your-apis-what-you-need-to-know-for-test-automation-e3fdba3519b9" target="_blank">Acing your API tests — what you need to know for test automation</a> blog</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7076059976770276650" target="_blank">Scenario testing</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 28: UI testing" duration="3">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-01eeea90-778a-4d8f-82b6-87e16ca7d45e" target="_blank">the parent collection <code>Day 28: UI testing</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-01eeea90-778a-4d8f-82b6-87e16ca7d45e?action=collection%2Ffork&collection-url=entityId%3D1559645-01eeea90-778a-4d8f-82b6-87e16ca7d45e%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/variables/" target="_blank">Variables</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">Scripts</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/" target="_blank">Writing tests</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://medium.com/better-practices/ui-testing-with-postman-df713eb9788c" target="_blank">UI Testing with Postman</a> blog and code samples</li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7076498531346861355" target="_blank">UI testing</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 29: Webhooks" duration="7">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-7d96fb0a-52d9-4c7e-b044-6f5c3f6ee12f" target="_blank">the parent collection <code>Day 29: Webhooks</code></a> from the main workspace to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-7d96fb0a-52d9-4c7e-b044-6f5c3f6ee12f?action=collection%2Ffork&collection-url=entityId%3D1559645-7d96fb0a-52d9-4c7e-b044-6f5c3f6ee12f%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit your solution</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+<h2 is-upgraded>Concepts covered</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/designing-and-developing-your-api/monitoring-your-api/integrations-for-alerts/" target="_blank">Set up integrations to receive alerts</a></li>
+<li><a href="https://www.postman.com/postman/workspace/postman-public-workspace/documentation/12959542-c8142d51-e97c-46b6-bd77-52bb66712c9a" target="_blank">Postman API</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/integrations/webhooks/" target="_blank">Custom webhook integrations</a></li>
+<li><a href="https://www.tiktok.com/@joycejetson/video/7077919413122370862" target="_blank">Webhooks</a> tiktok</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 30: Submit for badge" duration="2">
+        <ol type="1">
+<li><strong>Get the challenge:</strong> Fork <a href="https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-88dc2f3e-8335-40f5-857d-cc053bdaa8ee" target="_blank">the parent collection <code>Day 30: Submit for badge</code></a> to your own public workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-88dc2f3e-8335-40f5-857d-cc053bdaa8ee?action=collection%2Ffork&collection-url=entityId%3D1559645-88dc2f3e-8335-40f5-857d-cc053bdaa8ee%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Read the documentation:</strong> In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.</li>
+<li><strong>Submit your solution:</strong> Select the second folder <code>Submit for badge</code> and follow the instructions in the documentation to validate your solution.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <p>This tutorial was a hands-on introduction to Postman for developers. To see what else you can do with Postman, check out the following resources:</p>
+<ul>
+<li>Additional <a href="https://quickstarts.postman.com" target="_blank">hands-on learning courses</a> by Postman</li>
+<li>Other opportunities to <a href="https://badgr.com/public/issuers/BC0x4AQaQPC7lFilsBP_tQ/badges" target="_blank">earn badges from Postman</a></li>
+<li>Videos including <a href="https://www.youtube.com/@postman" target="_blank">how-to, level ups, and exploratories</a></li>
+<li>Virtual learning <a href="https://www.postman.com/events/intergalactic/" target="_blank">webinars</a></li>
+</ul>
+<p>Or explore the following topics:</p>
+<ul>
+<li>For API testing professionals: <a href="https://quickstarts.postman.com/guide/15_days_of_postman/index.html" target="_blank">15 Days of Postman - for Testers</a> test challenge</li>
+<li>API-first design and development: <a href="https://youtu.be/JEBd78U9aBo" target="_blank">OpenAPI 3.0: From Idea to Implementation</a> video</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

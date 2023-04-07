@@ -1,0 +1,487 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Postman Flows Tutorials</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="postman-flows-tutorials"
+                  title="Postman Flows Tutorials"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <aside class="warning"><p> These tutorials were originally published <a href="https://learning.postman.com/docs/postman-flows/tutorials/building-your-first-flow/" target="_blank">here</a>.</p>
+</aside>
+<p><a href="https://learning.postman.com/docs/postman-flows/gs/flows-overview/" target="_blank">Postman Flows</a> is a visual tool for building software for the API-First world. With Postman Flows, anyone can connect their web services&#39; APIs to build workflows, integrations, and API applications in a visual and collaborative development environment.orkflows in your Postman workspace.</p>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Familiarity with Postman</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>how to build your first flow</li>
+<li>how to pass data between blocks</li>
+<li>how to run requests in sequence</li>
+<li>how to use authorization with Postman Flows</li>
+<li>how to use response data in a request</li>
+<li>how to use webhooks with Postman Flows</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Need</h2>
+<ul>
+<li>a <a href="https://identity.getpostman.com/signup" target="_blank">Postman Account</a></li>
+<li>an <a href="https://beta.openai.com/account/api-keys" target="_blank">OpenAI API key</a></li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A group of Postman collections and flows</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Build your first flow" duration="5">
+        <p>This page shows you how to create flows with a quick start tutorial and a more detailed tutorial. The quick start tutorial shows you how to create a flow in Postman that checks if a website is down.</p>
+<p>The more detailed tutorial starts with Creating a request and a collection. This tutorial creates a flow that gets a list of Pokémon, one page at a time, until it reaches the last page.</p>
+<h2 is-upgraded>Quick start</h2>
+<p>This quick start tutorial creates a flow to check if a website is down or not. It does this by sending a request to the website and looking for a <code>200</code> status code in the response. If the website is up and running, the flow&#39;s Output block will display <strong>True</strong>. If the website is down, it will display <strong>False</strong>.</p>
+<ol type="1">
+<li>Go to the <a href="https://www.postman.com/postman/workspace/devops-flows" target="_blank">DevOps Flows</a> workspace and <a href="https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-entities/" target="_blank">fork</a> the <a href="https://www.postman.com/postman/workspace/devops-flows/collection/23919558-2ea958e4-8647-4b79-859a-47a2c7608b4d?action=share&creator=23919558" target="_blank">DownDetector</a> collection to your workspace. Then, in your workspace, select <strong>New &gt; Flows</strong> and <a href="https://learning.postman.com/docs/getting-started/navigating-postman/#sidebar" target="_blank">hide the sidebar</a>. <img alt="create new flow" src="img/5a7016c8a5a459d0.gif"></li>
+<li>Right-click the canvas and select <strong>Send Request</strong> from the list of blocks. Connect the <strong>Send Request</strong> block to the <strong>Start</strong> block. <img alt="send request" src="img/f882dd52e675130b.gif"></li>
+<li>In the <strong>Send Request</strong> block, select <strong>Add request &gt; DownDetector &gt; sitemap</strong>. Then select the port next to <strong>Success</strong>, and drag and drop it to the right. Select <strong>Evaluate</strong> from the list that appears to add an <strong>Evaluate</strong> block. <img alt="evaluate block" src="img/711fa86cc7c55f8.gif"></li>
+<li>In the <strong>Evaluate</strong> block, select <code>value1</code> and change it to <code>status</code>. Then select <strong>Enter path...</strong>, scroll down, and select <strong>http.status</strong>. <img alt="select status" src="img/aedb67bdf9d92d95.gif"></li>
+<li>Select <strong>Start writing an FQL query...</strong> and enter <code>status=200</code>. <img alt="set FQL query" src="img/e4ee08b0d247ce07.gif"></li>
+<li>Drag and drop the port on the right side of the <strong>Evaluate</strong> block and add an <strong>Output</strong> block.</li>
+<li>Select <strong>Run</strong>. The <strong>Output</strong> block displays <strong>True</strong>, which means the website is up and running.</li>
+</ol>
+<h2 is-upgraded>Creating a request and a collection</h2>
+<p>This is the beginning of a detailed tutorial that builds a flow that gets a list of Pokémon, one page at a time, until it reaches the last page. Start by creating a new collection and adding a GET request. You&#39;ll use this collection with the flow you&#39;ll create later.</p>
+<ol type="1">
+<li>In your workspace, select <strong>New</strong> &gt; <strong>Collection</strong>. Name the collection <code>Pokemon API</code>.</li>
+<li><a href="https://learning.postman.com/docs/getting-started/sending-the-first-request/" target="_blank">Add a GET request</a> with this URL: <code>https://pokeapi.co/api/v2/pokemon?limit=200</code>. <img alt="First request" src="img/fc26f955b10bbcb9.jpeg"></li>
+<li>Select <strong>Send</strong>, then select <strong>Save Response</strong> &gt; <strong>Save as example</strong>. <aside class="warning"><p> Saving the response as an example enables Postman Flows to automatically detect the structure for easier access later.</p>
+</aside>
+</li>
+<li>Select the GET request and replace the URL <code>https://pokeapi.co/api/v2/pokemon?limit=200</code> with the variable <code>&#123;&#123;URL}}</code>. <img alt="Replace the URL" src="img/103213389d6a3196.jpeg"></li>
+<li>Select <strong>Save</strong>.</li>
+</ol>
+<h2 is-upgraded>Making your first send request in Postman Flows</h2>
+<ol type="1">
+<li>Select <strong>New</strong> &gt; <strong>Flows</strong>. Your new flow appears with a <strong>Start</strong> block already in place. <aside class="warning"><p> You can select and drag the canvas to reposition your flow. <img alt="start block" src="img/58593dee886bd8bb.jpeg"></p>
+</aside>
+</li>
+<li>Right-click the canvas to the right of the <strong>Start</strong> block. From the list of blocks that opens, select <strong>Send Request</strong>. <aside class="warning"><p> You can type the block&#39;s name in the <strong>Search</strong> field to find it faster.</p>
+</aside>
+</li>
+<li>Connect the Start block to the Send Request block. <img alt="add send request" src="img/5e96b4b094ea849.jpeg"></li>
+<li>In the <strong>Send Request</strong> block, select <strong>Add request</strong> and select <code>Pokemon API</code>. Then select the GET request you created earlier. <img alt="select request" src="img/27c063ccb8a0e4f5.jpeg"></li>
+<li>Create a <strong>String</strong> block below the <strong>Start</strong> block and enter the URL <code>https://pokeapi.co/api/v2/pokemon?limit=200</code>.</li>
+<li>Connect the <strong>String</strong> block to the port next to <code>&#123;&#123;URL}}</code> on the <strong>Send Request</strong> block. <img alt="add string block" src="img/fadd4a6f37f52a2c.jpeg"></li>
+</ol>
+<h2 is-upgraded>Logging the output to the console</h2>
+<ol type="1">
+<li>Create a <strong>Select</strong> block to the right of the <strong>Send Request</strong> block.</li>
+<li>Connect the <strong>Select</strong> block to the port next to <strong>Success</strong> on the <strong>Send Request</strong> block. <img alt="add select block" src="img/340c5654be8ea4af.jpeg"></li>
+<li>In the <strong>Select</strong> block, select <strong>Enter path...</strong> and select <code>body.results</code>. <aside class="warning"><p> Because you saved an example earlier, the returned data&#39;s structure auto-populates in the block. <img alt="body results" src="img/d85ed39facd88125.jpeg"></p>
+</aside>
+</li>
+<li>Create a <strong>Log</strong> block and connect it to the right side of the <strong>Select</strong> block, then select <strong>Run</strong>.</li>
+<li>Select <strong>Console</strong> to view the results. <img alt="add log" src="img/52b647adaa3a2a74.jpeg"></li>
+</ol>
+<h2 is-upgraded>Checking for the next page of results</h2>
+<ol type="1">
+<li>Create another <strong>Select</strong> block and connect it to the <strong>Success</strong> port on the <strong>Send Request</strong> block. <img alt="add another select" src="img/cd09834167f943d9.jpeg"></li>
+<li>In the <strong>Select</strong> block you created, select <strong>Enter path...</strong> and select <code>body.next</code> to get the link to the next set of 200 results.</li>
+<li>Create an <strong>If</strong> block to the right of the <code>body.next</code> <strong>Select</strong> block. Connect the <code>body.next</code> <strong>Select</strong> block to the <code>key</code> port. This creates a variable named <code>value1</code>.</li>
+<li>Also connect the <code>body.next</code> <strong>Select</strong> block to the <code>Data</code> port in the <strong>If</strong> block. <img alt="add if block" src="img/a07601ec3013078c.jpeg"></li>
+<li>In the <strong>If</strong> block, select <code>value1</code> and replace it with <code>has_next</code>. This assigns the <code>body.next</code> value from the <strong>Select</strong> block to the <code>has_next</code> variable in the <strong>If</strong> block. <img alt="enter has next" src="img/401e7ceae82733c0.jpeg"></li>
+<li>Select <strong>Write an FQL condition</strong> and enter ``has_next <code>!= null</code>. <aside class="warning"><p> If <code>has_next</code> is null, then the flow has reached the last set of 200 results.</p>
+</aside>
+</li>
+<li>Connect the <strong>If</strong> block&#39;s TRUE port to the <strong>Send Request</strong> block&#39;s URL port. This passes the new <code>has_next</code> value to the existing URL variable in the <strong>Send Request</strong> block.</li>
+<li>Also connect the <strong>If</strong> block&#39;s TRUE port to the <strong>Send Request</strong> block&#39;s Send port. This triggers the send event so it runs again. <img alt="connect if block" src="img/ff134b99f0a4d97a.jpeg"></li>
+</ol>
+<h2 is-upgraded>Watching it run</h2>
+<p>After completing the above steps, select <strong>Run</strong>. The flow runs and logs all the Pokémon to the console.</p>
+<p class="image-container"><img alt="run flow" src="img/29e794891bb3477f.gif"></p>
+<p>Congratulations, you&#39;ve created your first flow!</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Passing data between blocks" duration="5">
+        <p>Postman Flows can get data with API requests or directly from the <strong>Start</strong> block. This tutorial shows examples of Postman Flows getting data using both methods and passing data between blocks.</p>
+<h2 is-upgraded>Getting data and passing it between blocks</h2>
+<p>These examples get response data with <a href="https://learning.postman.com/docs/getting-started/sending-the-first-request/" target="_blank">API requests</a> from existing collections in your workspace and from data pasted into the <strong>Start</strong> block. In these examples, the entire response is passed between blocks.</p>
+<h2 is-upgraded>Getting data with an API request</h2>
+<p>In this example, the <strong>Send Request</strong> block gets data using a collection&#39;s GET request. The <strong>Send Request</strong> block then passes all the data to a <strong>Log</strong> block.</p>
+<ol type="1">
+<li><a href="https://learning.postman.com/docs/getting-started/creating-the-first-collection/" target="_blank">Create a collection</a> named <code>Random User Collection</code> and add a GET request with this URL: <code>https://randomuser.me/api/</code>.</li>
+<li>Select <strong>Send</strong>. <img alt="send request" src="img/445b2d5ce5871395.jpeg"></li>
+<li>Select <strong>Save</strong>.</li>
+<li><a href="https://learning.postman.com/docs/postman-flows/flows-intro/building-your-first-flow/" target="_blank">Create a new flow</a> and connect a <strong>Send Request</strong> block to the <strong>Start</strong> block. <img alt="connect send request" src="img/af758a21ad14e6aa.jpeg"></li>
+<li>In the <strong>Send Request</strong> block, select <strong>Add request</strong> &gt; <strong>Random User Collection</strong> &gt; <strong>New Request</strong>. Each time the flow executes, it will get data using the GET request from the Random User Collection request you created earlier. <img alt="select data" src="img/33367780d32f73b1.jpeg"></li>
+<li>Connect a <strong>Log</strong> block to the <strong>Send Request</strong> block&#39;s <strong>Success</strong> port. <img alt="connect log" src="img/1508990bcaee98f1.jpeg"></li>
+<li>Select <strong>Console</strong> then select <strong>Run</strong>. The <strong>Log</strong> block sends the entire response to the console, including request headers, response headers, and the response body.</li>
+</ol>
+<h2 is-upgraded>Getting data from the Start block</h2>
+<p>In this example, the flow gets data from the <strong>Start</strong> block and passes it to an <strong>Evaluate</strong> block. The <strong>Evaluate</strong> block passes the entire response to the <strong>Log</strong> block in a variable.</p>
+<ol type="1">
+<li><a href="https://learning.postman.com/docs/postman-flows/flows-intro/building-your-first-flow/" target="_blank">Create a new flow</a> and select the gear icon in the <strong>Start</strong> block. <img alt="configure start block" src="img/b243ee79d63a48dc.jpeg"></li>
+<li>Select <strong>Enter Incoming Data</strong> and paste in the sample data below. The flow will use this data every time it executes. <pre><code language="language-json" class="language-json">{
+  &#34;results&#34;: [
+    {
+      &#34;gender&#34;: &#34;female&#34;,
+      &#34;name&#34;: {
+        &#34;title&#34;: &#34;Miss&#34;,
+        &#34;first&#34;: &#34;Astrid&#34;,
+        &#34;last&#34;: &#34;Klingenberg&#34;
+      },
+      &#34;location&#34;: {
+        &#34;street&#34;: {
+          &#34;number&#34;: 2547,
+          &#34;name&#34;: &#34;Lyseskrenten&#34;
+        },
+        &#34;city&#34;: &#34;Tvedestrand&#34;,
+        &#34;state&#34;: &#34;Oppland&#34;,
+        &#34;country&#34;: &#34;Norway&#34;,
+        &#34;postcode&#34;: &#34;6523&#34;,
+        &#34;coordinates&#34;: {
+          &#34;latitude&#34;: &#34;44.5909&#34;,
+          &#34;longitude&#34;: &#34;130.7502&#34;
+        },
+        &#34;timezone&#34;: {
+          &#34;offset&#34;: &#34;+9:00&#34;,
+          &#34;description&#34;: &#34;Tokyo, Seoul, Osaka, Sapporo, Yakutsk&#34;
+        }
+      },
+      &#34;email&#34;: &#34;astrid.klingenberg@example.com&#34;,
+      &#34;login&#34;: {
+        &#34;uuid&#34;: &#34;263e48e9-1d6d-4d18-9458-27b1b7bad1b9&#34;,
+        &#34;username&#34;: &#34;lazycat514&#34;,
+        &#34;password&#34;: &#34;francois&#34;,
+        &#34;salt&#34;: &#34;YAY2fGhq&#34;,
+        &#34;md5&#34;: &#34;0ed2300b7aad0843267d658db0f22f2a&#34;,
+        &#34;sha1&#34;: &#34;57ef1b1c5cac06feb6712ac863b7c9d6292e400e&#34;,
+        &#34;sha256&#34;: &#34;5312eee0d8693e522aa62814fb49fb3239bad5326ca0f37011a97704978a4add&#34;
+      },
+      &#34;dob&#34;: {
+        &#34;date&#34;: &#34;1984-03-11T08:50:14.752Z&#34;,
+        &#34;age&#34;: 38
+      },
+      &#34;registered&#34;: {
+        &#34;date&#34;: &#34;2003-09-27T19:45:20.432Z&#34;,
+        &#34;age&#34;: 19
+      },
+      &#34;phone&#34;: &#34;57680755&#34;,
+      &#34;cell&#34;: &#34;96350131&#34;,
+      &#34;id&#34;: {
+        &#34;name&#34;: &#34;FN&#34;,
+        &#34;value&#34;: &#34;11038429851&#34;
+      },
+      &#34;picture&#34;: {
+        &#34;large&#34;: &#34;https://randomuser.me/api/portraits/women/68.jpg&#34;,
+        &#34;medium&#34;: &#34;https://randomuser.me/api/portraits/med/women/68.jpg&#34;,
+        &#34;thumbnail&#34;: &#34;https://randomuser.me/api/portraits/thumb/women/68.jpg&#34;
+      },
+      &#34;nat&#34;: &#34;NO&#34;
+    }
+  ],
+  &#34;info&#34;: {
+    &#34;seed&#34;: &#34;4be1e2e93f6d34ba&#34;,
+    &#34;results&#34;: 1,
+    &#34;page&#34;: 1,
+    &#34;version&#34;: &#34;1.4&#34;
+  }
+}
+</code></pre>
+</li>
+<li>Select the <strong>Language</strong> dropdown list and select <strong>JSON</strong>. <img alt="select language" src="img/fec1732f4575c436.jpeg"></li>
+<li>Connect an <strong>Evaluate</strong> block to the <strong>Start</strong> block.</li>
+<li>In the <strong>Evaluate</strong> block, select <strong>key</strong> and enter <code>body</code>. This assigns all the data received from the <strong>Start</strong> block to the variable <code>body</code>. <img alt="assign variable body" src="img/8d1a88cf634a3168.jpeg"></li>
+<li>In the <strong>Evaluate</strong> block, select <strong>Enter FQL query</strong> and enter <code>body</code>. This sends all the data in the <code>body</code> variable to the <strong>Evaluate</strong> block&#39;s output.</li>
+<li>Connect a <strong>Log</strong> block to the <strong>Evaluate</strong> block. <img alt="log body variable" src="img/e547cb44b4416a67.jpeg"></li>
+<li>Select <strong>Console</strong> then select <strong>Run</strong>. The flow gets the data from the <strong>Start</strong> block, routes it to the <strong>Evaluate</strong> block, and passes the entire response to the <strong>Log</strong> block, which displays the data in the console.</li>
+</ol>
+<h2 is-upgraded>Passing specified data between blocks</h2>
+<p>You can extract specific values from response data in a number of ways using variables and <a href="https://learning.postman.com/docs/postman-flows/flows-query-language/introduction-to-fql/" target="_blank">Flows Query Language (FQL)</a>. The example below uses FQL in an <strong>Evaluate</strong> block to get the <code>country</code> field value from sample response data in the <strong>Start</strong> block.</p>
+<ol type="1">
+<li><a href="https://learning.postman.com/docs/postman-flows/flows-intro/building-your-first-flow/" target="_blank">Create a new flow</a> and select the gear icon in the <strong>Start</strong> block. <img alt="configure start block" src="img/845caa8a9e8bfa07.jpeg"></li>
+<li>Select <strong>Enter Incoming Data</strong> and paste in the sample data below. The flow will use this data every time it executes. <pre><code language="language-json" class="language-json">{
+  &#34;results&#34;: [
+    {
+      &#34;gender&#34;: &#34;female&#34;,
+      &#34;name&#34;: {
+        &#34;title&#34;: &#34;Miss&#34;,
+        &#34;first&#34;: &#34;Astrid&#34;,
+        &#34;last&#34;: &#34;Klingenberg&#34;
+      },
+      &#34;location&#34;: {
+        &#34;street&#34;: {
+          &#34;number&#34;: 2547,
+          &#34;name&#34;: &#34;Lyseskrenten&#34;
+        },
+        &#34;city&#34;: &#34;Tvedestrand&#34;,
+        &#34;state&#34;: &#34;Oppland&#34;,
+        &#34;country&#34;: &#34;Norway&#34;,
+        &#34;postcode&#34;: &#34;6523&#34;,
+        &#34;coordinates&#34;: {
+          &#34;latitude&#34;: &#34;44.5909&#34;,
+          &#34;longitude&#34;: &#34;130.7502&#34;
+        },
+        &#34;timezone&#34;: {
+          &#34;offset&#34;: &#34;+9:00&#34;,
+          &#34;description&#34;: &#34;Tokyo, Seoul, Osaka, Sapporo, Yakutsk&#34;
+        }
+      },
+      &#34;email&#34;: &#34;astrid.klingenberg@example.com&#34;,
+      &#34;login&#34;: {
+        &#34;uuid&#34;: &#34;263e48e9-1d6d-4d18-9458-27b1b7bad1b9&#34;,
+        &#34;username&#34;: &#34;lazycat514&#34;,
+        &#34;password&#34;: &#34;francois&#34;,
+        &#34;salt&#34;: &#34;YAY2fGhq&#34;,
+        &#34;md5&#34;: &#34;0ed2300b7aad0843267d658db0f22f2a&#34;,
+        &#34;sha1&#34;: &#34;57ef1b1c5cac06feb6712ac863b7c9d6292e400e&#34;,
+        &#34;sha256&#34;: &#34;5312eee0d8693e522aa62814fb49fb3239bad5326ca0f37011a97704978a4add&#34;
+      },
+      &#34;dob&#34;: {
+        &#34;date&#34;: &#34;1984-03-11T08:50:14.752Z&#34;,
+        &#34;age&#34;: 38
+      },
+      &#34;registered&#34;: {
+        &#34;date&#34;: &#34;2003-09-27T19:45:20.432Z&#34;,
+        &#34;age&#34;: 19
+      },
+      &#34;phone&#34;: &#34;57680755&#34;,
+      &#34;cell&#34;: &#34;96350131&#34;,
+      &#34;id&#34;: {
+        &#34;name&#34;: &#34;FN&#34;,
+        &#34;value&#34;: &#34;11038429851&#34;
+      },
+      &#34;picture&#34;: {
+        &#34;large&#34;: &#34;https://randomuser.me/api/portraits/women/68.jpg&#34;,
+        &#34;medium&#34;: &#34;https://randomuser.me/api/portraits/med/women/68.jpg&#34;,
+        &#34;thumbnail&#34;: &#34;https://randomuser.me/api/portraits/thumb/women/68.jpg&#34;
+      },
+      &#34;nat&#34;: &#34;NO&#34;
+    }
+  ],
+  &#34;info&#34;: {
+    &#34;seed&#34;: &#34;4be1e2e93f6d34ba&#34;,
+    &#34;results&#34;: 1,
+    &#34;page&#34;: 1,
+    &#34;version&#34;: &#34;1.4&#34;
+  }
+}
+</code></pre>
+</li>
+<li>Select the <strong>Language</strong> dropdown list and select <strong>JSON</strong>. <img alt="select language" src="img/fec1732f4575c436.jpeg"></li>
+<li>Connect an <strong>Evaluate</strong> block to the <strong>Start</strong> block.</li>
+<li>In the <strong>Evaluate</strong> block, select <strong>key</strong> and enter <code>body</code>. This assigns all the data received from the <strong>Start</strong> block to the variable <code>body</code>. <img alt="assign body variable" src="img/8d1a88cf634a3168.jpeg"></li>
+<li>In the <strong>Evaluate</strong> block, select <strong>Enter FQL query</strong> and enter <code>body.results.location.country</code>. This navigates the response data with <a href="https://learning.postman.com/docs/postman-flows/flows-query-language/introduction-to-fql/" target="_blank">FQL</a> and extracts the value for the <code>country</code> field.</li>
+<li>Connect a <strong>Log</strong> block to the <strong>Evaluate</strong> block. <img alt="connect log block" src="img/73157a7655b59d26.jpeg"></li>
+<li>Select <strong>Console</strong>.</li>
+<li>Select <strong>Run</strong>. The <strong>Start</strong> block sends its data to the <strong>Evaluate</strong> block. The FQL in the <strong>Evaluate</strong> block gets the value of the <code>country</code> field (<code>"Norway"</code>) in the response data and sends it to the <strong>Log</strong> block. <code>"Norway"</code> appears in the console. <img alt="log country" src="img/a6a91b8f0b9df815.jpeg"></li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Running requests in sequence" duration="3">
+        <p>If you have several requests that have no dependency on each other but have to be executed in a particular order, you can use send events to connect your <a href="https://learning.postman.com/docs/postman-flows/core-concepts/blocks/" target="_blank">blocks</a>.</p>
+<aside class="warning"><p> Check out the example flow: <a href="https://www.postman.com/postman/workspace/flows-snippets/flow/6267f9315d367a64e7ba06e5" target="_blank">Chaining requests</a></p>
+</aside>
+<ol type="1">
+<li><strong>Add a Send Request block</strong>: Select <strong>+ Block</strong> on the toolbar and select the <strong>Send Reques</strong>t block from the list to add it to your canvas, then select the request. Repeat this until all the requests are added to the canvas. <img alt="add requests" src="img/396b24dbdc689c72.gif"></li>
+<li><strong>Connect the send events</strong>: Select the dot (success output) of the source block and connect it to the send input of the target block in the order you want the requests to execute. <img alt="connect send events" src="img/b5e034c9b674d159.gif"> Here, a POST request is executed and once the request has completed, the PUT request endpoint is called, and then a GET request is called. <aside class="warning"><p><strong>Important</strong>:</p>
+<ol type="1">
+<li>When a send event connection is made, the input becomes deactivated to show that it will get enabled after the previous blocks get enabled.</li>
+<li>The send event connection depicts the order in which the blocks will be executed.</li>
+<li>When using send event, no data is passed from one block to another.</li>
+</ol>
+</aside>
+</li>
+<li><strong>Start the flow</strong>: Start the flow and see the requests run in the order they&#39;re configured: <img alt="run the flow" src="img/fc07fecec5b5af5f.gif"> If you want to use data from one request in another request, you can learn how to do so in <a href="https://learning.postman.com/docs/postman-flows/flows-intro/chaining-requests-with-data/" target="_blank">Chaining requests with data</a>.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Using authorization with Postman Flows" duration="2">
+        <p>Most APIs require authorization to access their data. Postman Flows can include credentials in its API requests, explicitly or as variables. This tutorial creates a simple flow that uses a global variable to access the OpenAI API with a secret key.</p>
+<h2 is-upgraded>Create a secret key for the API</h2>
+<p>This example flow uses a secret key to access the OpenAI API. To get your secret key:</p>
+<ol type="1">
+<li>In your browser, go to <code>https://beta.openai.com/account/api-keys</code> and select Sign up.</li>
+<li>Follow the prompts to create and sign in to an OpenAI account.</li>
+<li>Return to <code>https://beta.openai.com/account/api-keys</code> and create a secret key.</li>
+<li>Copy and paste your secret key in a secure but accessible location. You&#39;ll use it in a later step.</li>
+</ol>
+<h2 is-upgraded>Create a variable for the secret key</h2>
+<p>By assigning your secret key value to a variable, you can keep your key secure and easily include it in multiple <strong>Send Request</strong> blocks and flows.</p>
+<ol type="1">
+<li>In your Postman workspace, select the environment quick look icon in the <a href="https://learning.postman.com/docs/getting-started/navigating-postman/#environment-selector-and-environment-quick-look" target="_blank">workbench</a>.</li>
+<li>Next to <strong>Globals</strong>, select <strong>Edit</strong> (or <strong>Add</strong>).</li>
+<li>Add a variable named <code>auth</code> and paste <code>Bearer <your secret key></code> in the <strong>INITIAL VALUE</strong> field. For example: <code>Bearer ab-123456789876543212345678987654321</code></li>
+<li>Under TYPE, select secret from the dropdown list. <img alt="create auth variable" src="img/3fe394bc46e89553.jpeg"></li>
+<li>Select <strong>Save</strong>.</li>
+<li>Close the <strong>Globals</strong> tab.</li>
+</ol>
+<h2 is-upgraded>Create a collection and a request</h2>
+<ol type="1">
+<li><a href="https://learning.postman.com/docs/getting-started/creating-the-first-collection/" target="_blank">Create a collection</a> named <code>OpenAI Collection</code> and add a GET request with this URL: <code>https://api.openai.com/v1/models</code>.</li>
+<li>Select the <strong>Authorization</strong> tab.</li>
+<li>Next to <strong>Type</strong>, select <strong>API Key</strong> from the dropdown list.</li>
+<li>Select the <strong>Key</strong> field and enter <code>Authorization</code>.</li>
+<li>Select the <strong>Value</strong> field and enter <code>&#123;&#123;auth}}</code>.</li>
+<li>Select <strong>Send</strong> then <strong>Save Response &gt; Save as example</strong>. <img alt="save as example" src="img/2c5c9a41a53914c3.jpeg"></li>
+<li>Select the <strong>GET New Request</strong> tab and select <strong>Save</strong>. <img alt="save request" src="img/9d93f4e0926d7f8f.jpeg"></li>
+</ol>
+<h2 is-upgraded>Create a flow</h2>
+<ol type="1">
+<li><a href="https://learning.postman.com/docs/postman-flows/flows-intro/building-your-first-flow/" target="_blank">Create a new flow</a> and connect a <strong>Send Request</strong> block to the <strong>Start</strong> block.</li>
+<li>In the <strong>Send Request</strong> block, select <strong>Add request &gt; OpenAI Collection &gt; New Request</strong>. The <code>&#123;&#123;auth}}</code> variable appears at the bottom of the <strong>Send Request</strong> block. <img alt="send request" src="img/d88b5f57cd1aaad5.jpeg"></li>
+<li>Connect a <strong>Log</strong> block to the <strong>Send Request</strong> block&#39;s <strong>Success</strong> port.</li>
+<li>Select <strong>Run</strong> then select <strong>Console</strong>. The flow gets your secret key from the <code>&#123;&#123;auth}}</code> variable and includes it in the API request. The API accepts the secret key and sends the response with a <code>200</code> code, visible in the console. <img alt="successful response" src="img/88c8f4f1a70f1d88.jpeg"></li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Using response data in a request" duration="3">
+        <p>This tutorial shows how to take data from a GET response and use it in a GET request in <a href="https://learning.postman.com/docs/postman-flows/flows-intro/flows-overview/" target="_blank">Postman Flows</a>.</p>
+<p>The Random User API returns a randomly chosen set of user data for each GET request, unless you include a seed as a query parameter. This tutorial takes the seed from a GET response and includes it as a query parameter in another GET request so that both GET requests return the same user&#39;s data.</p>
+<h2 is-upgraded>Create a collection and a request</h2>
+<ol type="1">
+<li>Create a collection named <code>Random User Collection</code> and add a GET request named <code>First Request</code>.</li>
+<li>Enter this URL in the request: <code>https://randomuser.me/api/</code>. <img alt="first request" src="img/ec40e314421855ec.jpeg"></li>
+<li>Select <strong>Send</strong> then <strong>Save Response &gt; Save as example</strong>.<br><img alt="save as example" src="img/a4395197d2797055.jpeg"></li>
+<li>Select the <strong>GET First Request</strong> tab and select <strong>Save</strong>.</li>
+<li>Add another GET request named 1.</li>
+<li>Enter the same URL as the first request: 1.</li>
+<li>Select <code>Key</code> and enter seed.</li>
+<li>Select <code>Value</code> and enter the variable <code>&#123;&#123;seedVar}}</code>. <img alt="create seed variable" src="img/2979ab5298abd73.jpeg"><aside class="warning"><p> The variable is unresolved in the request now, but it will receive a value in Postman Flows.</p>
+</aside>
+</li>
+<li>Select <strong>Save</strong>.</li>
+</ol>
+<h2 is-upgraded>Create a flow</h2>
+<ol type="1">
+<li>Create a new flow and connect a <strong>Send Request</strong> block to the <strong>Start</strong> block.</li>
+<li>In the <strong>Send Request</strong> block, select <strong>Add request &gt; Random User Collection &gt; First Request</strong>. <img alt="first send block" src="img/cf76d37d52c87815.jpeg"></li>
+<li>Connect a <strong>Select</strong> block to the <strong>Send Request</strong> block&#39;s <strong>Success</strong> port.</li>
+<li>In the <strong>Select</strong> block select <strong>Enter path...</strong> then <strong>/body/info/seed</strong>. <img alt="select send info" src="img/66f9d1776b6cfd0a.jpeg"></li>
+<li>Create another <strong>Send Request</strong> block but don&#39;t connect it yet.</li>
+<li>In the new <strong>Send Request</strong> block, select <strong>Add request &gt; Random User Collection &gt; Seeded Request</strong>. The <code>&#123;&#123;seedVar}}</code> variable appears at the bottom of the block. <img alt="select seed variable" src="img/d764281e7e34003f.jpeg"></li>
+<li>Connect the <strong>Select</strong> block to the port next to <code>&#123;&#123;seedVar}}</code>.</li>
+<li>Connect a <strong>Log</strong> block to the second <strong>Send Request</strong> block&#39;s <strong>Success</strong> port. <img alt="send request" src="img/6ccdfe5a9a301143.jpeg"></li>
+<li>Select <strong>Run</strong> then select <strong>Console</strong>. Look at the two GET requests in the console and notice the second request includes a seed query. If you look at the response bodies for both GET requests, you&#39;ll see they describe the same random user. <img alt="compare response" src="img/d01cb8cd21fcb0bf.jpeg"> The first <strong>Send Request</strong> block gets a single random user&#39;s data and sends the response data to a <strong>Select</strong> block. The <strong>Select</strong> block selects the value of the <strong>seed</strong> field from the response data and passes that value to the next <strong>Send Request</strong> block. That <strong>Send Request</strong> block uses the first request&#39;s seed as a parameter, returning the same random user as the first <strong>Send Request</strong> block.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Using webhooks with Postman Flows" duration="3">
+        <p>To create a flow that executes on the Postman servers, create a Start block.</p>
+<p class="image-container"><img alt="run flows on cloud" src="img/e93d07fcc33dd341.gif"></p>
+<h2 is-upgraded>Testing flows locally</h2>
+<p>Before starting, enter your test data and run it to see the output on your local console. Test data can be added by clicking the gear icon on the <strong>Start</strong> block. The test data can either be in text or JSON format.</p>
+<p class="image-container"><img alt="run flows on cloud with test data" src="img/b3a5f143343021d3.gif"></p>
+<h2 is-upgraded>Deploy your flow</h2>
+<p>Select <strong>Deploy</strong> and your flow will be running in the cloud. Selecting the <strong>Runs</strong> section of the right pane will display the deployed flow was last updated. The webhook URL can be seen here as well as in the top left corner of the flow.</p>
+<aside class="warning"><p> Important Every time you release, it saves a snapshot of your collections and environments. If you make any changes to these, you will need to release again.</p>
+</aside>
+<p class="image-container"><img alt="run flows on cloud to create deployment" src="img/a57711c7f878e354.gif"></p>
+<h2 is-upgraded>Trigger the webhook</h2>
+<p>In the <strong>Runs</strong> section, select <strong>View</strong> to observe the flow running in the cloud. The logs will be visible in your client. Make a POST request to trigger the webhook endpoint and observe your flow executing in the cloud.</p>
+<p class="image-container"><img alt="trigger webhook" src="img/52625d7351b0e126.gif"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Creating charts, tables, and output" duration="2">
+        <p>The Output block takes in information from other blocks and creates a visual display of that information.</p>
+<p>For some examples of what you can do with these blocks, check out the <a href="https://www.postman.com/postman/workspace/utility-flows/flow/64123b57c224290033fcb089" target="_blank">Stock Dashboard</a> and <a href="https://www.postman.com/postman/workspace/utility-flows/flow/6413acdb8c4c54003a4ad611" target="_blank">WordPress Sentiment Analysis</a> Flows.</p>
+<h2 is-upgraded>Types of output</h2>
+<p>The following can be selected from the drop-down menu in the upper-right corner of the block.</p>
+<ul>
+<li><strong>Text</strong> - Shows the information connected to the input as lines of text. <a href="https://www.postman.com/postman/workspace/flows-snippets/flow/6414e20b95e5e70033f028c9" target="_blank">Example</a></li>
+<li><strong>Number</strong> - Shows a number, if the information connected to the input is a number. <a href="https://www.postman.com/postman/workspace/flows-snippets/flow/6414e8eb95e5e70033f028d4" target="_blank">Example</a></li>
+<li><strong>Boolean</strong> - Shows a true or false value. If the value connected to the input isn&#39;t true/false or 0/1, it will always display true. <a href="https://www.postman.com/postman/workspace/flows-snippets/flow/6414ebb88c4c54003a4ad797" target="_blank">Example</a></li>
+<li><strong>JSON</strong> - Shows the information connected to the input in JSON format, so you can see and click on hierarchical information. <a href="https://www.postman.com/postman/workspace/flows-snippets/flow/6414ec507221e9003a7a5384" target="_blank">Example</a></li>
+<li><strong>Bar Chart</strong> - Shows one or more sets of information connected to the input. <a href="https://www.postman.com/postman/workspace/flows-snippets/flow/6411f07120794b0039e76839" target="_blank">Example</a></li>
+<li><strong>Line Chart</strong> - Shows a line for X and Y coordinates connected to the input. <a href="https://www.postman.com/postman/workspace/flows-snippets/flow/641242fd8c4c54003a4ad507" target="_blank">Example</a></li>
+<li><strong>Gauge</strong> - Shows a number; generally for when the input is a percent or out of one hundred. <a href="https://www.postman.com/postman/workspace/flows-snippets/flow/64124134c224290033fcb08b" target="_blank">Example</a></li>
+<li><strong>Table</strong> - Shows the connected input as a table with rows and columns. <a href="https://www.postman.com/postman/workspace/flows-snippets/flow/64124607c224290033fcb092" target="_blank">Example</a></li>
+<li><strong>Markdown</strong> - Shows the text with all of the markdown annotations displayed. <a href="https://www.postman.com/postman/workspace/flows-snippets/flow/641249577221e9003a7a5107" target="_blank">Example</a></li>
+<li><strong>URL</strong> - Shows a hyperlink to the URL that is connected to the input. <a href="https://www.postman.com/postman/workspace/flows-snippets/flow/64124dc8c224290033fcb098" target="_blank">Example</a></li>
+<li><strong>Image</strong> - Shows an image from a URL that is connected to the input. <a href="https://www.postman.com/postman/workspace/flows-snippets/flow/64124e997221e9003a7a510c" target="_blank">Example</a></li>
+<li><strong>Video</strong> - Shows a video from a URL that is connected to the input and enables it to be played. <a href="https://www.postman.com/postman/workspace/flows-snippets/flow/64124f65c224290033fcb09b" target="_blank">Example</a></li>
+<li><strong>YouTube</strong> - Shows a YouTube video from a URL that is connected to the input and enables it to be played. <a href="https://www.postman.com/postman/workspace/flows-snippets/flow/6414ef7bc224290033fcb310" target="_blank">Example</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <p>If you want to learn more about Postman Flows, review the <a href="https://learning.postman.com/docs/postman-flows/tutorials/building-your-first-flow/" target="_blank">official documentation</a> for more details.</p>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li>Examples: <a href="https://www.postman.com/postman/workspace/flows-snippets/overview" target="_blank">Snippets</a> with examples of how to use each block</li>
+<li>Livestream: <a href="https://youtube.com/live/0kAQb3Q4WCQ" target="_blank">AI Powered Sentiment Analysis with Postman Flows and ChatGPT</a></li>
+<li>Videos: <a href="https://www.youtube.com/playlist?list=PLM-7VG-sgbtCWIWHJSXdJPbahXb_QWWEC" target="_blank">Flows playlist</a><br><a href="https://www.youtube.com/playlist?list=PLM-7VG-sgbtCWIWHJSXdJPbahXb_QWWEC" target="_blank"><img alt="flows video playlist" style="width: 200.00px" src="img/4d90f85c3bf6673f.jpg"></a></li>
+</ul>
+<h2 is-upgraded>Other workspaces filled with example Flows</h2>
+<ul>
+<li><a href="https://www.postman.com/postman/workspace/business-flows" target="_blank">Business Flows</a></li>
+<li><a href="https://www.postman.com/postman/workspace/integration-flows" target="_blank">Integration Flows</a></li>
+<li><a href="https://www.postman.com/postman/workspace/natural-language-processing-nlp-flows" target="_blank">Natural Language Processing (NLP) Flows</a></li>
+<li><a href="https://www.postman.com/postman/workspace/slack-integration-flows" target="_blank">Slack Integration Flows</a></li>
+<li><a href="https://www.postman.com/postman/workspace/devops-flows" target="_blank">DevOps Flows</a></li>
+<li><a href="https://www.postman.com/postman/workspace/utility-flows" target="_blank">Utility Flows</a></li>
+<li><a href="https://www.postman.com/postman/workspace/miscellaneous-flows" target="_blank">Miscellaneous Flows</a></li>
+<li><a href="https://www.postman.com/postman/workspace/brewing-postman-flows/overview" target="_blank">Brewing Postman Flows</a></li>
+</ul>
+<h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
+<ul class="checklist">
+<li>how to build your first flow</li>
+<li>how to pass data between blocks</li>
+<li>how to run requests in sequence</li>
+<li>how to use authorization with Postman Flows</li>
+<li>how to use response data in a request</li>
+<li>how to use webhooks with Postman Flows</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

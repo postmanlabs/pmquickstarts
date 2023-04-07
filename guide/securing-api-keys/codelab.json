@@ -1,0 +1,28 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
+  "updated": "2023-04-07T15:18:48-07:00",
+  "id": "securing-api-keys",
+  "duration": 8,
+  "title": "Securely Using API Keys in Postman",
+  "summary": "Three ways to securely work with API keys",
+  "source": "securing_api_keys/securing_api_keys.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "getting-started"
+  ],
+  "tags": [
+    "developer",
+    "gettingstarted",
+    "security",
+    "tester",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "securing-api-keys"
+}

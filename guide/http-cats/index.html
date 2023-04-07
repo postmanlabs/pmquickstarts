@@ -1,0 +1,192 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Learn HTTP Status Codes with HTTP Cats</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="http-cats"
+                  title="Learn HTTP Status Codes with HTTP Cats"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>If you&#39;re new to APIs, then you might only be familiar with a few HTTP status codes. To help you learn more HTTP status codes and build your first Postman Collection, let&#39;s walk through this beginner&#39;s tutorial working with the playful <a href="https://http.cat/" target="_blank">HTTP Cats API</a>. And if you&#39;re allergic to cats, use <a href="https://httpstatusdogs.com/" target="_blank">HTTP Status Dogs</a> instead.</p>
+<p class="image-container"><img alt="422 unprocessable entity" style="width: 200.00px" src="img/6919b286f12cf731.png"></p>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>A Postman account</li>
+<li>Introductory knowledge of APIs</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>Explain what an API client is</li>
+<li>Authorize and send HTTP API requests</li>
+<li>Write tests to assert the behavior of APIs is as expected</li>
+<li>Use variables to store and reuse information</li>
+<li>Debug and troubleshoot unexpected behavior</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman Collection consisting of requests, variables, and tests.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="What are HTTP status codes?" duration="2">
+        <p>When you&#39;re talking to an API, the server sends back an HTTP code to signal the status of your request. You might be familiar with <code>200 OK</code> or <code>404 Not Found</code>. But there are also rare codes not often seen in the wild.</p>
+<p><a href="https://tools.ietf.org/html/rfc2616#section-10" target="_blank">Industry standards</a> typically group HTTP status codes into five categories according to the following scenarios:</p>
+<ul>
+<li><strong>100s</strong> Informational responses</li>
+<li><strong>200s</strong> Successful responses</li>
+<li><strong>300s</strong> Redirects</li>
+<li><strong>400s</strong> Client errors</li>
+<li><strong>500s</strong> Server errors</li>
+</ul>
+<p>Despite these standards, it&#39;s still up to the developer creating the API to account for these scenarios and return a meaningful code or error message. I&#39;ve encountered APIs that return <code>200 OK</code>, even when things are not okay.</p>
+<p>But when these codes are used accurately and consistently, this information from the server helps you figure out what&#39;s really going on.</p>
+<h2 is-upgraded>Let&#39;s build our first Postman Collection</h2>
+<p>Let&#39;s build our first Postman Collection and have fun exploring the HTTP Cats API. Follow along in Postman by forking this example collection, &#34;Learn HTTP status codes with cats&#34;, and environment to your own workspace. Or follow these steps to build your own collection from scratch.</p>
+<p><a href="https://god.gw.postman.com/run-collection/1559645-1779d6cf-f611-42b7-bc3d-92ceb0988b4b?action=collection%2Ffork&collection-url=entityId%3D1559645-1779d6cf-f611-42b7-bc3d-92ceb0988b4b%26entityType%3Dcollection%26workspaceId%3D34f3a42c-18a7-4ad6-83fb-2c05767d63a7#?env%5Bhttp-cats%5D=W3sia2V5IjoiYWxsQ29kZXMiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWV9XQ==" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create a workspace to organize your work" duration="1">
+        <p>Begin by <a href="https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/" target="_blank">creating a new Postman workspace</a>. This can be a team workspace if you&#39;re planning to collaborate with someone else. But I&#39;m using a personal workspace called <code>Cats</code> to organize all of my important, but private, cat-related work.</p>
+<p><img alt="Create a new personal workspace" src="img/f6e4165488c9d1c.png"><em>Create a new personal workspace</em></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Use Postman as an API client to send calls" duration="1">
+        <p>In Postman, paste the URL <code>https://http.cat</code>. Hit <strong>Send</strong>. We see Postman acting like our web browser, displaying the underlying HTML returned for the <a href="https://http.cat/" target="_blank">HTTP Cats website</a>.</p>
+<p><img alt="Use Postman as an API client" src="img/d5d969c0901b1b81.png"><em>Use Postman as an API client</em></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Save your work to a new Postman Collection" duration="1">
+        <p>Let&#39;s save the request to a new Postman Collection to keep all of the API calls we&#39;ll make. Call the collection <code>HTTP cats</code> and the request <code>HTTP cats website</code>.</p>
+<p><img alt="Keep all the API calls in a collection" src="img/3a7844dd2acd5d61.png"><em>Keep all the API calls in a collection</em></p>
+<p>Take a look at the response on the bottom. The <strong>Pretty</strong> tab of the response body shows the HTML skeleton of the web page. The <strong>Raw</strong> tab shows the raw response from the server. The <strong>Preview</strong> tab looks kind of like the web page in our browser, except with JavaScript and images disabled. We&#39;ll talk about the <strong>Visualize</strong> tab a bit later on.</p>
+<p><img alt="A website has an API that returns stuff like text and images" src="img/d2ef18f7aeef6288.png"><em>A website has an API that returns stuff like text and images</em></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Write a test script to scrape a web page" duration="1">
+        <p>People usually write tests under the <strong>Tests</strong> tab. But you can write any kind of code to run after Postman receives a server response. For example, let&#39;s add this JavaScript to scrape the web page returned from the server. We&#39;ll use <a href="https://cheerio.js.org/" target="_blank">cheerio</a> to scrape all the hyperlinks. It&#39;s one of the libraries that comes preinstalled in <a href="https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/" target="_blank">the Postman Sandbox</a>.</p>
+<pre><code language="language-javascript" class="language-javascript">let webpage = pm.response.text();
+const $ = cheerio.load(webpage);
+let codes = [];
+
+$(&#34;a&#34;).each(function () {
+  let link = $(this).attr(&#34;href&#34;);
+
+  if (link[0] == &#34;/&#34; &amp;&amp; link.length &gt; 1) {
+    codes.push({
+      code: link,
+    });
+  }
+});
+</code></pre>
+<p><img alt="Code to scrape all the hyperlinks" src="img/857eafa17088f71f.png"><em>Code to scrape all the hyperlinks</em></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create a new environment to save information" duration="2">
+        <p>In programming, environments help store configuration data and secrets. They&#39;re used for saving any information to be used later.</p>
+<p>Let&#39;s <a href="https://learning.postman.com/docs/postman/variables-and-environments/managing-environments/#creating-environments" target="_blank">create a new </a> called <code>http-cats</code> and select it as the active environment. Add one more line of code to our test script to save our scraped hyperlinks as an environment variable in Postman.</p>
+<pre><code language="language-javascript" class="language-javascript">pm.environment.set(&#34;allCodes&#34;, JSON.stringify(codes));
+</code></pre>
+<p><img alt="Create a new environment and set an environment variable in the test script" src="img/9a21e0e9a3bdf55d.png"><em>Create a new environment and set an environment variable in the test script</em></p>
+<p>Once you <strong>set</strong> a variable, you can <strong>get</strong> it.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Use variables to set and get information" duration="2">
+        <p>Duplicate the first request within our collection and call the new request <code>Get one cat</code>. Delete the script under the Tests tab. Append <code>&#123;&#123;statusCode}}</code> to the end of the URL. The curly braces syntax allows you to use defined variables in the text fields. But wait, we haven&#39;t defined a variable called <code>statusCode</code> yet. That&#39;s up next.</p>
+<p><img alt="Use curly braces to use variables in the text fields" src="img/83ae74d35fe3a982.png"><em>Use curly braces to use variables in the text fields like </em></p>
+<p><em><code>&#123;&#123;statusCode}}</code></em></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Use pre-request script for setup" duration="1">
+        <p>People can use <strong>pre-request scripts</strong> for setting up their main request (e.g., calculating or retrieving a variable). Let&#39;s do that now. Under the <strong>Pre-request Script</strong> tab, add this code to retrieve all of our scraped hyperlinks and remove one to be used in this request (remember to save this data as a variable so that it can be accessed in the main request):</p>
+<pre><code language="language-javascript" class="language-javascript">let arrayOfCodes = JSON.parse(pm.environment.get(&#34;allCodes&#34;));
+
+// remove first item to update the URL path
+let oneCode = arrayOfCodes.shift();
+console.log(&#34;Setting this status code: &#34;, oneCode.code);
+pm.variables.set(&#34;statusCode&#34;, oneCode.code);
+
+// re-save the shorter array
+pm.environment.set(&#34;allCodes&#34;, JSON.stringify(arrayOfCodes));
+</code></pre>
+<p><img alt="Pre-request script to get a status code to use in the main request" src="img/7af9c4e09e39c31d.png"><em>Pre-request script to get a status code to use in the main request</em></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Send one request at a time in the collection" duration="1">
+        <p>Let&#39;s return to our first request, <code>HTTP cats website</code>, to make sure the code under the <strong>Tests</strong> tab is running correctly. Hit <strong>Send</strong>, and verify that an environment variable called <code>allCodes</code> exists and contains an array of objects with HTTP status codes.</p>
+<p><img alt="Initialize environment variable containing HTTP status codes" src="img/1d29def4d07801f.png"><em>Initialize environment variable containing HTTP status codes</em></p>
+<p>Then return to our second request, <code>Get one cat</code>, to make sure the code under the <strong>Pre-Request Script</strong> tab is running correctly. Hit <strong>Send</strong>, and verify the API returns an image of the first status code in the environment variable <code>allCodes</code>.</p>
+<p><img alt="Response of a single image" src="img/be8403c9fae68ac.png"><em>Response of a single image</em></p>
+<p>We can continue cycling through all the status codes that remain in <code>allCodes</code> by continuing to hit <strong>Send</strong>.</p>
+<p>It can be a bit tricky to see exactly what Postman is sending to the server since <code>&#123;&#123;statusCode}}</code> isn&#39;t defined until the pre-request script runs when the request is sent. To gain more visibility into the network calls and log statements, open the <a href="https://learning.postman.com/docs/sending-requests/troubleshooting-api-requests/#using-the-console" target="_blank">Postman console</a>:</p>
+<p><img alt="Use the Postman console for more visibility into network calls and log statements" src="img/355c4c7747f3f436.png"><em>Use the Postman console for more visibility into network calls and log statements</em></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <h2 is-upgraded>Keep exploring with these advanced topics</h2>
+<p>We&#39;ve covered a lot of HTTP-and-cats ground already 😻. If you&#39;re still hanging in there, let&#39;s think about some next possible steps.</p>
+<ul>
+<li><strong>Add another API to the mix</strong>: Now that you know how to pass information from one request to another, you can send a tweet or a notification about important cat-related data. Check out the <a href="https://explore.postman.com/" target="_blank">Postman API Network</a> where you&#39;ll find a ton of interesting public APIs to add to your mix.</li>
+<li><strong>Build a custom workflow</strong>: Use Postman&#39;s <a href="https://learning.postman.com/docs/running-collections/intro-to-collection-runs/" target="_blank">collection runner</a> to run a bunch of requests in one go, instead of hitting the <strong>Send</strong> button one request at a time. <a href="https://learning.postman.com/docs/running-collections/scheduling-collection-runs/" target="_blank">Schedule a weekly cat collection run</a> to run on Postman servers. Or check out some of the other libraries in the <a href="https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/" target="_blank">Postman Sandbox</a>. We used cheerio to scrape hyperlinks, but what you can do with code is limitless.</li>
+<li><strong>Visualize a server response</strong>: Earlier in this post, we briefly mentioned the mysterious <strong>Visualize</strong> tab in the response viewer. If you know a bit of HTML and CSS, check out the <a href="https://learning.postman.com/docs/sending-requests/visualizer/" target="_blank">Postman visualizer</a> to understand what you can do under the <strong>Visualize</strong> tab. Or take a look at the <a href="https://www.postman.com/postman/workspace/published-postman-templates/request/1559645-0a163b22-e933-4731-af92-976247575c5e" target="_blank">third request in the example collection</a> for a sneak peek.</li>
+</ul>
+<h2 is-upgraded>Next Steps</h2>
+<p>Like a cat knocking glasses off the table for fun, you can use Postman to poke at your APIs just to see what happens. Now you know there&#39;s a lot more stuff you can do with Postman, so keep playing around.</p>
+<p>If you&#39;re looking for other cat-related tech, take a look at <a href="https://thecatapi.com/" target="_blank">TheCatAPI</a> and <a href="https://documenter.getpostman.com/view/1946054/S11HvKSz?version=latest" target="_blank">Cat Facts API</a>. If you&#39;re curious about Docker and Kubernetes, check out my <a href="https://medium.com/better-practices/deploying-a-scalable-web-application-with-docker-and-kubernetes-a5000a06c4e9" target="_blank">cat URL shortener</a>.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

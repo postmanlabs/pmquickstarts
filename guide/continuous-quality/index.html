@@ -1,0 +1,218 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Continuous Quality with Postman</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="continuous-quality"
+                  title="Continuous Quality with Postman"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <aside class="warning"><p> This course was originally created by <a href="https://www.linkedin.com/in/neilstudd" target="_blank">Neil Studd</a> and has been modified to suit the Quickstart format.</p>
+</aside>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>A Postman account</li>
+<li>Introductory knowledge of testing in Postman</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>Extend the Postman sandbox with external libraries.</li>
+<li>Run tests locally using the Postman runner.</li>
+<li>Automate testing as part of your continuous integration (CI) pipeline using Newman, Postman&#39;s command-line runner.</li>
+<li>Streamline regression testing cycles using Postman monitors.</li>
+<li>Perform snapshot testing using Postman mock servers.</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman Collection consisting of requests, variables, and tests.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Fork the collection" duration="1">
+        <ol type="1">
+<li>Fork the collection - Click the <strong>Run in Postman</strong> button to fork the collection to your own workspace.</li>
+</ol>
+<p><a href="https://god.gw.postman.com/run-collection/16738531-985b2d7a-3406-490f-ba8a-08d912dbef0e?action=collection%2Ffork&collection-url=entityId%3D16738531-985b2d7a-3406-490f-ba8a-08d912dbef0e%26entityType%3Dcollection%26workspaceId%3D152199ce-48dd-4b46-b201-9e4fcb6f75db" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<ol type="1" start="2">
+<li>Select the first folder - Begin with the first folder labeled &#34;1. The Power of Libraries&#34;, and expand the documentation from the context bar on the right. Instructions for each lesson will be in the documentation for each folder.</li>
+</ol>
+<h2 is-upgraded>Follow along with the webinar</h2>
+<p>View the slides <a href="https://www.slideshare.net/GetPostman/continuous-quality-with-postman" target="_blank">here</a>, and watch <a href="https://www.youtube.com/watch?v=zrmQAgixMpU" target="_blank">the webinar</a> (originally aired September 22, 2021).</p>
+<h2 is-upgraded>Additional resources</h2>
+<p>Feeling stuck or want to dig deeper into specific topics? We&#39;ve got you covered:</p>
+<ul>
+<li><a href="https://www.postman.com/postman/workspace/postman-team-collections/collection/1559645-13bd44c4-94ec-420a-8390-8ff44b60f14d?ctx=documentation" target="_blank"><strong>Intro to writing tests</strong></a> - A collection containing examples of tests that you can use to automate your testing process.</li>
+<li><a href="https://www.postman.com/postman/workspace/test-examples-in-postman/" target="_blank"><strong>Test examples in Postman</strong></a> - A public workspace containing many more examples of crafting tests within Postman.</li>
+<li><a href="https://youtu.be/sB2HHrezQOo" target="_blank"><strong>Continuous testing with Postman</strong></a> - A previously aired webinar covering other advanced testing workflows.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="The Power of Libraries" duration="5">
+        <p>When we talk about ‘Tests&#39; in Postman, we are typically referring to scripted checks which are written in the <strong>Tests</strong> tab of a request (or at folder/collection level, if you want the tests to run against every request within).</p>
+<p>These are often written as <em>assertions</em>, in the style &#34;expect SomeVariable to equal X&#34;. The most common library for this is the <a href="https://www.chaijs.com/api/" target="_blank">Chai Assertion Library</a>, which (in conjunction with Postman&#39;s own sandbox API) allow you to perform complex checks against both request and response data, including metadata such as headers and response time.</p>
+<p>But there are many additional libraries available which can massively simplify your day-to-day operations, and reduce the amount of custom code that you need to write:</p>
+<ul>
+<li><a href="https://momentjs.com/docs/" target="_blank">Moment.js</a> allows you to manipulate, format and compare dates/times with ease.</li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/script-references/variables-list/" target="_blank">Dynamic variables</a> built upon the Faker library allow for test data randomization, and avoids the so-called &#34;pesticide paradox&#34; where tests which are repeatedly executed with the same inputs are less effective at uncovering problems.</li>
+<li><a href="https://learning.postman.com/docs/sending-requests/visualizer/" target="_blank">Postman&#39;s Visualizer</a> has many uses, but for exploratory testing it&#39;s great for simplifying complex responses to extract the key data that you wish to examine.</li>
+</ul>
+<p>To see some examples of what&#39;s possible in Postman, visit each of this folder&#39;s requests in turn, and look at the <strong>Tests</strong> tab of each request. You can also send each request, and look at the <strong>Test Results</strong> section of the response pane.</p>
+<h2 is-upgraded>Additional Resources</h2>
+<p>We&#39;ve only scratched the surface of the many different libraries that are available through Postman. Here are a few more that you might like to read about:</p>
+<ul>
+<li><a href="https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/" target="_blank"><strong>Postman Sandbox API reference</strong></a> - A detailed guide to the functionality offered by the <code>pm</code> and <code>postman</code>  objects.</li>
+<li><a href="https://lodash.com/docs/3.10.1" target="_blank"><strong>Lodash</strong></a> - A library of helpers which make it easier to work with arrays and objects in JavaScript.</li>
+<li><a href="https://cheerio.js.org/" target="_blank"><strong>Cheerio</strong></a> - A quick and easy library for parsing HTML so that it can be traversed in JavaScript.</li>
+<li><a href="https://www.npmjs.com/package/xml2js" target="_blank"><strong>xml2js</strong></a> - Similarly to the above, a library which will convert an XML response into a JavaScript-friendly format.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Using the Runner" duration="10">
+        <p>Often when testing a scenario, you&#39;ll want to run multiple requests consecutively. For example, you might send a <code>POST</code> request to submit some data, and then you want to use a <code>GET</code> request to check that the data can be retrieved. This is where Postman&#39;s Runner comes in handy, allowing you to chain together requests in an automated fashion.</p>
+<p>There are many ways to launch the Runner, depending upon how you want to interact with it. One way is to click the ‘Runner&#39; button in the bottom-right of the UI, and then drag-and-drop the collection or folder that you wish to execute.</p>
+<p>In this folder, we are demonstrating three different methods of running a folder of requests:</p>
+<ul>
+<li><strong>Simple Linear Sequence</strong> - In this folder, every request in every subfolder will be executed consecutively. This type of structure is very useful for testing an end-to-end scenario or workflow.</li>
+<li><strong>Non-Linear Execution</strong> - This folder utilizes Postman&#39;s <code>setNextRequest</code> command to repeatedly run the second request multiple times until all scenarios have been run.</li>
+<li><strong>Iterating over a data file</strong> - You can perform data-driven testing by passing a JSON or CSV file; each record is treated as a new iteration. The documentation for this folder contains more information about the data which we are using in this example.</li>
+</ul>
+<h2 is-upgraded>Iterating over a data file</h2>
+<p>For this example, we will utilize a CSV data file to drive our tests. <a href="https://postman-web-property-assets.s3.amazonaws.com/common-share/SpaceCamp_ContinuousQuality_Movies.csv" target="_blank">Download the file by clicking here.</a></p>
+<p>If you are unable to access this file, you can recreate it for yourself by copying the below text, and saving it into a file such as <code>films.csv</code>:</p>
+<pre><code language="language-csv" class="language-csv">id,title,year,imdbUrl
+918,Central Intelligence,2016,https://www.imdb.com/title/tt1489889/
+600,Doom,2005,https://www.imdb.com/title/tt0419706/
+441,Get Smart,2008,https://www.imdb.com/title/tt0425061/
+306,Hercules,2014,https://www.imdb.com/title/tt1267297/
+1794,Pain &amp; Gain,2013,https://www.imdb.com/title/tt1980209/
+286,The Other Guys,2010,https://www.imdb.com/title/tt1386588/
+720,The Scorpion King,2002,https://www.imdb.com/title/tt0277296/
+814,Walking Tall,2004,https://www.imdb.com/title/tt0351977/
+</code></pre>
+<p>Once you have saved or created the file, click the &#34;Run&#34; button in this folder, and in the Runner options, browse to the file via the &#34;Select File&#34; dialog.</p>
+<p>Once you have successfully selected the file, you can click &#34;Preview&#34; to confirm how Postman is intending to interpret your data.</p>
+<h2 is-upgraded>Additional Resources</h2>
+<p>More detailed documentation about the functionality of the Runner can be found in the following documentation:</p>
+<ul>
+<li><a href="https://learning.postman.com/docs/running-collections/intro-to-collection-runs/" target="_blank"><strong>Running Collections</strong></a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Automating with Monitors" duration="5">
+        <p>Having tests which are executed whenever you run requests is great, but these will only alert you to test failures when you choose to run them. One way to get faster notification of changes/failures is to take advantage of Postman&#39;s <a href="https://learning.postman.com/docs/designing-and-developing-your-api/monitoring-your-api/intro-monitors/" target="_blank">Monitors</a>. These are run automatically at a scheduled interval, and can notify you via email notifications, or other plugins such as Slack or PagerDuty, if new failures are detected.</p>
+<p>Note that while monitors can be run on both free and paid plans, there are monthly usage limits for all tiers; more information can be found in the documentation linked above.</p>
+<p>Because a monitor runs against all of the requests within a collection, for this exercise we&#39;ll duplicate an existing folder into a new collection:</p>
+<ol type="1">
+<li>Create a new collection in your workspace, called &#34;Monitoring Demo&#34;.</li>
+<li>Locate the <strong>Simple Linear Sequence</strong> folder in the &#34;Using the Runner&#34; folder, and select &#34;Duplicate&#34; from the context menu.</li>
+<li>Select the duplicated folder (it will be called &#34;Simple Linear Sequence Copy&#34;) and drag it into your &#34;Monitoring Demo&#34; collection.</li>
+</ol>
+<p>Now you can go to the Monitors tab in the left sidebar, and set up a monitor for your &#34;Monitoring Demo&#34; collection.</p>
+<p>Once you&#39;re finished with this exercise, you may wish to pause the monitor so that it is not continuing to use your monthly allowance. You can perform an ad-hoc execution of a monitor at any time.</p>
+<h2 is-upgraded>Additional Resources</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/designing-and-developing-your-api/monitoring-your-api/faqs-monitors/" target="_blank"><strong>Monitoring FAQs</strong></a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="CI integration with Newman" duration="5">
+        <p>In this exercise, we&#39;ll build upon the work from the &#34;Automating with Monitors&#34; section, so ensure that you&#39;ve completed that exercise beforehand.</p>
+<p><a href="https://github.com/postmanlabs/newman" target="_blank">Newman</a> is the highly configurable command-line runner which allows you to extend the power of Postman&#39;s testing interface, allowing you to integrate execution into your continuous integration servers and build systems.</p>
+<aside class="warning"><p> Before completing this exercise, you will need to install Node.js and Newman; see the <a href="https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/#getting-started" target="_blank">Getting Started guide</a> for more information.</p>
+</aside>
+<p>Once you&#39;ve set up these prerequisites, it&#39;s incredibly simple to perform your first command-line run:</p>
+<ol type="1">
+<li>Export the collection that you wish to run. We&#39;ll use the &#34;Monitoring Test&#34; collection from the previous exercise. Open the context menu for the collection, and select Export.</li>
+<li>Save in the recommended format, and give it the filename <code>mycollection.json</code>.</li>
+<li>To run from the command line, browse to the folder where you saved your JSON file, and type the following: <code>newman run mycollection.json</code></li>
+<li>The results of the tests will be output into the console.</li>
+</ol>
+<p>There are many useful advanced features of Newman which you might want to utilize, depending upon your CI setup:</p>
+<ul>
+<li>You can utilize customer reporters to output the results of your Newman tests into a more readable format.</li>
+<li>You can export environment variables from Postman, allowing you to target test runs against multiple environments using a single collection JSON file.</li>
+<li>You can specify an iteration data file (similar to in our Collection Runner example) to manage and maintain your test data without requiring any further Postman modifications.</li>
+<li>You can opt to halt the tests immediately as soon as any failure is encountered, if you want faster feedback on large test suites.</li>
+</ul>
+<p>More details on these configuration options can be found within the documentation below.</p>
+<h2 is-upgraded>Additional Resources</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/" target="_blank"><strong>Running collections on the command line with Newman</strong></a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Snapshot Testing with Mock Servers" duration="3">
+        <p>Sometimes when we&#39;re regression testing an endpoint&#39;s response, we don&#39;t want to write dozens of assertions to validate the values that are returned. Instead, we&#39;d prefer to check that the response is the same as the last time that we asked (or at least that the structure is syntactically identical).</p>
+<p>One way to achieve this is to take advantage of the <a href="https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/" target="_blank">Mock Servers</a> feature in Postman. Typically, the purpose of a mock server during API development is to simulate the request flow before the production API has been constructed, by asking Postman&#39;s mock server to return a specific example response in a given scenario. But as testers, we can save real responses as examples, and write tests to compare future responses to these benchmarked examples.</p>
+<p>To see this in action, you can fork the <a href="https://www.postman.com/postman/workspace/70c7199b-6aee-49a6-a90f-025ad614f294/collection/1559645-f8f51fd3-13eb-4049-8603-9e8f7b787fbe" target="_blank">Snapshot testing using Postman</a> collection into your own workspace, using the button below, and follow the documentation within.</p>
+<p><a href="https://god.gw.postman.com/run-collection/1559645-f8f51fd3-13eb-4049-8603-9e8f7b787fbe?action=collection%2Ffork&collection-url=entityId%3D1559645-f8f51fd3-13eb-4049-8603-9e8f7b787fbe%26entityType%3Dcollection%26workspaceId%3D70c7199b-6aee-49a6-a90f-025ad614f294" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
+<ul class="checklist">
+<li>Extend the Postman sandbox with external libraries.</li>
+<li>Run tests locally using the Postman runner.</li>
+<li>Automate testing as part of your continuous integration (CI) pipeline using Newman, Postman&#39;s command-line runner.</li>
+<li>Streamline regression testing cycles using Postman monitors.</li>
+<li>Perform snapshot testing using Postman mock servers.</li>
+</ul>
+<p>If you want to learn more about testing and automation in Postman, check out the following resources. Keep on learning!</p>
+<h2 is-upgraded>Additional Resources</h2>
+<ul>
+<li>Badge: <a href="https://badgr.com/public/badges/Q10KBL_YQXSW0lCQgYWx6Q" target="_blank">Postman API Tester</a> badge of completion</li>
+<li>Postman Webinar: <a href="https://youtu.be/zrmQAgixMpU" target="_blank">Continuous Quality with Postman</a> video recording</li>
+<li><a href="https://www.postman.com/postman/workspace/test-examples-in-postman/overview" target="_blank">Test examples in Postman</a> workspace</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

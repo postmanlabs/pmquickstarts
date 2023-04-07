@@ -1,0 +1,29 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
+  "updated": "2023-04-07T15:18:48-07:00",
+  "id": "snapshot-testing",
+  "duration": 17,
+  "title": "Snapshot testing using Postman",
+  "summary": "Three different snapshot testing strategies",
+  "source": "snapshot_testing/snapshot_testing.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "tester",
+    "intermediate"
+  ],
+  "tags": [
+    "automation",
+    "developer",
+    "intermediate",
+    "tester",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "snapshot-testing"
+}

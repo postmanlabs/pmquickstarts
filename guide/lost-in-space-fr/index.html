@@ -1,0 +1,122 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Puzzle : Lost in Space</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="lost-in-space-fr"
+                  title="Puzzle : Lost in Space"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Vue d&#39;ensemble" duration="3">
+        <p>Ce puzzle en ligne peut être résolu seul, a deux, ou en équipe. Jouez depuis le même ordinateur ou à distance en communiquant virtuellement.</p>
+<ul>
+<li><strong>Taille de l&#39;équipe</strong>: 1 à 6 joueurs recommandé</li>
+<li><strong>Durée</strong>: 2 à 4 heures estimé</li>
+<li><strong>Niveau</strong>: Compliqué</li>
+</ul>
+<p>Regardez cette vidéo :</p>
+<iframe class="youtube-video" src="https://www.youtube.com/embed/izbtF66EO1U?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p> Pour activer les sous-titres automatiques en Français, consulter <a href="https://support.google.com/youtube/answer/6373554?hl=fr" target="_blank">cette page d&#39;aide</a>.</p>
+<h2 is-upgraded>Comment ça marche <a href="https://4d0c1c01-a3d2-45f5-bf3c-4361da46203f.mock.pstmn.io/hints" target="_blank">🛰️</a></h2>
+<ol type="1">
+<li><strong>Récupérer les instructions</strong>: Forkez la collection <a href="https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351" target="_blank"><strong>Read Me First</strong></a> dans votre propre workspace. Partagez votre travail dans un <a href="https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-new-workspace" target="_blank">workspace de team ou workspace public</a> pour que vos co-équipiers puissent vous aider.</li>
+<li><strong>Éxaminer la mission</strong>: Envoyez la requête API dans la collection pour savoir comment récupérer les indices.</li>
+<li><strong>Soumettre la solution finale</strong>: Quand vous pensez avoir collecté toutes les données, validez votre solution en envoyant les informations nécessaires au <a href="https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b?ctx=documentation" target="_blank"><strong>Mission Control</strong></a>.</li>
+<li><strong>Réclamer votre badge</strong>: Compléter la mission avec succès vous permet de rejoindre le classement et de réclamer votre badge Postman <a href="https://badgr.com/public/badges/hkQxukdrTd6bEw9RT4MQcQ" target="_blank"><strong>Lost in Space</strong></a>.</li>
+</ol>
+<p class="image-container"><img alt="badge du jeu" style="width: 200.00px" src="img/e5a56ac19805cfea.png"></p>
+<h2 is-upgraded>Prérequis</h2>
+<ol type="1">
+<li><strong>Se connecter à Postman:</strong> Créez un compte Postman si vous n&#39;en avez pas déjà un puis connectez vous à <a href="https://go.postman.co" target="_blank">Postman web</a> dans votre navigateur. Pour utiliser Postman dans un navigateur, téléchargez et lancez <a href="https://www.postman.com/downloads/" target="_blank">l&#39;agent Postman</a> sur votre machine pour éviter les soucis de &#34;cross-origin resource sharing&#34; (CORS). L&#39;agent est différent de l&#39;application. Sur Mac, vous verrez un icone montrant que l&#39;agent Postman est lancé dans la barre de menu en haut à droite. Sur Windows, l&#39;icone de l&#39;agent Postman apparait dans la barre des tâches en bas a droite de votre écran.</li>
+<li><strong>Créez un workspace</strong>: <a href="https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-public-workspace" target="_blank">Créez un nouveau workspace Postman</a> avec une visibilité de <code>Team</code> si vous collaborez avec des co-équipiers.</li>
+</ol>
+<aside class="warning"><p> Si vous ne voulez pas utiliser Postman dans votre navigateur avec l&#39;agent, vous pouvez à la place télécharger et installer l&#39;application Postman pour Mac, Windows, ou Linux.</p>
+</aside>
+<h2 is-upgraded>Ce que vous apprendrez</h2>
+<ul>
+<li>Compétences basiques sur Postman, par exemple comment envoyer des requêtes API</li>
+<li>Il est possible d&#39;utiliser des compétences plus avancées pour vous aider à résoudre certain des puzzles.</li>
+</ul>
+<aside class="warning"><p> Ce challenge n&#39;a pas pour but d&#39;être une façon structurée ou compréhensive d&#39;apprentissage. Il est possible d&#39;acquérir des compétences techniques mais le but principal de ce challenge est de s&#39;amuser, si vous aimez ce genre de chose.</p>
+</aside>
+<h2 is-upgraded>Foire Aux Questions</h2>
+<ul>
+<li><strong>Combien de temps est nécessaire pour compléter la mission Lost in Space?</strong> Prévoyez de passer 2 à 4 heures, ou plus. Allez à votre propre rythme. Il n&#39;y a pas de pénalité si vous prenez plus de temps, collaborez avec vos co-équipiers, ou prenez une pause pour vous y remettre plus tard. Il est <strong>fortement recomandé</strong> de former une équipe, comme chaque personne à un cerveau fonctionnant différement et que les humains peuvent accomplir plus de choses en groupe que seuls.</li>
+<li><strong>Je débute avec le code et les APIs. Est-ce que ce challenge est pour moi ?</strong> Certains des puzzles ont été créés par des développeurs et sont résolubles par des développeurs novices. Si vous connaissez les concepts de base d&#39;API web et de JavaScript, vous n&#39;aurez pas de soucis. Si vous êtes un pro des APIs, mais ne vous considérez pas comme développeur, vous devrez peut être effectuer quelques recherches pour compléter certaines étapes. Ou inviter un ami développeur dans votre équipe.</li>
+<li><strong>L&#39;anglais n&#39;est pas ma langue natale. Est-ce que challenge est pour moi?</strong> Certains des puzzles sont très complexes so vous ne parlez pas anglais couramment, ou avez des problèmes de vision ou d&#39;audition. Il est fortement recommandé de former une équipe une diverses capacités et perspectives.</li>
+<li><strong>Puis-je chercher sur Internet?</strong> Oui. Utilisez toutes les ressources que vous souhaitez pour résoudre les puzzles.</li>
+<li><strong>Je suis bloqué. Quelqu&#39;un peut m&#39;aider?</strong></li>
+<li>Lisez les instructions à nouveau et faites attention aux indices.</li>
+<li>Si votre question est sur les APIs ou Postman, cherchez sur le <a href="https://community.postman.com/" target="_blank">forum de la communauté</a>. Si vous demandez de l&#39;aide, soyez sûrs d&#39;inclure une explication détaillée de votre question, ce que vous avez déjà essayé, et mettez le lien de votre workspace public pour que les autres puissent constater où vous êtes coincé.</li>
+<li>Si votre question est à propos des règles du jeu ou de de l&#39;administration du badge (i.e. pas une question technique sur Postman), vous pouvez demander de l&#39;ade dans la catégorie <a href="https://community.postman.com/c/training/38" target="_blank">Training</a> du forum de la communauté.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="À lire en premier" duration="180">
+        <p>Forkez la collection 📓 <a href="https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351" target="_blank"><strong><code>Read Me First</code></strong></a> dans votre workspace.</p>
+<p><a href="https://god.gw.postman.com/run-collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351?action=collection%2Ffork&collection-url=entityId%3D1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351%26entityType%3Dcollection%26workspaceId%3Dbe17b38e-55a7-40d6-931a-6c394d6f5dec" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<p>Puis <strong>envoyez</strong> la requête API dans la collection pour savoir comment récupérer les indices.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Soumettre la solution finale" duration="2">
+        <p>Quand vous pensez avoir collecté toutes les données, validez votre solution en envoyant les informations nécessaires au 👩‍🚀 <a href="https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b?ctx=documentation" target="_blank"><strong><code>Mission Control</code></strong></a>.</p>
+<p><a href="https://god.gw.postman.com/run-collection/1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b?action=collection%2Ffork&collection-url=entityId%3D1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b%26entityType%3Dcollection%26workspaceId%3Dbe17b38e-55a7-40d6-931a-6c394d6f5dec" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Étapes suivantes" duration="1">
+        <p>Ce challenge n&#39;a pas pour but d&#39;être une façon structurée ou compréhensive d&#39;apprentissage. Il est possible d&#39;acquérir des compétences techniques mais le but principal de ce challenge est de s&#39;amuser, si vous aimez ce genre de chose.</p>
+<p>Pour voir les autres choses que vous pouvez faire avec Postman, consultez les ressources suivantes:</p>
+<ul>
+<li><a target="_blank">Cours pratiques additionels</a> par Postman</li>
+<li>Autres opportunités de <a href="https://badgr.com/public/issuers/BC0x4AQaQPC7lFilsBP_tQ/badges" target="_blank">gagner des badges Postman</a></li>
+<li>Vidéos incluant <a href="https://www.youtube.com/@postman" target="_blank">how-to, level ups, and exploratories</a></li>
+<li>Leçons en lignes [wébinaires]](https://www.postman.com/events/intergalactic/)</li>
+</ul>
+<p>Si vous voulez jouer à d&#39;autres jeux, consultez les liens suivants :</p>
+<ul>
+<li>Puzzle <a href="https://www.postman.com/galaxy-quest-996184/workspace/affb729a-14e7-46e1-a238-bcfe9d615b28/overview" target="_blank">Save The Postman Space Station</a></li>
+<li>Jeu-questionnaire <a href="https://www.postman.com/postman/workspace/postman-games/collection/13059338-c3e32cda-40a2-4ea3-a521-3109c720af80" target="_blank">Postman IQ</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

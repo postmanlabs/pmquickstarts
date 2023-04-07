@@ -1,0 +1,544 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>15 Jours de Postman - pour les testeurs</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="15-days-of-postman-fr"
+                  title="15 Jours de Postman - pour les testeurs"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Vue d&#39;ensemble" duration="2">
+        <p>Améliorez vos compétences en vous attaquant à un challenge Postman par jour pendant 15 jours.</p>
+<p class="image-container"><img alt="badge du challenge 15 jours" style="width: 200.00px" src="img/10ffe15a11f76b21.png"></p>
+<h2 is-upgraded>Evaluez votre niveau d&#39;expérience sur Postman</h2>
+<ul>
+<li>Répondez au <a href="https://loopdelicious.github.io/postman-skills/" target="_blank">quiz sur les compétences Postman</a></li>
+</ul>
+<h2 is-upgraded>Niveau d&#39;expérience pour ce défi</h2>
+<ul>
+<li>Intermédiaire</li>
+</ul>
+<h2 is-upgraded>Comment ça marche</h2>
+<ol type="1">
+<li><strong>Récupérer les challenges journaliers</strong>: Forkez la collection correspondante à chaque jour dans votre propre workspace public sur Postman.</li>
+<li><strong>Passer les instructions en revue</strong>: Lisez la documentation de la collection du jour pour voir comment compléter le challenge. Des ressources additionelles sont disponibles si vous voulez approfondir n&#39;importe lequel des sujets.</li>
+<li><strong>Vérifier vos solutions</strong>: Quand vous pensez avoir la solution, validez la en suivant les instructions dans le dossier <code>Submit your solution</code>. Vous pouvez vérifier votre travail pour chaque jour.</li>
+<li><strong>Réclamer votre badge</strong>: Pour le challenge final, soumettez votre solution final à l&#39;équipe Postman. Compléter tous les challenges avec succès vous permet de réclamer le badge <a href="https://badgr.com/public/badges/bG6IYzbkTsKrP3t6C2q0BQ" target="_blank">15 days of Postman</a>.</li>
+</ol>
+<p><strong>Regardez cette vidéo</strong> pour des conseils sur le challenge de 15 jours : </p>
+<iframe class="youtube-video" src="https://www.youtube.com/embed/3_w2Bz0BnlY?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p> Pour activer les sous-titres automatiques en Français, consulter <a href="https://support.google.com/youtube/answer/6373554?hl=fr" target="_blank">cette page d&#39;aide</a>.</p>
+<h2 is-upgraded>Prérequis</h2>
+<ol type="1">
+<li><strong>Se connecter à Postman:</strong> Créez un compte Postman si vous n&#39;en avez pas déjà un puis connectez vous à <a href="https://go.postman.co" target="_blank">Postman web</a> dans votre navigateur. Pour utiliser Postman dans un navigateur, téléchargez et lancez <a href="https://www.postman.com/downloads/" target="_blank">l&#39;agent Postman</a> sur votre machine pour éviter les soucis de &#34;cross-origin resource sharing&#34; (CORS). L&#39;agent est différent de l&#39;application. Sur Mac, vous verrez un icone montrant que l&#39;agent Postman est lancé dans la barre de menu en haut à droite. Sur Windows, l&#39;icone de l&#39;agent Postman apparait dans la barre des tâches en bas a droite de votre écran.</li>
+<li><strong>Créer un workspace public</strong>: <a href="https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-public-workspace" target="_blank">Créez un nouveau workspace Postman</a> avec une visibilité <code>Public</code> pour montrer votre travail. Choisissez un nom de workspace unique pour évitez que d&#39;autres copient vos solutions directement.</li>
+</ol>
+<aside class="warning"><p> Si vous ne voulez pas utiliser Postman dans votre navigateur avec l&#39;agent, vous pouvez à la place télécharger et installer l&#39;application Postman pour Mac, Windows, ou Linux.</p>
+</aside>
+<aside class="warning"><p> Si vous faites déjà parti d&#39;une équipe Postman et votre organisation ne veut pas publier ce workspace sous leur profile d&#39;équipe, vous pouvez créer un compte séparé pour que le workspace s&#39;affiche sous votre propre nom.</p>
+</aside>
+<h2 is-upgraded>Ce que vous apprendrez</h2>
+<ul>
+<li>Compétences de test basiques, comme écrire et envoyer des tests APIs avec Postman</li>
+<li>Compétences plus avancées de test, comme utiliser les variables, les scripts, et de l&#39;automatisation</li>
+<li>Compétences avancées de test, comme générer des variables dynamiquement, utiliser des librairies et des serveurs de mock</li>
+</ul>
+<h2 is-upgraded>Ce dont vous avez besoin</h2>
+<ul>
+<li>Un <a href="https://postman.com/" target="_blank">compte Postman</a></li>
+</ul>
+<h2 is-upgraded>Ce que vous allez créer</h2>
+<ul>
+<li>Un workspace public Postman avec des collections, moniteurs, serveurs de mock, examples de code, et plus encore.</li>
+</ul>
+<h2 is-upgraded>Foire Aux Questions</h2>
+<ul>
+<li><strong>Combien de temps est néssaire pour compléter le challenge des 15 jours de Postman ?</strong> Prévoyez de passer entre 5 et 45 minutes chaque jour pour explorer le sujet et approfondir ceux que vous trouvez intéressant. Allez à votre propre vitesse. Il n&#39;y a pas de pénalité si vous prenez plus longtemps. <strong>Note</strong> : si beaucoup de temps passe entre le moment où vous forkez le challenge et le moment où vous soumettez la solution finale, il est possible que vous deviez récupérer les derniers changements pour vous assurer que la solution que vous soumettez est à jour.</li>
+<li><strong>Dois-je compléter tous les 15 challenges ?</strong> Compléter tous les challenges est requis pour réclamer votre badge <strong>15 days of Postman</strong>. Vous pouvez approfondir n&#39;importe lequel des sujets que vous trouvez intéressant, cependant certains challenges sont basés sur des examples et concepts introduits dans des challenges précédents. Vous recevrez donc moins d&#39;aide pour les concepts ayant été introduits plus tôt dans la série.</li>
+<li><strong>Je débute avec le code et les APIs. Est-ce que ce challenge est pour moi ?</strong> Les challenges sont faits pour les testeurs et conviennent aux testeurs débutants. Si vous connaissez les concepts de base de programmation et de JavaScript (ou autre language de programmation), ce challenge est fait pour vous. Si vous travaillez avec des APIs mais ne vous identifiez pas comme un testeur, vous devrez peut être effectuer quelques recherches pour compléter certains challenges.</li>
+<li><strong>Ais-je besoin de créer un workspace public ?</strong>: Oui. La vérification nécessite que tout votre travail soit dans un workspace public. Si vous faites partie du compte Postman de votre entreprise, cette dernière ne voudra peut être pas que le workspace apparaisse sur leur profil d&#39;équipe public. Dans ce cas, utilisez votre compte Postman personnel, ou créez un compte séparé pour compléter le challenge.</li>
+<li><strong>Je suis bloqué. Quelqu&#39;un peut m&#39;aider?</strong><ul>
+<li>Relisez les instructions avec attention, et vérifiez la documentation ainsi que les ressources additionelles listées dans les instructions.</li>
+<li>Essayez de soumettre une solution incomplète pour révèler des indices dans les résultats de tests.</li>
+<li>Cherchez des examples similaires sur le <a href="https://community.postman.com/" target="_blank">forum de la communauté</a>.</li>
+<li>Si vous cherchez de l&#39;aide, postez dans la catégorie <a href="https://community.postman.com/c/training/38" target="_blank">Training</a> do forum de la communauté. Soyez sûrs d&#39;inclure une explication détaillée de votre question, ce que vous avez déjà essayé, et mettez le lien de votre workspace public pour que les autres puissent constater où vous êtes coincé</li>
+<li>Si votre question est à propos de l&#39;administration du badge (i.e. pas une question technique sur Postman), vous pouvez demander de l&#39;ade dans la catégorie <a href="https://community.postman.com/c/training/38" target="_blank">Training</a> du forum de la communauté.</li>
+</ul>
+</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 01: Client API" duration="4">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<p>Une fois ce challenge complété, vous serez capable :</p>
+<ul>
+<li>D&#39;importer des données dans Postman</li>
+<li>D&#39;envoyer et recevoir des données depuis une API</li>
+<li>D&#39;inspecter les requêtes et réponses d&#39;API</li>
+<li>D&#39;utiliser les variables de collection pour stocker des données</li>
+</ul>
+<h2 is-upgraded>Comment démarrer</h2>
+<ol type="1">
+<li><strong>Récupérez le challenge :</strong> Forkez la collection <code>Day 01: API client</code> dans votre propre workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-032fb22a-9afb-4c56-b8f0-4042db96a4f3?action=collection%2Ffork&collection-url=entityId%3D1559645-032fb22a-9afb-4c56-b8f0-4042db96a4f3%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li><strong>Lisez la documentation :</strong> Dans votre fork, sélectionnez le premier dossier <code>API client</code>. Ouvrez la barre de navigation à droite pour suivre les instructions de la documentation de la collection. Si vous trouvez embêtant le fait devoir passer de la documentation à d&#39;autres parties de Postman, vous pouvez ouvrir la documentation dans un nouvel onglet et passer de l&#39;un à l&#39;autre à la place.</li>
+<li><strong>Soumettre votre solution:</strong> Sélectionnez le second dossier <code>Submit your solution</code> puis suivez les instructions dans la documentation pour valider votre solution.</li>
+</ol>
+<h2 is-upgraded>Concepts abordés</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/collaborating-in-postman/version-control-for-collections/#forking-a-collection" target="_blank">Forker une collection</a></li>
+<li><a href="https://learning.postman.com/docs/publishing-your-api/viewing-documentation/" target="_blank">Voir la documentation</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/requests/" target="_blank">Envoyer une requête</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/variables/" target="_blank">Utiliser les variables</a></li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://youtu.be/iFMLyMgCUTs" target="_blank">Intro to APIs</a> - série vidéo</li>
+<li><a href="https://learning.postman.com/docs/developer/intro-api/" target="_blank">Postman API</a> - documentation</li>
+<li><a href="https://youtu.be/I6vClap0ajU" target="_blank">Initial vs Current Values for Variables</a> - vidéo</li>
+<li><a href="https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-new-workspace" target="_blank">Create a public workspace</a> - documentation</li>
+<li><a href="https://youtu.be/6xlJUx2ZMy4" target="_blank">Agent for the Postman web client</a> - vidéo</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 02: Contrôle des versions" duration="5">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<ul>
+<li>Configurer les en-têtes de requête</li>
+<li>Expliquer le contrôle de version dans Postman</li>
+<li>Forker et merger les changements d&#39;une collection</li>
+<li>Utiliser les variables d&#39;environement pour stocker des données</li>
+</ul>
+<h2 is-upgraded>Comment démarrer</h2>
+<p>Forkez la collection dans votre workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-a469ae03-2c56-4310-99b8-888e6dcda268?action=collection%2Ffork&collection-url=entityId%3D1559645-a469ae03-2c56-4310-99b8-888e6dcda268%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<h2 is-upgraded>Concepts abordés</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/collaborating-in-postman/version-control-for-collections/#forking-a-collection" target="_blank">Forker une collection</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/requests/#sending-body-data" target="_blank">Envoyer des données dans le body</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/managing-environments/#creating-environments" target="_blank">Utiliser les environements</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/requests/#configuring-request-headers" target="_blank">Configurer les en-têtes de requêtes</a></li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://youtu.be/QKxukXJWRPI" target="_blank">Version Control for Collections</a> - vidéo</li>
+<li><a href="https://youtu.be/oCEDjp3XMco" target="_blank">How to use Postman environments</a> - vidéo</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 03: Debugging" duration="3">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<ul>
+<li>Inspecter les données de la console</li>
+<li>Enregistrer des données sur la console</li>
+<li>Écrire un script</li>
+</ul>
+<h2 is-upgraded>Comment démarrer</h2>
+<p>Forkez la collection dans votre workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-34f6955d-695a-4dfd-806c-43ee6ba42fb5?action=collection%2Ffork&collection-url=entityId%3D1559645-34f6955d-695a-4dfd-806c-43ee6ba42fb5%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<h2 is-upgraded>Concepts abordés</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/troubleshooting-api-requests/#debugging-and-logs" target="_blank">Déboguer et logger</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">Scripts</a></li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://youtu.be/YCsURct9wCk" target="_blank">Debugging with the console</a> - vidéo</li>
+<li><a href="https://blog.postman.com/powerful-debugging-with-the-postman-console/" target="_blank">Powerful Debugging with the Postman Console</a> - blog</li>
+<li><a href="https://www.postman.com/postman/workspace/postman-team-collections/collection/1559645-9349429e-3744-467b-a127-e3881f0dffc8?ctx=documentation" target="_blank">How to use the Postman Console</a> - collection</li>
+<li><a href="https://youtu.be/E3uo-oQ9WtE" target="_blank">Import a HAR file in Postman</a> - vidéo</li>
+<li><a href="https://youtu.be/mAjvWZASyEI" target="_blank">Reverse engineering a private API</a> - vidéo</li>
+<li><a href="https://youtu.be/bjrCHUITZ3k" target="_blank">Capture API calls with a proxy</a> - vidéo</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 04: Authentification" duration="5">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<ul>
+<li>Authentifier des requêtes API en utilisant une clé API</li>
+<li>Utiliser une en-tête d&#39;authentification</li>
+<li>Expliquer l&#39;héritage de type d&#39;authentification</li>
+<li>Authentifier des requêtes APIs en utilisant des cookies</li>
+</ul>
+<h2 is-upgraded>Comment démarrer</h2>
+<p>Forkez la collection dans votre workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-a437961b-9a0a-45d2-b8c1-89b469718479?action=collection%2Ffork&collection-url=entityId%3D1559645-a437961b-9a0a-45d2-b8c1-89b469718479%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<h2 is-upgraded>Concepts abordés</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/authorization/" target="_blank">Authentifier des requêtes</a></li>
+<li><a href="https://youtu.be/WFiYsfSkyXE" target="_blank">Hériter des données d&#39;authentification</a></li>
+<li><a href="https://blog.postman.com/how-to-use-api-keys/" target="_blank">Utiliser des clés APIs de façon sécurisée sur Postman</a></li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/cookies/" target="_blank">Use cookies</a></li>
+<li><a href="https://youtu.be/jfgFNw5SoUg" target="_blank">Sync cookies for authentication</a> - vidéo</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 05: Variables et scripts" duration="5">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<ul>
+<li>Définir et accéder à des variables en utilisant du code</li>
+<li>Utiliser des variables pour stocker et passer des données</li>
+<li>Éxécuter une collection ou un dossier</li>
+</ul>
+<h2 is-upgraded>Comment démarrer</h2>
+<p>Forkez la collection dans votre workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-bb922d39-f3ec-4434-9358-44ced04bd294?action=collection%2Ffork&collection-url=entityId%3D1559645-bb922d39-f3ec-4434-9358-44ced04bd294%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<h2 is-upgraded>Concepts abordés</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/variables/#defining-variables" target="_blank">Définir des variables</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/variables/#defining-variables" target="_blank">Accéder aux variables</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/variables/" target="_blank">Scopes de variables</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">Scripting dans Postman</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/intro-to-collection-runs/" target="_blank">Collection Runner</a></li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://blog.postman.com/10-tips-for-working-with-postman-variables/" target="_blank">10 tips for working with variables</a> - blog</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 06: Écrire des tests API" duration="8">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<ul>
+<li>Analyser une réponse objet</li>
+<li>Insérer un snippet de test</li>
+<li>Écrire un test Postman personnalisé</li>
+<li>Utiliser des calls APIs pour répliquer un scénario utilisateur</li>
+<li>Ajouter plusieurs assertions à un test</li>
+<li>Expliquer comment la syntaxe BDD de Chai.js est utilisée dans Postman</li>
+</ul>
+<h2 is-upgraded>Comment démarrer</h2>
+<p>Forkez la collection dans votre workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-ce0038a1-33da-4cdd-9f30-bd90c8d1e2f0?action=collection%2Ffork&collection-url=entityId%3D1559645-ce0038a1-33da-4cdd-9f30-bd90c8d1e2f0%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<h2 is-upgraded>Concepts abordés</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/" target="_blank">Écrire des tests</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/#using-snippets" target="_blank">Snippets de tests</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/intro-to-collection-runs/" target="_blank">Collection Runner</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/grpc/postman-sandbox-api/" target="_blank">La sandbox Postman</a></li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/writing-scripts/script-references/test-examples/" target="_blank">Test script examples</a> - docs</li>
+<li><a href="https://www.postman.com/postman/workspace/postman-team-collections/collection/1559645-13bd44c4-94ec-420a-8390-8ff44b60f14d?ctx=documentation" target="_blank">Intro to writing tests - with examples</a> - example de collection</li>
+<li><a href="https://www.chaijs.com/" target="_blank">Chai.js</a> - docs</li>
+<li><a href="https://youtu.be/zrmQAgixMpU" target="_blank">Continuous Quality</a> - wébinaire vidéo</li>
+<li><a href="https://youtu.be/sB2HHrezQOo" target="_blank">Continuous Testing</a> - wébinar vidéo</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 07: Éxécuter des suites de tests" duration="5">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<ul>
+<li>Écrire des tests de requête, dossier, ou collection</li>
+<li>Écrire des tests dynamiques utilisant des variables</li>
+<li>Éxécuter une collection en local utilisant le Collection Runner</li>
+<li>Planifier une éxécution de collection sur le cloud Postman</li>
+<li>Planifier un moniteur basé sur une collection sur le cloud Postman</li>
+</ul>
+<h2 is-upgraded>Comment démarrer</h2>
+<p>Forkez la collection dans votre workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-57270788-216d-4316-9722-b03b1652258b?action=collection%2Ffork&collection-url=entityId%3D1559645-57270788-216d-4316-9722-b03b1652258b%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<h2 is-upgraded>Concepts</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/" target="_blank">Écrire des tests</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/intro-to-collection-runs/" target="_blank">Collection Runner</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/scheduling-collection-runs/" target="_blank">Planifier des éxécutions de collection</a></li>
+<li><a href="https://learning.postman.com/docs/monitoring-your-api/intro-monitors/#collection-based-monitors" target="_blank">Planifier des moniteurs basés sur des collections</a></li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/" target="_blank">Run collections on the command line with Newman</a> - docs</li>
+<li><a href="https://learning.postman.com/docs/running-collections/collection-webhooks/" target="_blank">Trigger runs with webhooks</a> - docs</li>
+<li><a href="https://youtu.be/UreV_7fHKiU" target="_blank">Log Response Data in Collection Runs</a> - vidéo</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 08: Produire des résultats de tests" duration="6">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<ul>
+<li>Écrire des log dynamiquement</li>
+<li>Éxécuter des collections depuis l&#39;invité de commande</li>
+<li>Expliquer les autres méthodes pour produire des résultats de tests Explain additional methods to output test results</li>
+<li>États de mise en place et de déstruction dans les tests</li>
+</ul>
+<h2 is-upgraded>Comment démarrer</h2>
+<p>Forkez la collection dans votre workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-1da829d4-ce6f-4756-84c5-abfeb2081718?action=collection%2Ffork&collection-url=entityId%3D1559645-1da829d4-ce6f-4756-84c5-abfeb2081718%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<h2 is-upgraded>Concepts</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/" target="_blank">Écrire des tests</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/intro-to-collection-runs/" target="_blank">Collection Runner</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/scheduling-collection-runs/" target="_blank">Planifier des éxécutions de collection</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/" target="_blank">Éxécuter des collections avec Newman</a> docs</li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/running-collections/using-newman-cli/newman-custom-reporters/" target="_blank">Use custom reporters with Newman</a> - docs</li>
+<li><a href="https://learning.postman.com/docs/running-collections/using-newman-cli/newman-with-docker/" target="_blank">Newman with Docker</a> - docs</li>
+<li><a href="https://youtu.be/n8O2KP-Zx8I" target="_blank">Manage CLI environment variables</a> - vidéo</li>
+<li><a href="https://blog.postman.com/write-to-your-local-file-system-using-a-postman-collection/" target="_blank">Write to your local file system</a> - blog</li>
+<li><a href="https://learning.postman.com/docs/sending-requests/visualizer/" target="_blank">Visualizing responses</a> - docs</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 09: Workflows d&#39;APIs" duration="15">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<ul>
+<li>Mettre à jour des requêtes dynamiquement pour de la pagination par exemple</li>
+<li>Écrire du code pour bifurquer et boucler des éxécutions d&#39;API</li>
+<li>Définir des variables de façon conditionelle pour garder une trace des données</li>
+</ul>
+<h2 is-upgraded>Comment démarrer</h2>
+<p>Forkez la collection dans votre workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-98685b1f-3c7d-40cc-a65c-b5a5e0b36b24?action=collection%2Ffork&collection-url=entityId%3D1559645-98685b1f-3c7d-40cc-a65c-b5a5e0b36b24%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<h2 is-upgraded>Concepts abordés</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/variables/" target="_blank">Variables</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">Scripts</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/" target="_blank">Écrire des tests</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/building-workflows/" target="_blank">Créer des workflows de requêtes</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/intro-to-collection-runs/" target="_blank">Éxécuter une collection</a></li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://www.postman.com/postman/workspace/postman-answers/collection/9215231-b9133e48-73c3-4aa4-b189-e038ee4c5e00?ctx=documentation" target="_blank">Example</a> dans le workspace Postman Answers</li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/#sending-requests-from-scripts" target="_blank">Sending asynchronous requests</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 10: Couverture de test" duration="4">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<ul>
+<li>Utiliser des librairies externes pour faire passer des valeurs Postman</li>
+<li>Générer des examples de données dynamiquement</li>
+<li>Augmenter les scénarios de tests</li>
+</ul>
+<h2 is-upgraded>Comment démarrer</h2>
+<p>Forkez la collection dans votre workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-be4ef8c8-a35b-4473-b032-cfc4a1359017?action=collection%2Ffork&collection-url=entityId%3D1559645-be4ef8c8-a35b-4473-b032-cfc4a1359017%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<h2 is-upgraded>Concepts</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/writing-scripts/script-references/variables-list/" target="_blank">Utiliser des variables dynamiques</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/working-with-data-files/" target="_blank">Travailler avec des fichiers de données</a></li>
+<li><a href="https://learning.postman.com/docs/running-collections/intro-to-collection-runs/" target="_blank">Éxécuter une collection</a></li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://blog.postman.com/looping-through-a-data-file-in-the-postman-collection-runner/" target="_blank">Looping through a data file with the Postman collection runner</a> - blog</li>
+<li><a href="https://youtu.be/RH8b3gbujPY" target="_blank">Loop through a data file</a> - vidéo</li>
+<li><a href="https://youtu.be/c-5UMf6sWk4" target="_blank">How to break an API</a> - livestream</li>
+<li><a href="https://www.postman.com/postman/workspace/unbreakable-api/overview" target="_blank">Unbreakable API</a> - example de code</li>
+<li><a href="https://github.com/minimaxir/big-list-of-naughty-strings" target="_blank">Big List of Naughty Strings</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 11: Validation" duration="3">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<ul>
+<li>Valider des réponses par rapport à un schéma défini</li>
+<li>Expliquer l&#39;importance de la validation par schéma</li>
+<li>Écrire un test conditionel pour valider différentes réponses</li>
+<li>Écrire un test néfatif pour valider une réponse qui ne fonctionne pas</li>
+</ul>
+<h2 is-upgraded>Comment démarrer</h2>
+<p>Forkez la collection dans votre workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-47d711a2-0338-485b-9d46-58f5ba261afa?action=collection%2Ffork&collection-url=entityId%3D1559645-47d711a2-0338-485b-9d46-58f5ba261afa%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<h2 is-upgraded>Concepts</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/" target="_blank">Écrire des tests</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/#validating-responses" target="_blank">Valider des réponses</a></li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/grpc/postman-sandbox-api/#using-external-libraries" target="_blank">ajv</a> et autres librairies intégrées</li>
+<li><a href="https://www.postman.com/postman/workspace/postman-answers/request/9215231-333ddae8-eb72-496d-9e45-6b49a87c7d09" target="_blank">Validate using ajv</a> - example de code</li>
+<li>Validate data formats using <a href="https://json-schema.org/" target="_blank">JSON schema</a></li>
+<li><a href="https://learning.postman.com/docs/designing-and-developing-your-api/developing-an-api/validating-elements-against-schema/" target="_blank">Validate API definitions</a> - docs</li>
+<li><a href="https://blog.postman.com/security-warnings-during-api-validation/" target="_blank">Security warnings during API definition</a> - blog</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 12: Utiliser des librairies" duration="3">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<ul>
+<li>Utiliser les librairies intégrées</li>
+<li>Visualiser les données de réponse en utilisant Handlebars.js</li>
+<li>Définir et référencer une librairie externe</li>
+<li>Ré-utiliser des scripts de tests et des requêtes</li>
+<li>Envoyer des requêtes HTTP asynchrones depuis les scripts</li>
+</ul>
+<h2 is-upgraded>Comment démarrer</h2>
+<p>Forkez la collection dans votre workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-ab31a2f9-74bf-445a-8bcb-38db919c9438?action=collection%2Ffork&collection-url=entityId%3D1559645-ab31a2f9-74bf-445a-8bcb-38db919c9438%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<h2 is-upgraded>Concepts abordés</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/sending-requests/visualizer/" target="_blank">Visualiser des réponses</a></li>
+<li><a href="https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/#using-external-libraries" target="_blank">Utiliser des librairies externes</a></li>
+<li><a href="https://www.postman.com/postman/workspace/test-examples-in-postman/collection/1559645-e86aead2-0cb9-4144-b568-46d84251af9b?ctx=documentation" target="_blank">Ré-utiliser des scripts de tests et des requêtes</a> code samples</li>
+<li><a href="https://learning.postman.com/docs/sending-requests/grpc/postman-sandbox-api/#sending-http-request-from-scripts" target="_blank">Envoyer des requêtes HTTP depuis les scripts</a></li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://handlebarsjs.com/" target="_blank">Handlebars.js</a> - docs</li>
+<li><a href="https://www.postman.com/postman/workspace/postman-answers/collection/13455110-7a6c90f0-0062-4089-b206-27c803dc1c37?ctx=documentation" target="_blank">Add external libraries</a> - examples de code</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 13: Serveurs de mock" duration="3">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<ul>
+<li>Utiliser les serveurs de mocks pour prototyper des scénarios</li>
+<li>Expliquer les tests de contrats consommateurs utilisant les mocks</li>
+<li>Établir un process de tests instantanés utilisant les mocks</li>
+<li>Générer du code boilerplate pour imiter des requêtes API</li>
+</ul>
+<h2 is-upgraded>Comment démarrer</h2>
+<p>Forkez la collection dans votre workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-3bae743b-63fb-4faf-9104-a3100747cfa9?action=collection%2Ffork&collection-url=entityId%3D1559645-3bae743b-63fb-4faf-9104-a3100747cfa9%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<h2 is-upgraded>Concepts abordés</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/" target="_blank">Installer des serveurs de mock</a></li>
+<li><a href="https://learning.postman.com/docs/sending-requests/generate-code-snippets/" target="_blank">Générer des snippets de code</a></li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://medium.com/better-practices/https-medium-com-postman-engineering-fake-it-till-you-make-it-mocks-for-agile-development-f4d050cad694" target="_blank">Fake it till you make it: mocks for agile development</a> - blog</li>
+<li><a href="https://youtu.be/n_7UUghLpco" target="_blank">Mock Servers</a> - vidéo</li>
+<li><a href="https://medium.com/better-practices/consumer-driven-contract-testing-using-postman-f3580dba5370" target="_blank">Consumer-driven contract testing</a> - blog</li>
+<li><a href="https://medium.com/better-practices/snapshot-testing-for-apis-using-postman-7f9f26295d6b" target="_blank">Snapshot testing for APIs using Postman</a> - blog</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 14: Plus de tests" duration="5">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<ul>
+<li>Passer des tests et requêtes de façon conditionelle</li>
+<li>Configurer les délais d&#39;expiration et les re-tentatives de tests</li>
+</ul>
+<h2 is-upgraded>Comment démarrer</h2>
+<p>Forkez la collection dans votre workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-60e4a553-2b1f-4248-a9cf-c77838c19a55?action=collection%2Ffork&collection-url=entityId%3D1559645-60e4a553-2b1f-4248-a9cf-c77838c19a55%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<h2 is-upgraded>Concepts abordés</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/writing-scripts/test-scripts/" target="_blank">Écrire des tests</a></li>
+<li>Passer des tests et requêtes de façon conditionelle</li>
+<li>Délais d&#39;expiration et les re-tentatives de tests</li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://www.postman.com/st-makuake-2022/workspace/api-testing/collection/11783815-4984e574-5840-4315-a864-9a88d26c7039?ctx=documentation" target="_blank">Ignore requests in a collection run</a> - example de code</li>
+<li><a href="https://www.postman.com/st-makuake-2022/workspace/api-testing/collection/11783815-bce7bb65-8868-4d83-8270-df4565cbcd6f?ctx=documentation" target="_blank">Ignore specific tests</a> - example de code</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Day 15: Soumettre votre badge" duration="5">
+        <h2 is-upgraded>Objectifs d&#39;apprentissage</h2>
+<p>Une fois ce challenge fini, vous devriez avoir expérimenté la plupart de ces compétences de tests sur Postman. [insert link to quiz]</p>
+<ul>
+<li>Importer des données dans Postman</li>
+<li>Utiliser des variables pour stocker et réutiliser des données</li>
+<li>Écrire des tests Postman en utilisant les snippets de tests et Chai.js</li>
+<li>Écrire des tests personnalisé en utilisant des variables dynamiques</li>
+<li>Générer des examples de données, des variables, et des logs dynamiquement</li>
+<li>Organiser plusieurs tests Postman par sujet</li>
+<li>Passer des valeurs au &#34;runner&#34; via des variables d&#39;environement et des fichiers de données</li>
+<li>Valider des réponses par rapport à un schéma</li>
+<li>Sélectionner des requêtes à éxécuter en utiliser des arguments d&#39;invité de commande et des paramètres de &#34;runner&#34;</li>
+<li>S&#39;authentifier en utilisant une clé API</li>
+<li>S&#39;authentifier en utilisant des cookies</li>
+<li>États de mise en place et de déstruction dans les tests</li>
+<li>Re-lancer des requêtes et des tests</li>
+<li>Installer et utiliser Newman pour éxécuter des collections depuis l&#39;invité de commande</li>
+<li>Déboguer des comportements d&#39;API imprévus</li>
+<li>Ralentir des requêtes réseau en utilisant les serveurs de mock</li>
+<li>Enregistrer les requêtes réseau en utilisant l&#39;Interceptor</li>
+<li>Contrôler des workflows d&#39;API en bifurquant et bouclant</li>
+<li>Visualiser les données de réponse</li>
+<li>Utiliser des librairies externes</li>
+<li>Générer du code boilerplate pour imiter des requêtes API</li>
+<li>Collaborer avec des membres de la même équipe pour éditer des collections en utilisant le contrôle de version</li>
+<li>Trouver les réponses à vos questions sur Postman</li>
+</ul>
+<p>Si vous ne vous sentez pas à l&#39;aise avec certains de ces sujets, c&#39;est le bon moment pour vous rafraichir la mémoire avant de passer à la suite.</p>
+<h2 is-upgraded>Vérifiez que votre workspace est complet</h2>
+<p>Assurez-vous que tous vos tests soient valides en local, et que vous avez compléter les conditions requises. Cela inclut toutes les collections, serveurs de mocks, et les éxécutions de collections planifiés nécessaires pour compléter les challenges.</p>
+<p>Si vous avez besoin d&#39;aide pour compléter ces conditions, demandez sur le <a href="https://community.postman.com/c/training" target="_blank">forum de la communauté Postman dans la catégorie &#34;Training&#34;</a>.</p>
+<h2 is-upgraded>Soumettez votre workspace</h2>
+<p>Fork the parent collection and environment to your own workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-b9fe5159-54c3-4fbc-a2fd-78969be49b8b?action=collection%2Ffork&collection-url=entityId%3D1559645-b9fe5159-54c3-4fbc-a2fd-78969be49b8b%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c#?env%5Bsecret%5D=W3sia2V5IjoidXJsIiwidmFsdWUiOiJodHRwczovL2YzMWY1MTFkLTYyNzEtNGE0ZS1iZWQ5LTQwMTAyNDc3MjU5MS5tb2NrLnBzdG1uLmlvIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJodHRwczovL2YzMWY1MTFkLTYyNzEtNGE0ZS1iZWQ5LTQwMTAyNDc3MjU5MS5tb2NrLnBzdG1uLmlvIiwic2Vzc2lvbkluZGV4IjowfV0=" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<p>Si votre workspace est complet, vous recevrez le badge <a href="https://badgr.com/public/badges/bG6IYzbkTsKrP3t6C2q0BQ" target="_blank"><strong>15 days of Postman - for testers</strong></a>.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Étapes suivantes" duration="1">
+        <p>Si vous avez reçu votre badge avec succès, ne vous arrêtez pas là ! Regardez les autres badge que nous proposons, ou apprenez à tester des APIs avec d&#39;autres protocoles et modèles comme GraphQL, SOAP, gRPC, WebSockets, et d&#39;autres.</p>
+<p>Il y a aussi plusieurs <a href="https://learning.postman.com/docs/integrations/intro-integrations/" target="_blank">intégrations</a> qui n&#39;ont pas été abordées dans cette leçon.</p>
+<ul>
+<li>Expliquer comment Postman marche avec les outils d&#39;APM</li>
+<li>Expliquer comment Postman marche avec les technologies de controle de source</li>
+<li>Expliquer comment Postman marche avec les plate-formes de CI/CD</li>
+<li>Expliquer comment Postman marche avec les gateways d&#39;API</li>
+<li>Expliquer comment Postman marche avec les outils d&#39;alertes et de moniteur</li>
+</ul>
+<h2 is-upgraded>Ressources complémentaires</h2>
+<ul>
+<li><a href="https://postman-quick-reference-guide.readthedocs.io/en/latest/cheatsheet.html" target="_blank">Guide de référence Postman</a> - antisèche créée par la communauté</li>
+<li><a href="https://community.postman.com/c/content-showcase/7" target="_blank">Showcase de la Communauté</a> avec des articles de blog, tutoriels, collections, et plein d&#39;autre trucs cools créés par des membres de la communauté comme vous!</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Set up a WebSockets server in Python</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="websockets-python"
+                  title="Set up a WebSockets server in Python"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>WebSockets are a way to create a persistent connection between an app or web app and a server. This can help you get as close as possible to real-time for constantly updating data like a stock ticker or text chat.</p>
+<p>The <a href="https://www.rfc-editor.org/rfc/rfc6455" target="_blank">WebSocket protocol</a> defines how this is done. The connection is both persistent and low-latency, so communication can be initiated by the client or the server, instead of the client request / server response communication model many developers associate with the web.</p>
+<p>In this tutorial, you&#39;ll create a simple WebSocket server in Python, and use Postman to send and receive messages across the WebSocket connection.</p>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li><a href="https://www.python.org/downloads/" target="_blank">Python 3</a> installed on your machine</li>
+</ul>
+<h2 is-upgraded>What You Will Learn</h2>
+<ul>
+<li>How to run a WebSockets server locally with Python.</li>
+<li>How to establish a WebSockets connection.</li>
+<li>How to send and receive WebSocket messages.</li>
+</ul>
+<h2 is-upgraded>What You Will Need</h2>
+<ul>
+<li><a href="https://www.python.org/downloads/" target="_blank">Python</a> Installed and in your path (required)</li>
+<li><a href="https://code.visualstudio.com/download" target="_blank">The Visual Studio Code editor</a> Installed (recommended)</li>
+</ul>
+<h2 is-upgraded>What You Will Build</h2>
+<ul>
+<li>A WebSockets server in Python</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create the Python server" duration="1">
+        <p>In your terminal, install <a href="https://websockets.readthedocs.io/en/stable/" target="_blank">the <code>websockets</code> library for Python</a>, then create a file for your server code.</p>
+<pre><code language="language-bash" class="language-bash">$ pip install websockets
+$ touch websockets.py
+</code></pre>
+<p>Next, open the <code>websockets.py</code> file in your favorite editor and add this code for a basic echo server (borrowed from the example in the <code>websockets</code> library documentation). Then save the file.</p>
+<pre><code language="language-python" class="language-python">import asyncio
+import websockets
+
+async def echo(websocket):
+    async for message in websocket:
+        await websocket.send(message)
+
+async def main():
+    async with websockets.serve(echo, &#34;localhost&#34;, 8765):
+        await asyncio.Future()  # run forever
+
+asyncio.run(main())
+</code></pre>
+<p>It&#39;s time to run our server locally from the command line.</p>
+<pre><code language="language-bash" class="language-bash">$ python websockets.py
+</code></pre>
+<p>In the next step, let&#39;s begin sending and receiving messages.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Send and receive WebSocket messages" duration="3">
+        <p>In Postman, select <strong>New &gt; WebSocket Request</strong> to open a new tab where you can enter the server URL. A WebSocket URL begins with <code>ws://</code> or <code>wss://</code> but they&#39;re not interchangeable. <code>ws</code> is for a standard connection and <code>wss</code> is for a TLS/SSL connection which requires a more-complicated set-up.</p>
+<p>Use <code>ws://localhost:8765</code> as the URL for this demo server and make sure you have the <a href="https://learning.postman.com/docs/getting-started/installation-and-updates/#installing-the-postman-desktop-agent" target="_blank">Postman Desktop Agent</a> running.</p>
+<p>Click <strong>Connect</strong>. <img alt="Connect to the local server" src="img/d2db06ae54ccdb63.png"></p>
+<p>After Postman establishes a successful connection to your local server, the <strong>Messages</strong> pane displays a list of messages for the WebSocket connection, including incoming, outgoing, and network messages. You can further inspect the connection details by clicking on &#34;Connected to ws://localhost:8765&#34;.</p>
+<p class="image-container"><img alt="Inspect handshake details" src="img/fbfda4dab7cb18ac.png"></p>
+<p>The connection we established between the Postman client and the local server is bidirectional and the server will echo your message back to you. Under the <strong>Message</strong> tab for the connection, write &#34;Hello World!&#34; and <strong>Send</strong>.</p>
+<p class="image-container"><img alt="Message sent and received" src="img/1f666b97d9417b8e.png"></p>
+<p>Above the connection message, there are now two new messages. One has an up-arrow icon next to it, showing it&#39;s outgoing, and one has a down-arrow icon, showing it&#39;s incoming. The message was sent and the echo arrived back in the same second. If you expand them, they&#39;re just the message text.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Broadcasting Messages" duration="3">
+        <p>Let&#39;s pretend we&#39;re building an extremely simple chat room server. In this chat room, any message sent to the server will be broadcast to every connection.</p>
+<h2 is-upgraded>Update the code</h2>
+<p>Terminate the running server (<strong>Ctrl + C</strong>). This shuts down the server and Postman will register that the connection terminated.</p>
+<p>Update <code>websockets.py</code> to the code below so it will now <em>broadcast</em> incoming messages to all connected clients. Save the changes.</p>
+<pre><code language="language-python" class="language-python">import asyncio
+import websockets
+
+CONNECTIONS = set()
+
+async def echo(websocket):
+  if websocket not in CONNECTIONS:
+    CONNECTIONS.add(websocket)
+  async for message in websocket:
+    websockets.broadcast(CONNECTIONS,message)
+ 
+async def main():
+    async with websockets.serve(echo, &#34;localhost&#34;, 8765):
+        await asyncio.Future()  # run forever
+
+asyncio.run(main())
+</code></pre>
+<p>Run it.</p>
+<pre><code language="language-bash" class="language-bash">$ python websockets.py
+</code></pre>
+<h2 is-upgraded>Open a second WebSockets connection</h2>
+<p>Select <strong>New &gt; WebSocket Request</strong> to open a second tab and set the URL for the second tab to <code>ws://localhost:8765</code>, just like the first.</p>
+<p>In each tab, connect to the WebSockets server.</p>
+<h2 is-upgraded>Send some messages</h2>
+<p>In the first tab, try sending the message: &#34;Hello! How are you?&#34;</p>
+<p>In the second tab, try sending the message: &#34;I&#39;m well!&#34;</p>
+<p>You&#39;ll get something like this: <img alt="Connections side by side" src="img/be57efe8030a6ba3.png"></p>
+<p>Note that the sender of the message sees both the outgoing message to the server and the incoming broadcast of what they sent. The other person or people connected to the server only see the incoming broadcast of messages they didn&#39;t send.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <p>More and more developers are exploring <a href="https://learning.postman.com/docs/sending-requests/websocket/websocket/" target="_blank">WebSocket APIs in Postman</a>. According to Postman&#39;s <a href="https://www.postman.com/state-of-api/api-technologies/#api-technologies" target="_blank">State of the API 2022</a> report, WebSockets are used by 26% of respondents.</p>
+<p class="image-container"><img alt="WebSockets are used by 26% of survey respondents" src="img/4e19ef37e9995a6f.png"></p>
+<h2 is-upgraded>Additional Resources</h2>
+<p>Check out these Postman resources to learn more about WebSockets.</p>
+<ul>
+<li><a href="https://www.postman.com/postman/workspace/websockets/documentation/14057978-712d684f-c252-4bd9-a7a6-6a893e41adea" target="_blank">Guide to Postman WebSockets</a> collection</li>
+<li><a href="https://learning.postman.com/docs/sending-requests/websocket/websocket/" target="_blank">Using WebSocket requests</a> docs</li>
+<li><a href="https://youtu.be/H-7EZVj9D-k" target="_blank">WebSocket requests</a> video</li>
+</ul>
+<h2 is-upgraded>Next Steps</h2>
+<p>You can use this starter application to explore how to use WebSockets for real-time communications in a larger application, whether it&#39;s a chat function or broadcasting a player&#39;s most recent move to the clients of all the other players.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

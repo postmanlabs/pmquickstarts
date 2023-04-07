@@ -1,0 +1,29 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
+  "updated": "2023-04-07T15:18:48-07:00",
+  "id": "postman-supernovas",
+  "duration": 12,
+  "title": "Become a Postman Supernova",
+  "summary": "Become a Postman ambassador and empower the API developer \u0026 tester community by building community around the world today.",
+  "source": "postman_supernovas/postman_supernovas.md",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "getting-started"
+  ],
+  "tags": [
+    "automation",
+    "badge",
+    "developer",
+    "gettingstarted",
+    "tester",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "postman-supernovas"
+}
