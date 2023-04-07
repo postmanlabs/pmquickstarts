@@ -1,0 +1,9 @@
+extends: existence
+message: "Required heading is missing: '{{.Heading}}'"
+description: Check for required headings in Markdown files
+level: error
+ignorecase: true
+patterns:
+  - "^#\\s*Prerequisites\\s*$"
+  - "^#\\s*What You'll Need\\s*$"
+  - "^#\\s*What You'll Build\\s*$"
