@@ -19,6 +19,6 @@ jobs:
     - name: Vale
       uses: errata-ai/vale-action@reviewdog
       with:
-        vale_flags:
+        vale_flags: "--glob='!*{site/app/}*'"
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
