@@ -1,5 +1,5 @@
 author: Joyce
-id: lost_in_space
+id: lost-in-space
 summary: This is a Postman puzzle game
 categories: Game
 environments: web

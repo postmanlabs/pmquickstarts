@@ -1,5 +1,5 @@
 author: Joyce
-id: 15_days_of_postman
+id: 15-days-of-postman
 summary: Improve your skills by tackling a new Postman challenge for 15 days in a row
 categories: Tester, Intermediate
 environments: web

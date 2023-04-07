@@ -1,5 +1,5 @@
 author: Joyce
-id: mongodb_atlas_data
+id: mongodb-atlas-data
 summary: Get Started with the MongoDB Atlas Data API
 categories: Getting-Started
 environments: web

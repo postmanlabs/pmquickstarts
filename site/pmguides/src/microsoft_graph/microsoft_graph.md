@@ -1,5 +1,5 @@
 author: Joyce
-id: microsoft_graph
+id: microsoft-graph
 summary: Get Started with the Microsoft Graph API in Postman
 categories: Getting-Started
 environments: web

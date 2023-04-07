@@ -1,5 +1,5 @@
 author: Joyce
-id: securing_api_keys
+id: securing-api-keys
 summary: Three ways to securely work with API keys
 categories: Getting-Started
 environments: web

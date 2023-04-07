@@ -1,5 +1,5 @@
 author: Joyce
-id: connect_postman_to_salesforce
+id: connect-postman-to-salesforce
 summary: Set up Postman with the Salesforce API collection to access data in your Salesforce org.
 categories: Getting-Started
 environments: web

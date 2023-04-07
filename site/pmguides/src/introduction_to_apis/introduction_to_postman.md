@@ -1,5 +1,5 @@
 author: Joyce
-id: introduction_to_postman
+id: introduction-to-postman
 summary: This is a beginner's introduction to HTTP APIs in Postman
 categories: Getting-Started
 environments: web

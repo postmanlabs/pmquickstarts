@@ -1,5 +1,5 @@
 author: Joyce
-id: postman_flows_tutorials
+id: postman-flows-tutorials
 summary: Get started with different types of Postman Flows
 categories: Getting-Started
 environments: web

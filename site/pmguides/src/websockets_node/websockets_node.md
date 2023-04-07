@@ -1,5 +1,5 @@
 author: Joyce
-id: websockets_node
+id: websockets-node
 summary: Set up a WebSockets server in Node.js
 categories: Getting-Started
 environments: web

@@ -1,5 +1,5 @@
 author: Arlemi
-id: 15_days_of_postman_fr
+id: 15-days-of-postman-fr
 summary: This is a sample Postman Guide
 categories: Tester, Intermediate
 environments: web
