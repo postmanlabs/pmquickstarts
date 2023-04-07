@@ -20,6 +20,6 @@ jobs:
       uses: errata-ai/vale-action@reviewdog
       with:
         reporter: github-check
-        vale_flags: "--glob='!*{_fr.md}*'"
+        vale_flags: "--glob='!*{fr}*'"
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
