@@ -19,7 +19,6 @@ jobs:
     - name: Vale
       uses: errata-ai/vale-action@reviewdog
       with:
-        reporter: github-check
         vale_flags:
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
