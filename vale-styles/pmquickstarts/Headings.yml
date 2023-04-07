@@ -2,10 +2,7 @@ extends: existence
 message: "Required heading is missing."
 description: Check for required headings in Markdown files
 level: error
-patterns:
-  - name: Prerequisites
-    match: "^#\\s*Prerequisites\\s*$"
-  - name: What You'll Need
-    match: "^#\\s*What You'll Need\\s*$"
-  - name: What You'll Build
-    match: "^#\\s*What You'll Build\\s*$"
+match:
+  - "^#\\s*Prerequisites\\s*$"
+  - "^#\\s*What You'll Need\\s*$"
+  - "^#\\s*What You'll Build\\s*$"
