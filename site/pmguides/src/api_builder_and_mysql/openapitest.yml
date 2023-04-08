@@ -1,0 +1,121 @@
+openapi: 3.0.0
+info:
+  title: My ToDo API
+  description: Create, read, edit, and complete tasks.
+  version: 0.1.0
+servers:
+- url: http://localhost
+  description: Development server
+  variables:
+    port:
+      default: '8080'
+components:
+  schemas:
+    id_code:
+      description: A GUID identifying an individual task.
+      type: string
+    task: 
+      description: Text between 2 to 255 characters.
+      type: string
+      minLength: 2
+      maxLength: 255
+    complete:
+      description: True means the task is complete, false means it is not.
+      type: boolean
+    completed:
+      description: Use true to show all tasks, false to show only incomplete tasks.
+      type: boolean
+    to_do: 
+      description: An object containing a task's information
+      type: object
+      properties:
+        idcode:
+          $ref: '#/components/schemas/id_code'
+        task:
+          $ref: '#/components/schemas/task'
+        complete:
+          $ref: '#/components/schemas/complete'
+    to_do_list: 
+      description: An array of toDo objects.
+      type: array
+      items:
+        $ref: '#/components/schemas/to_do'
+    error_msg:
+      type: object
+      properties:
+        message:
+          type: string          
+paths:
+  /todo:
+    get:
+      description: Gets a list of all items or all uncompleted items.
+      parameters:
+      - name: completed
+        in: query
+        required: false
+        schema:
+          $ref: '#/components/schemas/completed'
+      responses:
+        '200':
+          description: OK
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/to_do_list'
+    post:
+      description: Create a to-do item.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                task:
+                  $ref: '#/components/schemas/task'
+                complete:
+                  $ref: '#/components/schemas/complete'
+              required:
+              - task
+      responses:
+        '200':
+          description: Returns a copy of the new ToDo object.
+          content: 
+            'application/json': 
+              schema:
+                $ref: '#/components/schemas/to_do'
+        '400':
+          description: Creation failed. Returns an error.
+          content: 
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/error_msg'
+    put:
+      description: Update a to-do item.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - id_code
+              properties:
+                id_code:
+                  $ref: '#/components/schemas/id_code'
+                anyOf:
+                - task:
+                    $ref: '#/components/schemas/task'
+                - complete:
+                    $ref: '#/components/schemas/complete'
+      responses:
+        '200':
+          description: Item updated. Returns the item's updated ToDo object.
+          content: 
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/to_do'
+        '400':
+          description: Update failed. Returns an error message.
+          content: 
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/error_msg'
