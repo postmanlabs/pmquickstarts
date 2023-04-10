@@ -3,7 +3,6 @@ on:
   push:
     branches:
     - master
-    - vale-config
   pull_request:
   # Makes it possible to run from the Actions tab
   workflow_dispatch:
