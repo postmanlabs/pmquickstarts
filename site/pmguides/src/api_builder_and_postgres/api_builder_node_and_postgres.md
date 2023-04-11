@@ -54,7 +54,7 @@ If installed successfully, it will tell you the version you're running.
 
 Download the [Postgres GUI installer](https://www.postgresql.org/download/) for your operating system and install Postgres. Follow the prompts, accept the defaults, and make sure to write down the password you set for the **postgres** user.
 
-In the next step, let's create the database and user for the API backend.
+In the next step, let's create the database and user for the API back-end.
 
 <!-- ------------------------ -->
 
