@@ -35,7 +35,7 @@ Let's create a ToDo API powered by MySQL and Node.js with the help of Postman's 
 - [XAMPP](https://www.apachefriends.org/) Installed (semi-required*)
 - [The Visual Studio Code editor](https://code.visualstudio.com/download) Installed (recommended)
 
-* XAMPP is required to install MySQL and follow the database configuration instructions in the tutorial. If you have a preferred toolchain for installing/administrating MySQL, translate the instructions to your toolchain.
+*XAMPP is required to install MySQL and follow the database configuration instructions in the tutorial. If you have a preferred toolchain for installing/administrating MySQL, translate the instructions to your toolchain.*
 
 ### What You Will Build
 
@@ -66,12 +66,12 @@ Duration: 7
 
 Let's create the database for the ToDo items. This section assumes you've installed XAMPP or know how to administer a MySQL database using your preferred toolchain.
 
-1. Open XAMPP's Control Panel app.
+1. Open XAMPP's Control Panel app (it is called `osx-manager.app` on Mac and `XAMPP Control Panel` on Windows).
 2. Select the **Manage Servers** tab.
 3. Select the **MySQL Database**, then the **Start** button.
 4. Select the **Apache Web Server**, then the **Start** button.
 
-You started the web server to access `phpMyAdmin` which is a browser-based GUI tool for managing your MySQL server. Assuming your database and web server started successfully, access it at: [localhost/phpmyadmin](http://localhost/phpmyadmin).
+You started the web server to access `phpMyAdmin`, which is a browser-based GUI tool for managing your MySQL server. Once both Apache and MySQL have started, access it at: [localhost/phpmyadmin](http://localhost/phpmyadmin).
 
 ![phpMyAdmin main screen](./assets/mysqladmin.png)
 
@@ -99,7 +99,7 @@ INSERT INTO todos (id_code, to_do, completed) VALUES ('todo2','Get another thing
 
 ![SQL query in interface](./assets/sql_query.png)
 
-Select **Go** and the query will run. There may be a few `Error: #1046 No database selected` warnings. This is okay.
+Select **Go** and the query will run. There may be a few `Error: #1046 No database selected` warnings. This is okay and expected.
 
 It does 5 things in sequence:
 
@@ -109,7 +109,7 @@ It does 5 things in sequence:
 4. Grants the user privileges to select (search), insert (create), and update records in the table.
 5. Adds two records to the database so there's something to query later.
 
-Steps 3 and 4 follow the practice of creating a unique user for each database and restricting their access to just the functions required for their work.
+Steps 3 and 4 follow the practice of creating a unique user for the database and restricting their access to just the functions required for their work.
 
 You can turn off the Apache Web Server in the XAMPP app. Only the MySQL server is needed from here.
 
@@ -125,7 +125,7 @@ A good way to describe an API is to use the [OpenAPI 3 standard](https://spec.op
 
 Let's break up the description for better human readability and get an overview of how this is composed. 
 
-**Please [download the full version of this API specification](./assets/openapitest.yml) for the next step.**
+[Download the full version of this API specification](./assets/openapitest.yml) if you want to see it in its entirety.
 
 ### The metadata
 
@@ -155,7 +155,7 @@ servers:
 
 In the `components` object, there is a `schemas` object to define each type of data the API will send or receive. Data types like the `id_code` will be used in multiple places. The `$ref: [path to object]` property reuses the existing `id_code` definition in the `to_do` object.
 
-Note how the strings have `minLength` and `maxLength` values. Information like this is helpful for client code and machine-generated documentation.
+Note how the strings have `minLength` and `maxLength` values. Information like this is helpful for implementers and machine-generated documentation.
 
 ```yaml
 components:
@@ -170,10 +170,10 @@ components:
       type: string
       minLength: 2
       maxLength: 255
-    complete:
+    completed:
       description: True means the task is complete, false means it is not.
       type: boolean
-    completed:
+    complete:
       description: Use true to show all tasks, false to show only incomplete tasks.
       type: boolean
     to_do: 
@@ -184,8 +184,8 @@ components:
           $ref: '#/components/schemas/id_code'
         task:
           $ref: '#/components/schemas/task'
-        complete:
-          $ref: '#/components/schemas/complete'
+        completed:
+          $ref: '#/components/schemas/completed'
     to_do_list: 
       description: An array of toDo objects.
       type: array
@@ -217,16 +217,17 @@ Here are the action types and how they're defined:
 
 
 ```yaml
+
 paths:
   /todo:
     get:
-      description: Gets a list of all items or all uncompleted items.
+      description: Gets a list of all items or all incomplete items.
       parameters:
-      - name: completed
+      - name: complete
         in: query
         required: false
         schema:
-          $ref: '#/components/schemas/completed'
+          $ref: '#/components/schemas/complete'
       responses:
         '200':
           description: OK
@@ -244,8 +245,8 @@ paths:
               properties:
                 task:
                   $ref: '#/components/schemas/task'
-                complete:
-                  $ref: '#/components/schemas/complete'
+                completed:
+                  $ref: '#/components/schemas/completed'
               required:
               - task
       responses:
@@ -273,11 +274,11 @@ paths:
                   $ref: '#/components/schemas/id_code'
                 task:
                   $ref: '#/components/schemas/task'
-                complete:
-                  $ref: '#/components/schemas/complete'
+                completed:
+                  $ref: '#/components/schemas/completed'
               required:
-                - id_code
-       responses:
+                - id_code 
+      responses:
         '200':
           description: Item updated. Returns the item's updated ToDo object.
           content: 
@@ -313,6 +314,7 @@ The API is created, but it's untitled and empty.
 5. Select **Create Definition**. This opens a code editor.
 6. Copy the [full ToDo API definition from this link](https://gist.github.com/LetMyPeopleCode/99abd6eea4894d149971e98113e29076).
 7. Paste the definition into the code editor.
+![api definition](./assets/api_definition.png)
 8. Select **Save**.
 
 You're ready to code your API in the next step.
@@ -426,7 +428,7 @@ Replace that code with this code and save the file.
 ```javascript
     //compose the query
     let query = "SELECT * FROM todos WHERE `completed` = 0";
-    if(options.completed && (options.completed.toLowerCase() === 'true'))
+    if(options.complete && (options.complete.toLowerCase() === 'true'))
     {
       query = "SELECT * FROM todos";
     }
@@ -440,9 +442,9 @@ Replace that code with this code and save the file.
     };  
 ```
 
-Express provides the query string parameters in the `options` object. First, the code checks if there is a `completed` parameter and then if the value is `true` (as a string). The default is only to get all ToDos that are not completed. The modified query when `completed` is `true` gets all ToDos, regardless of status.
+Express provides the query string parameters in the `options` object. First, the code checks if there is a `completed` parameter and then if the value is `true` (as a string). The default is only to get all ToDos that are not completed. The modified query when `complete` is `true` gets all ToDos, regardless of status.
 
-If you want to dig into the code for the other two operations, download the complete working code at the [ToDo API project repository on GitHub]().
+If you want to dig into the code for the other two operations, download the complete working code at the [ToDo API project repository on GitHub](https://github.com/LetMyPeopleCode/ToDO_API_with_Node_and_MySQL).
 
 Next, let's put the API through its paces with Postman.
 
@@ -469,8 +471,8 @@ Make sure your MySQL database is running in the XAMPP control panel.
 
 1. Clone the [ToDo API Project repository](https://github.com/LetMyPeopleCode/ToDO_API_with_Node_and_MySQL) from GitHub into a local folder. 
 2. Open a terminal and navigate into the top-level directory.
-3. In the terminal, issue the command: `npm install`.
-4. When that completes, issue the command: `node server.js`
+3. In the terminal, enter the command: `npm install`.
+4. When that completes, enter the command: `node run start`
 
 You're ready to try your queries. The SQL you ran previously pre-populated the database with two items, so you have some data.
 
@@ -506,7 +508,7 @@ The only required item is the `id_code`. If you want to submit an empty field fo
 2. Set `complete` to "true", and uncheck the `task` field. This will update the database entry as completed. 
 3. Select **Send**. 
 
-The server makes the change, then queries the database for the item and returns the whole item to confirm the update.
+The server makes the change, then queries the database for the item and returns it to confirm the update.
 
 ![PUT results](./assets/put_results.png)
 
@@ -526,3 +528,5 @@ Here are some things you can do if you want to learn more.
 * Read the [OpenAPI 3 standard](https://spec.openapis.org/oas/latest.html) and add a `DELETE` method to the API specification.
 
 * Update the MySQL server permissions for `todo_admin` and Node.js server code to add a `DELETE` method, then regenerate your collection to test the `DELETE` method.
+
+* Clean up your system by uninstalling XAMPP and Node.js if you don't plan to keep them.

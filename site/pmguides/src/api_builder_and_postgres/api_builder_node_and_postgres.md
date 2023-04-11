@@ -54,7 +54,7 @@ If installed successfully, it will tell you the version you're running.
 
 Download the [Postgres GUI installer](https://www.postgresql.org/download/) for your operating system and install Postgres. Follow the prompts, accept the defaults, and make sure to write down the password you set for the **postgres** user.
 
-In the next step, let's create the database and user for the API.
+In the next step, let's create the database and user for the API backend.
 
 <!-- ------------------------ -->
 
@@ -63,11 +63,11 @@ Duration: 7
 
 Let's create the database for the ToDo items. This section assumes you've installed Postgres. As part of its base installation, it installs a shell application called **psql**. This may not be automatically added to your path. Search for it in your operating system's search prompt and run it. It will open a terminal window and ask for some information to connect to the server.
 
-Accept the defaults for `server`,`database`, `port`, and `username`. When you get to `password`, use the password you set for the **postgres** user. 
+Accept the defaults for `server`,`database`, `port`, and `username`. When you get to `password`, use the password you set for the **postgres** user in the previous section. 
 
 ![psql login](./assets/psql_login.png)
 
-Run the following commands in the terminal window one at a time. Remember that the semicolon is required at the end of the command.
+Run the following commands in the terminal window, one at a time. Remember that the semicolon is required at the end of the command.
 
 1. Create the database.
 ```sql
@@ -85,9 +85,9 @@ CREATE USER todo_admin WITH PASSWORD 'leelu_dallas_multipass_6';
 ```
 
 4. Create the database table to hold your ToDo items. This has three fields: 
-  a. `id_code`: a unique key of (up 36 characters).
-  b. `to_do`: the task to be done (up to 255 characters).
-  c. `completed`: whether or not it's been completed (boolean).
+  - `id_code`: a unique key of (up 36 characters).
+  - `to_do`: the task to be done (up to 255 characters).
+  - `completed`: whether or not it's been completed (boolean).
 ```sql
 CREATE TABLE todos (id_code varchar(36) NOT NULL UNIQUE, to_do varchar(255) NOT NULL, completed boolean);
 ```
@@ -132,7 +132,7 @@ A good way to describe an API is to use the [OpenAPI 3 standard](https://spec.op
 
 Let's break up the description for better human readability and get an overview of how this is composed. 
 
-**Please [download the full version of this API specification](./assets/openapitest.yml) for the next step.**
+[Download the full version of this API specification](./assets/openapitest.yml) if you want to see it in its entirety.
 
 ### The metadata
 
@@ -162,7 +162,7 @@ servers:
 
 In the `components` object, there is a `schemas` object to define each type of data the API will send or receive. Data types like the `id_code` will be used in multiple places. The `$ref: [path to object]` property reuses the existing `id_code` definition in the `to_do` object.
 
-Note how the strings have `minLength` and `maxLength` values. Information like this is helpful for client code and machine-generated documentation.
+Note how the strings have `minLength` and `maxLength` values. Information like this is helpful for implementers and machine-generated documentation.
 
 ```yaml
 components:
@@ -177,10 +177,10 @@ components:
       type: string
       minLength: 2
       maxLength: 255
-    complete:
+    completed:
       description: True means the task is complete, false means it is not.
       type: boolean
-    completed:
+    complete:
       description: Use true to show all tasks, false to show only incomplete tasks.
       type: boolean
     to_do: 
@@ -191,8 +191,8 @@ components:
           $ref: '#/components/schemas/id_code'
         task:
           $ref: '#/components/schemas/task'
-        complete:
-          $ref: '#/components/schemas/complete'
+        completed:
+          $ref: '#/components/schemas/completed'
     to_do_list: 
       description: An array of toDo objects.
       type: array
@@ -224,16 +224,17 @@ Here are the action types and how they're defined:
 
 
 ```yaml
+
 paths:
   /todo:
     get:
-      description: Gets a list of all items or all uncompleted items.
+      description: Gets a list of all items or all incomplete items.
       parameters:
-      - name: completed
+      - name: complete
         in: query
         required: false
         schema:
-          $ref: '#/components/schemas/completed'
+          $ref: '#/components/schemas/complete'
       responses:
         '200':
           description: OK
@@ -251,8 +252,8 @@ paths:
               properties:
                 task:
                   $ref: '#/components/schemas/task'
-                complete:
-                  $ref: '#/components/schemas/complete'
+                completed:
+                  $ref: '#/components/schemas/completed'
               required:
               - task
       responses:
@@ -280,11 +281,11 @@ paths:
                   $ref: '#/components/schemas/id_code'
                 task:
                   $ref: '#/components/schemas/task'
-                complete:
-                  $ref: '#/components/schemas/complete'
+                completed:
+                  $ref: '#/components/schemas/completed'
               required:
-                - id_code
-       responses:
+                - id_code 
+      responses:
         '200':
           description: Item updated. Returns the item's updated ToDo object.
           content: 
@@ -320,6 +321,7 @@ The API is created, but it's untitled and empty.
 5. Select **Create Definition**. This opens a code editor.
 6. Copy the [full ToDo API definition from this link](https://gist.github.com/LetMyPeopleCode/99abd6eea4894d149971e98113e29076).
 7. Paste the definition into the code editor.
+![api definition](./assets/api_definition.png)
 8. Select **Save**.
 
 You're ready to code your API in the next step.
@@ -438,7 +440,7 @@ Replace that code with this code and save the file.
 
 Express provides the query string parameters in the `options` object. First, the code checks if there is a `completed` parameter and then if the value is `true` (as a string). The default is only to get all ToDos that are not completed. The modified query when `completed` is `true` gets all ToDos, regardless of status.
 
-If you want to dig into the code for the other two operations, download the complete working code at the [ToDo API project repository on GitHub]().
+If you want to dig into the code for the other two operations, download the complete working code at the [ToDo API project repository on GitHub](https://github.com/LetMyPeopleCode/ToDO_API_with_Node_and_Postgres).
 
 Next, let's put the API through its paces with Postman.
 
@@ -522,3 +524,5 @@ Here are some things you can do if you want to learn more.
 * Read the [OpenAPI 3 standard](https://spec.openapis.org/oas/latest.html) and add a `DELETE` method to the API specification.
 
 * Update the Postgres server permissions for `todo_admin` and Node.js server code to add a `DELETE` method, then regenerate your collection to test the `DELETE` method.
+
+* Clean up your system by uninstalling Node.js and Postgres if you don't intend to keep them.
