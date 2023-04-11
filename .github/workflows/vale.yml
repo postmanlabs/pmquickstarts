@@ -1,0 +1,23 @@
+name: vale-linting
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+  # Makes it possible to run from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  prose:
+    name: Vale Linting
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+      
+    - name: Vale
+      uses: errata-ai/vale-action@reviewdog
+      with:
+        vale_flags:
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
