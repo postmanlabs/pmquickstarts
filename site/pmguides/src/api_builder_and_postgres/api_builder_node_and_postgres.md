@@ -1,13 +1,13 @@
 author: Greg Bulmash
-id: api_builder_node_and_mysql
-summary: Build An API with Postman, Node.js & MySQL
+id: api_builder_node_and_postgres
+summary: Build An API with Postman, Node.js, & Postgres
 categories: Getting-Started
 environments: web
 status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts
 tags: Getting Started, Developer
 
-# Build An API with Postman, Node.js & MySQL
+# Build An API with Postman, Node.js & Postgres
 
 <!-- ------------------------ -->
 
@@ -15,31 +15,30 @@ tags: Getting Started, Developer
 
 Duration: 2
 
-Let's create a ToDo API powered by MySQL and Node.js with the help of Postman's [API Builder](https://learning.postman.com/docs/designing-and-developing-your-api/creating-an-api/#creating-an-api)
+Let's create a ToDo API powered by Postgres and Node.js with the help of Postman's [API Builder](https://learning.postman.com/docs/designing-and-developing-your-api/creating-an-api/#creating-an-api)
 
 ### Prerequisites
 
 - Basic experience with Postman collections
-- At least a beginner understanding of MySQL and Node.js
+- At least a beginner understanding of Node.js
+- Comfort with the command line / shell
 
 ### What You Will Learn
 
 - How to create an API in Postman with an OpenAPI 3 definition.
 - How to generate skeleton code for the API, using Postman.
-- How to flesh out the code with a connection to MySQL and business logic.
+- How to flesh out the code with a connection to Postgres and business logic.
 - How to generate a Postman collection from the API definition and send requests to the API.
 
 ### What You Will Need
 
 - [Node.js](https://nodejs.org/en/download) Installed and in your path (required)
-- [XAMPP](https://www.apachefriends.org/) Installed (semi-required*)
+- [Postgres](https://www.postgresql.org/download/) Installed
 - [The Visual Studio Code editor](https://code.visualstudio.com/download) Installed (recommended)
-
-* XAMPP is required to install MySQL and follow the database configuration instructions in the tutorial. If you have a preferred toolchain for installing/administrating MySQL, translate the instructions to your toolchain.
 
 ### What You Will Build
 
-- A ToDo API with MySQL & Node.js and a Postman collection for it.
+- A ToDo API with Postgres & Node.js and a Postman collection for it.
 
 <!-- ------------------------ -->
 ## Install The Prerequisites
@@ -51,67 +50,75 @@ Duration: 7
 
 If installed successfully, it will tell you the version you're running.
 
-### Installing XAMPP
+### Installing Postgres
 
-Download the [XAMPP Installer](https://www.apachefriends.org/download.html) for your operating system and install it. This will provide you with a development environment with the Apache Web Server, MariaDB, and PHP, with GUI control panels. We'll launch and use it to create the database and run the server on demand.
+Download the [Postgres GUI installer](https://www.postgresql.org/download/) for your operating system and install Postgres. Follow the prompts, accept the defaults, and make sure to write down the password you set for the **postgres** user.
 
-MariaDB is an open-source fork of MySQL that has maintained compatibility since Oracle bought MySQL. It has maintained feature parity with the Community edition of MySQL for years.
-
-In the next step, let's create the database for the API.
+In the next step, let's create the database and user for the API.
 
 <!-- ------------------------ -->
 
 ## Create The Database
 Duration: 7
 
-Let's create the database for the ToDo items. This section assumes you've installed XAMPP or know how to administer a MySQL database using your preferred toolchain.
+Let's create the database for the ToDo items. This section assumes you've installed Postgres. As part of its base installation, it installs a shell application called **psql**. This may not be automatically added to your path. Search for it in your operating system's search prompt and run it. It will open a terminal window and ask for some information to connect to the server.
 
-1. Open XAMPP's Control Panel app.
-2. Select the **Manage Servers** tab.
-3. Select the **MySQL Database**, then the **Start** button.
-4. Select the **Apache Web Server**, then the **Start** button.
+Accept the defaults for `server`,`database`, `port`, and `username`. When you get to `password`, use the password you set for the **postgres** user. 
 
-You started the web server to access `phpMyAdmin` which is a browser-based GUI tool for managing your MySQL server. Assuming your database and web server started successfully, access it at: [localhost/phpmyadmin](http://localhost/phpmyadmin).
+![psql login](./assets/psql_login.png)
 
-![phpMyAdmin main screen](./assets/mysqladmin.png)
+Run the following commands in the terminal window one at a time. Remember that the semicolon is required at the end of the command.
 
-Select the **SQL** tab and add the following SQL to the textbox.
-
+1. Create the database.
 ```sql
-CREATE DATABASE todo;
+CREATE DATABASE todo WITH OWNER postgres;
+```
 
-CREATE TABLE todo.todos (
-	id_code varchar(36) NOT NULL UNIQUE,
-	to_do varchar(255) NOT NULL,
-	completed boolean
-);
+2. Switch to using the database for further commands. Following this, the command prompt will change from `postgres=#` to `todo=#`. 
+```sql
+\c todo
+```
 
-CREATE USER 'todo_admin'@'localhost' IDENTIFIED BY 'leelu_dallas_multipass-6';
+3. Create a user for the API. Before you do this, the only other user is **postgres** and that is a superuser role with *all of the privileges* on the database. Creating a new role and scoping it just to the permissions required to do its work is always a good practice. 
+```sql
+CREATE USER todo_admin WITH PASSWORD 'leelu_dallas_multipass_6';
+```
 
-GRANT SELECT, INSERT, UPDATE ON todo.* TO 'todo_admin'@'localhost';
+4. Create the database table to hold your ToDo items. This has three fields: 
+  a. `id_code`: a unique key of (up 36 characters).
+  b. `to_do`: the task to be done (up to 255 characters).
+  c. `completed`: whether or not it's been completed (boolean).
+```sql
+CREATE TABLE todos (id_code varchar(36) NOT NULL UNIQUE, to_do varchar(255) NOT NULL, completed boolean);
+```
 
-use todo;
+5. Grant the required privileges on the `todos` table to the new user.
+```sql
+GRANT SELECT, INSERT, UPDATE ON todos TO todo_admin;
+```
 
+6. At this point, the scaffolding is done, but let's add two items to the database so there's something when you start sending requests.
+
+Item 1:
+```sql
 INSERT INTO todos (id_code, to_do, completed) VALUES ('todo1','Get something done', TRUE); 
-
+```
+Item 2:
+```sql
 INSERT INTO todos (id_code, to_do, completed) VALUES ('todo2','Get another thing done', FALSE);
 ```
 
-![SQL query in interface](./assets/sql_query.png)
+7. Query the database to see the two items you added.
+```sql
+SELECT * FROM todos;
+```
 
-Select **Go** and the query will run. There may be a few `Error: #1046 No database selected` warnings. This is okay.
+![psql SELECT query](./assets/psql_select.png)
 
-It does 5 things in sequence:
-
-1. Creates a database named `todo`.
-2. Adds a table to `todo`, named `todos`, to hold your records.
-3. Creates a user named `todo_admin` with a password of `leelu_dallas_multipass-6`
-4. Grants the user privileges to select (search), insert (create), and update records in the table.
-5. Adds two records to the database so there's something to query later.
-
-Steps 3 and 4 follow the practice of creating a unique user for each database and restricting their access to just the functions required for their work.
-
-You can turn off the Apache Web Server in the XAMPP app. Only the MySQL server is needed from here.
+8. Quit out of the Postgres shell.
+```bash
+\q
+```
 
 Next, use OpenAPI to define an API.
 
@@ -342,9 +349,9 @@ If you want to code this yourself, take these preliminary steps.
 1. Unzip the code you downloaded into a project folder.
 2. Open a terminal window and navigate into the project folder.
 3. Enter `npm install` in the terminal window. This will install the prerequisites specified by the gode generator.
-4. [Add a MySQL connector for Express](https://expressjs.com/en/guide/database-integration.html#mysql). This code will also add it to your `project.json` file in case you're planning to save this to source control and skip this step in the future.
+4. [Add a Postgres connector for Express](https://expressjs.com/en/guide/database-integration.html#Postgres). This code will also add it to your `project.json` file in case you're planning to save this to source control and skip this step in the future.
 ```bash
-npm install mysql --save
+npm install pg-promise --save
 ```
 
 Enter `npm run start` in the terminal window.
@@ -377,33 +384,12 @@ Add the following code at the top.
 
 ```javascript
 const crypto = require('crypto');
-const mysql = require('mysql')
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'todo_admin',
-  password: 'leelu_dallas_multipass-6',
-  database: 'todo'
-})
-
-connection.connect()
-
-// function to run your SQL queries
-runQuery = function(query){
-  return new Promise(function(resolve, reject){
-    connection.query(
-        query, 
-        function(err, rows){                                                
-          if(rows === undefined){
-            reject(new Error("Error rows is undefined"));
-          }else{
-            resolve(rows);
-          }
-        }
-    )}
-)}
+const pgp = require('pg-promise')();
+const db = pgp('postgres://todo_admin:leelu_dallas_multipass_6@localhost:5432/todo');
+const PS = pgp.PreparedStatement;
 ```
 
-This pulls in Node's built-in `crypto` module to generate UUIDs for the `POST` function and sets up the `mysql` module with a database connection. Then it adds a function to run your SQL queries. The function is wrapped in a promise and resolves when the query results are returned.
+This pulls in Node's built-in `crypto` module to generate UUIDs for the `POST` function and sets up the `Postgres` module with a database connection. Then it simplifies the `pg-promise` module's class for prepared functions, which is used to ensure booleans are properly handled in the database queries. 
 
 Let's look at the code for the `GET` function from above. It creates a demo of the array specified in the API description with mock values.
 
@@ -425,19 +411,29 @@ Replace that code with this code and save the file.
 
 ```javascript
     //compose the query
-    let query = "SELECT * FROM todos WHERE `completed` = 0";
+    let listTodos = {};
+    let result = {};
+
+    // create a query with a prepared statement
     if(options.completed && (options.completed.toLowerCase() === 'true'))
     {
-      query = "SELECT * FROM todos";
+      listTodos = new PS({name: "list-all-todos", text: 'SELECT * FROM todos'});
+    } else {
+      listTodos = new PS({name: "list-todos", text: 'SELECT * FROM todos WHERE completed = $1', values:false})
     }
     
-    //query the database
-    response = await runQuery(query);
-
+   //query the database
+   try {
+      result = await db.any(listTodos)
+    } catch (err){
+      console.log(err);
+      throw new Error (err)
+    }
+   
     return {
       status: 200,
-      data: response
-    };  
+      data: result
+    }; 
 ```
 
 Express provides the query string parameters in the `options` object. First, the code checks if there is a `completed` parameter and then if the value is `true` (as a string). The default is only to get all ToDos that are not completed. The modified query when `completed` is `true` gets all ToDos, regardless of status.
@@ -465,9 +461,9 @@ When the collection is generated, it is a child of the API, not the higher-level
 
 ### Run a ToDo server
 
-Make sure your MySQL database is running in the XAMPP control panel.
+Make sure your Postgres database is running in the XAMPP control panel.
 
-1. Clone the [ToDo API Project repository](https://github.com/LetMyPeopleCode/ToDO_API_with_Node_and_MySQL) from GitHub into a local folder. 
+1. Clone the [ToDo API Project repository](https://github.com/LetMyPeopleCode/ToDO_API_with_Node_and_Postgres) from GitHub into a local folder. 
 2. Open a terminal and navigate into the top-level directory.
 3. In the terminal, issue the command: `npm install`.
 4. When that completes, issue the command: `node server.js`
@@ -525,4 +521,4 @@ Here are some things you can do if you want to learn more.
 
 * Read the [OpenAPI 3 standard](https://spec.openapis.org/oas/latest.html) and add a `DELETE` method to the API specification.
 
-* Update the MySQL server permissions for `todo_admin` and Node.js server code to add a `DELETE` method, then regenerate your collection to test the `DELETE` method.
+* Update the Postgres server permissions for `todo_admin` and Node.js server code to add a `DELETE` method, then regenerate your collection to test the `DELETE` method.
