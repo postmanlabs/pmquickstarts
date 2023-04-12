@@ -56,7 +56,7 @@ Improve your skills by tackling a new Postman challenge for 30 days in a row.
   - Re-read the instructions carefully, and check out the documentation and additional resources listed in the instructions.
   - Try submitting an incomplete solution locally to reveal clues in the test results.
   - Look for similar examples in the [community forum](https://community.postman.com/). If you're asking for help, make sure to include a thorough explanation of your question, what you've tried already, and include a direct link to your own public workspace so others can see where you're stuck.
-  - If your question is related to the administration of this badge (e.g. not a technical Postman question), you can ask for guidance in the [Training](https://community.postman.com/c/training/38) section of the community forum.
+  - If your question is related to the administration of this badge (for example, not a technical Postman question), you can ask for guidance in the [Training](https://community.postman.com/c/training/38) section of the community forum.
 
 <!-- ------------------------ -->
 
@@ -495,7 +495,7 @@ Duration: 4
 
 - [GraphQL demo](https://youtu.be/7pUbezVADQs) video
 - [Working with GraphQL](https://explore.postman.com/templates/1692/working-with-graphql) template
-- [REST, SOAP, GraphQL — Gesundheit!](https://medium.com/better-practices/rest-soap-graphql-gesundheit-6544053f65cf)
+- [REST, SOAP, GraphQL—-Gesundheit!](https://medium.com/better-practices/rest-soap-graphql-gesundheit-6544053f65cf)
 - [GraphQL vs REST: Overview](https://philsturgeon.uk/api/2017/01/24/graphql-vs-rest-overview/)
 - [Public GraphQL APIs](https://github.com/APIs-guru/graphql-apis)
 - [GraphQL](https://www.tiktok.com/@joycejetson/video/7072443227168869678) tiktok
@@ -680,7 +680,7 @@ Duration: 7
 
 - [How to break an API](https://youtu.be/c-5UMf6sWk4) livestream
 - [How Secure are your APIs?](https://youtu.be/shT-Obfo-uk) livestream
-- [Acing your API tests — what you need to know for test automation](https://medium.com/better-practices/acing-your-apis-what-you-need-to-know-for-test-automation-e3fdba3519b9) blog
+- [Acing your API tests-—what you need to know for test automation](https://medium.com/better-practices/acing-your-apis-what-you-need-to-know-for-test-automation-e3fdba3519b9) blog
 - [Scenario testing](https://www.tiktok.com/@joycejetson/video/7076059976770276650) tiktok
 
 <!-- ------------------------ -->

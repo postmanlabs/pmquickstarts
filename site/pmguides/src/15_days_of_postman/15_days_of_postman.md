@@ -74,7 +74,7 @@ Improve your skills by tackling a new Postman challenge for 15 days in a row.
   - Try submitting an incomplete solution locally to reveal clues in the test results.
   - Look for similar examples in the [community forum](https://community.postman.com/).
   - If you're asking for help, try posting in the [Training](https://community.postman.com/c/training/38) section of the community forum. Make sure to include a thorough explanation of your question, what you've tried already, and include a direct link to your own public workspace so others can see where you're stuck.
-  - If your question is related to the administration of this badge (e.g. not a technical Postman question), you can ask for guidance in the [Training](https://community.postman.com/c/training/38) section of the community forum.
+  - If your question is related to the administration of this badge (for example, not a technical Postman question), you can ask for guidance in the [Training](https://community.postman.com/c/training/38) section of the community forum.
 
 <!-- ------------------------ -->
 

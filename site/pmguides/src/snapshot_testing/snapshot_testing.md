@@ -41,7 +41,7 @@ Duration: 1
 
 Duration: 7
 
-Writing tests, most of the times is not a breeze. [Writing good tests with acceptable code coverage takes time, effort, practice, and patience](https://hackernoon.com/common-excuses-why-developers-dont-test-their-software-908a465e122c). Probably that’s why you would find “Write Tests” as the last to-do item in most developers’ task list. This situation gets worse in the case of startups or early-stage companies because the time, effort and resources spent on writing tests are not justified by the business.
+Writing tests, most of the times is not a breeze. [Writing good tests with acceptable code coverage takes time, effort, practice, and patience](https://hackernoon.com/common-excuses-why-developers-dont-test-their-software-908a465e122c). Probably that’s why you would find “Write Tests” as the last to-do item in most developers’ task list. This situation gets worse in the case of startups or early stage companies because the time, effort and resources spent on writing tests are not justified by the business.
 
 In this lesson, we will talk about **Snapshot Testing**, a style of testing which removes much of the manual coding and boilerplate, leaving the test runner to compare the produced result against a saved _snapshot_. Snapshot testing became a major thing for UI tests, thanks to [Jest test runner](https://jestjs.io/docs/en/snapshot-testing) by Facebook that includes it by default. Before starting on how to get this working in Postman, let us first understand what is Snapshot Testing in principle.
 

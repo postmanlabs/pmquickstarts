@@ -69,7 +69,7 @@ export PATH=$PATH:$HOME/go/bin
 
 ## Write Your First Quickstart
 
-1. Terminate the running server with `ctrl C` and and navigate to the `pmguides` source directory `cd pmguides/src`
+1. Terminate the running server with `ctrl C` and navigate to the `pmguides` source directory `cd pmguides/src`
    - In this directory, you will see all existing guides and their markdown files.
 2. Generate a new guide from the guide template `npm run template <GUIDE_NAME>`
    - Don't use spaces in the name of your guide, instead use **hyphens** to separate words.

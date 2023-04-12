@@ -117,7 +117,7 @@ You can retrieve the global variables in your code using `pm.globals.get`.
 
 ### Step 3: Add a test
 
-Now let's add a basic test to check we have a success status code of `200 OK`–the test name string will be output with the test result, so make sure yours are meaningful enough to be useful when you're testing (you can either copy this or grab it from the snippets to the right of the **Tests** input):
+Now let's add a basic test to check we have a success status code of `200 OK`–-the test name string will be output with the test result, so make sure yours are meaningful enough to be useful when you're testing (you can either copy this or grab it from the snippets to the right of the **Tests** input):
 
 ```js
 pm.test("Status code is 200", () => {
@@ -126,7 +126,7 @@ pm.test("Status code is 200", () => {
 });
 ```
 
-With your test code added, **Send** and check out the **Test Results**. Then try making the test fail by changing the `200` to `400`–notice that the result includes extra info indicating why the test failed.
+With your test code added, **Send** and check out the **Test Results**. Then try making the test fail by changing the `200` to `400`–-notice that the result includes extra info indicating why the test failed.
 
 ### Step 4: Test a response property
 
@@ -195,7 +195,7 @@ results": [
 
 ### Step 1: Get the array
 
-In the **Tests** tab you'll see comments again for each step. First get the response array in a variable and write the length out to the console–**Send** and check the console:
+In the **Tests** tab you'll see comments again for each step. First get the response array in a variable and write the length out to the console–-**Send** and check the console:
 
 ```js
 const phones = pm.response.json().results;
@@ -238,7 +238,7 @@ pm.test("Phone found", () => {
 });
 ```
 
-**Send** and check out the **Test Results**. Try making it fail too, e.g. by changing the color text value from `red` to `blue`.
+**Send** and check out the **Test Results**. Try making it fail too--for example, by changing the color text value from `red` to `blue`.
 
 **Save** this request. Open the next request `3. Send order`, check out the docs, and **Send**.
 
@@ -282,13 +282,13 @@ Your next assignment is to parse the response body of this request.
 
 Set a global variable with the value of the property `orderId` from the response, so that we can reference it in another request.
 
-**Send** the request and check the global variable values using the eye button–**Save** this request.
+**Send** the request and check the global variable values using the eye button–-**Save** this request.
 
 You will be able to use the variable in the next request `4. Get order`, as a path parameter instead of the hardcoded value.
 
 ### Step 1: Send dynamic data
 
-When you send data to an API in Postman, you can generate values when the request runs using dynamic variables. Edit the value of the **Body** data `customer` property to send a random company name–inside the quotes, start typing `{{$` to see the available dynamic variables. Choose `randomCompanyName`–the reference is exactly like any other variable but with the `$` character at the start, like this: `{{$randomThing}}`
+When you send data to an API in Postman, you can generate values when the request runs using dynamic variables. Edit the value of the **Body** data `customer` property to send a random company name–-inside the quotes, start typing `{{$` to see the available dynamic variables. Choose `randomCompanyName`–-the reference is exactly like any other variable but with the `$` character at the start, like this: `{{$randomThing}}`
 
 **Send** the request a few times, checking the **Console** to see what Postman sent each time (open the `POST` request entry &gt; **Request Body** to see the JSON).
 
@@ -313,7 +313,7 @@ For this request we're expecting a `201 Created` status code. For your next assi
 
 For your final assignment, test that the response includes confirmation of the order success–in the `created` and `orderId` properties (one should be true, and the other should be a number).
 
-**Send** and check the **Test Results**–_as always, make your test fail also!_ ⚠️
+**Send** and check the **Test Results**–-_as always, make your test fail also!_ ⚠️
 
 **Save** your request and open the next one `4. Get order`.
 
@@ -342,7 +342,7 @@ We're going to specify a schema to validate the response JSON against. The schem
 > aside negative
 > ✏️ You can also validate your responses against an API specification, for example, defined as an OpenAPI spec in **APIs** on the left of Postman.
 
-✅ Remember that one of your assignments in the previous request was to save the order variable from the response–**now alter the value you're sending to the path parameter here to use the variable instead of the hard-coded value**.
+✅ Remember that one of your assignments in the previous request was to save the order variable from the response–-**now alter the value you're sending to the path parameter here to use the variable instead of the hard-coded value**.
 
 ### Step 1: Define the schema
 
@@ -377,7 +377,7 @@ pm.test("Schema is valid", () => {
 });
 ```
 
-**Send** the request and check the **Test Results**–_remember to also make sure it fails e.g. if you change one of the schema `type` values_.
+**Send** the request and check the **Test Results**–-_remember to also make sure it fails, for example, if you change one of the schema `type` values_.
 
 Finally let's check what happens if no order ID is passed to the request. Click the eye button and edit, then delete the value of the `orderId` variable so that it's empty, and **Send** again before reading on.
 
@@ -413,7 +413,7 @@ if (pm.response.code === 404)
   });
 ```
 
-**Send** the request and check out the **Test Results**–_and you know the drill by now, edit your test code to make sure it fails!_
+**Send** the request and check out the **Test Results**–-_and you know the drill by now, edit your test code to make sure it fails!_
 
 This isn't the most efficient test code we could use because we've just tacked on the error schema test at the end–you could restructure the code in a more sensible way, but for now add a conditional before the test on the successful schema:
 

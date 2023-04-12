@@ -164,7 +164,7 @@ _Use curly braces to use variables in the text fields like `{{statusCode}}`_
 
 Duration: 1
 
-People can use **pre-request scripts** for setting up their main request (e.g., calculating or retrieving a variable). Let’s do that now. Under the **Pre-request Script** tab, add this code to retrieve all of our scraped hyperlinks and remove one to be used in this request (remember to save this data as a variable so that it can be accessed in the main request):
+People can use **pre-request scripts** for setting up their main request (for example, calculating or retrieving a variable). Let’s do that now. Under the **Pre-request Script** tab, add this code to retrieve all of our scraped hyperlinks and remove one to be used in this request (remember to save this data as a variable so that it can be accessed in the main request):
 
 ```javascript
 let arrayOfCodes = JSON.parse(pm.environment.get("allCodes"));

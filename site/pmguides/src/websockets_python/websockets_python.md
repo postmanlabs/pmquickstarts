@@ -87,7 +87,7 @@ Duration: 3
 
 In Postman, select **New > WebSocket Request** to open a new tab where you can enter the server URL. A WebSocket URL begins with `ws://` or `wss://` but they're not interchangeable. `ws` is for a standard connection and `wss` is for a TLS/SSL connection which requires a more-complicated set-up. 
 
-Use `ws://localhost:8765` as the URL for this demo server and make sure you have the [Postman Desktop Agent](https://learning.postman.com/docs/getting-started/installation-and-updates/#installing-the-postman-desktop-agent) running.
+Use `ws://localhost:8765` as the URL of this demo server and make sure you have the [Postman Desktop Agent](https://learning.postman.com/docs/getting-started/installation-and-updates/#installing-the-postman-desktop-agent) running.
 
 Click **Connect**.
 ![Connect to the local server](./assets/WebsocketSetup.png)
@@ -144,7 +144,7 @@ $ python websockets.py
 
 ### Open a second WebSockets connection
 
-Select **New > WebSocket Request** to open a second tab and set the URL for the second tab to `ws://localhost:8765`, just like the first.
+Select **New > WebSocket Request** to open a second tab and set the URL of the second tab to `ws://localhost:8765`, just like the first.
 
 In each tab, connect to the WebSockets server.
 
