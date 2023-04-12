@@ -349,7 +349,7 @@ If you have several requests that have no dependency on each other but have to b
 > aside negative
 > Check out the example flow: [Chaining requests](https://www.postman.com/postman/workspace/flows-snippets/flow/6267f9315d367a64e7ba06e5)
 
-1. **Add a Send Request block**: Select **+ Block** on the toolbar and select the **Send Reques**t block from the list to add it to your canvas, then select the request. Repeat this until all the requests are added to the canvas.
+1. **Add a Send Request block**: Select **+ Block** on the toolbar and select the **Send Request** block from the list to add it to your canvas, then select the request. Repeat this until all the requests are added to the canvas.
    ![add requests](assets/updated-running-add-requests.gif)
 1. **Connect the send events**: Select the dot (success output) of the source block and connect it to the send input of the target block in the order you want the requests to execute.
    ![connect send events](assets/updated-running-connect-send-events.gif)

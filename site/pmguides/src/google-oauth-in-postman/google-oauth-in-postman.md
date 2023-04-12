@@ -72,7 +72,7 @@ When you’re done enabling the API you intend to work with, click the Create Cr
 
 Under the **Credentials Type** section, the Google sheets API should be auto-selected, but you can change this to any other API you intend to work with. Select **user data** as the data you want to access and click next.
 
-![Credentia's Type](assets/credentials-type.png)
+![Credential's Type](assets/credentials-type.png)
 
 Give your app a name, select a support email address, and upload a logo for your app if you have one. Save and continue. 
 

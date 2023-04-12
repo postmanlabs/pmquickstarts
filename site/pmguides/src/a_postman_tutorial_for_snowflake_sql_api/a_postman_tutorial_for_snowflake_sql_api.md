@@ -332,7 +332,7 @@ This tutorial was a hands-on introduction to the Snowflake SQL API. To see what 
 If you want more hands-on learning, check out [this in-depth lab](https://quickstarts.snowflake.com/guide/getting_started_snowflake_sql_api/index.html) to dig deeper into the Snowflake SQL API, and learn about the following topics:
 
 - Using bind variables in a statement
-- Retriving and getting metadata about the result
+- Retrieving and getting metadata about the result
 - Iterating and retrieving result partitions
 
 If you've completed this lab using the Snowflake free trial, continue exploring what Snowflake can help you accomplish. There are several ways Snowflake can help you with this:

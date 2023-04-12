@@ -113,7 +113,7 @@ To set up Snapshot Testing for your APIs you can use this collection as referenc
 2.  Send the request and get a response for the API you want to create a Snapshot test.
 3.  Save the response as [an Example](https://learning.postman.com/docs/sending-requests/examples/) to that request. This will work as your Snapshot.
 4.  [Create a Mock server](https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/mocking-with-examples/) on top of the collection.
-5.  Update the `snapshotURL` in **Collection Variables** with the Mock server url that you created above.
+5.  Update the `snapshotURL` in **Collection Variables** with the Mock server URL that you created above.
 
 This collection contains three different Snapshot testing strategies. You can choose any of them according to your use case and your response structure.
 

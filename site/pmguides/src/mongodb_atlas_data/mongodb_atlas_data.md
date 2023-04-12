@@ -25,7 +25,7 @@ To explore the new MongoDB Data API, you can use the
 [public Postman workspace](https://www.postman.com/mongodb-devrel/workspace/mongodb-public/documentation/17898583-25682080-e247-4d25-8e5c-1798461c7db4)
 provided by the MongoDB developer relations team.
 
-In this article, we will show you how to use Postman to read and write to your MongoDB Atlas cluster. You will need to set up your Altas cluster and fork the Postman collection to start using it.
+In this article, we will show you how to use Postman to read and write to your MongoDB Atlas cluster. You will need to set up your Atlas cluster and fork the Postman collection to start using it.
 
 ### Prerequisites
 

@@ -55,7 +55,7 @@ In order to be the best, most qualified Supernova that you can be, we require al
 - We recommend following the “[30 Days of Postman](https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/overview)” challenge and completing 15 days of your choosing.
 *After being accepted into the program, you must complete the full 30 days and claim the additional badge within your first 30 days.*
 - If you are already familiar with Postman, perhaps the “[15 Days of Postman](https://www.postman.com/postman/workspace/15-days-of-postman-for-testers/overview)” challenge is a little more your speed.
-- Another option that grants a badge upon completion is the [Introduction to HTTP APIs in Postman](https://quickstarts.postman.com/guide/introduction_to_postman/index.html?index=..%2F..index#0) quickstarts tutorial.
+- Another option that grants a badge upon completion is the [Introduction to HTTP APIs in Postman](https://quickstarts.postman.com/guide/introduction_to_postman/index.html?index=..%2F..index#0) Quickstarts tutorial.
 - Postman Supernova, Valentin Despa put together an excellent “[Intro to Postman](https://youtu.be/2oOSnxZ28fA)” video series.
 - The “[Good Documentation Checklist](https://www.postman.com/postman/workspace/postman-team-collections/documentation/1559645-4b520b0d-cf53-41be-8d24-0e0136416091)” collection is also a great reference to beef up your collection making skills.
 

@@ -60,7 +60,7 @@ Duration: 1
 
 To run requests you'll need to supply your [testmode secret API key](https://dashboard.stripe.com/test/apikeys) and set it as an [environment variable](https://learning.postman.com/docs/sending-requests/variables/) within your workspace.
 
-To set any environment variable, create a new envionment within Postman:
+To set any environment variable, create a new environment within Postman:
 
 ![Create new environment](assets/postman_create_new_env.png)
 
@@ -106,7 +106,7 @@ Add parameters to the call by clicking the body tab, where you'll see a list of 
 
 ![create customer with email](assets/postman_create_customer_with_email_request.png)
 
-You'll see the email address in the reponse:
+You'll see the email address in the response:
 
 ![create customer with email response](assets/postman_create_customer_with_email_response.png)
 

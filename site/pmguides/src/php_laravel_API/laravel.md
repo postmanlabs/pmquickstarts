@@ -35,7 +35,7 @@ In this tutorial, let's create a simple API using one of PHP's most popular fram
 - [VSCode](https://code.visualstudio.com/download) Installed (Optional)
   - Or a code editor of your choice
 
-**You will not need Apache or Nginx for this guide as we'll use PHP's built-in serving functions.**
+**You will not need Apache or NGINX for this guide as we'll use PHP's built-in serving functions.**
 
 ### What You’ll Build 
 - A simple API with PHP and Laravel

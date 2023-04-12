@@ -43,7 +43,7 @@ Duration: 3
 
 ### What Is an API Client?
 
-People communicate with each other through natural language. Software communicates via [application programming interfaces](https://en.wikipedia.org/wiki/API) (APIs). Web APIs operate behind the scenes, enabling you to browse your favorite social network’s updates or turn on a smartlight. This is done through an API client, which does the sending, retrieving, or rendering of data.
+People communicate with each other through natural language. Software communicates via [application programming interfaces](https://en.wikipedia.org/wiki/API) (APIs). Web APIs operate behind the scenes, enabling you to browse your favorite social network’s updates or turn on a smart  light. This is done through an API client, which does the sending, retrieving, or rendering of data.
 
 A web browser is an example of an API client. When you log in to an online store, the browser passes along your login credentials to a server, and upon confirmation that you’re an authorized user, displays a history of your orders. Other examples of API clients include mobile applications, developer terminals, and tools like Postman.
 
@@ -647,6 +647,6 @@ Go to [this page](http://go.pstmn.io/submit-badge) to claim your `Postman Introd
 To continue your journey with Postman, here are some additional resources to check out.
 
 - [Postman community forum](https://community.postman.com/): Postman has a large and active community, and someone might be willing to help if you ask nicely.
-- [Hands-on learning courses](): additional quickstarts like this one by Postman.
+- [Hands-on learning courses](https://quickstarts.postman.com/): additional Quickstarts like this one by Postman.
 - [Earn badges from Postman](https://badgr.com/public/issuers/BC0x4AQaQPC7lFilsBP_tQ/badges): complete other learning courses to earn badges you can proudly display on your social media profiles.
 - [Webinars](https://www.postman.com/events/intergalactic/): register to attend virtual learning sessions with some of your favorite Postmanauts.
