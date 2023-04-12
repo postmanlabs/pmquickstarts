@@ -19,7 +19,7 @@ Let's create a ToDo API powered by Postgres and Node.js with the help of Postman
 
 ### Prerequisites
 
-- Basic experience with Postman collections
+- Basic experience with Postman Collections
 - At least a beginner understanding of Node.js
 - Comfort with the command line / shell
 
@@ -28,7 +28,7 @@ Let's create a ToDo API powered by Postgres and Node.js with the help of Postman
 - How to create an API in Postman with an OpenAPI 3 definition.
 - How to generate skeleton code for the API, using Postman.
 - How to flesh out the code with a connection to Postgres and business logic.
-- How to generate a Postman collection from the API definition and send requests to the API.
+- How to generate a Postman Collection from the API definition and send requests to the API.
 
 ### What You Will Need
 
@@ -38,7 +38,7 @@ Let's create a ToDo API powered by Postgres and Node.js with the help of Postman
 
 ### What You Will Build
 
-- A ToDo API with Postgres & Node.js and a Postman collection for it.
+- A ToDo API with Postgres & Node.js and a Postman Collection for it.
 
 <!-- ------------------------ -->
 ## Install The Prerequisites
@@ -132,7 +132,7 @@ A good way to describe an API is to use the [OpenAPI 3 standard](https://spec.op
 
 Let's break up the description for better human readability and get an overview of how this is composed. 
 
-[Download the full version of this API specification](./assets/openapitest.yml) if you want to see it in its entirety.
+[Download the full version of this API specification](https://gist.github.com/LetMyPeopleCode/99abd6eea4894d149971e98113e29076) if you want to see it in its entirety.
 
 ### The metadata
 
@@ -449,7 +449,7 @@ Next, let's put the API through its paces with Postman.
 ## Run Some Postman Requests
 Duration: 7
 
-### Generate a Postman collection
+### Generate a Postman Collection
 
 Return to the API you created in Postman. Select the **+** icon by **Collections** and choose **Generate from definition**.
 
@@ -510,7 +510,7 @@ The server makes the change, then queries the database for the item and returns 
 
 Go back to the `GET` and run it with `completed` unchecked to see the task is no longer active.
 
-You're done. Congratulations! You've defined an API with OpenAPI 3.0, generated skeleton server code, generated a Postman collection to send requests to the server, and made changes to the database.
+You're done. Congratulations! You've defined an API with OpenAPI 3.0, generated skeleton server code, generated a Postman Collection to send requests to the server, and made changes to the database.
 
 Next, look at some ways you can continue with this.
 
