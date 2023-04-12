@@ -7,7 +7,7 @@ status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts
 tags: Game, Badge
 
-# Lost in Space: puzzle hunt
+# Lost in Space: Puzzle hunt
 
 <!-- ------------------------ -->
 
@@ -54,13 +54,13 @@ Watch this video:
 
 - **How long does it take to complete the Lost in Space mission?** Plan to spend 2 to 4 hours or longer. Go at your own pace. There is no penalty for taking longer, collaborating with teammates, or taking a break and returning to try again. It is **highly encouraged** to form a team, since everyone's brain works differently and humans can accomplish more together than individually.
 - **I am new to code and APIs. Is this challenge for me?** Some of the puzzles are designed for developers and suitable for novice developers. If you know basic web API concepts and beginner JavaScript, you are in good shape. If you're an API professional, but don't identify as a developer, you may need to do extra research to complete some steps. Or invite a coding buddy to join your team.
-- **I am not a native English speaker. Is this challenge for me?** Some of the puzzles are extremely challenging if you are not a native English speaker, or are visually-impaired or hearing-impaired. It is highly encouraged to form a team with diverse capabilities and perspectives.
+- **I am not a native English speaker. Is this challenge for me?** Some of the puzzles are extremely challenging if you are not a native English speaker, or are visually impaired or hearing impaired. It is highly encouraged to form a team with diverse capabilities and perspectives.
 - **Can I search the Internet?** Yes. Use any available resources to solve the puzzles.
 - **I'm stuck. Can someone please help?**
 
 - Re-read the instructions carefully for hints.
 - If your question is about APIs or Postman, look in the [community forum](https://community.postman.com/). If you're asking for help, make sure to include a thorough explanation of your question, what you've tried already, and include a direct link to your own public workspace so others can see where you're stuck.
-- If your question is related to the rules of the game or administration of this badge (e.g. not a technical Postman question), you can ask for guidance in the [Training](https://community.postman.com/c/training/38) section of the community forum.
+- If your question is related to the rules of the game or administration of this badge (for example, not a technical Postman question), you can ask for guidance in the [Training](https://community.postman.com/c/training/38) section of the community forum.
 
 <!-- ------------------------ -->
 

@@ -94,7 +94,7 @@ Duration: 1
 All the content for the step goes here.
 ```
 
-To indicate how long each step will take, set the `Duration` under the step title (i.e. `##`) to an integer. The integers refer to minutes. If you set `Duration: 4` then a particular step will take 4 minutes to complete.
+To indicate how long each step will take, set the `Duration` under the step title (`##`) to an integer. The integers refer to minutes. If you set `Duration: 4` then a particular step will take 4 minutes to complete.
 
 The total Postman Quickstarts completion time is calculated automatically for you and will be displayed on the landing page.
 

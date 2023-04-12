@@ -46,7 +46,7 @@ Duration: 10
 
 ### Why Use Postman to Access the Salesforce Platform APIs?
 
-Salesforce exposes a rich set of application program interfaces (APIs) that integrate with third-party systems. All of these APIs are thoroughly documented, but how can you quickly try them on a given org, or better yet, on multiple orgs? Postman helps you discover, explore, and test integration options with the Salesforce Platform APIs.
+Salesforce exposes a rich set of application programming interfaces (APIs) that integrate with third-party systems. All of these APIs are thoroughly documented, but how can you quickly try them on a given org, or better yet, on multiple orgs? Postman helps you discover, explore, and test integration options with the Salesforce Platform APIs.
 
 #### About Salesforce Platform APIs
 
