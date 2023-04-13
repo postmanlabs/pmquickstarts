@@ -19,7 +19,7 @@ Let's create a ToDo API powered by MySQL and Node.js with the help of Postman's 
 
 ### Prerequisites
 
-- Basic experience with Postman Collections
+- Basic experience with Postman Collections 
 - At least a beginner understanding of MySQL and Node.js
 
 ### What You Will Learn
