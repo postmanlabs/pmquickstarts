@@ -1022,8 +1022,6 @@ const collectCodelabs = () => {
 gulp.task("publish:staging:codelabs", (callback) => {
   const opts = { dry: DRY_RUN, deleteMissing: DELETE_MISSING };
   const src = path.join("dist", CODELABS_NAMESPACE, "/");
-
-  console.log("src isssssss => ", src);
   const dest = gcs.bucketFolderPath(STAGING_BUCKET, CODELABS_NAMESPACE);
   gcs.rsync(src, dest, opts, callback);
 });
