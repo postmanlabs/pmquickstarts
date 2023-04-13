@@ -1,5 +1,5 @@
 author: Greg Bulmash
-id: api_builder_node_and_mysql
+id: api-builder-node-and-mysql
 summary: Build An API with Postman, Node.js & MySQL
 categories: Getting-Started
 environments: web

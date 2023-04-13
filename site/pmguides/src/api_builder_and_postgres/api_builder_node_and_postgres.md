@@ -1,5 +1,5 @@
 author: Greg Bulmash
-id: api_builder_node_and_postgres
+id: api-builder-node-and-postgres
 summary: Build An API with Postman, Node.js, & Postgres
 categories: Getting-Started
 environments: web
