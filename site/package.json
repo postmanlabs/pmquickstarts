@@ -10,6 +10,12 @@
     "clean": "gulp clean",
     "test": "jest"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test",
+      "pre-push": "npm run test"
+    }
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.4",
     "babel-core": "^6.26.3",
@@ -61,6 +67,7 @@
   ],
   "dependencies": {
     "gulp": "^4.0.2",
+    "husky": "^8.0.3",
     "jest": "^29.5.0",
     "markdown-it": "^13.0.1",
     "markdown-json": "^1.6.1",
