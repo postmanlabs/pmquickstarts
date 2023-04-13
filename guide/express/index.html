@@ -1,0 +1,342 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Create a Todo application with Express.js</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="express"
+                  title="Create a Todo application with Express.js"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>Let&#39;s build an <a href="https://expressjs.com/" target="_blank">Express.js</a> Todo application with API endpoints for creating, retrieving, updating, and deleting todos. We&#39;ll use an in-memory storage instead of a database for simplicity.</p>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>A basic familiarity with JavaScript</li>
+<li>Ability to use the built-in terminal in your operating system</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>how to set up a local server using Express.js</li>
+<li>how to create REST endpoints for a todo application</li>
+<li>how to build a front-end web interface</li>
+<li>how to set up middleware to serve static files</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Need</h2>
+<ul>
+<li>Your preferred IDE, such as <a href="https://code.visualstudio.com/download" target="_blank">VSCode</a>, installed</li>
+<li><a href="https://nodejs.org/en/download/" target="_blank">NodeJS</a> installed</li>
+<li><strong>Sign in to Postman:</strong> Create a Postman account if you don&#39;t have one already, and log into <a href="https://go.postman.co" target="_blank">Postman for the web</a> in your browser. To use Postman in a web browser, download and run the <a href="https://www.postman.com/downloads/" target="_blank">Postman agent</a> on your local machine to overcome cross-origin resource sharing (CORS) limitations. The agent is not the same as the app. On a Mac, you will see an icon for the Postman agent running in the status menu at the top right of your computer screen. On a Windows machine, the Postman agent icon displays in the system tray at the bottom right of your computer screen.</li>
+</ul>
+<aside class="warning"><p> If you don&#39;t want to use Postman in a web browser with the agent, you can instead download and install the Postman app for Mac, Windows, or Linux.</p>
+</aside>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>An Express.js Todo application with API endpoints for creating, retrieving, updating, and deleting todos</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Set up your project" duration="2">
+        <p>In the terminal, create a new directory called <code>simple-express-todo</code> for your project, and then navigate into the new directory. Enter each command following the <code>$</code> symbol and press enter, before running the next command.</p>
+<pre><code language="language-bash" class="language-bash">$ mkdir simple-express-todo
+$ cd simple-express-todo
+</code></pre>
+<p>Initialize a new Node.js project. You can accept the default prompts by including the <code>-y</code> option. Or manually step through each prompt by hitting <strong>Enter</strong> or providing a custom response.</p>
+<pre><code language="language-bash" class="language-bash">$ npm init -y
+</code></pre>
+<p class="image-container"><img alt="initialize node project with npm init" src="img/2f8a41b27e794ab1.gif"></p>
+<p>Doing this also creates a new file in your directory called <code>package.json</code> to store important details and metadata about your project.</p>
+<p>Install the <code>express</code> and <code>body-parser</code> dependencies.</p>
+<pre><code language="language-bash" class="language-bash">$ npm install express body-parser
+</code></pre>
+<p>Use your preferred IDE to view the <code>package.json</code> file. The dependencies you just installed should be listed inside.</p>
+<p class="image-container"><img alt="package.json dependencies" src="img/f93a00d590acbc16.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create and run the application" duration="3">
+        <h2 is-upgraded>Create the Express.js application</h2>
+<p>In the root folder of your project, create a file called <code>app.js</code> and add the following code. Review the comments throughout this code following the symbols <code>//</code> to read more about each section of code.</p>
+<pre><code language="language-js" class="language-js">// require dependencies so they can be used throughout this code
+const express = require(&#34;express&#34;);
+const bodyParser = require(&#34;body-parser&#34;);
+
+// initialize Express.js server and save as a variable
+// so it can be referred to as `app`
+const app = express();
+
+app.use(bodyParser.json());
+let todos = []; // In-memory storage for todos
+
+// GET endpoint to fetch all todo items
+app.get(&#34;/todos&#34;, (req, res) =&gt; {
+  res.json(todos);
+});
+
+// POST endpoint to create a new todo item
+// provide `title` and optionally `completed` in the request body as JSON
+app.post(&#34;/todos&#34;, (req, res) =&gt; {
+  const todo = {
+    id: todos.length + 1,
+    title: req.body.title,
+    completed: req.body.completed || false,
+  };
+  todos.push(todo);
+  res.status(201).json(todo);
+});
+
+// PUT endpiont to update an existing todo item with the specified `id`
+// provide updated `title` and/or `completed` in the request body as JSON
+app.put(&#34;/todos/:id&#34;, (req, res) =&gt; {
+  const id = parseInt(req.params.id);
+  const todo = todos.find((t) =&gt; t.id === id);
+  if (!todo) {
+    return res.status(404).json({ error: &#34;Todo not found&#34; });
+  }
+  todo.title = req.body.title || todo.title;
+  todo.completed = req.body.completed || todo.completed;
+  res.json(todo);
+});
+
+// DELETE endpoint to remove an existing todo item with the specified `id`
+app.delete(&#34;/todos/:id&#34;, (req, res) =&gt; {
+  const id = parseInt(req.params.id);
+  const index = todos.findIndex((t) =&gt; t.id === id);
+  if (index === -1) {
+    return res.status(404).json({ error: &#34;Todo not found&#34; });
+  }
+  todos.splice(index, 1);
+  res.status(204).send();
+});
+
+// run the server on port 3000
+// for example the app can run locally at this URL: http://localhost:3000
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () =&gt; {
+  console.log(`Server is running on port ${PORT}`);
+});
+</code></pre>
+<h2 is-upgraded>Run the application</h2>
+<p>In your terminal, run the following command:</p>
+<pre><code language="language-bash" class="language-bash">$ node app.js
+</code></pre>
+<p>Your server should now be running on <code>http://localhost:3000</code>.</p>
+<h2 is-upgraded>Try the API endpoints</h2>
+<p>Use Postman to make calls to your API and ensure each endpoint functions as expected.</p>
+<p class="image-container"><img alt="use Postman to send API calls" src="img/e18d35a180d72700.png"></p>
+<p>Build a collection, or fork the sample collection to your own workspace by clicking the <strong>Run in Postman</strong> button below.</p>
+<p><a href="https://god.gw.postman.com/run-collection/13191452-15e8baab-98f4-4a71-a69d-ecbf4233ad98?action=collection%2Ffork&collection-url=entityId%3D13191452-15e8baab-98f4-4a71-a69d-ecbf4233ad98%26entityType%3Dcollection%26workspaceId%3D3450c70d-7bad-4e93-87f7-a4a3457f27ef" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></p>
+<p>Next, let&#39;s build a front-end website that uses these API calls so that users of this Todo application can use either Postman or this website to update the Todo application.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create a front-end implementation" duration="5">
+        <p>Let&#39;s build a front-end implementation for the Todo application using HTML, CSS, and JavaScript (using the Fetch API for interacting with the API endpoints).</p>
+<p>Create a new file called <code>index.html</code> in your project&#39;s root folder, and add the following code:</p>
+<pre><code language="language-html" class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34; /&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34; /&gt;
+    &lt;title&gt;Todo App&lt;/title&gt;
+    &lt;style&gt;
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: auto;
+      }
+      .todo {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .completed {
+        text-decoration: line-through;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Todo App&lt;/h1&gt;
+    &lt;form id=&#34;todo-form&#34;&gt;
+      &lt;input type=&#34;text&#34; id=&#34;todo-input&#34; placeholder=&#34;Enter a new todo&#34; /&gt;
+      &lt;button type=&#34;submit&#34;&gt;Add&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;div id=&#34;todo-list&#34;&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+      const API_URL = &#34;http://localhost:3000/todos&#34;;
+
+      const todoForm = document.getElementById(&#34;todo-form&#34;);
+      const todoInput = document.getElementById(&#34;todo-input&#34;);
+      const todoList = document.getElementById(&#34;todo-list&#34;);
+
+      todoForm.addEventListener(&#34;submit&#34;, async (e) =&gt; {
+        e.preventDefault();
+        const title = todoInput.value.trim();
+        if (title) {
+          const todo = { title };
+          await createTodo(todo);
+          todoInput.value = &#34;&#34;;
+          loadTodos();
+        }
+      });
+
+      async function loadTodos() {
+        const todos = await fetchTodos();
+        renderTodos(todos);
+      }
+
+      async function fetchTodos() {
+        const response = await fetch(API_URL);
+        const todos = await response.json();
+        return todos;
+      }
+
+      function renderTodos(todos) {
+        todoList.innerHTML = &#34;&#34;;
+        todos.forEach((todo) =&gt; {
+          const todoElement = createTodoElement(todo);
+          todoList.appendChild(todoElement);
+        });
+      }
+
+      function createTodoElement(todo) {
+        const div = document.createElement(&#34;div&#34;);
+        div.classList.add(&#34;todo&#34;);
+        div.innerHTML = `
+                &lt;span class=&#34;${todo.completed ? &#34;completed&#34; : &#34;&#34;}&#34;&gt;${
+          todo.title
+        }&lt;/span&gt;
+                &lt;div&gt;
+                    &lt;button onclick=&#34;toggleCompleted(${todo.id})&#34;&gt;${
+          todo.completed ? &#34;Uncomplete&#34; : &#34;Complete&#34;
+        }&lt;/button&gt;
+                    &lt;button onclick=&#34;deleteTodo(${todo.id})&#34;&gt;Delete&lt;/button&gt;
+                &lt;/div&gt;
+            `;
+        return div;
+      }
+
+      async function createTodo(todo) {
+        await fetch(API_URL, {
+          method: &#34;POST&#34;,
+          body: JSON.stringify(todo),
+          headers: { &#34;Content-Type&#34;: &#34;application/json&#34; },
+        });
+      }
+
+      async function toggleCompleted(id) {
+        const todo = await getTodo(id);
+        const updatedTodo = { ...todo, completed: !todo.completed };
+        await updateTodo(updatedTodo);
+        loadTodos();
+      }
+
+      async function deleteTodo(id) {
+        await fetch(`${API_URL}/${id}`, { method: &#34;DELETE&#34; });
+        loadTodos();
+      }
+
+      async function getTodo(id) {
+        const response = await fetch(`${API_URL}/${id}`);
+        const todo = await response.json();
+        return todo;
+      }
+
+      async function updateTodo(todo) {
+        await fetch(`${API_URL}/${todo.id}`, {
+          method: &#34;PUT&#34;,
+          body: JSON.stringify(todo),
+          headers: { &#34;Content-Type&#34;: &#34;application/json&#34; },
+        });
+      }
+
+      loadTodos;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>To serve the <code>index.html</code> file using our Express app, let&#39;s make some modifications to <code>app.js</code>.</p>
+<p>Install the <code>express.static</code> middleware to serve static files like <code>index.html</code>, CSS, and JavaScript files. In the terminal, run the following command:</p>
+<pre><code language="language-bash" class="language-bash">$ npm install serve-static
+</code></pre>
+<p>Modify the <code>app.js</code> file to use the <code>express.static</code> middleware.</p>
+<pre><code language="language-javascript" class="language-javascript">// Add this line near the top of your file, under the existing imports
+const serveStatic = require(&#34;serve-static&#34;);
+
+// Add this line after `app.use(bodyParser.json());`
+app.use(serveStatic(&#34;public&#34;));
+</code></pre>
+<p>Create a <code>public</code> folder in your project&#39;s root folder, and move <code>index.html</code> into the <code>public</code> folder. Your project structure should now look like this:</p>
+<pre><code language="language-bash" class="language-bash">simple-express-todo
+├── public
+│   └── index.html
+├── app.js
+└── package.json
+</code></pre>
+<p>In your terminal, stop the application if you haven&#39;t already with the keyboard shortcut <strong>CMD / Ctrl + C</strong>. And re-start the application.</p>
+<pre><code language="language-bash" class="language-bash">$ node app.js
+</code></pre>
+<p>In your web browser, go to <code>http://localhost:3000</code> to see your frontend website being served by the Express app. The JavaScript code in <code>index.html</code> will interact with the API endpoints you&#39;ve set up in <code>app.js</code>.</p>
+<p class="image-container"><img alt="todo application" src="img/13d861258038b564.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="2">
+        <h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
+<ul class="checklist">
+<li>Set up a local server using Express.js</li>
+<li>Create REST endpoints for a todo application</li>
+<li>Build a front-end web interface</li>
+<li>Set up middleware to serve static files</li>
+</ul>
+<p>The Express app shows a basic implementation that uses in-memory storage, so your data will be lost when the server is restarted. For persistent storage, use a database like MongoDB or PostgreSQL.</p>
+<p>The website shows a basic implementation using vanilla JavaScript. You can add CSS to style the user experience and appearance of the website, or explore themes and templates like Bootstrap. You can also explore frontend frameworks like React and Vue for more functionality.</p>
+<h2 is-upgraded>Additional resources</h2>
+<p>To continue your journey with web development and other technical topics, check out more tutorials at <a href="https://quickstarts.postman.com/" target="_blank">Postman Quickstarts</a>.</p>
+<p>Here are some additional resources.</p>
+<ul>
+<li><a href="https://github.com/tastejs/todomvc" target="_blank">TodoMVC</a> - Helping you select an MV* framework - Todo apps for React.js, Ember.js, Angular, and many more</li>
+<li><a href="https://expressjs.com/" target="_blank">Express.js</a> - Fast, unopinionated, minimalist web framework for Node.js</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

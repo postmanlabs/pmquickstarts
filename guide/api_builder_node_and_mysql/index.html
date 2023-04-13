@@ -1,0 +1,455 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Build An API with Postman, Node.js &amp; MySQL</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="api_builder_node_and_mysql"
+                  title="Build An API with Postman, Node.js &amp; MySQL"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="2">
+        <p>Let&#39;s create a ToDo API powered by MySQL and Node.js with the help of Postman&#39;s <a href="https://learning.postman.com/docs/designing-and-developing-your-api/creating-an-api/#creating-an-api" target="_blank">API Builder</a></p>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Basic experience with Postman Collections</li>
+<li>At least a beginner understanding of MySQL and Node.js</li>
+</ul>
+<h2 is-upgraded>What You Will Learn</h2>
+<ul>
+<li>How to create an API in Postman with an OpenAPI 3 definition.</li>
+<li>How to generate skeleton code for the API, using Postman.</li>
+<li>How to flesh out the code with a connection to MySQL and business logic.</li>
+<li>How to generate a Postman Collection from the API definition and send requests to the API.</li>
+</ul>
+<h2 is-upgraded>What You Will Need</h2>
+<ul>
+<li><a href="https://nodejs.org/en/download" target="_blank">Node.js</a> Installed and in your path (required)</li>
+<li><a href="https://www.apachefriends.org/" target="_blank">XAMPP</a> Installed (semi-required*)</li>
+<li><a href="https://code.visualstudio.com/download" target="_blank">The Visual Studio Code editor</a> Installed (recommended)</li>
+</ul>
+<p><em>XAMPP is required to install MySQL and follow the database configuration instructions in the tutorial. If you have a preferred toolchain for installing/administrating MySQL, translate the instructions to your toolchain.</em></p>
+<h2 is-upgraded>What You Will Build</h2>
+<ul>
+<li>A ToDo API with MySQL &amp; Node.js and a Postman Collection for it.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Install The Prerequisites" duration="7">
+        <h2 is-upgraded>Installing Node.js</h2>
+<p><a href="https://nodejs.org/en/download" target="_blank">Download the Node.js installer for your operating system</a>. The installer will generally add Node to your path for you. After installation, open a command line terminal and test that it&#39;s in your path by typing <code>node --version</code> at the command prompt.</p>
+<p>If installed successfully, it will tell you the version you&#39;re running.</p>
+<h2 is-upgraded>Installing XAMPP</h2>
+<p>Download the <a href="https://www.apachefriends.org/download.html" target="_blank">XAMPP Installer</a> for your operating system and install it. This will provide you with a development environment with the Apache Web Server, MariaDB, and PHP, with GUI control panels. We&#39;ll launch and use it to create the database and run the server on demand.</p>
+<p>MariaDB is an open-source fork of MySQL that has maintained compatibility since Oracle bought MySQL. It has maintained feature parity with the Community edition of MySQL for years.</p>
+<p>In the next step, let&#39;s create the database for the API.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create The Database" duration="7">
+        <p>Let&#39;s create the database for the ToDo items. This section assumes you&#39;ve installed XAMPP or know how to administer a MySQL database using your preferred toolchain.</p>
+<ol type="1">
+<li>Open XAMPP&#39;s Control Panel app (it is called <code>osx-manager.app</code> on Mac and <code>XAMPP Control Panel</code> on Windows).</li>
+<li>Select the <strong>Manage Servers</strong> tab.</li>
+<li>Select the <strong>MySQL Database</strong>, then the <strong>Start</strong> button.</li>
+<li>Select the <strong>Apache Web Server</strong>, then the <strong>Start</strong> button.</li>
+</ol>
+<p>You started the web server to access <code>phpMyAdmin</code>, which is a browser-based GUI tool for managing your MySQL server. Once both Apache and MySQL have started, access it at: <a href="http://localhost/phpmyadmin" target="_blank">localhost/phpmyadmin</a>.</p>
+<p class="image-container"><img alt="phpMyAdmin main screen" src="img/1372054465b9173c.png"></p>
+<p>Select the <strong>SQL</strong> tab and add the following SQL to the textbox.</p>
+<pre><code language="language-sql" class="language-sql">CREATE DATABASE todo;
+
+CREATE TABLE todo.todos (
+	id_code varchar(36) NOT NULL UNIQUE,
+	to_do varchar(255) NOT NULL,
+	completed boolean
+);
+
+CREATE USER &#39;todo_admin&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;leelu_dallas_multipass-6&#39;;
+
+GRANT SELECT, INSERT, UPDATE ON todo.* TO &#39;todo_admin&#39;@&#39;localhost&#39;;
+
+use todo;
+
+INSERT INTO todos (id_code, to_do, completed) VALUES (&#39;todo1&#39;,&#39;Get something done&#39;, TRUE); 
+
+INSERT INTO todos (id_code, to_do, completed) VALUES (&#39;todo2&#39;,&#39;Get another thing done&#39;, FALSE);
+</code></pre>
+<p class="image-container"><img alt="SQL query in interface" src="img/a234552bf09654bd.png"></p>
+<p>Select <strong>Go</strong> and the query will run. There may be a few <code>Error: #1046 No database selected</code> warnings. This is okay and expected.</p>
+<p>It does 5 things in sequence:</p>
+<ol type="1">
+<li>Creates a database named <code>todo</code>.</li>
+<li>Adds a table to <code>todo</code>, named <code>todos</code>, to hold your records.</li>
+<li>Creates a user named <code>todo_admin</code> with a password of <code>leelu_dallas_multipass-6</code></li>
+<li>Grants the user privileges to select (search), insert (create), and update records in the table.</li>
+<li>Adds two records to the database so there&#39;s something to query later.</li>
+</ol>
+<p>Steps 3 and 4 follow the practice of creating a unique user for the database and restricting their access to just the functions required for their work.</p>
+<p>You can turn off the Apache Web Server in the XAMPP app. Only the MySQL server is needed from here.</p>
+<p>Next, use OpenAPI to define an API.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Define the API" duration="7">
+        <p>A good way to describe an API is to use the <a href="https://spec.openapis.org/oas/latest.html" target="_blank">OpenAPI 3 standard</a>, which describes the API in a machine-readable format.</p>
+<p>Let&#39;s break up the description for better human readability and get an overview of how this is composed.</p>
+<p><a href="https://gist.github.com/LetMyPeopleCode/99abd6eea4894d149971e98113e29076" target="_blank">Download the full version of this API specification</a> if you want to see it in its entirety.</p>
+<h2 is-upgraded>The metadata</h2>
+<p>First, let&#39;s look at the metadata. You provide the version of OpenAPI you&#39;re using and an <code>info</code> object with information about the API that isn&#39;t necessarily crucial to its operation.</p>
+<pre><code language="language-yaml" class="language-yaml">openapi: 3.1.0
+info:
+  title: My ToDo API
+  description: Create, read, edit, and complete tasks.
+  version: 0.1.0
+</code></pre>
+<h2 is-upgraded>The <code>servers</code> array</h2>
+<p>Next is a <code>servers</code> array with an object for each server, like development and production. A <code>variables</code> object provides values for each server, such as the selection of port 8080 as the default.</p>
+<pre><code language="language-yaml" class="language-yaml">servers:
+- url: http://localhost
+  description: Development server
+  variables:
+    port:
+      default: 8080
+</code></pre>
+<h2 is-upgraded>The <code>components</code> object</h2>
+<p>In the <code>components</code> object, there is a <code>schemas</code> object to define each type of data the API will send or receive. Data types like the <code>id_code</code> will be used in multiple places. The <code>$ref: [path to object]</code> property reuses the existing <code>id_code</code> definition in the <code>to_do</code> object.</p>
+<p>Note how the strings have <code>minLength</code> and <code>maxLength</code> values. Information like this is helpful for implementers and machine-generated documentation.</p>
+<pre><code language="language-yaml" class="language-yaml">components:
+  schemas:
+    id_code:
+      description: An UUID identifying an individual task.
+      type: string
+      minLength: 1
+      maxLength: 36
+    task: 
+      description: The text description of the task.
+      type: string
+      minLength: 2
+      maxLength: 255
+    completed:
+      description: True means the task is complete, false means it is not.
+      type: boolean
+    complete:
+      description: Use true to show all tasks, false to show only incomplete tasks.
+      type: boolean
+    to_do: 
+      description: An object containing a task&#39;s information
+      type: object
+      properties:
+        idcode:
+          $ref: &#39;#/components/schemas/id_code&#39;
+        task:
+          $ref: &#39;#/components/schemas/task&#39;
+        completed:
+          $ref: &#39;#/components/schemas/completed&#39;
+    to_do_list: 
+      description: An array of toDo objects.
+      type: array
+      items:
+        $ref: &#39;#/components/schemas/ToDo&#39;
+    error_msg:
+      type: object
+      properties:
+        message:
+          type: string          
+</code></pre>
+<h2 is-upgraded>The <code>paths</code> object</h2>
+<p>The <code>paths</code> object defines the paths for your API and how they handle various HTTP verbs like <code>PUT</code> and <code>GET</code>.</p>
+<p>This API has a single path of <code>/todo</code> with definitions of what is required and what will be returned, depending on the type of action.</p>
+<p>References to the data types (<code>$ref:</code>) from the <code>schemas</code> section are used here to keep the definitions shorter, adhere to DRY (Don&#39;t Repeat Yourself) principles, and stay consistent.</p>
+<p>Here are the action types and how they&#39;re defined:</p>
+<ul>
+<li><strong>GET</strong>: Returns a list of all ToDos that have not been marked complete. If a <code>complete</code> parameter (boolean) is added to the request and the value is <code>true</code>, completed ToDos will be included in the list.</li>
+<li><strong>POST</strong>: Creates a new ToDo. It requires the data be submitted as <code>application/x-www-form-urlencoded</code> with a <code>task</code> parameter (string) with the text of the ToDo (up to 255 characters). A <code>complete</code> parameter (boolean) is optional if you want the task to be marked as already complete when you add it.</li>
+<li><strong>PUT</strong>: Updates an existing ToDo. It requires the data be submitted as <code>application/x-www-form-urlencoded</code>. It requires at least one of the following parameters and can contain both:<ul>
+<li>A <code>task</code> parameter (string) with the updated text of the ToDo (up to 255 characters).</li>
+<li>A <code>completed</code> parameter (boolean) to update the status.</li>
+</ul>
+</li>
+</ul>
+<pre><code language="language-yaml" class="language-yaml">paths:
+  /todo:
+    get:
+      description: Gets a list of all items or all incomplete items.
+      parameters:
+      - name: complete
+        in: query
+        required: false
+        schema:
+          $ref: &#39;#/components/schemas/complete&#39;
+      responses:
+        &#39;200&#39;:
+          description: OK
+          content: 
+            application/json:
+              schema:
+                $ref: &#39;#/components/schemas/to_do_list&#39;
+    post:
+      description: Create a to-do item.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                task:
+                  $ref: &#39;#/components/schemas/task&#39;
+                completed:
+                  $ref: &#39;#/components/schemas/completed&#39;
+              required:
+              - task
+      responses:
+        &#39;200&#39;:
+          description: Returns a copy of the new ToDo object.
+          content: 
+            &#39;application/json&#39;: 
+              schema:
+                $ref: &#39;#/components/schemas/to_do&#39;
+        &#39;400&#39;:
+          description: Creation failed. Returns an error.
+          content: 
+            &#39;application/json&#39;:
+              schema:
+                $ref: &#39;#/components/schemas/error_msg&#39;
+    put:
+      description: Update a to-do item.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id_code:
+                  $ref: &#39;#/components/schemas/id_code&#39;
+                task:
+                  $ref: &#39;#/components/schemas/task&#39;
+                completed:
+                  $ref: &#39;#/components/schemas/completed&#39;
+              required:
+                - id_code 
+      responses:
+        &#39;200&#39;:
+          description: Item updated. Returns the item&#39;s updated ToDo object.
+          content: 
+            &#39;application/json&#39;:
+              schema:
+                $ref: &#39;#/components/schemas/to_do&#39;
+        &#39;400&#39;:
+          description: Update failed. Returns an error message.
+          content: 
+            &#39;application/json&#39;:
+              schema:
+                $ref: &#39;#/components/schemas/error_msg&#39;
+</code></pre>
+<p>Read the <a href="https://spec.openapis.org/oas/latest.html" target="_blank">OpenAPI 3 standard</a> if you&#39;d like to dive deeper into constructing API definitions with it.</p>
+<p>Next, add the API to Postman.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Add the API to Postman" duration="7">
+        <p>With the Postman app or web client open, go to your <strong>Personal Collection</strong> and select the <strong>APIs</strong> icon. Then <strong>Create an API</strong>.</p>
+<p class="image-container"><img alt="APIs section" src="img/2cb9d2bec7c62829.png"></p>
+<p>The API is created, but it&#39;s untitled and empty.</p>
+<ol type="1">
+<li>Name it &#34;ToDos&#34; by selecting the pencil icon that appears when you hover over the name.</li>
+<li>Select the <strong>+</strong> symbol to the right of the <strong>Definition</strong> option. It presents a submenu of <strong>Import files</strong> or <strong>Author from scratch</strong>.</li>
+<li>Select <strong>Author from scratch</strong>.</li>
+<li>Select or accept <code>OpenAPI 3.0</code> as the <strong>Definition type</strong> and <code>YAML</code> as the <strong>Definition Format</strong>.</li>
+<li>Select <strong>Create Definition</strong>. This opens a code editor.</li>
+<li>Copy the <a href="https://gist.github.com/LetMyPeopleCode/99abd6eea4894d149971e98113e29076" target="_blank">full ToDo API definition from this link</a>.</li>
+<li>Paste the definition into the code editor. <img alt="api definition" src="img/878708ed63b0f20f.png"></li>
+<li>Select <strong>Save</strong>.</li>
+</ol>
+<p>You&#39;re ready to code your API in the next step.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Code the API" duration="7">
+        <p>Postman offers code generation to scaffold your API for multiple programming languages. This project uses Node.js.</p>
+<p>Return to the top level of the API in the navigation. Select the <strong><code>&lt;/&gt;</code></strong> icon to open the code generator.</p>
+<p class="image-container"><img alt="code generator icon" src="img/726b684f61f54554.png"></p>
+<p>The wizard asks what <strong>Language and framework</strong> you want and offers an option to <strong>Only generate routes and interfaces</strong>. Choose <strong>NodeJs - Express</strong> as the language and framework and leave option to limit what it generates unchecked.</p>
+<p>Select <strong>Generate code</strong> and it will prompt you to download a zip file.</p>
+<p>If you do not want to download and update the code, there is a link to fully functioning API code at the end of this section. The rest of this section focuses on adding a database connection and the code for the GET method as an example.</p>
+<h2 is-upgraded>Going the DIY route</h2>
+<p>If you want to code this yourself, take these preliminary steps.</p>
+<ol type="1">
+<li>Unzip the code you downloaded into a project folder.</li>
+<li>Open a terminal window and navigate into the project folder.</li>
+<li>Enter <code>npm install</code> in the terminal window. This will install the prerequisites specified by the gode generator.</li>
+<li><a href="https://expressjs.com/en/guide/database-integration.html#mysql" target="_blank">Add a MySQL connector for Express</a>. This code will also add it to your <code>project.json</code> file in case you&#39;re planning to save this to source control and skip this step in the future.</li>
+</ol>
+<pre><code language="language-bash" class="language-bash">npm install mysql --save
+</code></pre>
+<p>Enter <code>npm run start</code> in the terminal window.</p>
+<p>At this point, the server will run and return mock data that looks like a single entry. By default, the server runs at port 3000. When it&#39;s running, go to <a href="http://localhost:3000" target="_blank">localhost:3000</a> and it will return the results of a <code>GET</code>. Enter <code>ctrl</code> + <code>c</code> in the terminal window to stop it.</p>
+<h3 is-upgraded>Editing server.js</h3>
+<p>Note how you had to go to port 3000 above, but the API definition specifies port 8080.</p>
+<p>In the project root folder, open <code>server.js</code> with an editor. At or around line 10, replace the value of 3000 with 8080 in this line.</p>
+<pre><code language="language-javascript" class="language-javascript">  // old
+    PORT = process.env.PORT || 3000,
+</code></pre>
+<pre><code language="language-javascript" class="language-javascript">  // new
+    PORT = process.env.PORT || 8080,
+</code></pre>
+<p>Save it and move on.</p>
+<h3 is-upgraded>Editing <code>services/todos.js</code></h3>
+<p>Navigate from the root folder of the project to the <code>services</code> folder and open <code>todos.js</code> in an editor. This file is where the business logic lives and where the root functions for the API methods live.</p>
+<p>Add the following code at the top.</p>
+<pre><code language="language-javascript" class="language-javascript">const crypto = require(&#39;crypto&#39;);
+const mysql = require(&#39;mysql&#39;)
+const connection = mysql.createConnection({
+  host: &#39;localhost&#39;,
+  user: &#39;todo_admin&#39;,
+  password: &#39;leelu_dallas_multipass-6&#39;,
+  database: &#39;todo&#39;
+})
+
+connection.connect()
+
+// function to run your SQL queries
+runQuery = function(query){
+  return new Promise(function(resolve, reject){
+    connection.query(
+        query, 
+        function(err, rows){                                                
+          if(rows === undefined){
+            reject(new Error(&#34;Error rows is undefined&#34;));
+          }else{
+            resolve(rows);
+          }
+        }
+    )}
+)}
+</code></pre>
+<p>This pulls in Node&#39;s built-in <code>crypto</code> module to generate UUIDs for the <code>POST</code> function and sets up the <code>mysql</code> module with a database connection. Then it adds a function to run your SQL queries. The function is wrapped in a promise and resolves when the query results are returned.</p>
+<p>Let&#39;s look at the code for the <code>GET</code> function from above. It creates a demo of the array specified in the API description with mock values.</p>
+<pre><code language="language-javascript" class="language-javascript">    var data = [{
+        &#34;complete&#34;: &#34;&lt;Complete&gt;&#34;,
+        &#34;idcode&#34;: &#34;&lt;IdCode&gt;&#34;,
+        &#34;task&#34;: &#34;&lt;Task&gt;&#34;,
+      }],
+      status = &#39;200&#39;;
+
+    return {
+      status: status,
+      data: data
+    };  
+</code></pre>
+<p>Replace that code with this code and save the file.</p>
+<pre><code language="language-javascript" class="language-javascript">    //compose the query
+    let query = &#34;SELECT * FROM todos WHERE `completed` = 0&#34;;
+    if(options.complete &amp;&amp; (options.complete.toLowerCase() === &#39;true&#39;))
+    {
+      query = &#34;SELECT * FROM todos&#34;;
+    }
+    
+    //query the database
+    response = await runQuery(query);
+
+    return {
+      status: 200,
+      data: response
+    };  
+</code></pre>
+<p>Express provides the query string parameters in the <code>options</code> object. First, the code checks if there is a <code>completed</code> parameter and then if the value is <code>true</code> (as a string). The default is only to get all ToDos that are not completed. The modified query when <code>complete</code> is <code>true</code> gets all ToDos, regardless of status.</p>
+<p>If you want to dig into the code for the other two operations, download the complete working code at the <a href="https://github.com/LetMyPeopleCode/ToDO_API_with_Node_and_MySQL" target="_blank">ToDo API project repository on GitHub</a>.</p>
+<p>Next, let&#39;s put the API through its paces with Postman.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Run Some Postman Requests" duration="7">
+        <h2 is-upgraded>Generate a Postman Collection</h2>
+<p>Return to the API you created in Postman. Select the <strong>+</strong> icon by <strong>Collections</strong> and choose <strong>Generate from definition</strong>.</p>
+<p class="image-container"><img alt="Start the generation" src="img/f4ca530204fe6e2e.png"></p>
+<p>In the generator details, give your collection a name, leave the rest of the values at their defaults, and select <strong>Generate Collection</strong>.</p>
+<p class="image-container"><img alt="Name the collection" src="img/8bc91d60f9424c.png"></p>
+<p>When the collection is generated, it is a child of the API, not the higher-level <strong>Collections</strong> part of the workspace. Queries for <code>GET</code>, <code>POST</code>. and <code>PUT</code> are created.</p>
+<h2 is-upgraded>Run a ToDo server</h2>
+<p>Make sure your MySQL database is running in the XAMPP control panel.</p>
+<ol type="1">
+<li>Clone the <a href="https://github.com/LetMyPeopleCode/ToDO_API_with_Node_and_MySQL" target="_blank">ToDo API Project repository</a> from GitHub into a local folder.</li>
+<li>Open a terminal and navigate into the top-level directory.</li>
+<li>In the terminal, enter the command: <code>npm install</code>.</li>
+<li>When that completes, enter the command: <code>node run start</code></li>
+</ol>
+<p>You&#39;re ready to try your queries. The SQL you ran previously pre-populated the database with two items, so you have some data.</p>
+<h2 is-upgraded>Try a <code>GET</code></h2>
+<p>Select <strong>Send</strong> and the API will return an array with the incomplete ToDo as an object.</p>
+<p class="image-container"><img alt="API GET demo" src="img/90dcf004254d8be2.png"></p>
+<p><strong>NOTE:</strong> You may need to have the Postman Desktop Agent running or the <strong>Send</strong> button will be disabled.</p>
+<p>Try changing <strong>&lt;boolean&gt;</strong> in the parameters to <code>true</code> to get an array with both of the ToDo objects.</p>
+<h2 is-upgraded>Try a <code>POST</code></h2>
+<p>Select the <code>POST</code> from the collection then select the <strong>Body</strong> tab to see the parameters.</p>
+<p>Replace them with a task you want to add and its completion status. The task string is defined as being between 2 and 255 characters long. The status must be the word &#34;true&#34; or &#34;false&#34; in lowercase or Postman will note a validation error. If you uncheck it, the server will default to <code>false</code>.</p>
+<p>Select <strong>Send</strong> to add the task to the database. It will return a ToDo object with the values you submitted and the generated <code>id_code</code>.</p>
+<p class="image-container"><img alt="POST results" src="img/6fe20b9ac4bf01cf.png"></p>
+<p>Go back to the <code>GET</code> and run it if you want to confirm the task was added to the database.</p>
+<h2 is-upgraded>Try a <code>PUT</code></h2>
+<p>Like the <code>POST</code>, the parameters are in the <strong>Body</strong> tab.</p>
+<p>The only required item is the <code>id_code</code>. If you want to submit an empty field for the <code>task</code> or <code>complete</code> fields, uncheck them on the left rather than changing the mock value to an empty one. If you uncheck both, the server returns a <code>400 Bad Request</code> because there&#39;s nothing to update.</p>
+<ol type="1">
+<li>Set the <code>id_code</code> field to &#34;todo2&#34; (one of the pre-populated ToDo items)</li>
+<li>Set <code>complete</code> to &#34;true&#34;, and uncheck the <code>task</code> field. This will update the database entry as completed.</li>
+<li>Select <strong>Send</strong>.</li>
+</ol>
+<p>The server makes the change, then queries the database for the item and returns it to confirm the update.</p>
+<p class="image-container"><img alt="PUT results" src="img/4942d41af206262b.png"></p>
+<p>Go back to the <code>GET</code> and run it with <code>completed</code> unchecked to see the task is no longer active.</p>
+<p>You&#39;re done. Congratulations! You&#39;ve defined an API with OpenAPI 3.0, generated skeleton server code, generated a Postman Collection to send requests to the server, and made changes to the database.</p>
+<p>Next, look at some ways you can continue with this.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <p>Here are some things you can do if you want to learn more.</p>
+<ul>
+<li>Read the <a href="https://spec.openapis.org/oas/latest.html" target="_blank">OpenAPI 3 standard</a> and add a <code>DELETE</code> method to the API specification.</li>
+<li>Update the MySQL server permissions for <code>todo_admin</code> and Node.js server code to add a <code>DELETE</code> method, then regenerate your collection to test the <code>DELETE</code> method.</li>
+<li>Clean up your system by uninstalling XAMPP and Node.js if you don&#39;t plan to keep them.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

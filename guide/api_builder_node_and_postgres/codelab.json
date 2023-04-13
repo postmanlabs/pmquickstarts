@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
+  "updated": "2023-04-13T10:02:57-07:00",
+  "id": "api_builder_node_and_postgres",
+  "duration": 45,
+  "title": "Build An API with Postman, Node.js \u0026 Postgres",
+  "summary": "Build An API with Postman, Node.js, \u0026 Postgres",
+  "source": "api_builder_and_postgres/api_builder_node_and_postgres.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "getting-started"
+  ],
+  "tags": [
+    "developer",
+    "gettingstarted",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "api_builder_node_and_postgres"
+}

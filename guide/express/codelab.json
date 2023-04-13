@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
+  "updated": "2023-04-13T10:00:58-07:00",
+  "id": "express",
+  "duration": 15,
+  "title": "Create a Todo application with Express.js",
+  "summary": "Create a Todo application with Express.js",
+  "source": "express/express.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "getting-started"
+  ],
+  "tags": [
+    "developer",
+    "gettingstarted",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "express"
+}
