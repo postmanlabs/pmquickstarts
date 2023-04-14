@@ -16,6 +16,13 @@ describe("Check if the docs are not properly formatted", () => {
         expect(allAuthorsBool).toBeTruthy();
 	});
 
+    test('Tutorial IDs must not contain underscores', async () => {
+        const tutorialMetadata = await getTutorialsMetadata();
+        const allAuthorsBool = tutorialMetadata.every(tutorial => tutorial.id.split('_').length === 1);
+
+        expect(allAuthorsBool).toBeTruthy();
+	});
+
     test('Every tutorial must have a summary', async () => {
         const tutorialMetadata = await getTutorialsMetadata();
         const allAuthorsBool = tutorialMetadata.every(tutorial => !!tutorial.summary);
