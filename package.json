@@ -20,5 +20,7 @@
     "@bazel/bazel": "^0.18.1",
     "jest": "^29.5.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "markdown-it": "^13.0.1"
+  }
 }
