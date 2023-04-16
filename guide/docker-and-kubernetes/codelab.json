@@ -3,26 +3,26 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-04-07T12:18:48-10:00",
-  "id": "continuous-quality",
-  "duration": 31,
-  "title": "Continuous Quality with Postman",
-  "summary": "Advanced testing workflows in Postman",
-  "source": "continuous_quality/continuous_quality.md",
+  "updated": "2023-04-16T10:17:22-10:00",
+  "id": "docker-and-kubernetes",
+  "duration": 34,
+  "title": "Deploy a web app with Docker and Kubernetes",
+  "summary": "Deploy a web app with Docker and Kubernetes",
+  "source": "docker-and-kubernetes/docker-and-kubernetes.md",
   "theme": "",
   "status": [
     "published"
   ],
   "category": [
-    "tester",
     "intermediate"
   ],
   "tags": [
-    "automation",
+    "developer",
+    "devops",
     "intermediate",
     "tester",
     "web"
   ],
   "feedback": "https://github.com/loopDelicious/pmquickstarts",
-  "url": "continuous-quality"
+  "url": "docker-and-kubernetes"
 }
