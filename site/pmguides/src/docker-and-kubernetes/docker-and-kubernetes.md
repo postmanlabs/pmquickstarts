@@ -1,11 +1,11 @@
 author: Joyce
 id: docker-and-kubernetes
 summary: Deploy a web app with Docker and Kubernetes
-categories: Intermediate
+categories: DevOps, Intermediate
 environments: web
 status: Published
 feedback link: https://github.com/loopDelicious/pmquickstarts
-tags: Intermediate, Developer, DevOps, Tester
+tags: DevOps, Intermediate, Developer, Tester
 
 # Deploy a web app with Docker and Kubernetes
 

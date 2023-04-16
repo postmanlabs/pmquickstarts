@@ -25,10 +25,14 @@
 /* Postman specific category classes */
 
 $color-getting-started: $postman-orange;
-$color-game: $second-yellow;
+$color-intermediate: $stroke-brown;
+$color-game: $second-orange;
 $color-tester: $background-navy;
 $color-developer: #097e89;
+$color-devops: $second-yellow;
 @include codelab-card(['getting-started'], $color-getting-started, '');
+@include codelab-card(['intermediate'], $color-intermediate, '');
 @include codelab-card(['game'], $color-game, '');
 @include codelab-card(['tester'], $color-tester, '');
-@include codelab-card(['healthcare'], $color-developer, 'data-engineering.svg');
+@include codelab-card(['developer'], $color-developer, '');
+@include codelab-card(['devops'], $color-devops, '');
