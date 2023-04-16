@@ -3,7 +3,7 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-04-16T10:17:22-10:00",
+  "updated": "2023-04-16T10:35:08-10:00",
   "id": "docker-and-kubernetes",
   "duration": 34,
   "title": "Deploy a web app with Docker and Kubernetes",
@@ -14,6 +14,7 @@
     "published"
   ],
   "category": [
+    "devops",
     "intermediate"
   ],
   "tags": [
