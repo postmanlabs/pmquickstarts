@@ -7,6 +7,7 @@
     "clean": "node_modules/.bin/bazel clean",
     "build": "node_modules/.bin/bazel build npm_dist",
     "test": "node_modules/.bin/bazel test --test_output=all codelab-elements/demo:hello_test",
+    "test-unit": "jest",
     "pub": "npm run clean && npm run build && cd bazel-genfiles && unzip npm_dist.zip -d npm_dist && npm publish npm_dist"
   },
   "author": "Google",
@@ -16,6 +17,10 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@bazel/bazel": "^0.18.1"
+    "@bazel/bazel": "^0.18.1",
+    "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "markdown-it": "^13.0.1"
   }
 }
