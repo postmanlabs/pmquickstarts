@@ -50,10 +50,13 @@ cp -r pmguides/src/_template/* pmguides/src/$PMGUIDE_NAME/
 # rename markdown template file 
 mv pmguides/src/$PMGUIDE_NAME/markdown.template $pmguide_markdown_filename
 
+# Escape any special characters in the replacement string
+PMGUIDE_NAME_ESCAPED=$(printf '%s\n' "$PMGUIDE_NAME" | sed -e 's/[\/&]/\\&/g')
+
 # replace placeholder pmguide id in markdown template file with name provided by command line argument 
 sed -i \
-  -e "s/PMGUIDE_NAME.*/$PMGUIDE_NAME/g" \
-  $pmguide_markdown_filename
+  -e 's/PMGUIDE-NAME.*/'"$PMGUIDE_NAME_ESCAPED"'/g' \
+  "$pmguide_markdown_filename"
 
 # replace placeholder authorname with git username=
 sed -i \
