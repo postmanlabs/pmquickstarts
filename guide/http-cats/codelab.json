@@ -3,12 +3,12 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-04-07T12:18:48-10:00",
+  "updated": "2023-05-01T12:05:30-07:00",
   "id": "http-cats",
   "duration": 14,
   "title": "Learn HTTP Status Codes with HTTP Cats",
   "summary": "Learn HTTP Status Codes with HTTP Cats",
-  "source": "http_cats/http_cats.md",
+  "source": "http-cats/http-cats.md",
   "theme": "",
   "status": [
     "published"

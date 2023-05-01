@@ -3,12 +3,12 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-04-07T12:18:48-10:00",
+  "updated": "2023-05-01T12:05:30-07:00",
   "id": "php-laravel-API",
   "duration": 26,
   "title": "Create A REST API with PHP And Laravel",
   "summary": "Create A REST API with PHP And Laravel",
-  "source": "php_laravel_API/laravel.md",
+  "source": "php-laravel-API/laravel.md",
   "theme": "",
   "status": [
     "published"

@@ -3,12 +3,12 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-04-07T12:18:48-10:00",
+  "updated": "2023-05-01T12:05:30-07:00",
   "id": "lost-in-space",
   "duration": 186,
   "title": "Lost in Space: puzzle hunt",
   "summary": "This is a Postman puzzle game",
-  "source": "lost_in_space/lost_in_space.md",
+  "source": "lost-in-space/lost-in-space.md",
   "theme": "",
   "status": [
     "published"

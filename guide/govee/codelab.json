@@ -3,12 +3,12 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-05-01T12:05:30-07:00",
-  "id": "api-builder-node-and-mysql",
-  "duration": 45,
-  "title": "Build An API with Postman, Node.js \u0026 MySQL",
-  "summary": "Build An API with Postman, Node.js \u0026 MySQL",
-  "source": "api-builder-and-mysql/api-builder-node-and-mysql.md",
+  "updated": "2023-05-01T14:57:55-07:00",
+  "id": "govee",
+  "duration": 8,
+  "title": "Get started with the Govee API",
+  "summary": "Get started with the Govee API",
+  "source": "govee/govee.md",
   "theme": "",
   "status": [
     "published"
@@ -22,5 +22,5 @@
     "web"
   ],
   "feedback": "https://github.com/loopDelicious/pmquickstarts",
-  "url": "api-builder-node-and-mysql"
+  "url": "govee"
 }

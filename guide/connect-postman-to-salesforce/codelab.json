@@ -3,12 +3,12 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-04-07T12:18:48-10:00",
+  "updated": "2023-05-01T12:05:30-07:00",
   "id": "connect-postman-to-salesforce",
   "duration": 22,
   "title": "Connect Postman to Salesforce",
   "summary": "Set up Postman with the Salesforce API collection to access data in your Salesforce org.",
-  "source": "connect_postman_to_salesforce/connect_postman_to_salesforce.md",
+  "source": "connect-postman-to-salesforce/connect-postman-to-salesforce.md",
   "theme": "",
   "status": [
     "published"

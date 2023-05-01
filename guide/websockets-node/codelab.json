@@ -3,12 +3,12 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-04-07T12:18:48-10:00",
+  "updated": "2023-05-01T12:05:30-07:00",
   "id": "websockets-node",
   "duration": 11,
   "title": "Set up a WebSockets server in Node.js",
   "summary": "Set up a WebSockets server in Node.js",
-  "source": "websockets_node/websockets_node.md",
+  "source": "websockets-node/websockets-node.md",
   "theme": "",
   "status": [
     "published"
