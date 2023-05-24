@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
+  "updated": "2023-05-15T08:33:54-07:00",
+  "id": "aws",
+  "duration": 21,
+  "title": "Get Started with Amazon Web Services APIs",
+  "summary": "Get started with Amazon Web Services APIs",
+  "source": "aws/aws.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "getting-started"
+  ],
+  "tags": [
+    "developer",
+    "gettingstarted",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "aws"
+}

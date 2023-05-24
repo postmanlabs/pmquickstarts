@@ -1,0 +1,154 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Get Started with Amazon Web Services APIs</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="aws"
+                  title="Get Started with Amazon Web Services APIs"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>Learn how to get started with Amazon Web Services (AWS) APIs in Postman. If you are using AWS APIs for the first time, you can follow the steps in this guide to call the APIs using requests sent through the Postman client. You can use these requests to experiment with an API before you develop your application.</p>
+<aside class="warning"><p> For more information on Getting Started, follow the official guide <a href="https://cloud.google.com/apis/docs/getting-started" target="_blank">here</a>.</p>
+</aside>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Basic familiarity with APIs</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>how to enable AWS APIs</li>
+<li>how to authenticate to AWS APIs</li>
+<li>how to set up Cloud instances and storage</li>
+<li>how to troubleshoot unexpected API behavior</li>
+<li>how to grant access to Cloud resources</li>
+<li>how to automate API workflows for AWS in Postman</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Need</h2>
+<ul>
+<li>an <a href="https://console.aws.amazon.com/" target="_blank">AWS Account</a><ul>
+<li>Make sure that the account that you use to sign in to the AWS Management Console can create new IAM policies and roles.</li>
+<li>Make sure you have at least one sample project created that has email turned on and a verified email identity. See Creating an Amazon Pinpoint project with email support in the Amazon Pinpoint User Guide.</li>
+<li>Make sure you have an AWS Account ID. Your AWS Account ID can be found in the upper-right corner of the console or you can use the command line interface (CLI). See <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-identifiers.html#FindAccountId" target="_blank">Finding your AWS account ID</a>.</li>
+</ul>
+</li>
+<li>a <a href="https://identity.getpostman.com/signup" target="_blank">Postman Account</a></li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman Collection with authorized API requests.</li>
+<li>Code samples to integrate into your own workflows and applications.</li>
+<li>API workflows to automate the setup of your infrastructure</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create a Google project" duration="5">
+        <p>You can send requests various services using the REST API or the AWS SDK (see <a href="https://aws.amazon.com/code" target="_blank">Sample Code and Libraries</a>) wrapper libraries that wrap the underlying REST API, simplifying your programming tasks.</p>
+<p>For a list of all AWS services and their corresponding endpoints, go to Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html) in the AWS General Reference.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Generating an AWS signature" duration="3">
+        <p>Authentication is a process of verifying the identity of the requester trying to access an Amazon Web Services (AWS) product. Authenticated requests must include a signature value that authenticates the request sender. The signature value is, in part, generated from the requester&#39;s AWS access keys (access key ID and secret access key). For more information about getting access keys, see How Do I Get Security Credentials? in the AWS General Reference.</p>
+<p>If you are using the AWS SDK, the libraries compute the signature from the keys you provide. However, if you make direct REST API calls in your application, you must write the code to compute the signature and add it to the request.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Amazon EC2" duration="3">
+        <p>https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html https://docs.aws.amazon.com/general/latest/gr/ec2-service.html</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Amazon S3" duration="3">
+        <p>https://docs.aws.amazon.com/general/latest/gr/s3.html</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Working in Postman" duration="3">
+        <h2 is-upgraded>Organize workflows in Postman</h2>
+<p>Once you explore an API, you understand the basic building blocks of Google Cloud Platform. Next, organize your work into your own collections and workspaces in Postman.</p>
+<ul>
+<li>Create your own <a href="https://learning.postman.com/docs/collections/collections-overview/" target="_blank">collections</a> of API calls for automating deployments and monitoring infrastructure.</li>
+<li>Create your own <a href="https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/" target="_blank">workspaces</a> to organize work for an API or collaborate with team members.</li>
+</ul>
+<h2 is-upgraded>Automate workflows in Postman</h2>
+<p>Once you group API requests into collections, there are multiple ways to programmatically run those collections.</p>
+<ul>
+<li>Add <a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">tests and scripts</a> to dynamically pass information from one request to another</li>
+<li>Utilize inbuilt Postman integrations, such as <a href="https://learning.postman.com/docs/designing-and-developing-your-api/deploying-an-api/deploying-an-api-apigee/" target="_blank">deploying to Apigee Gateway</a></li>
+<li><a href="https://learning.postman.com/docs/collections/running-collections/running-collections-overview/" target="_blank">Run collections</a> on a scheduled frequency on Postman servers, as part of your CI/CD pipeline, or via webhooks</li>
+</ul>
+<h2 is-upgraded>Build your own applications</h2>
+<p>Once you have an API call working the way you want it to in Postman, <a href="https://learning.postman.com/docs/sending-requests/generate-code-snippets/" target="_blank">generate client code</a> to paste into your own applications. </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="3">
+        <h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
+<ul class="checklist">
+<li>how to enable Google Cloud APIs</li>
+<li>how to authenticate to Google Cloud APIs</li>
+<li>how to set up Cloud instances and storage</li>
+<li>how to troubleshoot unexpected API behavior</li>
+<li>how to grant access to Cloud resources</li>
+<li>how to automate API workflows for Google Cloud Platform in Postman</li>
+</ul>
+<p>For more hands-on tutorials, check out these resources.</p>
+<ul>
+<li><a href="https://quickstarts.postman.com/guide/google-oauth-in-postman/index.html?index=..%2F..index#0" target="_blank">Google OAuth in Postman</a> quickstart: to authorize Google APIs using OAuth 2.0 with Google Sheets API</li>
+<li>Check back for more <a href="https://quickstarts.postman.com/" target="_blank">Google Cloud platform tutorials</a></li>
+<li>Contribute your own tutorials <a href="https://github.com/loopDelicious/pmquickstarts" target="_blank">here</a></li>
+</ul>
+<h2 is-upgraded>Other topics</h2>
+<ul>
+<li><a href="https://cloud.google.com/apis/docs/getting-started#building_applications" target="_blank">Google Cloud client libraries</a>: for step-by-step guides to build an application using Cloud APIs</li>
+<li>For more information about authentication, see <a href="https://cloud.google.com/docs/authentication" target="_blank">Authentication at Google</a>.</li>
+<li>For more information about error handling, see <a href="https://cloud.google.com/apis/design/errors#handling_errors" target="_blank">Handling Errors</a>.</li>
+<li>For more information about billing, see <a href="https://cloud.google.com/billing/docs/how-to/manage-billing-account" target="_blank">Create, modify, or close your billing account</a>.</li>
+<li>For more information about enabling billing on your project, see <a href="https://cloud.google.com/billing/docs/how-to/modify-project" target="_blank">Modify a project&#39;s billing settings</a>.</li>
+<li>For more information about enabling and disabling APIs, see <a href="https://cloud.google.com/service-usage/docs/enable-disable" target="_blank">Enabling and disabling services</a>.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

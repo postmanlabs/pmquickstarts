@@ -1,0 +1,311 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Get Started with Google Cloud APIs</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="gcp"
+                  title="Get Started with Google Cloud APIs"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>Learn how to get started with Google Cloud APIs in Postman. If you are using Google Cloud APIs for the first time, you can follow the steps in this guide to call the APIs using requests sent through the Postman client. You can also use these requests to experiment with an API before you develop your application.</p>
+<aside class="warning"><p> For more information on Getting Started, follow the official guide <a href="https://cloud.google.com/apis/docs/getting-started" target="_blank">here</a>.</p>
+</aside>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Basic familiarity with APIs</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>how to enable Google Cloud APIs</li>
+<li>how to authenticate to Google Cloud APIs</li>
+<li>how to set up Cloud instances and storage</li>
+<li>how to troubleshoot unexpected API behavior</li>
+<li>how to grant access to Cloud resources</li>
+<li>how to automate API workflows for Google Cloud Platform in Postman</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Need</h2>
+<ul>
+<li>a <a href="https://console.cloud.google.com/getting-started" target="_blank">Google Cloud Account</a></li>
+<li>a <a href="https://identity.getpostman.com/signup" target="_blank">Postman Account</a></li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman Collection with authorized API requests.</li>
+<li>Code samples to integrate into your own workflows and applications.</li>
+<li>API workflows to automate the setup of your infrastructure</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create a Google project" duration="5">
+        <h2 is-upgraded>Creating a Google account</h2>
+<p>To use Google Cloud APIs in your applications, you first need to have a Google account. This allows you to use Google developer products, including <a href="https://console.cloud.google.com/" target="_blank">Google Cloud console</a>, <a href="https://cloud.google.com/sdk" target="_blank">gcloud CLI</a>, <a href="https://cloud.google.com/logging" target="_blank">Cloud Logging</a>, and <a href="https://cloud.google.com/monitoring" target="_blank">Cloud Monitoring</a>. If you&#39;re new to Google Cloud, <a href="https://console.cloud.google.com/freetrial?facet_utm_source=01&facet_utm_campaign=01&facet_utm_medium=01&facet_url=https%3A%2F%2Fcloud.google.com%2Fapis%2Fdocs%2Fgetting-started&facet_id_list=%5B39300012%2C+39300022%2C+39300118%2C+39300196%2C+39300251%2C+39300317%2C+39300320%2C+39300327%2C+39300333%2C+39300345%2C+39300354%2C+39300364%2C+39300374%2C+39300412%2C+39300422%2C+39300438%2C+39300471%2C+39300481%5D" target="_blank">create an account</a> to evaluate how Google products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads.</p>
+<h2 is-upgraded>Creating a Google project</h2>
+<p>To use Cloud APIs, you also need to have a Google project. A project is equivalent to a developer account. It serves as a resource container for your Google Cloud resources. It also provides an isolation boundary for your usage of Google Cloud services, so you can manage quota limits and billing independently at the project level. Usage telemetry and dashboards are grouped by projects as well. If you don&#39;t already have a project, you can create one using the <a href="https://console.cloud.google.com/" target="_blank">Google Cloud console</a>.</p>
+<p>To create a Google Cloud project:</p>
+<ol type="1">
+<li>In the <a href="https://console.cloud.google.com/getting-started" target="_blank">Google Cloud console</a>, go to Menu &gt; IAM &amp; Admin &gt; <a href="https://console.cloud.google.com/projectcreate" target="_blank">Create a Project</a>. <img alt="create a project" src="img/6e61bc035265e0d7.png"></li>
+<li>Give your project a name, select an organization, and a location. <img alt="enter project details" src="img/25c7e0dbbc063687.png"></li>
+</ol>
+<h2 is-upgraded>Save project ID as variable in Postman</h2>
+<p>Let&#39;s save our Google project ID as a Postman variable, so that we can use it in our API requests.</p>
+<ol type="1">
+<li>Click the orange <strong>Run in Postman</strong> button below to fork <a href="https://www.postman.com/devrel/workspace/cloud-onboarding-collections/collection/13191452-a3a3e4b4-8586-47dc-a8d3-519c547e58c1" target="_blank">this example collection</a> to your own Postman workspace. <br><a href="https://god.gw.postman.com/run-collection/13191452-a3a3e4b4-8586-47dc-a8d3-519c547e58c1?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D13191452-a3a3e4b4-8586-47dc-a8d3-519c547e58c1%26entityType%3Dcollection%26workspaceId%3D0a0d015d-e451-49cd-87fe-e3772ddae97a" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li>Enter a label for your fork and select the workspace to fork the collection: <img alt="fork label" src="img/25c7e0dbbc063687.png"></li>
+<li>Select the Postman collection that you forked to your workspace. Find the <strong>Variables</strong> tab, and paste your project ID as the <code>my-project-id</code> variable value. <img alt="save project id as variable" src="img/df9d6f67f0c4f6f0.png"></li>
+</ol>
+<aside class="warning"><p> If you are working in a public or team workspace, you may want to create <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">a Postman environment</a> and use <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">&#34;Current value&#34;</a> to prevent unintentional disclosure of sensitive data, such as authorization credentials. <img alt="current values" src="img/ab85d25d02a5df8.png"></p>
+</aside>
+<h2 is-upgraded>Discovering APIs</h2>
+<p>Before using any Cloud APIs, you should use Google Cloud console <a href="https://console.cloud.google.com/apis/library/browse" target="_blank">API Library</a> to browse available Cloud APIs and discover the ones that best meet your business needs.</p>
+<h2 is-upgraded>Enabling APIs</h2>
+<p>Some Cloud APIs are enabled by default. To use a Cloud API that is not enabled by default, you must enable it for your project. Depending on which services and which projects are involved from your application, including the client project and resource projects, you may need to enable an API for multiple projects. When you enable an API that depends on other APIs, those APIs are also enabled at the same time.</p>
+<p>Let&#39;s enable the Compute Engine API to create and run virtual machines on Google Cloud Platform.</p>
+<ol type="1">
+<li>From the Google Cloud console <a href="https://console.cloud.google.com/apis/library" target="_blank">API library</a>, find and select &#34;Compute Engine API&#34;. <img alt="search for compute API" src="img/aa9a377e06c42997.png"></li>
+<li>Use the <strong>Enable</strong> button to enable the API. <img alt="enable compute API" src="img/2f1206e66123dcb1.png"></li>
+</ol>
+<p>You will need to enable billing if your project is not already associated with a billing account. Let&#39;s do that in the next section.</p>
+<h2 is-upgraded>Enabling billing</h2>
+<p>Some Cloud APIs charge for usage. You need to enable billing for your project before you can start using these APIs in your project. The API usage in a project is charged to the billing account associated with the project.</p>
+<p>If you don&#39;t have a billing account, go to the <a href="https://console.cloud.google.com/billing" target="_blank">Google Cloud console billing</a> page and follow the instructions to create one. Then <a href="https://console.cloud.google.com/billing/linkedaccount?project=_" target="_blank">link your billing account</a> to your project.</p>
+<aside class="warning"><p><strong>Important:</strong> Projects that are not linked to an active Cloud Billing account cannot use Google Cloud or Google Maps Platform services. This is true even if you only use <a href="https://cloud.google.com/free/docs/gcp-free-tier" target="_blank">services that are free</a>.</p>
+</aside>
+<h2 is-upgraded>Authenticating to APIs</h2>
+<p>How you authenticate to an API depends on your development environment and what authentication methods the API supports.</p>
+<p>Setting up <a href="https://cloud.google.com/docs/authentication/provide-credentials-adc" target="_blank">Application Default Credentials</a> for use in a variety of environments is the most common approach, and is recommended for most applications. If the API supports <a href="https://cloud.google.com/docs/authentication/api-keys" target="_blank">API keys</a>, that is another option. If your application needs to access Cloud resources owned by your end users, you <a href="https://developers.google.com/identity/protocols/oauth2/web-server" target="_blank">create an OAuth 2.0 Client ID and use the authentication libraries</a>. For general information about authentication, see <a href="https://cloud.google.com/docs/authentication" target="_blank">Authentication at Google</a>.</p>
+<p>In the next section, let&#39;s set up OAuth 2.0.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Set up OAuth 2.0 in Google console" duration="3">
+        <p>To use OAuth 2.0 in your application, you need an OAuth 2.0 client ID, which your application uses when requesting an OAuth 2.0 access token.</p>
+<p>To create an OAuth 2.0 client ID in the console:</p>
+<ol type="1">
+<li>Return to the <a href="https://console.developers.google.com/" target="_blank">API Console</a>.</li>
+<li>From the projects list, select the project you previously created.</li>
+<li>Select Menu &gt; APIs &amp; Services &gt; <a href="https://console.cloud.google.com/apis/credentials" target="_blank">Credentials</a> &gt; Create Credentials &gt; OAuth Client ID <img alt="OAuth selection" src="img/c6509a9b2d767f92.png"></li>
+<li>If this is your first time creating a client ID, you can also configure your consent screen by clicking <strong>Consent Screen</strong>. (The <a href="https://support.google.com/googleapi/answer/6158849?hl=en&sjid=7809775932949477358-NA#userconsent" target="_blank">following procedure</a> explains how to set up the <em>Consent screen</em>.) You won&#39;t be prompted to configure the consent screen after you do it the first time.</li>
+<li>Click <strong>Create client ID</strong></li>
+<li>Select <strong>Web Application</strong> as your application type and give the client a name. <img alt="auth details" src="img/d5346ee98fee8e1f.png"></li>
+<li>Under <strong>Authorized redirect URIs</strong>, click <strong>Add URI</strong>. The URI you add will depend on what Postman application you&#39;re testing from. If you&#39;re testing from Postman&#39;s web client, add the redirect URI <code>https://oauth.pstmn.io/v1/browser-callback</code>. If you&#39;re testing from the Postman Desktop client, add the URI <code>https://oauth.pstmn.io/v1/callback</code>. If you switch between the web and desktop application during your development workflow, you should add both URIs as redirect URIs. <img alt="redirect URIs" src="img/79579c282f6cc888.png"></li>
+<li>Click <strong>Create</strong>, and make a note of your credentials for the next steps. <img alt="client credentials" src="img/b23b6a0981d7b9de.png"></li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Set up OAuth 2.0 in Postman" duration="3">
+        <p>To add your OAuth 2.0 credentials to Postman:</p>
+<ol type="1">
+<li>In Postman, select the collection that you previously forked to your own workspace. Navigate to the <strong>Authorization</strong> tab, and select <strong>OAuth 2.0</strong> as the authorization type. We are setting up authorization for the collection, so that every request within this collection can inherit and use these authorization credentials. <img alt="oauth select" src="img/71cca8c2433441c1.png"></li>
+<li>Scroll down to the <strong>Configure New Token</strong> section and fill in the following details. <ul>
+<li><strong>Token Name</strong>: Give the token a name so you can reference it for authorization in Postman.</li>
+<li><strong>Grant Type</strong>: Select &#34;Authorization Code&#34;. This lets Postman know that the resources server will be providing it with an authorization code that it will use to get an access token.</li>
+<li><strong>Callback URL</strong>: This is the redirect URL you specified in your Google Cloud Console. It is automatically set for you and will vary depending on if you&#39;re on the Postman Desktop or web client.</li>
+<li><strong>Auth URL</strong>: This is the authorization server endpoint. It presents the user with a UI interface to authorize the client (so far, the user is logged in). The requested scopes are displayed, and the user can choose to accept/decline access to their data. When the user accepts, it navigates to the callback URL with an authorization code included as a query parameter. This callback URL navigates back to Postman, Postman will then use the authorization code to fetch the access token from the resource server. Set this field to <code>https://accounts.google.com/o/oauth2/v2/auth</code></li>
+<li><strong>Access Token URL</strong>: This is the interface exposed by the resource server for exchanging an authorization code with an access token. Set this field to <code>https://oauth2.googleapis.com/token</code></li>
+<li><strong>Client ID</strong>: This is the Client ID generated in your Google Cloud Console Credential. Store this ID in a variable to keep sensitive data secure.</li>
+<li><strong>Client Secret</strong>: This is the Client Secret generated in your Google Cloud Console Credential. Store the secret in a variable to keep sensitive data secure.</li>
+<li><strong>Scope</strong>: These are the scopes you want to request access to from the client/user. Multiple scopes are separated by a space. Set this field to <code>https://www.googleapis.com/auth/cloud-platform</code><img alt="oauth configure" src="img/4aaebe925fa69c13.png"></li>
+</ul>
+</li>
+<li>Once all the data has been provided to the respective fields, click the <strong>Get New Access Token</strong> button.</li>
+<li>You will be prompted to authorize Postman to interface with Google&#39;s APIs in a new window. Log in with your Google account used to access your Google Cloud Platform. This will generate an OAuth ID and Google will check that the request came from an authorized redirect URL (which we have set). You will receive an &#34;Authentication complete&#34; message when it is successful. <img alt="oauth complete" src="img/73a2c839abde8097.png"></li>
+<li>In a new modal, review your newly generated access token and other relevant metadata. Select &#34;Use Token&#34; to start using your new Access Token. <img alt="oauth use token" src="img/a13cd780544a5e60.png"></li>
+<li>This adds your new Access Token under <strong>Current Token</strong> &gt; <strong>Access token</strong> &gt; <strong>Available Tokens</strong> so that you can automatically include the selected token in your request headers. <img alt="oauth current token" src="img/3af782b465f9e4b5.png"></li>
+<li>When your token expires, you can return to the <strong>Authorization</strong> tab to manage tokens, delete expired tokens, and generate new tokens. You also <a href="https://cloud.google.com/docs/authentication/token-types#refresh" target="_blank">set up refresh tokens</a>.</li>
+</ol>
+<p>In the following sections, let&#39;s explore some of the most popular APIs on Google Cloud Platform.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Google Compute Engine" duration="5">
+        <h2 is-upgraded>What is Compute Engine?</h2>
+<p><a href="https://cloud.google.com/compute/docs/" target="_blank">Compute Engine</a> is a <a href="https://cloud.google.com/docs/overview/cloud-platform-services#computing-hosting" target="_blank">computing and hosting service</a> that lets you create and run virtual machines on Google infrastructure. Compute Engine offers scale, performance, and value that lets you easily launch large compute clusters on Google&#39;s infrastructure. There are no upfront investments, and you can run thousands of virtual CPUs on a system that offers quick, consistent performance.</p>
+<h2 is-upgraded>Get started with Compute Engine</h2>
+<ol type="1">
+<li><strong>Enable API</strong>: We have previously enabled the Compute Engine API. If you haven&#39;t done that already, go to the Google Cloud console <a href="https://console.cloud.google.com/apis/library" target="_blank">API library</a>, find and select &#34;Compute Engine API&#34;, and &#34;Enable&#34; the API</li>
+<li><strong>Discover APIs</strong>: In your Postman workspace, select the collection that you previously imported, and expand the folder called &#34;Compute&#34;. Open &#34;Discover Compute APIs&#34;, and <strong>Send</strong> the request. The response body includes information describing the surface of the API, how to access the API, and how API requests and responses are structured</li>
+<li><strong>Configure an instance</strong>: Open the &#34;Create instance&#34; request, and review the following parts of the API request. <ul>
+<li><code>POST</code> method</li>
+<li>Base URL includes path variables referenced like <code>:projectId</code>. You can update path variables under a separate section beneath the <strong>Params</strong> tab in Postman. One of the path variables <code>projectId</code> should reference a variable defined earlier, like <code>&#123;&#123;my-project-id}}</code>. There is one variable referenced as <code>&#123;&#123;my-zone}}</code> that is undefined. Add a new collection or environment variable called <code>my-zone</code> with your <a href="https://cloud.google.com/compute/docs/regions-zones" target="_blank">preferred zone</a>.</li>
+<li>Request body includes a JSON object containing variables referencd, like <code>&#123;&#123;my-project-id}}</code>. There are one variable referenced as <code>&#123;&#123;vm-name}}</code> that has not yet been defined. Add a collection or environment variable called <code>vm-name</code> with your preferred name for the instance of the virtual machine.</li>
+</ul>
+</li>
+<li><strong>Create an instance</strong>: <strong>Send</strong> the request to create a new instance. Optionally, review <a href="https://cloud.google.com/compute/docs/instances/create-start-instance" target="_blank">other methods of creating a new VM instance</a>. <img alt="create new instance" src="img/814429ed6bfe7770.png"></li>
+<li><strong>Troubleshooting</strong>: If you did not receive a successful response, follow these steps. <ul>
+<li><strong>401 Unauthorized</strong> - refresh your access token, by following the steps in the previous section to &#34;Set up OAuth 2.0 in Postman&#34;</li>
+<li><strong>Other 400s status codes</strong> - Check for typos or malformed requests. Under the code icon in the right pane, review <a href="https://learning.postman.com/docs/sending-requests/generate-code-snippets/" target="_blank">client code</a> to see how Postman is resolving variables. Another good place to look for issues is the <a href="https://learning.postman.com/docs/sending-requests/troubleshooting-api-requests/#debugging-in-the-console" target="_blank">Postman console</a>. Expand the network request to inspect request headers and request body. You can also <strong>Show raw log</strong> to see what is being sent from Postman without any syntax highlighting.</li>
+<li><strong>VM troubleshooting tips</strong>: Review <a href="https://cloud.google.com/compute/docs/troubleshooting/troubleshooting-vm-creation" target="_blank">Troubleshooting creating and updating VMs</a></li>
+</ul>
+</li>
+<li><strong>Get instance</strong>: Open &#34;Get instance&#34;, and <strong>Send</strong> the request to inspect the status of the new virtual machine instance. <img alt="get instance" src="img/c352913473053ba0.png"></li>
+</ol>
+<h2 is-upgraded>Other related topics:</h2>
+<ul>
+<li><a href="https://cloud.google.com/compute/docs/instances/create-start-instance" target="_blank">Alternative configurations for creating VMs</a></li>
+<li><a href="https://cloud.google.com/compute/docs/access/managing-access-to-resources" target="_blank">Grant access to a resource for team members</a></li>
+<li><a href="https://cloud.google.com/compute/docs/choose-compute-deployment-option" target="_blank">Review VM deployment options</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Google Cloud Storage" duration="3">
+        <h2 is-upgraded>What is Cloud Storage?</h2>
+<p><a href="https://cloud.google.com/storage/docs/" target="_blank">Cloud Storage</a> is a service for storing your <a href="https://cloud.google.com/storage/docs/objects" target="_blank">objects</a> in Google Cloud. An object is an immutable piece of data consisting of a file of any format. You store objects in containers called <a href="https://cloud.google.com/storage/docs/buckets" target="_blank">buckets</a>. All buckets are associated with a <a href="https://cloud.google.com/storage/docs/projects" target="_blank">project</a>, and you can group your projects under an <a href="https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations" target="_blank">organization</a>. Each project, bucket, and object in Google Cloud is a resource in Google Cloud.</p>
+<p>After you create a project, you can create <a href="https://cloud.google.com/storage/docs/creating-buckets" target="_blank">Cloud Storage buckets</a>, <a href="https://cloud.google.com/storage/docs/uploading-objects" target="_blank">upload objects</a> to your buckets, and <a href="https://cloud.google.com/storage/docs/downloading-objects" target="_blank">download objects</a> from your buckets. You can also grant permissions to make your data accessible to principals you specify, or - for certain use cases such as hosting a website - <a href="https://cloud.google.com/storage/docs/access-control/making-data-public" target="_blank">accessible to everyone on the public internet</a>.</p>
+<h2 is-upgraded>Get started with Cloud Storage</h2>
+<ol type="1">
+<li><strong>Enable API</strong>: From the Google Cloud console <a href="https://console.cloud.google.com/apis/library/browse" target="_blank">API Library</a>, find the <a href="https://console.cloud.google.com/apis/library/storage-api.googleapis.com" target="_blank">Google Cloud Storage JSON API</a>. This is one of the APIs and services that is already enabled by default when creating a Cloud project using the Google Cloud console or Google Cloud CLI. Take a moment to <a href="https://cloud.google.com/storage/docs/json_api" target="_blank">review the documentation</a>.</li>
+<li><strong>Discover APIs</strong>: In your Postman workspace, select the collection that you previously imported, and expand the folder called &#34;Storage&#34;. Open &#34;Discover Storage APIs&#34;, and <strong>Send</strong> the request. The response body includes information describing the surface of the API, how to access the API, and how API requests and responses are structured</li>
+<li><strong>Configure a bucket</strong>: Open the &#34;Create bucket&#34; request, and review the following parts of the API request. <ul>
+<li><code>POST</code> method</li>
+<li>Base URL includes a query parameter <code>project</code> with a value of <code>&#123;&#123;my-project-id}}</code> which has been previously defined as a variable.</li>
+<li>Request body includes a JSON object containing variables referenced, like <code>&#123;&#123;bucket-name}}</code>. Add a collection or environment variable called <code>bucket-name</code> with your preferred name for the bucket.</li>
+</ul>
+</li>
+<li><strong>Create a bucket</strong>: Then <strong>Send</strong> the request to create a new bucket. If you did not receive a successful response, follow these troubleshooting tips listed in the previous section. <img alt="create bucket" src="img/a7adfc17f77301ff.png"></li>
+<li><strong>Get buckets</strong>: Open the &#34;Get buckets&#34; request, and <strong>Send</strong> the request to inspect the status of the new bucket. <img alt="get buckets" src="img/b1d751d9bc0ef539.png"></li>
+<li><strong>Configure object to upload</strong>: Open the &#34;Upload objects from files&#34; request. <ul>
+<li>Add a collection or environment variable called <code>object-name</code> that is referenced as a query parameter</li>
+<li>Under the request body, select <strong>Binary</strong> and then select a file to upload. Once you add a file, notice Postman automatically updates the <code>Content-type</code> header under the <strong>Headers</strong> tab.</li>
+<li>You may need to <a href="https://learning.postman.com/docs/getting-started/settings/#working-directory" target="_blank">configure your working directory</a> from the desktop app to allow Postman to access your local file system. <img alt="configure working directory" src="img/92c91c2f5e8d3fc5.png"></li>
+</ul>
+</li>
+<li><strong>Upload object</strong>: Then <strong>Send</strong> the request. <img alt="upload object" src="img/575728f6eec0475f.png"></li>
+<li><strong>Download object</strong>: Open the &#34;Download objects as files&#34; request, and <strong>Send</strong> the request. <img alt="see object" src="img/b26bb677b6e0590.png"></li>
+<li><strong>Make objects public</strong>: Open the &#34;Make all objects in bucket public&#34;, and <strong>Send</strong> the request. You can also <a href="https://cloud.google.com/storage/docs/access-control/making-data-public#objects" target="_blank">make an individual object publicly readable</a>.</li>
+</ol>
+<h2 is-upgraded>Other related topics:</h2>
+<ul>
+<li><a href="https://cloud.google.com/storage/docs/changing-storage-classes" target="_blank">Manage objects</a></li>
+<li><a href="https://cloud.google.com/storage/docs/access-control" target="_blank">Manage access to data</a></li>
+<li><a href="https://cloud.google.com/storage/docs/monitoring" target="_blank">Monitor data and usage</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Resource Manager" duration="3">
+        <h2 is-upgraded>What is Resource Manager?</h2>
+<p>Google Cloud provides container resources such as organizations and projects that allow you to group and hierarchically organize other Google Cloud resources. This hierarchical organization helps you manage common aspects of your resources, such as access control and configuration settings. The <a href="https://cloud.google.com/resource-manager/docs" target="_blank">Resource Manager API</a> enables you to programmatically manage these container resources.</p>
+<h2 is-upgraded>What is Identity and Access Management?</h2>
+<p><a href="https://cloud.google.com/iam/docs/overview" target="_blank">IAM</a> lets you grant granular access to specific Google Cloud resources and helps prevent access to other resources. IAM lets you adopt the security principle of least privilege, which states that nobody should have more permissions than they actually need.</p>
+<h2 is-upgraded>Get started with Resource Manager</h2>
+<ol type="1">
+<li><strong>Enable API</strong>: From the Google Cloud console <a href="https://console.cloud.google.com/apis/library/browse" target="_blank">API Library</a>, find the <a href="https://console.cloud.google.com/apis/library/cloudresourcemanager.googleapis.com" target="_blank">Google Resource Manager API</a>, and &#34;Enable&#34; the API.</li>
+<li><strong>Discover APIs</strong>: In your Postman workspace, select the collection that you previously imported, and expand the folder called &#34;Resource Manager&#34;. Open &#34;Discover Resource Manager APIs&#34;, and <strong>Send</strong> the request. The response body includes information describing the surface of the API, how to access the API, and how API requests and responses are structured</li>
+<li><strong>Configure IAM policy retrieval</strong>: Open the &#34;Get IAM policy&#34; request, and review the following parts of the API request. <ul>
+<li><code>POST</code> method</li>
+<li>Base URL includes a resource ID. We will retrieve the IAM policy for our project, and use <code>&#123;&#123;my-project-id}}</code> which has been previously defined as a variable.</li>
+</ul>
+</li>
+<li><strong>Set the etag variable</strong>: To set the IAM policy in the next request, we also need the etag from our existing policy. We could copy this value from the response and paste it into our next request. However, under the <strong>Tests</strong> tab, you can see a line of JavaScript that will run when you successfully sent your request. This code will set a collection variable called <code>etag</code> with a value like <code>BwX6zgFN+pY=</code>. <img alt="set etag" src="img/4ef974170a36f538.png"></li>
+<li><strong>Get the IAM policy</strong>: <strong>Send</strong> the request to review the IAM policy. Also select the collection, and look under the <strong>Variables</strong> tab to confirm the <code>etag</code> variable was set properly. <img alt="see policy" src="img/2efa37b40085170.png"></li>
+<li><strong>Configure the IAM policy</strong>: Open the &#34;Set IAM policy&#34; request, and review the following parts of the API request. <ul>
+<li><code>POST</code> method</li>
+<li>Base URL includes a resource ID. We will set the IAM policy for our project, and reference <code>&#123;&#123;my-project-id}}</code> like in our last request.</li>
+<li>Request body includes a simple policy that uses the same <code>etag</code> variable we set in the previous steps. See the IAM documentation for <a href="https://cloud.google.com/iam/docs/policies" target="_blank">more examples of policies</a>.</li>
+</ul>
+</li>
+<li><strong>Set the IAM policy</strong>: <strong>Send</strong> the request to review the updated IAM policy. <img alt="set policy" src="img/cd442af8aeaf2b4b.png"></li>
+<li><strong>Troubleshooting</strong>: If you run into a <a href="https://cloud.google.com/iam/docs/policies#etag" target="_blank">concurrency conflict</a>, for example <code>409</code> http error code, retry the entire series of operations: read the allow policy again, modify it as needed, and write the updated allow policy. Also make sure the <code>etag</code> property is set properly.</li>
+</ol>
+<h2 is-upgraded>Other related topics:</h2>
+<ul>
+<li><a href="https://cloud.google.com/iam/docs" target="_blank">Identity and Access Management (IAM) API</a></li>
+<li><a href="https://cloud.google.com/iam/docs/policies" target="_blank">Example allow policies in IAM documentation</a></li>
+<li><a href="https://cloud.google.com/iam/docs/roles-overview" target="_blank">Roles and permissions in IAM documentation</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Working in Postman" duration="3">
+        <h2 is-upgraded>Organize workflows in Postman</h2>
+<p>Once you explore an API, you understand the basic building blocks of Google Cloud Platform. Next, organize your work into your own collections and workspaces in Postman.</p>
+<ul>
+<li>Create your own <a href="https://learning.postman.com/docs/collections/collections-overview/" target="_blank">collections</a> of API calls for automating deployments and monitoring infrastructure.</li>
+<li>Create your own <a href="https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/" target="_blank">workspaces</a> to organize work for an API or collaborate with team members.</li>
+</ul>
+<h2 is-upgraded>Automate workflows in Postman</h2>
+<p>Once you group API requests into collections, there are multiple ways to programmatically run those collections.</p>
+<ul>
+<li>Add <a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">tests and scripts</a> to dynamically pass information from one request to another</li>
+<li>Utilize inbuilt Postman integrations, such as <a href="https://learning.postman.com/docs/designing-and-developing-your-api/deploying-an-api/deploying-an-api-apigee/" target="_blank">deploying to Apigee Gateway</a></li>
+<li><a href="https://learning.postman.com/docs/collections/running-collections/running-collections-overview/" target="_blank">Run collections</a> on a scheduled frequency on Postman servers, as part of your CI/CD pipeline, or via webhooks</li>
+</ul>
+<h2 is-upgraded>Build your own applications</h2>
+<p>Once you have an API call working the way you want it to in Postman, <a href="https://learning.postman.com/docs/sending-requests/generate-code-snippets/" target="_blank">generate client code</a> to paste into your own applications. <img alt="code generation" src="img/d7647cbbb1e217a4.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="3">
+        <h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
+<ul class="checklist">
+<li>how to enable Google Cloud APIs</li>
+<li>how to authenticate to Google Cloud APIs</li>
+<li>how to set up Cloud instances and storage</li>
+<li>how to troubleshoot unexpected API behavior</li>
+<li>how to grant access to Cloud resources</li>
+<li>how to automate API workflows for Google Cloud Platform in Postman</li>
+</ul>
+<p>For more hands-on tutorials, check out these resources.</p>
+<ul>
+<li><a href="https://quickstarts.postman.com/guide/google-oauth-in-postman/index.html?index=..%2F..index#0" target="_blank">Google OAuth in Postman</a> quickstart: to authorize Google APIs using OAuth 2.0 with Google Sheets API</li>
+<li>Check back for more <a href="https://quickstarts.postman.com/" target="_blank">Google Cloud platform tutorials</a></li>
+<li>Contribute your own tutorials <a href="https://github.com/loopDelicious/pmquickstarts" target="_blank">here</a></li>
+</ul>
+<h2 is-upgraded>Other topics</h2>
+<ul>
+<li><a href="https://cloud.google.com/apis/docs/getting-started#building_applications" target="_blank">Google Cloud client libraries</a>: for step-by-step guides to build an application using Cloud APIs</li>
+<li>For more information about authentication, see <a href="https://cloud.google.com/docs/authentication" target="_blank">Authentication at Google</a>.</li>
+<li>For more information about error handling, see <a href="https://cloud.google.com/apis/design/errors#handling_errors" target="_blank">Handling Errors</a>.</li>
+<li>For more information about billing, see <a href="https://cloud.google.com/billing/docs/how-to/manage-billing-account" target="_blank">Create, modify, or close your billing account</a>.</li>
+<li>For more information about enabling billing on your project, see <a href="https://cloud.google.com/billing/docs/how-to/modify-project" target="_blank">Modify a project&#39;s billing settings</a>.</li>
+<li>For more information about enabling and disabling APIs, see <a href="https://cloud.google.com/service-usage/docs/enable-disable" target="_blank">Enabling and disabling services</a>.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

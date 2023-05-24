@@ -1,0 +1,158 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Load Testing</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="load-testing"
+                  title="Load Testing"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>If you&#39;re a big company with a platform that regularly supports tons of users, you have to know how incremental traffic impacts the performance of your systems. Maybe you&#39;re getting ready for a seasonal surge in traffic like Black Friday or Cyber Monday, and don&#39;t want to lose out on serious revenue in case a critical process fails.</p>
+<p>Even startups can become a victim of their own success, if they receive an unexpected mention on TechCrunch or HackerNews and their sites collapse under the influx of new visitors.</p>
+<p>Whether you&#39;re already supporting lots of traffic, gearing up for a seasonal spike, or become a viral success, don&#39;t get TechCrunched! Load test your APIs with real-world loads to validate their performance before it&#39;s too late.</p>
+<aside class="warning"><p> Parts of this tutorial were originally published at <a href="https://medium.com/better-practices/dont-get-techcrunched-performance-testing-for-your-http-apis-3196e40f6b70" target="_blank">Don&#39;t get TechCrunched: performance testing for your HTTP APIs</a></p>
+</aside>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Basic testing skills like how to write and run API tests in Postman</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>how to run load tests in Postman</li>
+<li>how to configure load testing settings in Postman</li>
+<li>how to interpret the results of load testing</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Need</h2>
+<ul>
+<li>a <a href="https://identity.getpostman.com/signup" target="_blank">Postman Account</a></li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman Collection with tests to execute load testing</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Introduction to load testing" duration="5">
+        <h2 is-upgraded>What is load testing?</h2>
+<p>On the Postman Engineering blog, we&#39;ve already learned <a href="https://medium.com/postman-engineering/from-manual-to-automated-testing-the-roadblocks-and-the-journey-6333dfacc5ae" target="_blank">how to get started with test automation</a>. Once you establish a process for functional and integration testing, the next step is to look at performance testing to gain a deeper understanding about the stability, reliability, and availability of your platform.</p>
+<p>For example, how does your system behave when a large number of users are accessing your servers? How long does it take for a user to receive a response? As more users access your platform, does a response take significantly longer or does a request timeout? Is this effect magnified at certain times of the day or week?</p>
+<p>Load testing falls under a broader umbrella of performance testing. During load testing, you will subject an API to a workload that approaches and possibly exceeds the limits of its specifications.</p>
+<p class="image-container"><img alt="hierarchy of performance testing" src="img/df67353bde6e682d.webp"></p>
+<p>Sometimes load testing is completed along with stress testing, to determine the system&#39;s ability to handle a heavier than normal workload. Sometimes it can include endurance testing, to determine the system&#39;s ability to handle a specified work load for a prolonged period of time.</p>
+<h2 is-upgraded>Why do load testing?</h2>
+<p>One unbelievably common approach is to throw your code into production, and be ready to roll it back if it doesn&#39;t scale well. Other developers might rely on server logs to find out when their servers are crashing.</p>
+<p>If you&#39;re still reading, you probably want to be proactive and achieve a higher level of confidence about the stability, reliability, and availability of your platform.</p>
+<p>Maybe you know exactly when you&#39;ll be featured on Shark Tank, or maybe you&#39;re totally unprepared for any kind of viral traffic. A single appearance on the front page of the internet can result in an unintentional <a href="https://en.wikipedia.org/wiki/Denial-of-service_attack" target="_blank">distributed denial of service (DDOS) attack</a>. Your servers might not be able to handle all of these simultaneous requests, and you&#39;ll piss off your users and lose out on revenue.</p>
+<aside class="warning"><p><a href="https://www.shopify.com/partners/blog/black-friday-cyber-monday" target="_blank">Regular load testing is essential, and a great way to optimize your site or apps for peak shopping days.</a></p>
+<ul>
+<li>Sharon Ann Kean, Bloom &amp; Wild</li>
+</ul>
+</aside>
+<p>There&#39;s many ways to optimize and balance the load that hits your servers, <a href="https://medium.com/postman-engineering/tuck-in-your-apis-safe-and-sound-with-these-guiding-principles-for-api-security-cd69f71c291e#a20a" target="_blank">validate user inputs</a>, and cache static content. You should definitely do all of that <em>in addition</em> to load testing.</p>
+<h2 is-upgraded>Load testing with Continuous Integration</h2>
+<p>Load testing can be done as a <a href="https://medium.com/postman-engineering/integrating-in-an-api-first-world-d5d4b0981a3f" target="_blank">regular part of your Continuous Integration process</a>. At these early stages of the development lifecycle, you can identify bottlenecks and improve the stability of your application before it is released to production. It&#39;s best to catch issues and errors in these early stages when the cost of debugging is the lowest.</p>
+<p class="image-container"><img alt="load testing as part of CI pipeline" src="img/37722667574c7c62.webp"></p>
+<h2 is-upgraded>Load testing for exploratory testing</h2>
+<p>Load testing can also be done on an exploratory basis to validate hypotheses and gain a deeper understanding of your systems. Load testing for exploration is done similarly to regular stage-gate load testing, except on an ad hoc basis with higher than average loads. By increasing your load incrementally, you can determine the maximum throughput of your API that functions within your desired tolerances.</p>
+<p class="image-container"><img alt="load testing as part of exploratory testing" src="img/fa07a2a66dc93c1e.webp"></p>
+<p>For example, imagine that you increase the number of active users by X% and see no significant degradation in performance. Assuming you have stable usage, you can rest assured that your current infrastructure supports next quarter&#39;s growth which is forecasted more modestly than the X% increase that you tested.</p>
+<p>Take another example. Imagine that you run the same test, but instead you see significant degradation of a key performance metric. You can use this data to inform the acceptable bounds of a service-level agreement (SLA) for teams that rely on your services. If your system doesn&#39;t adequately support current or forecasted activity, this data can also drive the discussion for future investments in infrastructure and compute resources.</p>
+<ol type="1">
+<li>Pinpoint issues by incrementally building tests. This makes it easier to isolate the component that is causing degradation.</li>
+<li>Debug issues. Address bottlenecks, limitations or instability.</li>
+<li>Establish or validate service-level agreements (SLAs) for internal APIs or public services.</li>
+<li>Forecast a budget for the size and type of compute resources to support current or anticipated growth.</li>
+<li>Combine load testing <a href="https://medium.com/postman-engineering/https-medium-com-postman-engineering-fake-it-till-you-make-it-mocks-for-agile-development-f4d050cad694" target="_blank">with mock servers</a> to further isolate your system under test from dependencies on shared resources.</li>
+</ol>
+<p>With frequent load testing, either as part of a regular process or on an ad hoc basis, we understand our architecture&#39;s performance characteristics deeper. This allows us to make performance improvements on our existing features and new implementations.</p>
+<h2 is-upgraded>Who is responsible for load testing?</h2>
+<p>Different organizations task different members of their team for load testing. In many cases, it&#39;s the developer or tester that is responsible for measuring key performance indicators. In other cases, it&#39;s the DevOps engineer, SRE, or someone in charge of application performance monitoring.</p>
+<p>Although CIOs and engineering managers may not be involved with the implementation of load testing, they are ultimately responsible for infrastructure and downtime costs.</p>
+<ul>
+<li>Developers</li>
+<li>QA engineers</li>
+<li>DevOps / SREs</li>
+<li>CIO / Engineering managers</li>
+</ul>
+<p>Across organizations, there&#39;s a variety of functions that bear the responsibility for performance testing. Across the development community, there&#39;s a variety of opinions about testing infrastructure and best practices.</p>
+<p>While a number of teams &#34;do load testing&#34;, what that translates to in practice is often varied. For some teams, they&#39;re firebombing requests on non-production APIs to see what happens. That&#39;s one way of getting started, but there&#39;s still more that can be done.</p>
+<p>Load testing can be expensive, and typically requires approval for the additional spend. No matter who is responsible for actually running a load test, demonstrating that you&#39;re doing something valuable with the results of that test is important for the whole team.</p>
+<h2 is-upgraded>What are API performance metrics?</h2>
+<p>These are some common measures of API performance. Depending on your service level objectives and requirements, you may want to measure other indicators too.</p>
+<h3 is-upgraded>API performance metrics</h3>
+<ul>
+<li><strong>Response time</strong> — total processing time, latency</li>
+<li><strong>Throughput</strong> — Requests Per Second, request payloads, maximum operating capacity</li>
+<li><strong>Traffic composition</strong> — average and peak concurrent users</li>
+<li><strong>Database</strong> — number of concurrent connections, CPU utilization, read and write IOPS, memory consumption, disk storage requirements</li>
+<li><strong>Errors</strong> — handling, failure rates</li>
+</ul>
+<p>In the next section, let&#39;s take a look at one way to do load testing with Postman.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Run load tests" duration="2">
+        <p>Feel free to use your own collection to test your own API. Otherwise, fork the example collection to your own workspace.</p>
+<p> [![Run in Postman](_shared_assets/button.svg)]() </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <p>The development community has widely varying opinions about the performance testing of HTTP APIs. The tooling for load testing is also a fragmented landscape. There&#39;s a ton of out-of-the-box, roll-your-own, and any combination of the two solutions. To top it off, load testing is frequently handled by different functions within an organization.</p>
+<p>With all of these different approaches, it&#39;s hard to identify any single strategy as the gold standard for load testing.</p>
+<p>If you&#39;re just getting started, I recommend starting with your monitoring. Observing your production traffic and corresponding performance metrics may be enough to spark some questions about your system&#39;s behavior. Then, run a base case and start incrementally adding some load. Especially with complex systems that are dependent on other internal and external services, you&#39;ll be able to spot the bottlenecks and and issues more clearly.</p>
+<h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
+<ul class="checklist">
+<li>how to run load tests in Postman</li>
+<li>how to configure load testing settings in Postman</li>
+<li>how to interpret the results of load testing</li>
+</ul>
+<h2 is-upgraded>Additional testing resources</h2>
+<ul>
+<li>Testing skills</li>
+<li><a target="_blank">15 days of Postman - for testers</a> course</li>
+<li>Don&#39;t get tech crunched</li>
+<li>Additional <a href="https://quickstarts.postman.com" target="_blank">hands-on learning courses</a> by Postman</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>
