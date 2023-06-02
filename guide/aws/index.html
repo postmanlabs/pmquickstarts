@@ -28,28 +28,26 @@
                   feedback-link="https://github.com/loopDelicious/pmquickstarts">
     
       <google-codelab-step label="Overview" duration="1">
-        <p>Learn how to get started with Amazon Web Services (AWS) APIs in Postman. If you are using AWS APIs for the first time, you can follow the steps in this guide to call the APIs using requests sent through the Postman client. You can use these requests to experiment with an API before you develop your application.</p>
-<aside class="warning"><p> For more information on Getting Started, follow the official guide <a href="https://cloud.google.com/apis/docs/getting-started" target="_blank">here</a>.</p>
+        <p>Learn how to get started with Amazon Web Services (AWS) APIs in Postman. If you are using AWS APIs for the first time, you can follow the steps in this guide to call the APIs using requests sent through the Postman client. You can use these requests to experiment with an API before you develop your application, or programmatically run a sequence of API calls to create and manage your infrastructure on AWS.</p>
+<aside class="warning"><p> You can send requests various services using the REST API or the AWS SDK (see <a href="https://aws.amazon.com/code" target="_blank">Sample Code and Libraries</a>) wrapper libraries that wrap the underlying REST API, simplifying your programming tasks. For a list of all AWS services and their corresponding endpoints, go to <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html" target="_blank">Regions and Endpoints</a> in the AWS General Reference.</p>
 </aside>
 <h2 is-upgraded>Prerequisites</h2>
 <ul>
-<li>Basic familiarity with APIs</li>
+<li>Basic familiarity with APIs and XML</li>
 </ul>
 <h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
 <ul class="checklist">
-<li>how to enable AWS APIs</li>
 <li>how to authenticate to AWS APIs</li>
-<li>how to set up Cloud instances and storage</li>
+<li>how to set up Cloud instances and Cloud storage</li>
 <li>how to troubleshoot unexpected API behavior</li>
+<li>how to set permissions on AWS users</li>
 <li>how to grant access to Cloud resources</li>
 <li>how to automate API workflows for AWS in Postman</li>
 </ul>
 <h2 is-upgraded>What You&#39;ll Need</h2>
 <ul>
 <li>an <a href="https://console.aws.amazon.com/" target="_blank">AWS Account</a><ul>
-<li>Make sure that the account that you use to sign in to the AWS Management Console can create new IAM policies and roles.</li>
-<li>Make sure you have at least one sample project created that has email turned on and a verified email identity. See Creating an Amazon Pinpoint project with email support in the Amazon Pinpoint User Guide.</li>
-<li>Make sure you have an AWS Account ID. Your AWS Account ID can be found in the upper-right corner of the console or you can use the command line interface (CLI). See <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-identifiers.html#FindAccountId" target="_blank">Finding your AWS account ID</a>.</li>
+<li>Make sure that the account that you use to sign in to the AWS Management Console can create a new IAM user, and new IAM policies and roles.</li>
 </ul>
 </li>
 <li>a <a href="https://identity.getpostman.com/signup" target="_blank">Postman Account</a></li>
@@ -64,35 +62,157 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Create a Google project" duration="5">
-        <p>You can send requests various services using the REST API or the AWS SDK (see <a href="https://aws.amazon.com/code" target="_blank">Sample Code and Libraries</a>) wrapper libraries that wrap the underlying REST API, simplifying your programming tasks.</p>
-<p>For a list of all AWS services and their corresponding endpoints, go to Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html) in the AWS General Reference.</p>
+      <google-codelab-step label="Configure AWS variables in Postman" duration="3">
+        <h2 is-upgraded>Create a new administrative user in AWS</h2>
+<p>IAM (Identity and Access Management) enables you to manage users and user permissions in AWS. You can create multiple IAM users with different roles and permissions as an added layer of security for your AWS account. In this tutorial we will create an IAM user to enable programmatic access to the AWS APIs.</p>
+<ol type="1">
+<li>From the <a href="https://console.aws.amazon.com/" target="_blank">AWS console</a>, create a new <strong>User</strong> on your AWS team. <img alt="create new user" src="img/9327849cc643c600.png"></li>
+<li>You can optionally set permissions now following your team&#39;s procedures and preferences. Or in the subsequent steps, we will add permissions before working with each AWS service.</li>
+</ol>
+<h2 is-upgraded>Input AWS data into Postman</h2>
+<ol type="1">
+<li>Click the orange <strong>Run in Postman</strong> button below to fork <a target="_blank">this example collection</a> to your own Postman workspace. <br><a href="https://god.gw.postman.com/run-collection/13191452-92632f93-a0c2-42f3-847e-ff7ffdfe688b?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D13191452-92632f93-a0c2-42f3-847e-ff7ffdfe688b%26entityType%3Dcollection%26workspaceId%3D0a0d015d-e451-49cd-87fe-e3772ddae97a" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li>In the Postman app, enter a label for your fork and select the workspace to fork the collection: <img alt="fork label" src="img/ab7b598fe7f3d31b.png"></li>
+<li>Select the Postman collection that you forked to your workspace. Find the <strong>Variables</strong> tab, and paste your new User&#39;s information into each variable value. </li>
+</ol>
+<ul>
+<li><strong>awsAccountId</strong> - Your <strong>Account ID</strong> can be found in the upper right hand corner of the <a href="https://console.aws.amazon.com/" target="_blank">AWS console</a></li>
+<li><strong>region</strong> - Your default AWS region can be found in the URL path when logged into the <a href="https://console.aws.amazon.com/" target="_blank">AWS console</a>. For example, <code>us-east-1</code> is the default region in <code>https://us-east-1.console.aws.amazon.com/</code>.</li>
+</ul>
+<aside class="warning"><p> If you are working in a public or team workspace, you may want to create <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">a Postman environment</a> and use <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">&#34;Current value&#34;</a> to prevent unintentional disclosure of sensitive data, such as authorization credentials. <img alt="current values" src="img/93d766bec4a14048.png"></p>
+</aside>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Generating an AWS signature" duration="3">
-        <p>Authentication is a process of verifying the identity of the requester trying to access an Amazon Web Services (AWS) product. Authenticated requests must include a signature value that authenticates the request sender. The signature value is, in part, generated from the requester&#39;s AWS access keys (access key ID and secret access key). For more information about getting access keys, see How Do I Get Security Credentials? in the AWS General Reference.</p>
-<p>If you are using the AWS SDK, the libraries compute the signature from the keys you provide. However, if you make direct REST API calls in your application, you must write the code to compute the signature and add it to the request.</p>
+      <google-codelab-step label="Set up AWS signature" duration="3">
+        <p>Authentication is a process of verifying the identity of the requester trying to access an Amazon Web Services (AWS) product. Authenticated requests must include a signature value that authenticates the request sender. The signature value is generated from the requester&#39;s AWS access keys that we will generate next.</p>
+<h2 is-upgraded>Get AWS credentials from AWS console</h2>
+<ol type="1">
+<li>In the <a href="https://console.aws.amazon.com/iam/home" target="_blank">AWS IAM console</a>, click <strong>Users</strong> in the <strong>Details</strong> pane, click the IAM user we created in the previous steps, and then click <strong>Create Access Key</strong> on the <strong>Security Credentials</strong> tab. <img alt="create access key in AWS console" src="img/73787ad2b3cc3692.png"></li>
+<li>Step through the configuration details, such as selecting the use case &#34;Application running outside AWS&#34;. Generate your <strong>Access key</strong> and <strong>Secret access key</strong>, which we will need for the next step. <img alt="Keys in AWS console" src="img/4fdd4aae23aa2200.png"></li>
+</ol>
+<aside class="warning"><p> To create a new secret access key for your root account, use the <a href="https://console.aws.amazon.com/iam/home?#security_credential" target="_blank">security credentials page</a>. Expand the <strong>Access Keys</strong> section, and then click <strong>Create New Root Key</strong>.</p>
+</aside>
+<p>For more information about <a href="https://aws.amazon.com/blogs/security/wheres-my-secret-access-key/" target="_blank">getting access keys</a>, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds.html" target="_blank">AWS General Reference</a>.</p>
+<h2 is-upgraded>Set AWS credentials in Postman</h2>
+<p>In Postman, we can use an authorization helper to compute an AWS signature to include with each request. <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html" target="_blank">To authenticate requests using AWS Signature Version 4</a>, add your AWS credentials to Postman:</p>
+<ol type="1">
+<li>In Postman, select the collection that you previously forked to your own workspace. Navigate to the <strong>Authorization</strong> tab, and select <strong>AWS Signature</strong> as the authorization type. We are setting up authorization for the collection, so that every request within this collection can inherit and use these authorization credentials.</li>
+<li>Scroll down to fill in the following details. <ul>
+<li><strong>AccessKey</strong>: This is the <strong>Access key</strong> from the AWS IAM console in the previous steps.</li>
+<li><strong>SecretKey</strong>: This is the <strong>Secret access key</strong> from the AWS IAM console. <img alt="select aws signature" src="img/c890b259f88ec850.png"></li>
+</ul>
+</li>
+<li>Instead of pasting those values directly in the fields, we used double curly braces to reference a collection or environment variable to keep sensitive data secure. <img alt="Input keys in Postman" src="img/376a7c71846f3c56.png"><aside class="warning"><p> If you are working in a public or team workspace, you may want to create <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">a Postman environment</a> and use <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">&#34;Current value&#34;</a> to prevent unintentional disclosure of sensitive data, such as authorization credentials.</p>
+</aside>
+</li>
+<li>Once all the data has been provided to the respective fields, <strong>Save</strong> your updates. Postman will add the required headers to every request within this collection.</li>
+</ol>
+<p>In the following sections, let&#39;s explore some of the most popular APIs on Amazon Web Services.</p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Amazon EC2" duration="3">
-        <p>https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html https://docs.aws.amazon.com/general/latest/gr/ec2-service.html</p>
+      <google-codelab-step label="Attach an IAM policy" duration="3">
+        <h2 is-upgraded>What is IAM?</h2>
+<p>As previously mentioned, IAM (Identity and Access Management) enables you to manage users and user permissions in AWS as an added layer of security for your AWS account.</p>
+<p>You manage access in AWS by creating policies and attaching them to IAM identities (users, groups of users, or roles) or AWS resources. A <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html" target="_blank">policy</a> is an object in AWS that, when associated with an identity or resource, defines their permissions.</p>
+<p>You can change the permissions for an IAM user in your AWS account by changing its group memberships, by copying permissions from an existing user, or by attaching policies directly to a user. You can do this from the IAM console in the AWS Management Console, the AWS Command Line Interface (AWS CLI), or the AWS API.</p>
+<p>Let&#39;s attach an existing IAM policy using the IAM console.</p>
+<h2 is-upgraded>Attach policy with console</h2>
+<p>In the next steps, we will work with an Amazon S3 cloud storage resource called a bucket. To grant the user permissions on a bucket, the AWS account can use a bucket policy, a user policy, or both. Let&#39;s attach an IAM policy to our new user.</p>
+<ol type="1">
+<li>Open the <a href="https://console.aws.amazon.com/iam/" target="_blank">IAM console</a> in the AWS Management Console, and choose <strong>Policies</strong>. Search for <code>AmazonS3FullAccess</code>. Click on the policy, toggle over to <strong>JSON</strong>, and review the details. The <code>AmazonS3FullAccess</code> managed policy provides full access to all buckets. <pre><code language="language-json" class="language-json">{
+    &#34;Version&#34;: &#34;2012-10-17&#34;,
+    &#34;Statement&#34;: [
+        {
+            &#34;Effect&#34;: &#34;Allow&#34;,
+            &#34;Action&#34;: [
+                &#34;s3:*&#34;,
+                &#34;s3-object-lambda:*&#34;
+            ],
+            &#34;Resource&#34;: &#34;*&#34;
+        }
+    ]
+}
+</code></pre>
+</li>
+<li>Return to the previous page, once again search for <code>AmazonS3FullAccess</code>, and select the radio button next to the name of the policy to attach. Choose <strong>Actions</strong>, and then choose <strong>Attach</strong>. <img alt="filter for IAM policy" src="img/a2fee902b9f52334.png"></li>
+<li>Select the IAM user we created in the previous steps, and choose <strong>Attach policy</strong>. <img alt="attach IAM policy" src="img/413cd3bd7732ca06.png"></li>
+</ol>
+<p>Now that we&#39;ve granted our new user access to all S3 buckets, let&#39;s create a new bucket.</p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Amazon S3" duration="3">
-        <p>https://docs.aws.amazon.com/general/latest/gr/s3.html</p>
+      <google-codelab-step label="Amazon S3" duration="5">
+        <h2 is-upgraded>What is Amazon S3?</h2>
+<p><a href="https://docs.aws.amazon.com/s3/index.html" target="_blank">Amazon Simple Storage Service</a> (Amazon S3) is an object storage service that offers scalability, data availability, security, and performance. Customers can use Amazon S3 to store and protect data for a range of use cases, such as data lakes, websites, mobile applications, backup and restore, archive, enterprise applications, IoT devices, and big data analytics. You can optimize, organize, and configure access to your data to meet your specific requirements.</p>
+<h2 is-upgraded>Get started with Amazon S3</h2>
+<p>To get started with Amazon S3 APIs, we will rely on the <a href="https://docs.aws.amazon.com/general/latest/gr/s3.html" target="_blank">API reference</a> as well as <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html" target="_blank">common error codes</a> to help with troubleshooting.</p>
+<ol type="1">
+<li><strong>Set Permissions for User</strong>: In the previous step, we attached an IAM policy <code>AmazonS3FullAccess</code> for our new user to access all S3 buckets. If you haven&#39;t done this already, do it now from the <a href="https://console.aws.amazon.com/iam/" target="_blank">IAM console</a>.</li>
+<li><strong>Configure a bucket</strong>: 1. In your Postman workspace, select the collection that you previously forked, and expand the folder called &#34;Storage&#34;. Open the &#34;Create bucket&#34; request, and review the following parts of the API request. <ul>
+<li><code>PUT</code> method</li>
+<li>Base URL includes two variables. Verify you have a collection or environment variable called <code>serviceName</code> with a value of <code>s3</code>, a variable <code>bucketName</code> with the preferred name for the bucket.</li>
+<li>Request body includes an XML object containing a variable <code>&#123;&#123;region}}</code> which is previously defined.</li>
+</ul>
+</li>
+<li><strong>Create a bucket</strong>: Then <strong>Send</strong> the request to create a new bucket. <img alt="create bucket" src="img/e452045d045e2acf.png"><aside class="warning"><p> If your <code>region</code> is <code>us-east-1</code>, remove the entire XML request body. The default region is <code>us-east-1</code>, and the request may fail if you include the location constraint.</p>
+</aside>
+</li>
+<li><strong>List buckets</strong>: Open the &#34;List buckets&#34; request, and <strong>Send</strong> the request to inspect all the buckets. The response from the AWS API contains an XML object. Under the <strong>Tests</strong> tab of Postman, we can use a library called <code>xml2Json</code> to parse the XML object and write a test to programmatically verify our new bucket exists. <img alt="get buckets" src="img/8424b55fc0b3798d.png"></li>
+<li><strong>Upload object</strong>: Open the &#34;Upload object to bucket&#34; request, and configure the following details. <ul>
+<li>Base URL includes a variable called <code>fileName</code>. Under the <strong>Pre-request Scripts</strong> tab, we have a line of code to programmatically generate a random word to use as your file name. Postman will generate this random word when the request is run. If you want to manually set the name of your object, comment out this line of code (by inserting <code>//</code> at the beginning of the line), and then add a collection or environment variable called <code>fileName</code>.</li>
+<li>Under the request body, select <strong>Binary</strong> and then select a file to upload. Once you add a file, notice Postman automatically updates the <code>Content-type</code> header under the <strong>Headers</strong> tab.</li>
+<li><strong>Send</strong> the request. <img alt="upload object" src="img/bdecd8132229b44c.png"></li>
+</ul>
+</li>
+<li><strong>Get object</strong>: Open the &#34;Get object from bucket&#34; request, and <strong>Send</strong> the request. Notice we are using the same <code>fileName</code> from the previous request. <img alt="get object" src="img/b055a12ed1e5a7de.png"></li>
+<li><strong>Make objects public</strong>: Open the &#34;Set bucket policy&#34;, and <strong>Send</strong> the request. Notice we are using the same <code>&#123;&#123;bucketName}}</code> defined previously. Depending on your settings, you may need to go to the <a href="https://s3.console.aws.amazon.com/s3/home" target="_blank">S3 console</a>, and navigate to your bucket to uncheck &#34;Block all public access&#34; in order to update the bucket policy. <img alt="uncheck block all public access" src="img/eef889c557e30f54.png"></li>
+</ol>
+<h2 is-upgraded>Other related topics:</h2>
+<ul>
+<li><a href="https://repost.aws/knowledge-center/read-access-objects-s3-bucket" target="_blank">Grant public read access to some objects in bucket</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html" target="_blank">Example bucket policies</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteAccessPermissionsReqd.html" target="_blank">Setting permissions for website access</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Amazon EC2" duration="5">
+        <h2 is-upgraded>What is Amazon EC2?</h2>
+<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html" target="_blank">Amazon Elastic Compute Cloud</a> (Amazon EC2) provides scalable computing capacity in the Amazon Web Services (AWS) Cloud. Using Amazon EC2 eliminates your need to invest in hardware up front, so you can develop and deploy applications faster. You can use Amazon EC2 to launch as many or as few virtual servers as you need, configure security and networking, and manage storage. Amazon EC2 enables you to scale up or down to handle changes in requirements or spikes in popularity, reducing your need to forecast traffic.</p>
+<p>In this section, you&#39;ll learn how to launch, connect to, and use a virtual server in the AWS cloud called an instance.</p>
+<h2 is-upgraded>Get started with Amazon EC2</h2>
+<p>To get started with Amazon S3 APIs, we will rely on the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html" target="_blank">API reference</a> as well as <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html" target="_blank">common error codes</a> to help with troubleshooting. Additionally, we will rely on <a href="https://blog.scottlowe.org/2020/04/10/using-postman-to-launch-ec2-instance-via-api-calls/" target="_blank">this guide</a>.</p>
+<ol type="1">
+<li><strong>Set Permissions for User</strong>: Follow the same process in the <a href="https://console.aws.amazon.com/iam/" target="_blank">IAM console</a> to attach an IAM policy <code>AmazonEC2FullAccess</code> to our new user and provide full access to Amazon EC2.</li>
+<li><strong>Describe availability zones</strong>: In your Postman workspace, select the collection that you previously forked, and expand the folder called &#34;Compute&#34;. Open the &#34;Describe Availability Zones&#34; request, and review the following parts of the API request.<ul>
+<li><code>GET</code> method</li>
+<li>Base URL includes a variable <code>serviceName</code> to be defined as <code>ec2</code> in the folder&#39;s pre-request script when the request is sent. To see these details, select the folder <code>Compute</code> and then the <strong>Pre-request Scripts</strong> tab.</li>
+<li>Request parameters include a variable <code>Action</code> with a value <code>DescribeAvailabilityZones</code></li>
+</ul>
+<strong>Send</strong> the request, and notice the code under the <strong>Tests</strong> tab parses the server response and sets a collection variable as the first availability zone returned. <img alt="set availability zone" src="img/b2711b2496531c5e.png"></li>
+<li><strong>Describe VPCs</strong>: Open the &#34;Describe VPCs&#34; request, and review differences in this API request compared to the previous request.<ul>
+<li>Request parameters include a variable <code>Action</code> with a value <code>DescribeVpcs</code>, and also filters to return only the default VPC.</li>
+</ul>
+<strong>Send</strong> the request, and once again notice the code under the <strong>Tests</strong> tab sets a collection variable with the default VPC. <img alt="set default vpc" src="img/e5b0084e80226149.png"></li>
+<li><strong>Describe Key Pairs</strong>: Open the &#34;Describe Key Pairs&#34; request, review and <strong>Send</strong> this request, and notice the code to set a collection variable with the key pair name. <img alt="set default key Name" src="img/4dce361abc05b097.png"></li>
+<li><strong>Describe Subnets</strong>: Open the &#34;Describe Subnets&#34; request, and <strong>Send</strong> the request. Notice this request includes filters to find the default subnet given the VPC and availability zone determined in the previous requests. <img alt="set default subnet" src="img/8b9cc1ca8d52c846.png"></li>
+<li><strong>Describe Images</strong>: Open the &#34;Describe Images&#34; request. You can add other filter parameters to narrow down the list of results. <strong>Send</strong> the request. <img alt="set image Id" src="img/2dfdd2bff3fe7dd9.png"></li>
+<li><strong>Run Instances</strong>: It is finally time to launch an instance. Open the &#34;Run Instances&#34; request, and see the query parameters utilize the data collected in the preceding requests. <img alt="run instances" src="img/e90f465fcb7f67e2.png"></li>
+<li><strong>Describe Instances</strong>: Open the &#34;Describe Instances&#34; request which utilizes the instance ID set in the preceding request. This time, let&#39;s log the instance state to the <a href="https://learning.postman.com/docs/sending-requests/troubleshooting-api-requests/#debugging-in-the-console" target="_blank">Postman console</a>. <img alt="describe instances" src="img/7ef19d4554b45b2.png"></li>
+</ol>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Working in Postman" duration="3">
         <h2 is-upgraded>Organize workflows in Postman</h2>
-<p>Once you explore an API, you understand the basic building blocks of Google Cloud Platform. Next, organize your work into your own collections and workspaces in Postman.</p>
+<p>Once you explore an API, you understand the basic building blocks of popular services on AWS. Next, organize your work into your own collections and workspaces in Postman.</p>
 <ul>
 <li>Create your own <a href="https://learning.postman.com/docs/collections/collections-overview/" target="_blank">collections</a> of API calls for automating deployments and monitoring infrastructure.</li>
 <li>Create your own <a href="https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/" target="_blank">workspaces</a> to organize work for an API or collaborate with team members.</li>
@@ -101,11 +221,11 @@
 <p>Once you group API requests into collections, there are multiple ways to programmatically run those collections.</p>
 <ul>
 <li>Add <a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">tests and scripts</a> to dynamically pass information from one request to another</li>
-<li>Utilize inbuilt Postman integrations, such as <a href="https://learning.postman.com/docs/designing-and-developing-your-api/deploying-an-api/deploying-an-api-apigee/" target="_blank">deploying to Apigee Gateway</a></li>
+<li>Utilize inbuilt Postman integrations, such as <a href="https://learning.postman.com/docs/integrations/available-integrations/aws-api-gateway/" target="_blank">deploying to AWS Gateway</a></li>
 <li><a href="https://learning.postman.com/docs/collections/running-collections/running-collections-overview/" target="_blank">Run collections</a> on a scheduled frequency on Postman servers, as part of your CI/CD pipeline, or via webhooks</li>
 </ul>
 <h2 is-upgraded>Build your own applications</h2>
-<p>Once you have an API call working the way you want it to in Postman, <a href="https://learning.postman.com/docs/sending-requests/generate-code-snippets/" target="_blank">generate client code</a> to paste into your own applications. </p>
+<p>Once you have an API call working the way you want it to in Postman, <a href="https://learning.postman.com/docs/sending-requests/generate-code-snippets/" target="_blank">generate client code</a> to paste into your own applications. <img alt="code generation" src="img/d9fdfc41e52615c4.png"></p>
 
 
       </google-codelab-step>
@@ -113,27 +233,29 @@
       <google-codelab-step label="Next Steps" duration="3">
         <h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
 <ul class="checklist">
-<li>how to enable Google Cloud APIs</li>
-<li>how to authenticate to Google Cloud APIs</li>
-<li>how to set up Cloud instances and storage</li>
+<li>how to authenticate to AWS APIs</li>
+<li>how to set up Cloud instances and Cloud storage</li>
 <li>how to troubleshoot unexpected API behavior</li>
+<li>how to set permissions on AWS users</li>
 <li>how to grant access to Cloud resources</li>
-<li>how to automate API workflows for Google Cloud Platform in Postman</li>
+<li>how to automate API workflows for AWS in Postman</li>
 </ul>
 <p>For more hands-on tutorials, check out these resources.</p>
 <ul>
-<li><a href="https://quickstarts.postman.com/guide/google-oauth-in-postman/index.html?index=..%2F..index#0" target="_blank">Google OAuth in Postman</a> quickstart: to authorize Google APIs using OAuth 2.0 with Google Sheets API</li>
-<li>Check back for more <a href="https://quickstarts.postman.com/" target="_blank">Google Cloud platform tutorials</a></li>
+<li>Check back for more <a href="https://quickstarts.postman.com/" target="_blank">AWS tutorials</a></li>
 <li>Contribute your own tutorials <a href="https://github.com/loopDelicious/pmquickstarts" target="_blank">here</a></li>
 </ul>
 <h2 is-upgraded>Other topics</h2>
 <ul>
-<li><a href="https://cloud.google.com/apis/docs/getting-started#building_applications" target="_blank">Google Cloud client libraries</a>: for step-by-step guides to build an application using Cloud APIs</li>
-<li>For more information about authentication, see <a href="https://cloud.google.com/docs/authentication" target="_blank">Authentication at Google</a>.</li>
-<li>For more information about error handling, see <a href="https://cloud.google.com/apis/design/errors#handling_errors" target="_blank">Handling Errors</a>.</li>
-<li>For more information about billing, see <a href="https://cloud.google.com/billing/docs/how-to/manage-billing-account" target="_blank">Create, modify, or close your billing account</a>.</li>
-<li>For more information about enabling billing on your project, see <a href="https://cloud.google.com/billing/docs/how-to/modify-project" target="_blank">Modify a project&#39;s billing settings</a>.</li>
-<li>For more information about enabling and disabling APIs, see <a href="https://cloud.google.com/service-usage/docs/enable-disable" target="_blank">Enabling and disabling services</a>.</li>
+<li><a href="https://www.postman.com/berkeley-codebase-2021/workspace/codebase-cloud-integrations/overview" target="_blank">Other AWS integrations</a> from Codebase, a UC Berkeley student organization that builds software projects for high growth tech companies. <ul>
+<li>AWS Cloudwatch</li>
+<li>AWS CodeCommit</li>
+<li>AWS API Gateway</li>
+<li>AWS Cognito</li>
+<li>AWS S3</li>
+</ul>
+</li>
+<li><a href="https://learning.postman.com/docs/integrations/available-integrations/aws-api-gateway/" target="_blank">AWS API Gateway</a>: Postman integration for deployments</li>
 </ul>
 
 
