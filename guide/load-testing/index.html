@@ -111,13 +111,38 @@
 <li><strong>Errors</strong> — handling, failure rates</li>
 </ul>
 <p>In the next section, let&#39;s take a look at one way to do load testing with Postman.</p>
+<aside class="warning"><p> Your <a href="https://www.postman.com/pricing/" target="_blank">Postman plan</a> gives you a limited number of performance runs you can use each month.</p>
+</aside>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Run load tests" duration="2">
-        <p>Feel free to use your own collection to test your own API. Otherwise, fork the example collection to your own workspace.</p>
-<p> [![Run in Postman](_shared_assets/button.svg)]() </p>
+        <h2 is-upgraded>Configure load test</h2>
+<ol type="1">
+<li>Sign in to the Postman Desktop app <aside class="warning"><p> Use the Postman desktop app to configure and run performance tests. You can&#39;t use the Postman web app for performance testing. During a performance test, all requests are sent from your computer where you are running the Postman desktop app.</p>
+</aside>
+</li>
+<li>Fork the following example collection to your own workspace. You can also use your own collection to run and simulate user activity. <a href="https://app.getpostman.com/run-collection/13191452-5d163dd7-397d-4f97-878a-af11d7b4b60e?action=collection%2Ffork&collection-url=entityId%3D13191452-5d163dd7-397d-4f97-878a-af11d7b4b60e%26entityType%3Dcollection%26workspaceId%3D02d1963b-f4c4-49cc-bd6b-13f7015dd726" target="_blank"><img alt="Run in Postman button" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li>Select <strong>Collections</strong> in the sidebar and select the forked collection &#34;Regression testing - load testing example&#34; to use for performance testing.</li>
+<li>On the Collection&#39;s <strong>Overview</strong> tab, select the <strong>Run</strong> icon.</li>
+<li>Select the <strong>Performance</strong> tab.</li>
+<li>Enter the number of <strong>Virtual users</strong>. While the test is running, Postman repeatedly runs the collection for each virtual user. A higher number of virtual users puts increased load on your API.</li>
+<li>Enter the <strong>Test duration</strong> in minutes.</li>
+<li>Select a <strong>Load Profile</strong>. <ul>
+<li><strong>Fixed</strong> - The number of virtual users you specified is used throughout the test.</li>
+<li><strong>Ramp up</strong> - Enter a Ramp up duration in minutes. During the ramp-up period, the number of virtual users gradually increases to the number of users you specified. <img alt="configure load testing" src="img/9e975e2c84e575c6.png"></li>
+</ul>
+</li>
+<li>When you&#39;re ready to begin the performance test, select <strong>Run</strong>.</li>
+</ol>
+<h2 is-upgraded>View performance results</h2>
+<p>During a performance test, all requests are sent from your computer where you are running the Postman desktop app. The performance test runner displays performance metrics in real time so you can observe how your API performs under load.</p>
+<ol type="1">
+<li>You can customize the performance view by filtering on specific requests and selecting the response metrics you want to view <img alt="customize load testing view" src="img/6c3bd24e52e3a554.png"></li>
+<li>You can inspect the details for specific requests. <img alt="view specific requests" src="img/388fbb58b9a78273.png"></li>
+<li>You can also view a list of past performance runs for a collection. Open the collection, select the <strong>Runs</strong> tab, and then select the <strong>Performance runs</strong> tab. <img alt="view past load testing runs" src="img/bf07db659d94be21.png"></li>
+</ol>
 
 
       </google-codelab-step>
@@ -125,7 +150,7 @@
       <google-codelab-step label="Next Steps" duration="1">
         <p>The development community has widely varying opinions about the performance testing of HTTP APIs. The tooling for load testing is also a fragmented landscape. There&#39;s a ton of out-of-the-box, roll-your-own, and any combination of the two solutions. To top it off, load testing is frequently handled by different functions within an organization.</p>
 <p>With all of these different approaches, it&#39;s hard to identify any single strategy as the gold standard for load testing.</p>
-<p>If you&#39;re just getting started, I recommend starting with your monitoring. Observing your production traffic and corresponding performance metrics may be enough to spark some questions about your system&#39;s behavior. Then, run a base case and start incrementally adding some load. Especially with complex systems that are dependent on other internal and external services, you&#39;ll be able to spot the bottlenecks and and issues more clearly.</p>
+<p>If you&#39;re just getting started, I recommend starting with your monitoring. Observing your production traffic and corresponding performance metrics may be enough to spark some questions about your system&#39;s behavior. Then, run a base case and start incrementally adding some load. Especially with complex systems that are dependent on other internal and external services, you&#39;ll be able to spot the bottlenecks and issues more clearly.</p>
 <h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
 <ul class="checklist">
 <li>how to run load tests in Postman</li>
@@ -134,9 +159,9 @@
 </ul>
 <h2 is-upgraded>Additional testing resources</h2>
 <ul>
-<li>Testing skills</li>
-<li><a target="_blank">15 days of Postman - for testers</a> course</li>
-<li>Don&#39;t get tech crunched</li>
+<li><a href="https://blog.postman.com/early-access-to-postman-api-performance-testing/" target="_blank">Get early access to Postman&#39;s API performance testing: simulate real-world traffic</a></li>
+<li><a href="https://youtu.be/a5hWE4hMOoY" target="_blank">Load Testing your APIs</a> video</li>
+<li><a href="https://www.postman.com/postman/workspace/15-days-of-postman-for-testers" target="_blank">15 days of Postman - for testers</a> course</li>
 <li>Additional <a href="https://quickstarts.postman.com" target="_blank">hands-on learning courses</a> by Postman</li>
 </ul>
 
