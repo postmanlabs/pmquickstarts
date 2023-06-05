@@ -1,11 +1,11 @@
 author: Joyce
 id: aws
 summary: Get started with Amazon Web Services APIs
-categories: Getting-Started
+categories: Getting-Started, DevOps
 environments: web
 status: Published 
 feedback link: https://github.com/loopDelicious/pmquickstarts
-tags: Getting Started, Developer
+tags: Getting Started, DevOps
 
 # Get Started with Amazon Web Services APIs
 <!-- ------------------------ -->

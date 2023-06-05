@@ -1,11 +1,11 @@
 author: Joyce
 id: load-testing
 summary: Load testing in Postman
-categories: Tester, Intermediate
+categories: Tester, Intermediate, DevOps
 environments: web
 status: Published 
 feedback link: https://github.com/loopDelicious/pmquickstarts
-tags: Developer, Tester 
+tags: Developer, Tester, DevOps
 
 # Load Testing
 <!-- ------------------------ -->

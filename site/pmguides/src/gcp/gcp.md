@@ -1,11 +1,11 @@
 author: Joyce
 id: gcp
 summary: Get started with Google Cloud Platform APIs
-categories: Getting-Started
+categories: Getting-Started, DevOps
 environments: web
 status: Published 
 feedback link: https://github.com/loopDelicious/pmquickstarts
-tags: Getting Started, Developer
+tags: Getting Started, Developer, DevOps
 
 # Get Started with Google Cloud APIs
 <!-- ------------------------ -->
