@@ -127,7 +127,7 @@ Duration: 2
     use the Postman web app for performance testing. During a performance test, all
     requests are sent from your computer where you are running the Postman
     desktop app.
-1. Fork the the following example collection to your own workspace. You can also use your own collection to run and simulate user activity.
+1. Fork the following example collection to your own workspace. You can also use your own collection to run and simulate user activity.
     [![Run in Postman button](./_shared_assets/button.svg)](https://app.getpostman.com/run-collection/13191452-5d163dd7-397d-4f97-878a-af11d7b4b60e?action=collection%2Ffork&collection-url=entityId%3D13191452-5d163dd7-397d-4f97-878a-af11d7b4b60e%26entityType%3Dcollection%26workspaceId%3D02d1963b-f4c4-49cc-bd6b-13f7015dd726)
 1. Select **Collections** in the sidebar and select the forked collection "Regression testing - load testing example" to use for performance testing.
 1. On the Collection’s **Overview** tab, select the **Run** icon.
@@ -167,7 +167,7 @@ The development community has widely varying opinions about the performance test
 
 With all of these different approaches, it’s hard to identify any single strategy as the gold standard for load testing.
 
-If you’re just getting started, I recommend starting with your monitoring. Observing your production traffic and corresponding performance metrics may be enough to spark some questions about your system’s behavior. Then, run a base case and start incrementally adding some load. Especially with complex systems that are dependent on other internal and external services, you’ll be able to spot the bottlenecks and and issues more clearly.
+If you’re just getting started, I recommend starting with your monitoring. Observing your production traffic and corresponding performance metrics may be enough to spark some questions about your system’s behavior. Then, run a base case and start incrementally adding some load. Especially with complex systems that are dependent on other internal and external services, you’ll be able to spot the bottlenecks and issues more clearly.
 
 ### What we've covered
 - how to run load tests in Postman
