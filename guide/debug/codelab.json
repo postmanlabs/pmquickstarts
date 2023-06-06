@@ -1,0 +1,27 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
+  "updated": "2023-06-05T14:47:06-07:00",
+  "id": "debug",
+  "duration": 11,
+  "title": "API Debugging",
+  "summary": "Strategies and tactics for debugging more efficiently",
+  "source": "debug/debug.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "intermediate"
+  ],
+  "tags": [
+    "developer",
+    "intermediate",
+    "tester",
+    "web"
+  ],
+  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "url": "debug"
+}

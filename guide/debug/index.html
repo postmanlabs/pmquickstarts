@@ -1,0 +1,206 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>API Debugging</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="debug"
+                  title="API Debugging"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>In programming, debugging is the process of identifying and fixing an error in the code. For API consumers and producers, most of the effort is spent on locating the root cause of the issue based on what can be observed.</p>
+<p>In an ideal scenario, there is rigorous testing and monitoring in place to alert you when something goes wrong. But even if you don&#39;t have this level of observability, let&#39;s learn about three ways to increase visibility when debugging APIs.</p>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Basic familiarity with Postman and APIs</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>Explore methods for understanding API behavior, including updating user inputs to change the API response</li>
+<li>Debug and troubleshoot unexpected behavior</li>
+<li>Establish visibility for monitors, webhooks, and CLI</li>
+<li>Isolate dependencies with mock servers</li>
+<li>Set up notifications and alerts</li>
+<li>Explain recommended strategies for debugging</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Need</h2>
+<ul>
+<li>a <a href="https://identity.getpostman.com/signup" target="_blank">Postman Account</a></li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman Collection with working examples for debugging</li>
+</ul>
+<aside class="warning"><p> This content was originally presented in this webinar: <a href="https://youtu.be/9xGp6d7VFgU" target="_blank">Advanced API Debugging</a>. <strong>Watch this video</strong> to follow along: </p>
+<iframe class="youtube-video" src="https://www.youtube.com/embed/9xGp6d7VFgU?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Fork the collection" duration="1">
+        <h2 is-upgraded>Fork the collection</h2>
+<ol type="1">
+<li>Click the orange <strong>Run in Postman</strong> button below to fork <a href="https://www.postman.com/postman/workspace/postman-intergalactic/collection/1559645-a509fe32-9158-420c-9a15-1bf31c289946" target="_blank">this example collection</a> to your own Postman workspace. <br><a href="https://god.gw.postman.com/run-collection/1559645-a509fe32-9158-420c-9a15-1bf31c289946?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D1559645-a509fe32-9158-420c-9a15-1bf31c289946%26entityType%3Dcollection%26workspaceId%3D152199ce-48dd-4b46-b201-9e4fcb6f75db" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li>Enter a label for your fork and select the workspace to fork the collection: <img alt="fork label" src="img/58f054e1f8344cae.png"></li>
+<li>For the remainder of this tutorial, follow along in the example collection with <a href="https://youtu.be/9xGp6d7VFgU" target="_blank">this video</a>.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="API Client" duration="2">
+        <h2 is-upgraded>Inspect inputs and outputs for API calls</h2>
+<p>Postman is most commonly used as an <a href="https://youtu.be/mOxVsl5ZL2U" target="_blank">API client</a> to explore APIs. Postman allows you to manipulate inputs and inspect the outputs to better understand the relationship between the two. Here are some ways that you can debug more easily using Postman as an <a href="https://www.postman.com/api-platform/api-client/" target="_blank">API client</a>.</p>
+<ol type="1">
+<li>Select the collection you just forked to your workspace, called &#34;Advanced API Debugging&#34;, and expand the folder &#34;Client&#34;.</li>
+<li>Follow along with this video, <a href="https://youtu.be/9xGp6d7VFgU?t=563" target="_blank">timestamped at API client</a>, to learn more about the following topics. <ul>
+<li>Update parameters, headers, and bodies</li>
+<li>See HTTP status codes and error messages</li>
+<li>Parse responses</li>
+<li>Inspect variables</li>
+<li>Review test results</li>
+<li>Replay calls in the History</li>
+</ul>
+</li>
+</ol>
+<h2 is-upgraded>Knowledge check</h2>
+<google-codelab-survey survey-id="debug-1">
+<h4>Which of these inputs can NOT be updated in Postman?</h4>
+<paper-radio-group>
+<paper-radio-button>Request parameters, headers, and bodies</paper-radio-button>
+<paper-radio-button>Variables</paper-radio-button>
+<paper-radio-button>Test results</paper-radio-button>
+<paper-radio-button>Authorization credentials</paper-radio-button>
+</paper-radio-group>
+</google-codelab-survey>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Postman Console" duration="2">
+        <h2 is-upgraded>Postman console for visibility</h2>
+<p>The <a href="https://learning.postman.com/docs/sending-requests/troubleshooting-api-requests/" target="_blank">Postman console</a> provides visibility into network calls and logs. It is a simple, yet powerful, way to spot bugs. Here are some ways to debug more efficiently using the Postman console.</p>
+<ol type="1">
+<li>Select the collection you just forked to your workspace, called &#34;Advanced API Debugging&#34;, and expanding the folder &#34;Console&#34;.</li>
+<li>Follow along with the video, <a href="https://youtu.be/9xGp6d7VFgU?t=1010" target="_blank">timestamped at Console</a>, to learn more about the following topics. <ul>
+<li>View network calls and TLS encryption</li>
+<li>Log statements, errors, and warnings</li>
+<li>Inspect variables</li>
+<li>Validate execution order of API calls</li>
+<li>Verify conditional breakpoints set in scripts</li>
+</ul>
+</li>
+</ol>
+<h2 is-upgraded>Knowledge check</h2>
+<google-codelab-survey survey-id="debug-2">
+<h4>Which log statements are accepted in the Postman console ?</h4>
+<paper-radio-group>
+<paper-radio-button>console.log()</paper-radio-button>
+<paper-radio-button>console.info()</paper-radio-button>
+<paper-radio-button>console.warn()</paper-radio-button>
+<paper-radio-button>console.error()</paper-radio-button>
+<paper-radio-button>All of the above</paper-radio-button>
+</paper-radio-group>
+</google-codelab-survey>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Mock servers" duration="2">
+        <h2 is-upgraded>Mock servers for debugging and testing</h2>
+<p>Mock servers allow you to simulate API behavior using Postman servers. Mocks are frequently used in debugging to simplify a problem or isolate a system under test. Here is how you can debug APIs using <a href="https://learning.postman.com/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/" target="_blank">Postman mock servers</a>.</p>
+<ol type="1">
+<li>Select the collection you just forked to your workspace, called &#34;Advanced API Debugging&#34;, and expand the folder &#34;Mock servers&#34;.</li>
+<li>Follow along with the video, <a href="https://youtu.be/9xGp6d7VFgU?t=2036" target="_blank">timestamped at Console</a>, to learn more about the following topics. <ul>
+<li>Simulate edge cases that may be difficult or costly to run in production (e.g., <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429" target="_blank">429 Too Many Requests</a>)</li>
+<li>Stub out dependencies on third-party services or internal microservices</li>
+<li>Establish a starting point for a scenario or inject a call within a scenario</li>
+</ul>
+</li>
+</ol>
+<h2 is-upgraded>Knowledge check</h2>
+<google-codelab-survey survey-id="debug-3">
+<h4>Which of these is NOT required to set up a mock server in Postman?</h4>
+<paper-radio-group>
+<paper-radio-button>A Postman account</paper-radio-button>
+<paper-radio-button>A saved example in a Postman collection</paper-radio-button>
+<paper-radio-button>A Postman workspace</paper-radio-button>
+<paper-radio-button>A Kubernetes cluster</paper-radio-button>
+</paper-radio-group>
+</google-codelab-survey>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="3">
+        <p>Follow along with the rest of the <a href="https://youtu.be/9xGp6d7VFgU" target="_blank">Advanced API Debugging</a> video to learn about the following topics.</p>
+<ul>
+<li>General debugging strategies</li>
+<li>Tools and tactics for an API call</li>
+<li>Tools and tactics for a sequence of API calls</li>
+<li>Integrations for monitoring and observability</li>
+</ul>
+<h2 is-upgraded>Knowledge check</h2>
+<google-codelab-survey survey-id="debug-4">
+<h4>Which of these debugging strategies can you use in Postman?</h4>
+<paper-radio-group>
+<paper-radio-button>Brute force</paper-radio-button>
+<paper-radio-button>Backtracking</paper-radio-button>
+<paper-radio-button>Divide and Conquer</paper-radio-button>
+<paper-radio-button>All of the above</paper-radio-button>
+</paper-radio-group>
+</google-codelab-survey>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://youtu.be/YCsURct9wCk" target="_blank">Debugging with the Console</a> video</li>
+<li><a href="https://youtu.be/2VKVPB5USgU" target="_blank">Reverse engineering an API: using the Postman proxy</a> video</li>
+<li><a href="https://youtu.be/n_7UUghLpco" target="_blank">Mock servers</a> video</li>
+</ul>
+<h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
+<ul class="checklist">
+<li>Explore methods for understanding API behavior, including updating user inputs to change the API response</li>
+<li>Debug and troubleshoot unexpected behavior</li>
+<li>Establish visibility for monitors, webhooks, and CLI</li>
+<li>Isolate dependencies with mock servers</li>
+<li>Set up notifications and alerts</li>
+<li>Explain recommended strategies for debugging</li>
+</ul>
+<p>If you want to stay in the loop with <a href="https://www.postman.com/events/intergalactic/" target="_blank">Postman Intergalactic</a> webinars, register for upcoming sessions or sign up to get notified about upcoming sessions.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>
