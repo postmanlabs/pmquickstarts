@@ -1,0 +1,257 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Test APIs with Docker containers</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="docker"
+                  title="Test APIs with Docker containers"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>Let&#39;s test our API using Docker Containers and Postman.</p>
+<p>We will test a simple CRUD application created using Node.js, Express, and Postgres.</p>
+<h2 is-upgraded>What You&#39;ll Need</h2>
+<ul>
+<li>Postman: to test our API.</li>
+<li>Newman: to run our Postman collection.</li>
+<li>Play with Docker: to deploy our application.</li>
+<li>Docker: to run our application.</li>
+</ul>
+<p>If you prefer a video version: </p>
+<iframe class="youtube-video" src="https://www.youtube.com/embed/1eeR0LoIs-M?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h2 is-upgraded>Step-by-step procedure</h2>
+<ol type="1">
+<li>Intro</li>
+<li>Clone the repository and modify the docker-compose.yml file</li>
+<li>Run and test the application locally</li>
+<li>Deploy our application.</li>
+<li>Create and export the Postman collection</li>
+<li>test the app using containers</li>
+<li>Conclusion</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="🎬 Intro" duration="2">
+        <p>We will use Docker and Postman:</p>
+<ul>
+<li>Docker: to run our application.</li>
+<li>Postman: to test it.</li>
+</ul>
+<h2 is-upgraded>🧑‍🚀 Postman</h2>
+<p>Postman is a popular collaboration platform and API (Application Programming Interface) client that allows developers to design, test, and document APIs. It provides a user-friendly interface that enables users to request an API and inspect the response and create and manage automated tests for APIs.</p>
+<p>Additionally, Postman allows teams to share collections of requests and collaborate on API development and testing.</p>
+<p>Postman is very cool, but we will make it even more incredible in this article by using it with Docker.</p>
+<h2 is-upgraded>🐳 Docker</h2>
+<p>Docker is a containerization platform that allows developers to package applications and their dependencies into self-contained units called containers.</p>
+<p>Containers are isolated from each other and the underlying host system, making them portable and easy to deploy across different environments. Docker provides a simple and consistent way to build, distribute, and run applications, which helps to streamline the development process and reduce the time and effort required to set up and manage complex application architectures.</p>
+<p>In this article, we will use docker both to run our application and to test the application using Postman.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="🧬 Clone the repository" duration="2">
+        <p>We will use a JavaScript project I created in another video. It is a simple CRUD application using Node.js, Express, and Postgres.</p>
+<pre><code language="language-plaintext" class="language-plaintext">git clone https://github.com/FrancescoXX/crud-node-live.git
+</code></pre>
+<p>now step into the repository</p>
+<pre><code language="language-plaintext" class="language-plaintext">cd crud-node-live
+</code></pre>
+<p>And open this folder with your favorite IDE. I am using VSCode.</p>
+<pre><code language="language-plaintext" class="language-plaintext">code .
+</code></pre>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="git repository cloned" src="img/c9857e63e76ac1a1.png"></a></p>
+<p>We will not go into the details of this application. If you want to know how this was built, check this link: <a href="https://youtu.be/1eeR0LoIs-M" target="_blank">https://youtu.be/1eeR0LoIs-M</a></p>
+<h2 is-upgraded>Modify the docker-compose.yml file.</h2>
+<p>To test this application, you can build your own image or use the image I created and pushed to Dockerhub.</p>
+<p>To use mine, remove the <code>build</code> instruction on line 6, as we will use an existing image from Dockerhub</p>
+<p>This is the final docker-compose.yml file (note that there is no <code>build</code> instruction)</p>
+<pre><code language="language-yml" class="language-yml">version: &#34;3.9&#34;
+
+services:
+  node_app:
+    container_name: node_app
+    image: francescoxx/node_live_app
+    ports:
+      - &#34;3000:3000&#34;
+    environment:
+      - PG_DB=node_live_db
+      - PG_USER=francesco
+      - PG_PASSWORD=12345
+      - PG_HOST=node_db
+    depends_on:
+      - node_db
+  
+  node_db:
+    container_name: node_db
+    image: postgres:12
+    ports:
+      - &#34;5432:5432&#34;
+    environment:
+      - POSTGRES_DB=node_live_db
+      - POSTGRES_USER=francesco
+      - POSTGRES_PASSWORD=12345
+    volumes:
+      - node_db_data:/var/lib/postgresql/data
+
+volumes:
+  node_db_data: {}
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="👟 Run and Test the application locally" duration="2">
+        <h2 is-upgraded>Run the application locally</h2>
+<p>Let&#39;s run both the Docker services (containers) locally.</p>
+<p>Run the Postgres container:</p>
+<pre><code language="language-plaintext" class="language-plaintext">docker compose up -d node_db
+</code></pre>
+<p>Run the node app:</p>
+<pre><code language="language-plaintext" class="language-plaintext">docker compose up -d node_app
+</code></pre>
+<p>And check if both of them are up and running:</p>
+<pre><code language="language-plaintext" class="language-plaintext">docker ps -a
+</code></pre>
+<p>The output should be similar to this:</p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="docker ps -a" src="img/78646a29958e5f8c.png"></a></p>
+<h2 is-upgraded>Test the application locally</h2>
+<p>In this example, we will test just two endpoints:</p>
+<p>Using Postman, we can make a <code>GET</code> request to <a href="http://localhost:3000" target="_blank"><code>http://localhost:3000</code></a></p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="docker ps -a" src="img/f2dbae64a2cfb27d.png"></a></p>
+<p>And we can make a <code>GET</code> request to <a href="http://localhost:3000/users" target="_blank"><code>http://localhost:3000/users</code></a></p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="docker ps -a" src="img/fd85dce9d5ed096.png"></a></p>
+<p>We don&#39;t have any users, so we get an empty array.</p>
+<p>Now we are ready to deploy this service and test it using containers.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="🚢 Deploy the application" duration="2">
+        <p>You can use any Container service, such as AWS, Azure, or Google Cloud platform.</p>
+<p>The important part is to have a final public IP address to test it using Postman.</p>
+<p>I will use Play with Docker, which is free and easy to use.</p>
+<h2 is-upgraded>Play with Docker</h2>
+<p>Visit this link: <a href="https://labs.play-with-docker.com/" target="_blank">https://labs.play-with-docker.com/</a> and click <code>Start</code></p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="docker ps -a" src="img/9a6faa27e9602668.png"></a></p>
+<p>This will create a 4-hour session where you can create and test your containers.</p>
+<p>Click on <code>+ Add new instance</code></p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="docker ps -a" src="img/4122f5045b05fc0a.png"></a></p>
+<p>And on the right, you should see a terminal and the instance. This instance has a public address.</p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="docker ps -a" src="img/65c84b2b5e103696.png"></a></p>
+<h2 is-upgraded>Deploy the application</h2>
+<p>Deploying the application is very easy.</p>
+<p>We need to copy the docker-compose.yml file and paste it on the playground.</p>
+<p>You can do it using ssh, or you can drag and drop the file on the playground.</p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="docker ps -a" src="img/91369a7b117a811c.png"></a></p>
+<p>Check if the docker-compose file is there by typing</p>
+<pre><code language="language-plaintext" class="language-plaintext">ls
+</code></pre>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="docker ps -a" src="img/d3e25a9bfa0e79d5.png"></a></p>
+<p>Now let&#39;s run the same two commands we ran before locally:</p>
+<pre><code language="language-plaintext" class="language-plaintext">docker compose up -d node_db
+docker compose up -d node_app
+</code></pre>
+<p>And let&#39;s check it</p>
+<pre><code language="language-plaintext" class="language-plaintext">docker ps -a
+</code></pre>
+<p>Note that now there are 2 ports open: <code>3000</code> and <code>5432</code></p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="docker ps -a" src="img/504c935b79e38b91.png"></a></p>
+<p>If you click on the <code>3000</code> next to <code>OPEN PORT</code>, you should see the application running on a public IP (If you use any a cloud provider, check the public IP)</p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="docker ps -a" src="img/dfbeef48ca1c4e88.png"></a></p>
+<p>let&#39;s get an example</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="🗃️ Postman Collection" duration="2">
+        <p>Open Postman, and if you don&#39;t have it already create a New public space named whatever you want.</p>
+<p>In my case, I created a workspace named <code>public-francesco</code></p>
+<p>Now create a new collection by clicking <code>Create Collection</code></p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="docker ps -a" src="img/ea7d3639ac91bdc0.png"></a></p>
+<p>Rename it as <code>postman-docker</code></p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="docker ps -a" src="img/f97a85ef609a5dbd.png"></a></p>
+<p>Add a new <code>GET request</code> at the public IP address of the application, and <code>SAVE</code> it (top-right corner)</p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="docker ps -a" src="img/8b273ca623d1407d.png"></a></p>
+<p>Duplicate it (right-click on the first request) and name the new one <code>Get All Users</code></p>
+<p>This request will be a <code>GET request to <public-server-ip>:/users</code></p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="docker ps -a" src="img/8b273ca623d1407d.png"></a></p>
+<p>⚠️Remember to SAVE the requests</p>
+<p>You can test this Collection by running it directly in Postman:</p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="Postman Collection run output" src="img/26b56a8bf8d891de.png"></a></p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="Postman Collection run output" src="img/ee3e70b14ec3a72a.png"></a></p>
+<p>We are now ready to export this collection and test it using containers</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="🧪 Test the app using containers" duration="2">
+        <p>We will use Newman, a command-line collection runner for Postman. It allows you to run and test a Postman Collection directly from the command line. It is built with extensibility in mind so that you can easily integrate it with your continuous integration servers and build systems.</p>
+<h2 is-upgraded>Export the Postman Collection</h2>
+<p>Now export this collection as a JSON file. You can do it by clicking on the three dots on the right of the collection name and then clicking on <code>Export</code></p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="export Portman Collection" src="img/d066543cfc0f3734.png"></a></p>
+<p>Save it as <code>node-collection</code> (no extension)</p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="export Portman Collection" src="img/ff8c85a2a4d0c8bf.png"></a></p>
+<p>Now it&#39;s time to run this collection.</p>
+<h2 is-upgraded>run the Postman Collection using Newman</h2>
+<p>⚠️ For Windows users: use the Command Prompt or Powershell</p>
+<p>navigate to the folder where the file <code>node-collection</code> is located</p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="export Portman Collection" src="img/7150dc483e0e6d10.png"></a></p>
+<p>And run this command:</p>
+<pre><code language="language-plaintext" class="language-plaintext">docker run -v &lt;postman-collection-path&gt;:/etc/newman -t postman/newman run node-collection
+</code></pre>
+<p>Replace <code><postman-collection-path></code> with the path of the folder where the file <code>node-collection</code> is located.</p>
+<p>In my case, it&#39;s <code>/c/workspace/postman-collection-test</code></p>
+<p><a href="https://youtu.be/1eeR0LoIs-M" target="_blank"><img alt="export Portman Collection" src="img/f51b9b8550d256cd.png"></a></p>
+<p>and you will get a list of the requests.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="🏁 Conclusion" duration="1">
+        <p>We made it! We tested the application using the following:</p>
+<ul>
+<li>Postman collection</li>
+<li>Newman</li>
+<li>Docker</li>
+</ul>
+<p><strong>Watch the video version</strong> of this tutorial: </p>
+<iframe class="youtube-video" src="https://www.youtube.com/embed/1eeR0LoIs-M?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>

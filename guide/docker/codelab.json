@@ -4,26 +4,24 @@
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
   "updated": "2023-06-08T08:26:15-07:00",
-  "id": "load-testing",
-  "duration": 9,
-  "title": "Load Testing",
-  "summary": "Load testing in Postman",
-  "source": "load-testing/load-testing.md",
+  "id": "docker",
+  "duration": 14,
+  "title": "Test APIs with Docker containers",
+  "summary": "Test APIs with Docker containers",
+  "source": "docker/docker.md",
   "theme": "",
   "status": [
     "published"
   ],
   "category": [
-    "tester",
-    "intermediate",
-    "devops"
+    "getting-started"
   ],
   "tags": [
     "developer",
-    "devops",
+    "gettingstarted",
     "tester",
     "web"
   ],
   "feedback": "https://github.com/loopDelicious/pmquickstarts",
-  "url": "load-testing"
+  "url": "docker"
 }
