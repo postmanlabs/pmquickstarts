@@ -3,7 +3,7 @@ id: paystack
 summary: An introduction to Paystack's Postman Workspace
 categories: Getting-Started
 environments: web
-status: Published
+status: Draft
 feedback link: https://github.com/PaystackOSS
 tags: Getting Started, Developer
 
@@ -13,7 +13,7 @@ tags: Getting Started, Developer
 
 ## Overview
 
-Duration: 1
+Duration: 2
 
 Paystack (acquired by Stripe) is an online payment processor for merchants in Africa. Founded in Nigeria in 2016 we’ve expanded to several markets including Ghana, South Africa and Kenya. Developers and startups in these markets can get paid from anyone, anywhere in the world. Coupled with our comprehensive [Developer Docs](https://paystack.com/docs) and [API Reference](https://paystack.com/docs/api/), you can explore the various Paystack APIs, from Transactions to Transfers and Account Verification to Subscriptions.
 
@@ -67,7 +67,8 @@ Duration: 1
 
 You're now ready to make yoru first call to [Initialize Transaction endpoint](https://paystack.com/docs/api/transaction#initialize). This is the endpoint used to create a transaction on Paystack. It returns a url where you redirect the customer to pay and complete the transaction. There are only two required parameters in here, a valid `email` and  `amount` to charge.
 
-Amounts on the API are in the lowest currency unit i.e. Kobo for Naira, Pesewas for Cedi and Cents for Rand, Shillings and Dollars. For example, if you want to charge 100 Rand, you’ll set the amount to 10000 Cents (100*100). 
+> aside positive
+> Amounts on the API are in the lowest currency unit i.e. Kobo for Naira, Pesewas for Cedi and Cents for Rand, Shillings and Dollars. For example, if you want to charge 100 Rand, you’ll set the amount to 10000 Cents (100*100). 
 
 
 ![Initialize Transaction](assets/postman_initialize_transaction.png)
@@ -111,8 +112,8 @@ The Checkout loads with available payment channels based on the country the busi
 ![Paystack Checkout](assets/postman_paystack_checkout.png)
 
 
-Now that you’ve setup and made your first API call, go ahead and try the other APIs and the use cases using the [Developer Docs](https://paystack.com/docs/api#requests-and-response) to guide you. For starters, you can try using the [Verify Transaction endpoint](https://paystack.com/docs/payments/verify-payments) to see the details of the transaction you completed above.
+Now that you’ve setup and made your first API call, go ahead and try the other APIs and the use cases on the [Paystack Developer Workspace](https://www.postman.com/paystack-developers/workspace). You can also checkout our [Developer Docs](https://paystack.com/docs). For starters, you can try using the [Verify Transaction endpoint](https://paystack.com/docs/payments/verify-payments) to see the details of the transaction you completed above.
 
-If you have any questions, comments or suggestions please feel free to reach us at techsupport@paystack.com. Also you can stay up to date with Paystack by subscribing to our [monthly developer newsletter here](https://paystack.com/subscribe).
+If you have any questions, comments or suggestions please feel free to reach us at [techsupport@paystack.com](mailto:techsupport@paystack.com). Also you can stay up to date with Paystack by subscribing to our [monthly developer newsletter here](https://paystack.com/subscribe).
 
 Happy exploring!
