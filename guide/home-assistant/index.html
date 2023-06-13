@@ -1,0 +1,143 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Home Assistant with WebSocket APIs</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="home-assistant"
+                  title="Home Assistant with WebSocket APIs"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Familiarity with DIY home automation and Home Assistant</li>
+<li>Some connected device, such as smart lights, smart speakers, or digital assistant</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>how to establish a WebSockets connection</li>
+<li>how to authorize Home Assistant APIs</li>
+<li>how to send and receive WebSocket messages</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Need</h2>
+<ul>
+<li>a <a href="https://www.home-assistant.io/" target="_blank">Home Assistant Account</a><ul>
+<li>Home Assistant deployed and running on local server, such as Raspberry Pi</li>
+</ul>
+</li>
+<li>a <a href="https://identity.getpostman.com/signup" target="_blank">Postman Account</a></li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman collection with WebSocket messages</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create Home Assistant long-lived token" duration="2">
+        <p>Home Assistant contains a WebSocket API. This API can be used to stream information from a Home Assistant instance to any client that implements WebSockets.</p>
+<h2 is-upgraded>Fork the Postman collection</h2>
+<ol type="1">
+<li>Find the sample collection, <a href="https://www.postman.com/postman/workspace/program-smart-lights/collection/6481ed9afe7f1bdfaa732408" target="_blank">Home Assistant WebSockets</a>, and fork the collection to your own Postman workspace. <img alt="fork icon" src="img/dbfc0c18776deb5f.png"></li>
+<li>Enter a label for your fork and select the workspace to fork the collection: <img alt="fork label" src="img/fb5d9ab881eaf428.png"></li>
+</ol>
+<h2 is-upgraded>Create Home Assistant long-lived token</h2>
+<ol type="1">
+<li>Log in to <a href="http://homeassistant.local:8123" target="_blank">Home Assistant</a></li>
+<li>Create a long-lived access token from the <a href="http://homeassistant.local:8123/profile" target="_blank">Home Assistant profile page</a>. <img alt="long lived token" src="img/b5d2de20af097588.png"></li>
+<li>Let&#39;s save our token as a Postman variable, so that we can use it in our API requests. Select the Postman collection that you forked to your workspace. Find the <strong>Variables</strong> tab, and paste your long-lived access token as the <code>token</code> variable value. <img alt="save token as variable" src="img/23c2b3090b0a1a5a.png"></li>
+</ol>
+<aside class="warning"><p> If you are working in a public or team workspace, you may want to create <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">a Postman environment</a> and use <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">&#34;Current value&#34;</a> to prevent unintentional disclosure of sensitive data, such as authorization credentials.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Establish a WebSockets connection" duration="3">
+        <h2 is-upgraded>Authenticate the WebSockets connection</h2>
+<ol type="1">
+<li>Select the Postman collection that you forked to your workspace. Open the &#34;Home Assistant WebSocket API&#34; request, and click the <strong>Connect</strong> button.</li>
+<li>When a client connects to the server, the server sends out <code>auth_required</code>.In the <strong>Response</strong> pane, you can inspect the message returned from the WebSockets server. You can further inspect the connection details by clicking on &#34;Connected to ws://homeassistant.local:8123/api/websocket&#34;. The connection established between the Postman client and local server is bidirectional. In addition to receiving messages, Postman can also send them. <img alt="network connection details" src="img/1934d4a2bf9e20b4.png"></li>
+<li>The first message from the client should be an auth message that includes an access token. Under the <strong>Message</strong> tab, under <strong>Saved messages</strong>, select a message called <code>auth</code> to display a JSON message that includes your <code>token</code>. If you were busy inspecting, the server may have disconnected from Postman. <strong>Connect</strong> once again, and then <strong>Send</strong> the <code>auth</code> message. <img alt="auth ok" src="img/263284e5600f9dde.png"></li>
+</ol>
+<h2 is-upgraded>Send and receive messages</h2>
+<p>Once the connection is authenticated, you can send and receive messages. Select from <strong>Saved messages</strong> to initiate commands.</p>
+<aside class="warning"><p> During the command phase, the client attaches a unique identifier to each message. The server will add this identifier to each message so that the client can link each message to its origin.</p>
+</aside>
+<ol type="1">
+<li>The command <code>subscribe_events</code> will subscribe your client to the event bus. You can either listen to all events or to a specific event type. Find a <strong>Saved message</strong> called <code>subscribe_events</code> that contains the following message, and <strong>Send</strong>.</li>
+</ol>
+<pre><code language="language-json" class="language-json">{
+  &#34;id&#34;: 18,
+  &#34;type&#34;: &#34;subscribe_events&#34;,
+  &#34;event_type&#34;: &#34;state_changed&#34;
+}
+</code></pre>
+<ol type="1">
+<li>Once you subscribe to listen to all events, you will receive a message when the state changes on any device connected to Home Assistant. <img alt="show state changes" src="img/fa7cedb3801a1e58.png"></li>
+<li>For each message that you send or receive, you can expand the message details. <img alt="show message details" src="img/88e117070d47670d.png"></li>
+<li>If the <strong>Response</strong> pane becomes too busy, you can <strong>Clear messages</strong>, and filter the messages by text or sent or received. <img alt="show message details" src="img/7351925c223cdd60.png"></li>
+</ol>
+<p>Continue exploring the other <strong>Saved messages</strong> within this collection. Once you learn how to work with Home Assistant WebSockets APIs, you can build your own custom integrations and notifications.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
+<ul class="checklist">
+<li>how to establish a WebSockets connection</li>
+<li>how to authorize Home Assistant APIs</li>
+<li>how to send and receive WebSocket messages</li>
+</ul>
+<p>For more hands-on tutorials, check out these resources.</p>
+<ul>
+<li><a href="https://quickstarts.postman.com/guide/websockets-node/index.html?index=..%2F..index#4" target="_blank">Set up a WebSockets server in Node.js</a> quickstart</li>
+<li><a href="https://quickstarts.postman.com/guide/websockets-python/index.html?index=..%2F..index#0" target="_blank">Set up a WebSockets server in Python</a> quickstart</li>
+<li>Contribute your own tutorials <a href="https://github.com/loopDelicious/pmquickstarts" target="_blank">here</a></li>
+</ul>
+<h2 is-upgraded>Additional resources</h2>
+<ul>
+<li><a href="https://developers.home-assistant.io/docs/api/websocket" target="_blank">Home Assistant WebSocket API documentation</a></li>
+<li><a href="https://developers.home-assistant.io/docs/api/rest" target="_blank">Home Assistant REST API documentation</a></li>
+<li><a href="https://www.postman.com/aaroncarson/workspace/aaroncarson-public/collection/16392798-e28a007f-b4ac-4849-9ba0-b2dd5a7970b9" target="_blank">Home Assistant REST API</a>: Postman collection</li>
+<li><a href="https://www.postman.com/postman/workspace/program-smart-lights/overview" target="_blank">Program smart lights</a>: Postman public workspace</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>
