@@ -68,7 +68,7 @@ Duration: 1
 You're now ready to make yoru first call to [Initialize Transaction endpoint](https://paystack.com/docs/api/transaction#initialize). This is the endpoint used to create a transaction on Paystack. It returns a url where you redirect the customer to pay and complete the transaction. There are only two required parameters in here, a valid `email` and  `amount` to charge.
 
 > aside positive
-> Amounts on the API are in the lowest currency unit i.e. Kobo for Naira, Pesewas for Cedi and Cents for Rand, Shillings and Dollars. For example, if you want to charge 100 Rand, you’ll set the amount to 10000 Cents (100*100). 
+> Amounts on the API are in the lowest currency unit that is: Kobo for Naira, Pesewas for Cedi and Cents for Rand, Shillings and Dollars. For example, if you want to charge 100 Rand, you’ll set the amount to 10000 Cents (100*100). 
 
 
 ![Initialize Transaction](assets/postman_initialize_transaction.png)
