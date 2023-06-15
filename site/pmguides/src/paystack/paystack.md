@@ -43,7 +43,7 @@ To get started, fork the collection from [Paystack Postman Workspace](https://ww
 Forking a collection makes a copy of the collection in your workspace that you can modify. Checkout [this guide from Postman](https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-entities/) that explores the topic more.
 
 
-Click on the three dots next to the Paystack collection and select the “Create a fork” option. On the next page, you can set a label for the fork, and specify what workspace it should be created in. Set the values and click on **Fork Collection**.
+Click on the three dots next to the Paystack collection and select the **Create a fork** option. On the next page, you can set a label for the fork, and specify what workspace it should be created in. Set the values and click on **Fork Collection**.
 
 ![Forking the Paystack collection](assets/postman_fork_collection.png)
 
