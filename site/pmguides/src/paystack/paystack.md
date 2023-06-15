@@ -28,7 +28,7 @@ At the end of this guide, you'll have setup Paystack Collection and made your fi
 
 ### What You’ll Learn
 
-+ Fork the Paystack collection on your Postman
++ Fork the Paystack collection to your workspace in Postman
 + Authorize Paystack requests using environment variables
 + Initialize a test transaction with Postman
 + Complete a test transaction on Paystack
@@ -43,7 +43,7 @@ To get started, fork the collection from [Paystack Postman Workspace](https://ww
 Forking a collection makes a copy of the collection in your workspace that you can modify. Checkout [this guide from Postman](https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-entities/) that explores the topic more.
 
 
-Click on the three dots next to the Paystack collection and select the “Create a fork” option. On the next page, you can set a label for the fork, and specify what workspace it should be created in. Set the values and click on “Fork Collection”.
+Click on the three dots next to the Paystack collection and select the “Create a fork” option. On the next page, you can set a label for the fork, and specify what workspace it should be created in. Set the values and click on **Fork Collection**.
 
 ![Forking the Paystack collection](assets/postman_fork_collection.png)
 
@@ -65,7 +65,7 @@ In your newly forked collection, go to the Authorization tab and replace the val
 
 Duration: 1
 
-You're now ready to make yoru first call to [Initialize Transaction endpoint](https://paystack.com/docs/api/transaction#initialize). This is the endpoint used to create a transaction on Paystack. It returns a url where you redirect the customer to pay and complete the transaction. There are only two required parameters in here, a valid `email` and  `amount` to charge.
+You're now ready to make your first API call to [Initialize Transaction endpoint](https://paystack.com/docs/api/transaction#initialize). This endpoint creates a transaction on Paystack and only requires a valid `email` and the `amount` to charge. It returns a url where you redirect the customer to pay and complete the transaction.
 
 > aside positive
 > Amounts on the API are in the lowest currency unit that is: Kobo for Naira, Pesewas for Cedi and Cents for Rand, Shillings and Dollars. For example, if you want to charge 100 Rand, you’ll set the amount to 10000 Cents (100*100). 
