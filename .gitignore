@@ -7,5 +7,6 @@ debug.test
 node_modules
 site/.firebaserc
 site/.firebase/**
+site/package-lock.json
 package-lock.json
 yarn.lock
