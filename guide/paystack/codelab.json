@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
+  "updated": "2023-06-20T14:26:15-07:00",
+  "id": "paystack",
+  "duration": 10,
+  "title": "Get Started with the Paystack API",
+  "summary": "An introduction to Paystack’s Postman Workspace",
+  "source": "paystack/paystack.md",
+  "theme": "",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "getting-started"
+  ],
+  "tags": [
+    "developer",
+    "gettingstarted",
+    "web"
+  ],
+  "feedback": "https://github.com/PaystackOSS",
+  "url": "paystack"
+}

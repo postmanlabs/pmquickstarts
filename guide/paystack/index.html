@@ -1,0 +1,116 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Get Started with the Paystack API</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="paystack"
+                  title="Get Started with the Paystack API"
+                  environment="web"
+                  feedback-link="https://github.com/PaystackOSS">
+    
+      <google-codelab-step label="Overview" duration="2">
+        <p>Paystack (acquired by Stripe) is an online payment processor for merchants in Africa. Founded in Nigeria in 2016, we&#39;ve expanded to several markets, including Ghana, South Africa, and Kenya. Developers and startups in these markets can get paid from anyone, anywhere in the world. Coupled with our comprehensive <a href="https://paystack.com/docs" target="_blank">Developer Docs</a> and <a href="https://paystack.com/docs/api/" target="_blank">API Reference</a>, you can explore the various Paystack APIs, from Transactions to Transfers and Account Verification to Subscriptions.</p>
+<p>At the end of this guide, you&#39;ll have set up a Paystack Collection and made your first test payment on Paystack.</p>
+<h2 is-upgraded>Prerequisites</h2>
+<ol type="1">
+<li><a href="https://paystack.com/signup" target="_blank">Sign up</a> on Paystack and retrieve your <strong>Test Secret API Key</strong>. (<a href="https://support.paystack.com/hc/en-us/articles/360009881600-Paystack-Test-Keys-Live-Keys-and-Webhooks" target="_blank">See our guide</a> for more information)</li>
+<li>Visit the <a href="https://www.postman.com/paystack-developers/workspace/paystack-api/overview" target="_blank">Paystack public workspace</a>.</li>
+<li>Open our <a href="https://paystack.com/docs" target="_blank">Developer Docs</a> and <a href="https://paystack.com/docs/api/" target="_blank">API Reference</a> to get more detailed explanations on the APIs we&#39;ll cover.</li>
+</ol>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>Fork the Paystack Collection to your workspace in Postman</li>
+<li>Authorize Paystack requests using environment variables</li>
+<li>Initialize a test transaction with Postman</li>
+<li>Complete a test transaction on Paystack</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Set up the collection and environment" duration="2">
+        <p>To get started, fork the collection from the <a href="https://www.postman.com/paystack-developers/workspace/paystack-api/overview" target="_blank">Paystack public workspace</a> add it to your own workspace. Forking a collection makes a copy of the collection in your workspace that you can modify. Check out <a href="https://learning.postman.com/docs/collaborating-in-postman/using-version-control/forking-entities/" target="_blank">this guide from Postman</a> that explores the topic more.</p>
+<p>Click on the three dots next to the Paystack Collection and select the <strong>Create a fork</strong> option. On the next page, you can set a label for the fork and specify what workspace it should be created in. Set the values and click <strong>Fork Collection</strong>.</p>
+<p class="image-container"><img alt="Forking the Paystack collection" src="img/50495fb05a041c6.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Set your API key" duration="2">
+        <p>In your newly forked collection, go to the <strong>Authorization</strong> tab and replace the value of the <strong>Token</strong> input with your Test Secret Key from the Paystack Dashboard. You can use <a href="https://learning.postman.com/docs/sending-requests/variables/" target="_blank">environment variables</a> in Postman to set up secret keys for different integrations. This way, you only switch the environment and your API keys change.</p>
+<p class="image-container"><img alt="Set your API key" src="img/b9d54cf37fc5345e.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Make your first API call" duration="1">
+        <p>You&#39;re now ready to make your first API call to the <a href="https://paystack.com/docs/api/transaction#initialize" target="_blank">Initialize Transaction endpoint</a>. This endpoint creates a transaction on Paystack and only requires a valid <code>email</code> and the <code>amount</code> to charge. It returns a URL where you redirect the customer to pay and complete the transaction.</p>
+<p><strong>Note</strong>: Amounts are in the lowest currency unit. For example, kobo for naira, pesewas for cedi, and cents for rand, shillings, and dollars. For example, if you want to charge 100 rand, you&#39;ll set the amount to 10000 cents (100*100).</p>
+<p class="image-container"><img alt="Initialize Transaction" src="img/2804e186210a7edc.png"></p>
+<p>In this example we&#39;re only passing the <code>email</code> and <code>amount</code>, so deselect the other parameters in the <strong>Body</strong> tab. You can set your own custom transaction using the <code>reference</code> parameter.</p>
+<p>Once set up, go ahead and hit the <strong>Send</strong> button to make the request.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Completing the transaction" duration="2">
+        <p>Congratulations! You&#39;ve made your first call to the Paystack API. You&#39;ve initialized a transaction and now, you just need to complete it. To do that, we&#39;ll look at the JSON payload returned from Paystack.</p>
+<p class="image-container"><img alt="Response from Initialize Transaction" src="img/17abd6c2ebdc9c2.png"></p>
+<p>Let&#39;s look at what each of the parameters mean:</p>
+<ul>
+<li><code>status</code>: A boolean value that tells you whether the request to initialize the transaction was successful or not.</li>
+<li><code>message</code> : A string with a more human readable explanation of the API response and its status. If an error had occurred, this is where we would get information about what went wrong.</li>
+<li><code>data</code>: An object or array with the contents of your request. <ul>
+<li><code>authorization_url</code>: A URL to the Paystack-hosted Checkout page for your customer to complete the transaction.</li>
+<li><code>access_code</code>: A unique code for this transaction. The code can be used with the Paystack Inline library.</li>
+<li><code>reference</code>: A unique transaction identifier that you can supply with each transaction you create. If you don&#39;t supply one, Paystack creates one for you.</li>
+</ul>
+</li>
+</ul>
+<p>Let&#39;s complete the transaction by opening the <code>authorization_url</code> in a browser. This will load the Paystack Checkout with the details provided during the initialization step above.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Conclusion" duration="1">
+        <p>The Checkout loads with available payment channels based on the country the business is registered and the channels set on the dashboard.</p>
+<p class="image-container"><img alt="Paystack Checkout" src="img/7829fd2092020a94.png"></p>
+<p>Now that you&#39;ve set up and made your first API call, go ahead and try the other APIs and the use cases on the <a href="https://www.postman.com/paystack-developers/workspace" target="_blank">Paystack Developer Workspace</a>. You can also check out our <a href="https://paystack.com/docs" target="_blank">Developer Docs</a>. For starters, you can try using the <a href="https://paystack.com/docs/payments/verify-payments" target="_blank">Verify Transaction endpoint</a> to see the details of the transaction you completed above.</p>
+<p>If you have any questions, comments, or suggestions please feel free to reach us at <a href="mailto:techsupport@paystack.com" target="_blank">techsupport@paystack.com</a>. Also, you can stay up to date with Paystack by subscribing to our <a href="https://paystack.com/subscribe" target="_blank">monthly developer newsletter here</a>.</p>
+<p>Happy exploring!</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>
