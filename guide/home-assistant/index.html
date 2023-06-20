@@ -42,21 +42,36 @@
 <h2 is-upgraded>What You&#39;ll Need</h2>
 <ul>
 <li>a <a href="https://www.home-assistant.io/" target="_blank">Home Assistant Account</a><ul>
-<li>Home Assistant deployed and running on local server, such as Raspberry Pi</li>
+<li>Home Assistant instance running on local server, <a href="https://www.home-assistant.io/installation/raspberrypi" target="_blank">such as Raspberry Pi</a></li>
 </ul>
 </li>
 <li>a <a href="https://identity.getpostman.com/signup" target="_blank">Postman Account</a></li>
 </ul>
 <h2 is-upgraded>What You&#39;ll Build</h2>
 <ul>
-<li>A Postman collection with WebSocket messages</li>
+<li>A Postman collection with saved WebSocket messages</li>
 </ul>
 
 
       </google-codelab-step>
     
+      <google-codelab-step label="Introduction to Home Assistant" duration="2">
+        <h2 is-upgraded>REST and WebSockets for connected home</h2>
+<p>When it comes to transmitting data in a connected home environment, both REST and WebSockets are commonly used protocols, but they have different characteristics and use cases.</p>
+<p>REST follows a request-response pattern, where a client sends a request to a server, and the server responds with the requested data. This is useful for accessing and controlling smart devices and services, and works well for scenarios where data updates are not required in real-time. For example, REST is suitable for a one-off request to turn on a smart light.</p>
+<p>On the other hand, WebSockets enables bidirectional communication between a client and server, enabling real-time data transmission. This is useful for applications that require continuous data updates, such as real-time monitoring of sensor data and displaying live dashboards. For example, WebSockets is suitable for continuously monitoring the temperature in a room over a persistent connection.</p>
+<p>In the next section, let&#39;s take a look at a popular home automation platform that provides both REST and WebSocket APIs.</p>
+<h2 is-upgraded>Home Assistant for home automation</h2>
+<p><a href="https://www.home-assistant.io/" target="_blank">Home Assistant</a> is a popular open-source home automation platform that lets you control and monitor smart devices from different brands using a unified interface. Instead of using separate mobile apps to control your kitchen lights, thermostat, and smart coffee maker produced by different manufacturers, you can manage everything from a single Home Assistant dashboard running on a Raspberry Pi or other dedicated server within your local network.</p>
+<p class="image-container"><img alt="home assistant dashboard" src="img/40fb84a28cdf27d2.png"></p>
+<p>Home Assistant is ideal for DIY smart home tinkerers because it supports a wide range of integrations and protocols, allowing you to create automation scenarios based on events, schedules, and sensor readings.</p>
+<p>Next, let&#39;s take a look at Home Assistant&#39;s WebSocket API.</p>
+
+
+      </google-codelab-step>
+    
       <google-codelab-step label="Create Home Assistant long-lived token" duration="2">
-        <p>Home Assistant contains a WebSocket API. This API can be used to stream information from a Home Assistant instance to any client that implements WebSockets.</p>
+        <p>In addition to <a href="https://developers.home-assistant.io/docs/api/rest/" target="_blank">a REST API</a>, Home Assistant also contains <a href="https://developers.home-assistant.io/docs/api/websocket" target="_blank">a WebSocket API</a> to stream information. Using a long-lived token, you can use Postman to establish a connection with our Home Assistant server running locally, and then send and receive messages using the WebSocket API.</p>
 <h2 is-upgraded>Fork the Postman collection</h2>
 <ol type="1">
 <li>Find the sample collection, <a href="https://www.postman.com/postman/workspace/program-smart-lights/collection/6481ed9afe7f1bdfaa732408" target="_blank">Home Assistant WebSockets</a>, and fork the collection to your own Postman workspace. <img alt="fork icon" src="img/dbfc0c18776deb5f.png"></li>

@@ -3,9 +3,9 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-06-13T14:20:51-07:00",
+  "updated": "2023-06-20T16:08:57-07:00",
   "id": "home-assistant",
-  "duration": 7,
+  "duration": 9,
   "title": "Home Assistant with WebSocket APIs",
   "summary": "Home Assistant with WebSocket APIs",
   "source": "home-assistant/home-assistant.md",
@@ -14,8 +14,6 @@
     "published"
   ],
   "category": [
-    "developer",
-    "tester",
     "intermediate"
   ],
   "tags": [
