@@ -33,6 +33,9 @@ Duration: 1
 
 - A Postman collection with saved WebSocket messages
 
+**Watch this video** to follow along at each step:
+<video id="Qk9A0QbG5-I"></video>
+
 <!-- ------------------------ -->
 
 ## Introduction to Home Assistant
@@ -127,6 +130,9 @@ Continue exploring the other **Saved messages** within this collection. Once you
 ## Next Steps
 
 Duration: 1
+
+**Watch this video** to recap the steps:
+<video id="Qk9A0QbG5-I"></video>
 
 ### What we've covered
 - how to establish a WebSockets connection
