@@ -104,7 +104,7 @@ In this folder, we are demonstrating three different methods of running a folder
 
 ### Iterating over a data file
 
-For this example, we will utilize a CSV data file to drive our tests. [Download the file by clicking here.](https://postman-web-property-assets.s3.amazonaws.com/common-share/SpaceCamp_ContinuousQuality_Movies.csv)
+For this example, we will utilize a CSV data file to drive our tests. [Download the file by clicking here.](https://assets.getpostman.com/common-share/SpaceCamp_ContinuousQuality_Movies.csv)
 
 If you are unable to access this file, you can recreate it for yourself by copying the below text, and saving it into a file such as `films.csv`:
 
