@@ -130,7 +130,7 @@ Mock servers allow you to simulate API behavior using Postman servers. Mocks are
 
 1. Select the collection you just forked to your workspace, called "Advanced API Debugging", and expand the folder "Mock servers".
 1. Follow along with the video, [timestamped at Console](https://youtu.be/9xGp6d7VFgU?t=2036), to learn more about the following topics.
-   - Simulate edge cases that may be difficult or costly to run in production (e.g., [429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429))
+   - Simulate edge cases that may be difficult or costly to run in production (for example, [429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429))
    - Stub out dependencies on third-party services or internal microservices
    - Establish a starting point for a scenario or inject a call within a scenario
 
