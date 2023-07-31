@@ -4,7 +4,7 @@ summary: Get Started with the Microsoft Graph API in Postman
 categories: Getting-Started
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Getting Started, Developer
 
 # Get Started with the Microsoft Graph API in Postman
@@ -31,7 +31,7 @@ For details about how to use Postman, follow the steps in this article or watch 
 <video id="3RTHY3jScmA"></video>
 
 > aside negative
->💡 Tip
+> 💡 Tip
 > The Microsoft Graph Postman collection is configured to authenticate with the global Azure AD service and access the global Microsoft Graph service (`graph.microsoft.com`). If you want to use the collection to connect to a national cloud deployment, you must modify your fork of the collection.
 
 - Update the request URL, replacing `graph.microsoft.com` with the Microsoft Graph service root endpoint for your national cloud.

@@ -1,6 +1,6 @@
 # Postman Quickstarts
 
-[![deployment](https://github.com/loopDelicious/pmquickstarts/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/loopDelicious/pmquickstarts/actions/workflows/pages/pages-build-deployment)
+[![deployment](https://github.com/postmanlabs/pmquickstarts/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/postmanlabs/pmquickstarts/actions/workflows/pages/pages-build-deployment)
 
 Watch the [How to Contribute to Postman Quickstarts](https://youtu.be/aLehVZegyXk) video demo:
 
@@ -73,7 +73,7 @@ export PATH=$PATH:$HOME/go/bin
    - In this directory, you will see all existing guides and their markdown files.
 2. Generate a new guide from the guide template `npm run template <GUIDE-NAME>`
    - Don't use spaces in the name of your guide, instead use **hyphens** to separate words.
-   ![image](https://github.com/loopDelicious/pmquickstarts/assets/29985200/e0b37274-f9e7-4020-9294-4adddff3febb)
+   ![image](https://github.com/postmanlabs/pmquickstarts/assets/29985200/e0b37274-f9e7-4020-9294-4adddff3febb)
 3. Navigate to the newly generated guide (`cd pmguides/src/<GUIDE-NAME>`) and edit your guide in a tool like vscode.
 4. Run the website again `npm run serve`
 5. As you edit and save changes, your changes will automatically load in the browser.
@@ -117,7 +117,7 @@ summary: This is an API game
 categories: Game
 environments: web
 status: Hidden
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Game, fr
 ```
 

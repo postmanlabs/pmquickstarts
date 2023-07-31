@@ -4,7 +4,7 @@ summary: Get Started with PayPal REST APIs
 categories: Getting-Started
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Getting Started, Developer
 
 # Get Started with PayPal REST APIs

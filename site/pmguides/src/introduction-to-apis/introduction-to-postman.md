@@ -4,7 +4,7 @@ summary: This is a beginner's introduction to HTTP APIs in Postman
 categories: Getting-Started
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Getting-Started, Badge
 
 # Introduction to HTTP APIs in Postman
@@ -636,7 +636,7 @@ Duration: 1
 
 ### Claim your badge
 
-To submit your solution for validation, your collection must be located in a public workspace. You will need your collection URL (see [instructions to "Share using the Postman API" here](https://learning.postman.com/docs/collaborating-in-postman/sharing/#sharing-using-the-postman-api)). 
+To submit your solution for validation, your collection must be located in a public workspace. You will need your collection URL (see [instructions to "Share using the Postman API" here](https://learning.postman.com/docs/collaborating-in-postman/sharing/#sharing-using-the-postman-api)).
 
 Go to [this page](http://go.pstmn.io/submit-badge) to claim your `Postman Introduction - HTTP API` badge using the "Share via API" link previously created.
 

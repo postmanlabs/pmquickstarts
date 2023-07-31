@@ -3,13 +3,16 @@ id: docker
 summary: Test APIs with Docker containers
 categories: Getting-Started
 environments: web
-status: Published 
-feedback link: https://github.com/loopDelicious/pmquickstarts
+status: Published
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Getting Started, Developer, Tester
 
 # Test APIs with Docker containers
+
 <!-- ------------------------ -->
-## Overview 
+
+## Overview
+
 Duration: 1
 
 Let's test our API using Docker Containers and Postman.
@@ -18,43 +21,34 @@ We will test a simple CRUD application created using Node.js, Express, and Postg
 
 ### What You'll Need
 
-* Postman: to test our API.
-    
-* Newman: to run our Postman collection.
-    
-* Play with Docker: to deploy our application.
-    
-* Docker: to run our application.
-    
+- Postman: to test our API.
+- Newman: to run our Postman collection.
+- Play with Docker: to deploy our application.
+- Docker: to run our application.
+
 If you prefer a video version:
 <video id="1eeR0LoIs-M"></video>
 
 ### Step-by-step procedure
 
 1. Intro
-    
 2. Clone the repository and modify the docker-compose.yml file
-    
 3. Run and test the application locally
-    
 4. Deploy our application.
-    
 5. Create and export the Postman collection
-    
 6. test the app using containers
-    
 7. Conclusion
-    
+
 <!-- ------------------------ -->
+
 ## 🎬 Intro
+
 Duration: 2
 
 We will use Docker and Postman:
 
-* Docker: to run our application.
-    
-* Postman: to test it.
-    
+- Docker: to run our application.
+- Postman: to test it.
 
 ### 🧑‍🚀 Postman
 
@@ -73,7 +67,9 @@ Containers are isolated from each other and the underlying host system, making t
 In this article, we will use docker both to run our application and to test the application using Postman.
 
 <!-- ------------------------ -->
+
 ## 🧬 Clone the repository
+
 Duration: 2
 
 We will use a JavaScript project I created in another video. It is a simple CRUD application using Node.js, Express, and Postgres.
@@ -122,7 +118,7 @@ services:
       - PG_HOST=node_db
     depends_on:
       - node_db
-  
+
   node_db:
     container_name: node_db
     image: postgres:12
@@ -140,7 +136,9 @@ volumes:
 ```
 
 <!-- ------------------------ -->
+
 ## 👟 Run and Test the application locally
+
 Duration: 2
 
 ### Run the application locally
@@ -186,7 +184,9 @@ We don't have any users, so we get an empty array.
 Now we are ready to deploy this service and test it using containers.
 
 <!-- ------------------------ -->
+
 ## 🚢 Deploy the application
+
 Duration: 2
 
 You can use any Container service, such as AWS, Azure, or Google Cloud platform.
@@ -253,7 +253,9 @@ If you click on the `3000` next to `OPEN PORT`, you should see the application r
 let's get an example
 
 <!-- ------------------------ -->
+
 ## 🗃️ Postman Collection
+
 Duration: 2
 
 Open Postman, and if you don't have it already create a New public space named whatever you want.
@@ -289,7 +291,9 @@ You can test this Collection by running it directly in Postman:
 We are now ready to export this collection and test it using containers
 
 <!-- ------------------------ -->
+
 ## 🧪 Test the app using containers
+
 Duration: 2
 
 We will use Newman, a command-line collection runner for Postman. It allows you to run and test a Postman Collection directly from the command line. It is built with extensibility in mind so that you can easily integrate it with your continuous integration servers and build systems.
@@ -329,16 +333,16 @@ In my case, it's `/c/workspace/postman-collection-test`
 and you will get a list of the requests.
 
 <!-- ------------------------ -->
+
 ## 🏁 Conclusion
+
 Duration: 1
 
 We made it! We tested the application using the following:
 
-* Postman collection
-    
-* Newman
-    
-* Docker
-    
+- Postman collection
+- Newman
+- Docker
+
 **Watch the video version** of this tutorial:
 <video id="1eeR0LoIs-M"></video>

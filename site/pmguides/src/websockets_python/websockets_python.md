@@ -4,7 +4,7 @@ summary: Set up a WebSockets server in Python
 categories: Getting-Started
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Getting Started, Developer
 
 # Set up a WebSockets server in Python
@@ -20,7 +20,6 @@ WebSockets are a way to create a persistent connection between an app or web app
 The [WebSocket protocol](https://www.rfc-editor.org/rfc/rfc6455) defines how this is done. The connection is both persistent and low-latency, so communication can be initiated by the client or the server, instead of the client request / server response communication model many developers associate with the web.
 
 In this tutorial, you'll create a simple WebSocket server in Python, and use Postman to send and receive messages across the WebSocket connection.
-
 
 ### Prerequisites
 
@@ -85,7 +84,7 @@ In the next step, let's begin sending and receiving messages.
 
 Duration: 3
 
-In Postman, select **New > WebSocket Request** to open a new tab where you can enter the server URL. A WebSocket URL begins with `ws://` or `wss://` but they're not interchangeable. `ws` is for a standard connection and `wss` is for a TLS/SSL connection which requires a more-complicated set-up. 
+In Postman, select **New > WebSocket Request** to open a new tab where you can enter the server URL. A WebSocket URL begins with `ws://` or `wss://` but they're not interchangeable. `ws` is for a standard connection and `wss` is for a TLS/SSL connection which requires a more-complicated set-up.
 
 Use `ws://localhost:8765` as the URL for this demo server and make sure you have the [Postman Desktop Agent](https://learning.postman.com/docs/getting-started/installation-and-updates/#installing-the-postman-desktop-agent) running.
 
@@ -100,8 +99,7 @@ The connection we established between the Postman client and the local server is
 
 ![Message sent and received](./assets/MessageEcho.png)
 
-Above the connection message, there are now two new messages. One has an up-arrow icon next to it, showing it's outgoing, and one has a down-arrow icon, showing it's incoming. The message was sent and the echo arrived back in the same second. If you expand them, they're just the message text. 
-
+Above the connection message, there are now two new messages. One has an up-arrow icon next to it, showing it's outgoing, and one has a down-arrow icon, showing it's incoming. The message was sent and the echo arrived back in the same second. If you expand them, they're just the message text.
 
 <!-- ------------------------ -->
 
@@ -113,9 +111,9 @@ Let's pretend we're building an extremely simple chat room server. In this chat 
 
 ### Update the code
 
-Terminate the running server (**Ctrl + C**). This shuts down the server and Postman will register that the connection terminated. 
+Terminate the running server (**Ctrl + C**). This shuts down the server and Postman will register that the connection terminated.
 
-Update `websockets.py` to the code below so it will now *broadcast* incoming messages to all connected clients. Save the changes.
+Update `websockets.py` to the code below so it will now _broadcast_ incoming messages to all connected clients. Save the changes.
 
 ```python
 import asyncio
@@ -128,7 +126,7 @@ async def echo(websocket):
     CONNECTIONS.add(websocket)
   async for message in websocket:
     websockets.broadcast(CONNECTIONS,message)
- 
+
 async def main():
     async with websockets.serve(echo, "localhost", 8765):
         await asyncio.Future()  # run forever
@@ -157,7 +155,7 @@ In the second tab, try sending the message: "I'm well!"
 You'll get something like this:
 ![Connections side by side](./assets/Broadcast.png)
 
-Note that the sender of the message sees both the outgoing message to the server and the incoming broadcast of what they sent. The other person or people connected to the server only see the incoming broadcast of messages they didn't send. 
+Note that the sender of the message sees both the outgoing message to the server and the incoming broadcast of what they sent. The other person or people connected to the server only see the incoming broadcast of messages they didn't send.
 
 <!-- ------------------------ -->
 

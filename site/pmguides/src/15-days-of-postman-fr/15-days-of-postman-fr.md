@@ -4,7 +4,7 @@ summary: This is a sample Postman Guide
 categories: Tester, Intermediate
 environments: web
 status: Hidden
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Intermediate, Tester, Automation, Badge, fr
 
 # 15 Jours de Postman - pour les testeurs

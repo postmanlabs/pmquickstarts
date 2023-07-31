@@ -4,7 +4,7 @@ summary: This is a Postman puzzle game
 categories: Game
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Game, Badge
 
 # Lost in Space: puzzle hunt

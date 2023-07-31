@@ -4,7 +4,7 @@ summary: Get started with different types of Postman Flows
 categories: Getting-Started
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Getting Started
 
 # Postman Flows Tutorials

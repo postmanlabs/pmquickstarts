@@ -3,13 +3,16 @@ id: debug
 summary: Strategies and tactics for debugging more efficiently
 categories: Intermediate
 environments: web
-status: Published 
-feedback link: https://github.com/loopDelicious/pmquickstarts
+status: Published
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Intermediate, Developer, Tester
 
 # API Debugging
+
 <!-- ------------------------ -->
-## Overview 
+
+## Overview
+
 Duration: 1
 
 In programming, debugging is the process of identifying and fixing an error in the code. For API consumers and producers, most of the effort is spent on locating the root cause of the issue based on what can be observed.
@@ -38,11 +41,12 @@ In an ideal scenario, there is rigorous testing and monitoring in place to alert
 - A Postman Collection with working examples for debugging
 
 > aside negative
-> This content was originally presented in this webinar: [Advanced API Debugging](https://youtu.be/9xGp6d7VFgU). 
+> This content was originally presented in this webinar: [Advanced API Debugging](https://youtu.be/9xGp6d7VFgU).
 > **Watch this video** to follow along:
 > <video id="9xGp6d7VFgU"></video>
 
 <!-- ------------------------ -->
+
 ## Fork the collection
 
 Duration: 1
@@ -50,13 +54,14 @@ Duration: 1
 ### Fork the collection
 
 1. Click the orange **Run in Postman** button below to fork [this example collection](https://www.postman.com/postman/workspace/postman-intergalactic/collection/1559645-a509fe32-9158-420c-9a15-1bf31c289946) to your own Postman workspace.
-  <br/>
-  [![Run in Postman](./_shared_assets/button.svg)](https://god.gw.postman.com/run-collection/1559645-a509fe32-9158-420c-9a15-1bf31c289946?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D1559645-a509fe32-9158-420c-9a15-1bf31c289946%26entityType%3Dcollection%26workspaceId%3D152199ce-48dd-4b46-b201-9e4fcb6f75db)
+   <br/>
+   [![Run in Postman](./_shared_assets/button.svg)](https://god.gw.postman.com/run-collection/1559645-a509fe32-9158-420c-9a15-1bf31c289946?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D1559645-a509fe32-9158-420c-9a15-1bf31c289946%26entityType%3Dcollection%26workspaceId%3D152199ce-48dd-4b46-b201-9e4fcb6f75db)
 1. Enter a label for your fork and select the workspace to fork the collection:
-  ![fork label](./assets/fork_label.png)
+   ![fork label](./assets/fork_label.png)
 1. For the remainder of this tutorial, follow along in the example collection with [this video](https://youtu.be/9xGp6d7VFgU).
 
 <!-- ------------------------ -->
+
 ## API Client
 
 Duration: 2
@@ -67,12 +72,12 @@ Postman is most commonly used as an [API client](https://youtu.be/mOxVsl5ZL2U) t
 
 1. Select the collection you just forked to your workspace, called "Advanced API Debugging", and expand the folder "Client".
 1. Follow along with this video, [timestamped at API client](https://youtu.be/9xGp6d7VFgU?t=563), to learn more about the following topics.
-    - Update parameters, headers, and bodies
-    - See HTTP status codes and error messages
-    - Parse responses
-    - Inspect variables
-    - Review test results
-    - Replay calls in the History
+   - Update parameters, headers, and bodies
+   - See HTTP status codes and error messages
+   - Parse responses
+   - Inspect variables
+   - Review test results
+   - Replay calls in the History
 
 ### Knowledge check
 
@@ -85,6 +90,7 @@ Postman is most commonly used as an [API client](https://youtu.be/mOxVsl5ZL2U) t
 </form>
 
 <!-- ------------------------ -->
+
 ## Postman Console
 
 Duration: 2
@@ -95,11 +101,11 @@ The [Postman console](https://learning.postman.com/docs/sending-requests/trouble
 
 1. Select the collection you just forked to your workspace, called "Advanced API Debugging", and expanding the folder "Console".
 1. Follow along with the video, [timestamped at Console](https://youtu.be/9xGp6d7VFgU?t=1010), to learn more about the following topics.
-    - View network calls and TLS encryption
-    - Log statements, errors, and warnings
-    - Inspect variables
-    - Validate execution order of API calls
-    - Verify conditional breakpoints set in scripts
+   - View network calls and TLS encryption
+   - Log statements, errors, and warnings
+   - Inspect variables
+   - Validate execution order of API calls
+   - Verify conditional breakpoints set in scripts
 
 ### Knowledge check
 
@@ -113,6 +119,7 @@ The [Postman console](https://learning.postman.com/docs/sending-requests/trouble
 </form>
 
 <!-- ------------------------ -->
+
 ## Mock servers
 
 Duration: 2
@@ -123,9 +130,9 @@ Mock servers allow you to simulate API behavior using Postman servers. Mocks are
 
 1. Select the collection you just forked to your workspace, called "Advanced API Debugging", and expand the folder "Mock servers".
 1. Follow along with the video, [timestamped at Console](https://youtu.be/9xGp6d7VFgU?t=2036), to learn more about the following topics.
-    - Simulate edge cases that may be difficult or costly to run in production (e.g., [429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429))
-    - Stub out dependencies on third-party services or internal microservices
-    - Establish a starting point for a scenario or inject a call within a scenario
+   - Simulate edge cases that may be difficult or costly to run in production (for example, [429 Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429))
+   - Stub out dependencies on third-party services or internal microservices
+   - Establish a starting point for a scenario or inject a call within a scenario
 
 ### Knowledge check
 
@@ -138,11 +145,13 @@ Mock servers allow you to simulate API behavior using Postman servers. Mocks are
 </form>
 
 <!-- ------------------------ -->
+
 ## Next Steps
 
 Duration: 3
 
 Follow along with the rest of the [Advanced API Debugging](https://youtu.be/9xGp6d7VFgU) video to learn about the following topics.
+
 - General debugging strategies
 - Tools and tactics for an API call
 - Tools and tactics for a sequence of API calls
@@ -159,11 +168,13 @@ Follow along with the rest of the [Advanced API Debugging](https://youtu.be/9xGp
 </form>
 
 ### Additional resources
+
 - [Debugging with the Console](https://youtu.be/YCsURct9wCk) video
 - [Reverse engineering an API: using the Postman proxy](https://youtu.be/2VKVPB5USgU) video
 - [Mock servers](https://youtu.be/n_7UUghLpco) video
 
 ### What we've covered
+
 - Explore methods for understanding API behavior, including updating user inputs to change the API response
 - Debug and troubleshoot unexpected behavior
 - Establish visibility for monitors, webhooks, and CLI

@@ -4,7 +4,7 @@ summary: Deploy a web app with Docker and Kubernetes
 categories: DevOps, Intermediate
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: DevOps, Intermediate, Developer, Tester
 
 # Deploy a web app with Docker and Kubernetes

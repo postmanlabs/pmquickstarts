@@ -4,7 +4,7 @@ summary: This is a tutorial for testing and automation in Postman
 categories: Getting-Started, Tester
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Getting-Started, Developer, Tester, Automation, Badge
 
 # Galaxy Testing and Automation
