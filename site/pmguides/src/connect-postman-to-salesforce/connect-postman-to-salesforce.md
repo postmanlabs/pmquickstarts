@@ -4,7 +4,7 @@ summary: Set up Postman with the Salesforce API collection to access data in you
 categories: Getting-Started
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Getting Started, Developer
 
 # Connect Postman to Salesforce

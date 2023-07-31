@@ -3,13 +3,16 @@ id: govee
 summary: Get started with the Govee API
 categories: Getting-Started
 environments: web
-status: Published 
-feedback link: https://github.com/loopDelicious/pmquickstarts
-tags: Getting Started, Developer 
+status: Published
+feedback link: https://github.com/postmanlabs/pmquickstarts
+tags: Getting Started, Developer
 
 # Get started with the Govee API
+
 <!-- ------------------------ -->
-## Overview 
+
+## Overview
+
 Duration: 1
 
 This tutorial is based on the official Govee Developer API v2.0 as documented at this URL:
@@ -27,18 +30,20 @@ This tutorial is based on the official Govee Developer API v2.0 as documented at
 - Control your smart devices using the Govee API
 
 ### What You'll Need
-- a [Govee API key](https://govee-public.s3.amazonaws.com/developer-docs/GoveeDeveloperAPIReference.pdf) 
+
+- a [Govee API key](https://govee-public.s3.amazonaws.com/developer-docs/GoveeDeveloperAPIReference.pdf)
 
 ### What You’ll Build
 
 - A Postman Collection with authorized API requests
 
 <!-- ------------------------ -->
+
 ## Fork the collection
 
 Duration: 2
 
-To get started, let's fork the [Govee Lights Developer API](https://www.postman.com/postman/workspace/program-smart-lights/collection/16712233-3733b3c4-7f81-43e2-86c4-b73197113057) collection in the [Program smart lights public workspace](https://www.postman.com/postman/workspace/program-smart-lights/overview) to our own workspace in Postman to work on it. 
+To get started, let's fork the [Govee Lights Developer API](https://www.postman.com/postman/workspace/program-smart-lights/collection/16712233-3733b3c4-7f81-43e2-86c4-b73197113057) collection in the [Program smart lights public workspace](https://www.postman.com/postman/workspace/program-smart-lights/overview) to our own workspace in Postman to work on it.
 
 Fork the following collection.
 
@@ -51,18 +56,21 @@ Enter a label for your fork and select the workspace to fork the collection:
 In the next step, we will collect the required Govee information and work in our newly forked collection.
 
 <!-- ------------------------ -->
+
 ## Authentication
+
 Duration: 3
 
 ### Govee API key
 
 You will need a Govee Developer API key to authenticate your API requests.
+
 1. Download and open the Govee Home mobile app
 1. Go to the account **Settings**, and select "Apply for API key"
 1. Fill out your name and your reason (e.g. "to demo home automation") and submit
 1. Within a few minutes, you should receive an email with your API key to the email address you entered when registering a Govee account.
 
-Select the Postman collection that you forked to your workspace. Find the **Variables** tab, and paste your API key as the `govee_api_key` variable value. 
+Select the Postman collection that you forked to your workspace. Find the **Variables** tab, and paste your API key as the `govee_api_key` variable value.
 
 If you are working in a public or team workspace, you may want to create [a Postman environment](https://learning.postman.com/docs/sending-requests/managing-environments/) and use ["Current value"](https://learning.postman.com/docs/sending-requests/managing-environments/) to prevent unintentional disclosure of sensitive data.
 
@@ -80,7 +88,7 @@ Postman has been configured to add a header containing your Govee API key to eac
 
 ### Make an API call
 
-Hit **Send** to make your first API call and to "Get Device State". Make a note of the `device` and `model` properties returned in the successful API response. 
+Hit **Send** to make your first API call and to "Get Device State". Make a note of the `device` and `model` properties returned in the successful API response.
 
 ![device state](assets/device_state.png)
 
@@ -89,7 +97,9 @@ Save that data as Postman variables respectively called `example_mac_address` an
 ![mac address and model](assets/macAndModel.png)
 
 <!-- ------------------------ -->
+
 ## Update the smart light
+
 Duration: 1
 
 Find a different request called "Set Color", and update the RGB values to your preference. Hit **Send**, and watch the color of your smart light change.
@@ -99,7 +109,9 @@ Find a different request called "Set Color", and update the RGB values to your p
 Now that you made your first few calls with the Govee API, continue exploring the other endpoints in the `Govee Lights Developer API` collection. You can string together multiple API calls to create a custom theme or effect, or coordinate a schedule to turn on and off the lights.
 
 <!-- ------------------------ -->
+
 ## Next Steps
+
 Duration: 1
 
 ### What we've covered

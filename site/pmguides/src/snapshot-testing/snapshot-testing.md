@@ -4,7 +4,7 @@ summary: Three different snapshot testing strategies
 categories: Tester, Intermediate
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Developer, Tester, Automation, Intermediate
 
 # Snapshot testing using Postman

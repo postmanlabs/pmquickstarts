@@ -4,7 +4,7 @@ summary: Make your first OpenAI API call
 categories: Getting-Started
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Getting Started, Developer
 
 # Get Started with the ChatGPT API

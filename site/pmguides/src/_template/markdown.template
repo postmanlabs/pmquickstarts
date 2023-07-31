@@ -4,7 +4,7 @@ summary: This is a sample Postman Guide
 categories: Getting-Started
 environments: web
 status: Published 
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Getting Started, Developer, Tester, Automation 
 
 # Postman Guide Template
@@ -54,7 +54,7 @@ It is important to set the correct metadata for your Postman Guide. The metadata
   - `web` is default. If this will be published for a specific event or  conference, include it here.
 - **status**: Published
   - (`Draft`, `Published`, `Deprecated`, `Hidden`) to indicate the progress and whether the pmguide is ready to be published. `Hidden` implies the pmguide is for restricted use, should be available only by direct URL, and should not appear on the main landing page.
-- **feedback link**: https://github.com/loopDelicious/pmquickstarts
+- **feedback link**: https://github.com/postmanlabs/pmquickstarts
 - **tags**: Getting Started, Data Science, Twitter 
   - Add relevant  tags to make your pmguide easily found and SEO friendly.
 - **authors**: Joyce Lin

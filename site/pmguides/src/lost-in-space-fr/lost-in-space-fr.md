@@ -3,11 +3,12 @@ id: lost-in-space-fr
 summary: Puzzle se jouant sur Postman
 categories: Game
 environments: web
-status: Hidden 
-feedback link: https://github.com/loopDelicious/pmquickstarts
-tags: Game, Badge, fr 
+status: Hidden
+feedback link: https://github.com/postmanlabs/pmquickstarts
+tags: Game, Badge, fr
 
 # Puzzle : Lost in Space
+
 <!-- ------------------------ -->
 
 ## Vue d'ensemble
@@ -34,7 +35,7 @@ Pour activer les sous-titres automatiques en Français, consulter [cette page d'
 
 <img src="assets/lost.png" alt="badge du jeu" width="200">
 
-### Prérequis 
+### Prérequis
 
 1. **Se connecter à Postman:** Créez un compte Postman si vous n'en avez pas déjà un puis connectez vous à [Postman web](https://go.postman.co) dans votre navigateur. Pour utiliser Postman dans un navigateur, téléchargez et lancez [l'agent Postman](https://www.postman.com/downloads/) sur votre machine pour éviter les soucis de "cross-origin resource sharing" (CORS). L'agent est différent de l'application. Sur Mac, vous verrez un icone montrant que l'agent Postman est lancé dans la barre de menu en haut à droite. Sur Windows, l'icone de l'agent Postman apparait dans la barre des tâches en bas a droite de votre écran.
 1. **Créez un workspace**: [Créez un nouveau workspace Postman](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-public-workspace) avec une visibilité de `Team` si vous collaborez avec des co-équipiers.
@@ -66,7 +67,7 @@ Pour activer les sous-titres automatiques en Français, consulter [cette page d'
 
 ## À lire en premier
 
-Duration: 180 
+Duration: 180
 
 Forkez la collection 📓 [**`Read Me First`**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351) dans votre workspace.
 
@@ -78,7 +79,7 @@ Puis **envoyez** la requête API dans la collection pour savoir comment récupé
 
 ## Soumettre la solution finale
 
-Duration: 2 
+Duration: 2
 
 Quand vous pensez avoir collecté toutes les données, validez votre solution en envoyant les informations nécessaires au 👩‍🚀 [**`Mission Control`**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b?ctx=documentation).
 
@@ -88,7 +89,7 @@ Quand vous pensez avoir collecté toutes les données, validez votre solution en
 
 ## Étapes suivantes
 
-Duration: 1 
+Duration: 1
 
 Ce challenge n'a pas pour but d'être une façon structurée ou compréhensive d'apprentissage. Il est possible d'acquérir des compétences techniques mais le but principal de ce challenge est de s'amuser, si vous aimez ce genre de chose.
 

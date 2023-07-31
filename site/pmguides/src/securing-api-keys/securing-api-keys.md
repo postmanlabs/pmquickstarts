@@ -4,7 +4,7 @@ summary: Three ways to securely work with API keys
 categories: Getting-Started
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Getting Started, Developer, Tester, Security
 
 # Securely Using API Keys in Postman
