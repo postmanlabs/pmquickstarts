@@ -3,12 +3,12 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-07-18T15:37:37-07:00",
-  "id": "aws",
-  "duration": 26,
-  "title": "Get Started with Amazon Web Services APIs",
-  "summary": "Get started with Amazon Web Services APIs",
-  "source": "aws/aws.md",
+  "updated": "2023-11-07T11:23:52-08:00",
+  "id": "azure",
+  "duration": 21,
+  "title": "Get Started with Azure APIs",
+  "summary": "Get started with Azure APIs",
+  "source": "azure/azure.md",
   "theme": "",
   "status": [
     "published"
@@ -18,10 +18,10 @@
     "devops"
   ],
   "tags": [
-    "devops",
+    "deveops",
     "gettingstarted",
     "web"
   ],
   "feedback": "https://github.com/loopDelicious/pmquickstarts",
-  "url": "aws"
+  "url": "azure"
 }

@@ -1,0 +1,318 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Get Started with Azure APIs</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="azure"
+                  title="Get Started with Azure APIs"
+                  environment="web"
+                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <p>Microsoft Azure provides a number of ways to interact with Azure resources</p>
+<ul>
+<li><a href="https://azure.com/sdk" target="_blank">Azure SDKs</a> in many languages, including .NET, Python, Java, JavaScript/TypeScript, Go, C++, C, Android, iOS, PHP, and Ruby</li>
+<li><a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> to execute commands</li>
+<li><a href="https://docs.microsoft.com/rest/api/azure/" target="_blank">Azure REST APIs</a></li>
+</ul>
+<aside class="warning"><p> Browse a complete listing of <a href="https://learn.microsoft.com/en-us/rest/api/?view=Azure" target="_blank">Azure REST APIs</a> on the Microsoft website.</p>
+</aside>
+<p>Learn how to get started with Azure APIs in Postman. If you are using Azure APIs for the first time, you can follow the steps in this guide to call the APIs using requests sent through the Postman client. You can use these requests to experiment with an API before you develop your application, or programmatically run a sequence of API calls to create and manage your infrastructure on Azure.</p>
+<aside class="warning"><p> 🏆 Special acknowledgements to Azure ambassadors, Mireille Tan and Muhammad Suzarilshah, for their contributions to this guide.</p>
+</aside>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Basic familiarity with APIs</li>
+<li>Basic familiarity with CLI</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>how to authenticate to Azure APIs using roles</li>
+<li>how to authenticate to Azure APIs using API keys</li>
+<li>how to add resource groups with Azure APIs</li>
+<li>how to troubleshoot unexpected API behavior</li>
+<li>how to automate API workflows for Azure in Postman</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Need</h2>
+<ul>
+<li><a href="https://azure.microsoft.com/" target="_blank">Azure Cloud</a> with an active subscription <ul>
+<li>You must be an <strong>Owner</strong> or have <code>Microsoft.Authorization/roleAssignments/write</code> permissions to manage role assignments</li>
+<li>Or have a service principal with <strong>Contributor</strong> role to create and manage resources</li>
+</ul>
+</li>
+<li>Download and install <a href="https://www.postman.com/downloads/" target="_blank">Postman Desktop App</a></li>
+<li>Download and install <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli" target="_blank">Azure CLI</a><ul>
+<li>For <a href="https://learn.microsoft.com/cli/azure/install-azure-cli-macos?wt.mc_id=studentamb_58170" target="_blank">MacOS</a></li>
+<li>For <a href="https://learn.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli&wt.mc_id=studentamb_58170" target="_blank">Windows</a></li>
+</ul>
+</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman Collection with authorized API requests</li>
+<li>Code samples to integrate into your own workflows and applications</li>
+<li>API workflows to automate the setup of your infrastructure</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Authorization" duration="5">
+        <p>In this section, let&#39;s use the Azure CLI to generate credentials, and explore how to <a href="https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad" target="_blank">authenticate with the Azure REST APIs</a>.</p>
+<h2 is-upgraded>Get credentials using Azure CLI</h2>
+<ol type="1">
+<li><strong>Log in</strong>: From the terminal, use the <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> to run the <code>az login</code> command. You will be redirected to log in to your Azure account in a web browser. Upon successful login, you will be presented with your account details, as shown below. Please take note of the <code>id</code> variable, as we need this information later. The <code>id</code> variable is our subscription ID on Azure. <img alt="azure login" src="img/febaf1b9d0aff6b1.png"></li>
+<li><strong>Select an active subscription</strong>: Select an active Azure subscription using the <code>az account set</code> command. Use the <code>-n</code> parameter to specify the subscription name, i.e: <code>az account set -n "MSDN Platforms Subscription"</code>. A <a href="https://portal.azure.com/?quickstart=true#view/Microsoft_Azure_Billing/SubscriptionsBlade" target="_blank">list of your subscriptions</a> can be found in the Azure portal.</li>
+<li><strong>Create a resource group</strong>: Create a resource group using the command <code>az group create --location [Azure Location, i.e: westus] --resource-group [Resource Group]</code><img alt="azure set resource group" src="img/11bfd2b1c27784e5.png"></li>
+<li><strong>Create a service principal</strong>: Azure REST API authentication is done via a Bearer token in the Authentication header. Let&#39;s use a service principal to get that token for us. A service principal is an Azure account that allows you to perform actions on Azure resources. Think about it like a system account that you can assign roles to and get tokens with. Create a service principal using the command <code>az ad sp create-for-rbac -n [SP_Name] --role Owner --scope "/subscriptions/[Subscription_ID]/resourceGroups/[ Resource Group]"</code>. The output should look like this: <img alt="azure create service principal" src="img/87b9bd0fc8b622c3.png">This command will provide the credentials we need to work on Postman to test Azure APIs. Copy the credentials to somewhere safe. Please do not expose the credentials!<ul>
+<li>AppID</li>
+<li>displayname</li>
+<li>Password</li>
+<li>Tenant</li>
+</ul>
+You can also explore other roles when creating a service principal by using the <code>--role</code> flag and specify the scope of the SP credentials with the <code>--scope</code> flag. Documentations included <a href="https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#commands&wt.mc_id=studentamb_58170" target="_blank">here</a>.Some built-in roles in <a href="https://learn.microsoft.com/en-us/azure/role-based-access-control/overview" target="_blank">Azure role-based access control</a> (RBAC) include:<ul>
+<li>Owner - Total control of a Resource Group</li>
+<li>Contributor - Has control on Actions on a Resource Group like modifying a Resource Group (i.e. Deleting a VM) but cannot assign permission to the RG.</li>
+<li>Reader - only has the ability to view the resource group.</li>
+</ul>
+Learn More <a href="https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#commands&wt.mc_id=studentamb_58170" target="_blank">here</a>.The example of generating service principal details are as following:<pre><code language="language-bash" class="language-bash">az ad sp create-for-rbac -n Postman --role Owner --scope 
+</code></pre>
+<pre><code language="language-json" class="language-json">{
+  &#34;appId&#34;: &#34;e8df7f8a-XXXX-XXXX-XXXX-XXXXXXXXXXX&#34;,
+  &#34;displayName&#34;: &#34;azure-cli-2023-XX-XX-XX-XX-XX&#34;,
+  &#34;password&#34;: &#34;XXXXX~XXXXXXXX.XXXXXXXXXXX&#34;,
+  &#34;tenant&#34;: &#34;XXXXXX-XXXXX-XXXX-XXXX-XXXXXXXXXXX&#34;
+}
+</code></pre>
+</li>
+<li><strong>Get the subscription ID for your Azure Instance</strong>: From the terminal, use the Azure CLI command <code>az account show --query id -o tsv</code> or <code>az account subscription list</code>. The output should look like the following:<pre><code language="language-bash" class="language-bash">az account subscription list
+The command requires the extension account. Do you want to install it now? The command will continue to run after the extension is installed. (Y/n): y
+Run &#39;az config set extension.use_dynamic_install=yes_without_prompt&#39; to allow installing extensions without prompt.
+Command group &#39;account subscription&#39; is experimental and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+[
+  {
+    &#34;authorizationSource&#34;: &#34;Legacy&#34;,
+    &#34;displayName&#34;: &#34;MSDN Platforms Subscription&#34;,
+    &#34;id&#34;: &#34;/subscriptions/[subscription ID]&#34;,
+    &#34;state&#34;: &#34;Enabled&#34;,
+    &#34;subscriptionId&#34;: &#34;[subscription ID]&#34;,
+    &#34;subscriptionPolicies&#34;: {
+      &#34;locationPlacementId&#34;: &#34;Public_2014-XX-XX&#34;,
+      &#34;quotaId&#34;: &#34;MSDN_2014-XX-XX&#34;,
+      &#34;spendingLimit&#34;: &#34;On&#34;
+    }
+  }
+]
+</code></pre>
+</li>
+</ol>
+<h2 is-upgraded>Input Azure credentials into Postman</h2>
+<ol type="1">
+<li>Click the orange <strong>Run in Postman</strong> button below to fork <a href="https://www.postman.com/devrel/workspace/cloud-onboarding-collections/collection/13191452-4c08a2b9-ed49-435e-824e-3981c7439a5e" target="_blank">this example collection</a> to your own Postman workspace. <br><a href="https://god.gw.postman.com/run-collection/13191452-4c08a2b9-ed49-435e-824e-3981c7439a5e?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D13191452-4c08a2b9-ed49-435e-824e-3981c7439a5e%26entityType%3Dcollection%26workspaceId%3D0a0d015d-e451-49cd-87fe-e3772ddae97a" target="_blank"><img alt="Run in Postman" src="img/512b3ab5f8f0d855.svg"></a></li>
+<li>In the Postman app, enter a label for your fork and select the workspace to fork the collection: <img alt="fork label" src="img/b750bbf4087312a3.png"></li>
+<li>Select the Postman collection that you forked to your workspace. Find the <strong>Variables</strong> tab, and paste your information into each variable value. Map the values from the Service Principal and Subscription ID output from earlier. <table>
+<tr><td colspan="1" rowspan="1"><p><strong>Postman variable</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>Azure data</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code>clientId</code></p>
+</td><td colspan="1" rowspan="1"><p><code>appID</code></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code>clientSecret</code></p>
+</td><td colspan="1" rowspan="1"><p><code>password</code></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code>tenantId</code></p>
+</td><td colspan="1" rowspan="1"><p><code>tenant</code></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code>resource</code></p>
+</td><td colspan="1" rowspan="1"><p><code>https://management.azure.com/</code></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code>resourceGroup</code></p>
+</td><td colspan="1" rowspan="1"><p>[Resource Group]</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code>subscriptionId</code></p>
+</td><td colspan="1" rowspan="1"><p>[Subscription ID]</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code>bearerToken</code></p>
+</td><td colspan="1" rowspan="1"><p>[leave it blank, we will programmatically fill the field next]</p>
+</td></tr>
+</table>
+</li>
+</ol>
+<aside class="warning"><p> If you are working in a public or team workspace, you may want to create <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">a Postman environment</a> and use <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">&#34;Current value&#34;</a> to prevent unintentional disclosure of sensitive data, such as authorization credentials. <a href="https://learning.postman.com/docs/sending-requests/variables/#initial-and-current-values" target="_blank">Learn more</a> about the difference between initial and current values. <img alt="save data as variables under current values" src="img/fe23d6b7ae630f06.png"></p>
+</aside>
+<h2 is-upgraded>Generate bearer token for authorization</h2>
+<ol type="1">
+<li><strong>Review code</strong>: Select the Postman collection that you forked to your workspace. Find the <strong>Pre-request Script</strong> tab containing JavaScript that will execute before every request in the collection. The code will retrieve an OAuth 2.0 bearer token, and then save the value as a collection variable to be re-used throughout the collection. <pre><code language="language-javascript" class="language-javascript">pm.test(&#34;Check for collectionVariables&#34;, function () {
+    let vars = [&#39;clientId&#39;, &#39;clientSecret&#39;, &#39;tenantId&#39;, &#39;subscriptionId&#39;];
+    vars.forEach(function (item, index, array) {
+        console.log(item, index);
+        pm.expect(pm.collectionVariables.get(item), item + &#34; variable not set&#34;).to.not.be.undefined;
+        pm.expect(pm.collectionVariables.get(item), item + &#34; variable not set&#34;).to.not.be.empty; 
+    });
+
+    if (!pm.collectionVariables.get(&#34;bearerToken&#34;) || Date.now() &gt; new Date(pm.collectionVariables.get(&#34;bearerTokenExpiresOn&#34;) * 1000)) {
+        pm.sendRequest({
+            url: &#39;https://login.microsoftonline.com/&#39; + pm.collectionVariables.get(&#34;tenantId&#34;) + &#39;/oauth2/token&#39;,
+            method: &#39;POST&#39;,
+            header: &#39;Content-Type: application/x-www-form-urlencoded&#39;,
+            body: {
+                mode: &#39;urlencoded&#39;,
+                urlencoded: [
+                    { key: &#34;grant_type&#34;, value: &#34;client_credentials&#34;, disabled: false },
+                    { key: &#34;client_id&#34;, value: pm.collectionVariables.get(&#34;clientId&#34;), disabled: false },
+                    { key: &#34;client_secret&#34;, value: pm.collectionVariables.get(&#34;clientSecret&#34;), disabled: false },
+                    { key: &#34;resource&#34;, value: pm.collectionVariables.get(&#34;resource&#34;) || &#34;https://management.azure.com/&#34;, disabled: false }
+                ]
+            }
+        }, function (err, res) {
+            if (err) {
+                console.log(err);
+            } else {
+                let resJson = res.json();
+                pm.collectionVariables.set(&#34;bearerTokenExpiresOn&#34;, resJson.expires_on);
+                pm.collectionVariables.set(&#34;bearerToken&#34;, resJson.access_token);
+            }
+        });
+    }
+});
+</code></pre>
+</li>
+<li><strong>Set token</strong>: Within the &#34;Get Started&#34; folder, select the &#34;Get Resource Groups&#34; request. <strong>Send</strong> the API request. Upon a successful response from the server, note two events that occurred. <ul>
+<li><strong>Bearer token set</strong>: Select the collection, tab over to <strong>Variables</strong>, and notice a current value is saved under <code>bearerToken</code>. This happened when the pre-request script executed. <img alt="bearerToken variable is set" src="img/db42bf950b851b8e.png"></li>
+<li><strong>Verify Authorization helper</strong>: Select the request &#34;Get Resource Groups&#34;. Under the <strong>Authorization</strong> tab, note the request inherits the same authorization method, &#34;Bearer Token&#34;, from the collection. Configuring Authorization in this manner ensures that Postman will append the token value to the text <code>Bearer</code> in the required format to the request <code>Authorization</code> header. <img alt="Authorization helper is set" src="img/cd4d545c4cbf9d74.png"></li>
+<li><strong>Inspect Authorization header</strong>: Under the <strong>Headers</strong> tab, you may need to expand the headers auto-generated by Postman to see an <code>Authorization</code> header with a value formatted like <code>Bearer xxx</code> where <code>xxx</code> is the saved token. <img alt="Authorization header is set" src="img/84e7160e388c206f.png"></li>
+</ul>
+</li>
+</ol>
+<p>Now that you have properly configured the authorization at the collection-level, you can re-use it throughout other requests within the collection, unless otherwise configured.</p>
+<aside class="warning"><p> In Postman, you can also set a <a href="https://learning.postman.com/docs/sending-requests/authorization/authorization-types/#bearer-token" target="_blank">collection-level authorization method</a> to use throughout the collection, instead of using a collection-level pre-request script as we have done in this example.</p>
+</aside>
+<aside class="warning"><p> In Microsoft Azure, there are other ways to <a href="https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad" target="_blank">authenticate with the Azure REST APIs</a>.</p>
+</aside>
+<p>In the next sections, let&#39;s explore other Azure APIs.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Resources" duration="3">
+        <p>In the previous section, you may have already made your first successful Azure REST API request. Let&#39;s review.</p>
+<ol type="1">
+<li><strong>Get resource groups</strong>: Within the &#34;Get Started&#34; folder, select the &#34;Get Resource Groups&#34; request. <strong>Send</strong> the API request. <img alt="get resource groups request" src="img/7def5da76ee4ec0c.png"></li>
+<li><strong>Add resource group</strong>: Next, select the &#34;Add Resource Groups&#34; request. Notice the HTTP method is <code>PUT</code> (instead of <code>GET</code>). Also notice a path variable notated as <code>:resourceGroup</code> in the request URl and editable under the <strong>Params</strong> tab next to <code>resourceGroup</code> key. Feel free to update the value to your own resource group name. Under the <strong>Body</strong> tab, feel free to update the required <code>location</code>. And then <strong>Send</strong> the API request. <img alt="add resource group request" src="img/6202b7ce1abcfff5.png"></li>
+</ol>
+<p>Check out other Azure REST APIs for the <a href="https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate" target="_blank">Resource Group</a>.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="AI services" duration="5">
+        <p>For each Azure resource that you plan to work with, add the resource to your resource group.</p>
+<p>Each of the following APIs will explore a specific Azure resource corresponding to the specific AI service as a prerequisite. However, if you will be using multiple AI services in the same project, you can create a Cognitive Services resource instead, which provides access to Vision, Language, Search, and Speech services using a single API.</p>
+<p>Not all of the following services are available in every region. Please refer to <a href="https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=all" target="_blank">Azure Products by Region</a> to ensure that you pick a correct region when creating your resource.</p>
+<h2 is-upgraded>Cognitive Search</h2>
+<p><a href="https://learn.microsoft.com/azure/search/" target="_blank">Azure Cognitive Search</a> is a cloud search service that gives developers infrastructure, APIs, and tools for building a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.</p>
+<h2 is-upgraded>Create resource and index</h2>
+<ol type="1">
+<li><strong>Create Azure resource</strong>: From the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, click the plus sign (&#34;+ Create Resource&#34;) in the top-left corner, and use the search bar to find &#34;Azure Cognitive Search&#34;.  Set up an Azure Cognitive Search resource OR an Azure Cognitive Services resource (recommended if you are using multiple AI services within the same project) <img alt="create resource in portal" src="img/ff5c712dee1bfde4.png"></li>
+<li><strong>Configure service</strong>: Choose a subscription, set a resource group, name the service, choose a region and tier, and create the new service. Your service is deployed within minutes. <img alt="configure resource in portal" src="img/2fdb446e747d186.png"></li>
+<li><strong>Import data</strong>: Go to your newly deployed resource. On the <strong>Overview</strong> page, select <strong>Import data</strong> to create and populate a search index. <img alt="import data" src="img/3e364712f422220a.png"></li>
+<li><strong>Connect to a data source</strong>: In the <strong>Import data</strong> wizard on the C<strong>onnect to your data</strong> tab, expand the <strong>Data Source</strong> dropdown list and select <strong>Samples</strong>. In the list of built-in samples, select <strong>hotels-sample</strong>. Select <strong>Skip to: Customize target index</strong> to continue. <img alt="import hotels sample" src="img/f20fa695b23d233f.png"></li>
+<li><strong>Customize target index</strong>: Accept the system-generated values. Select <strong>Next: Create an indexer</strong> to continue.</li>
+<li><strong>Create an indexer</strong>: Accept the system-generated values. Select <strong>Submit</strong> to create and simultaneously run the indexer.</li>
+</ol>
+<h2 is-upgraded>Authorization</h2>
+<ol type="1">
+<li><strong>Authorize API access with key</strong>: Go to your newly deployed resource. Under the <strong>Keys</strong> tab in the sidebar, you can see the default API access control is set up to &#34;API keys&#34;. <aside class="warning"><p><strong>Authorize API access with roles (optional)</strong>: You could also leverage the role-based authorization method we set up previously by selecting &#34;Both&#34; so we can either explore the API <a href="https://learn.microsoft.com/en-us/azure/search/search-security-api-keys?tabs=portal-use%2Cportal-find%2Cportal-query" target="_blank">using API keys</a> or <a href="https://learn.microsoft.com/en-us/azure/search/search-security-rbac?tabs=config-svc-portal%2Croles-portal%2Ctest-portal%2Ccustom-role-portal%2Cdisable-keys-portal" target="_blank">using Azure roles</a>. You would also need to add a <a href="https://learn.microsoft.com/en-us/azure/search/search-security-rbac?tabs=config-svc-portal%2Croles-portal%2Ctest-portal%2Ccustom-role-portal%2Cdisable-keys-portal#assign-roles" target="_blank">role assignment</a> to grant scope permissions. <img alt="select rbac" src="img/c17aaecfd9fdd0d9.png"></p>
+</aside>
+</li>
+<li><strong>Input API key into Postman</strong>: In Postman, you can use an API key by including a header <code>api-key</code> with each individual request or at the folder-level so that requests within the folder inherit the authorization method. Select the &#34;Cognitive Search&#34; folder and configure the Authorization method to automatically add an <code>api-key</code> header to each request within the folder. Remember to also save your API key as a collection variable. <img alt="select key" src="img/cdd7f3d68e288dd0.png"></li>
+<li><strong>Input Postman variables</strong>: In addition to adding your API key as a collection variable, update the <code>searchServiceName</code> and <code>searchIndexName</code> to begin exploring the Azure Cognitive Search API.</li>
+</ol>
+<h2 is-upgraded>Other AI APIs</h2>
+<p>In Postman, explore other Azure AI services within the &#34;AI&#34; folder. Notice folder-level authorization methods. And expand the request documentation using the icon on the far right for more details and links to additional resources.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Working in Postman" duration="4">
+        <h2 is-upgraded>Debugging unexpected behavior</h2>
+<p>If your API request isn&#39;t behaving as expected, there can be many possible reasons. To find out what the problem is, you can use the <a href="https://learning.postman.com/docs/sending-requests/troubleshooting-api-requests/" target="_blank">Postman Console</a> to troubleshoot your request.</p>
+<p>Open the Console by selecting Console icon in the Postman footer. You can view network data, log statements, and the raw calls being sent through Postman. <img alt="Postman console" src="img/a3564753260f3b6.png"></p>
+<h2 is-upgraded>Organize workflows in Postman</h2>
+<p>Once you explore an API, you understand the basic building blocks of popular services on Azure. Next, organize your work into your own collections and workspaces in Postman.</p>
+<ul>
+<li>Create your own <a href="https://learning.postman.com/docs/collections/collections-overview/" target="_blank">collections</a> of API calls for automating deployments and monitoring infrastructure.</li>
+<li>Create your own <a href="https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/" target="_blank">workspaces</a> to organize work for an API or collaborate with team members.</li>
+<li>Create your own <a href="https://learning.postman.com/docs/postman-flows/gs/flows-overview/" target="_blank">Flows</a> to visualize API workflows<img alt="Flows with Azure APIs" src="img/96f58af0a0e04b14.png"></li>
+</ul>
+<h2 is-upgraded>Automate workflows in Postman</h2>
+<p>Once you group API requests into collections, there are multiple ways to programmatically run those collections.</p>
+<ul>
+<li>Add <a href="https://learning.postman.com/docs/writing-scripts/intro-to-scripts/" target="_blank">tests and scripts</a> to dynamically pass information from one request to another</li>
+<li>Utilize inbuilt Postman integrations, such as <a href="https://learning.postman.com/docs/designing-and-developing-your-api/deploying-an-api/deploying-an-api-azure/" target="_blank">deploying to Azure API Management</a></li>
+<li><a href="https://learning.postman.com/docs/collections/running-collections/running-collections-overview/" target="_blank">Run collections</a> on a scheduled frequency on Postman servers, as part of your CI/CD pipeline, or via webhooks</li>
+</ul>
+<h2 is-upgraded>Build your own applications</h2>
+<p>Once you have an API call working the way you want it to in Postman, <a href="https://learning.postman.com/docs/sending-requests/generate-code-snippets/" target="_blank">generate client code</a> to paste into your own applications. <img alt="code generation" src="img/d139b3be35e2d4b3.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="3">
+        <h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
+<ul class="checklist">
+<li>how to authenticate to Azure APIs using roles</li>
+<li>how to authenticate to Azure APIs using API keys</li>
+<li>how to add resource groups with Azure APIs</li>
+<li>how to troubleshoot unexpected API behavior</li>
+<li>how to automate API workflows for Azure in Postman</li>
+</ul>
+<p>For more hands-on tutorials, check out these resources.</p>
+<ul>
+<li>Check back for more <a href="https://quickstarts.postman.com/" target="_blank">Azure tutorials</a></li>
+<li>Contribute your own tutorials <a href="https://github.com/loopDelicious/pmquickstarts" target="_blank">here</a></li>
+</ul>
+<h2 is-upgraded>Other Azure integrations in Postman</h2>
+<ul>
+<li><a href="https://learning.postman.com/docs/integrations/available-integrations/azure-devops/" target="_blank">Azure DevOps</a> to sync your Postman APIs to Git repositories</li>
+<li>Manage API deployments to <a href="https://learning.postman.com/docs/designing-and-developing-your-api/deploying-an-api/deploying-an-api-azure/" target="_blank">Azure API Management</a> in Postman</li>
+<li>Integrate Postman with <a href="https://learning.postman.com/docs/integrations/available-integrations/ci-integrations/azure-pipelines/" target="_blank">Azure Pipelines</a></li>
+<li>Configure SSO with Microsoft Entra ID (formerly <a href="https://learning.postman.com/docs/administration/sso/azure-ad/" target="_blank">Azure Active Directory</a>)</li>
+<li><a href="https://learning.postman.com/docs/designing-and-developing-your-api/versioning-an-api/using-on-prem-git-repo/" target="_blank">Connect your API to an on-premises Git repository</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>
