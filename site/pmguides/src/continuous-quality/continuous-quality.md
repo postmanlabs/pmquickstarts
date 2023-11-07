@@ -4,7 +4,7 @@ summary: Advanced testing workflows in Postman
 categories: Tester, Intermediate
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Intermediate, Tester, Automation
 
 # Continuous Quality with Postman

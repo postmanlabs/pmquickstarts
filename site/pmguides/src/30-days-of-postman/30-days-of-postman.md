@@ -4,7 +4,7 @@ summary: Improve your skills by tackling a new Postman challenge for 30 days in 
 categories: Getting-Started, Developer
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Getting-Started, Developer, Badge
 
 # 30 Days of Postman - for developers

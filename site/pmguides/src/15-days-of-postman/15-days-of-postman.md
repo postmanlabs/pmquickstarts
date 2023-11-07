@@ -4,7 +4,7 @@ summary: Improve your skills by tackling a new Postman challenge for 15 days in 
 categories: Tester, Intermediate
 environments: web
 status: Published
-feedback link: https://github.com/loopDelicious/pmquickstarts
+feedback link: https://github.com/postmanlabs/pmquickstarts
 tags: Intermediate, Tester, Automation, Badge
 
 # 15 Days of Postman - for testers
