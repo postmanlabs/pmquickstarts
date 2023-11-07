@@ -3,7 +3,7 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-07-06T13:57:02-07:00",
+  "updated": "2023-11-07T12:50:50-08:00",
   "id": "continuous-quality",
   "duration": 31,
   "title": "Continuous Quality with Postman",
@@ -23,6 +23,6 @@
     "tester",
     "web"
   ],
-  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "feedback": "https://github.com/postmanlabs/pmquickstarts",
   "url": "continuous-quality"
 }

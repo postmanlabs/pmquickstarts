@@ -25,7 +25,7 @@
                   id="aws"
                   title="Get Started with Amazon Web Services APIs"
                   environment="web"
-                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+                  feedback-link="https://github.com/postmanlabs/pmquickstarts">
     
       <google-codelab-step label="Overview" duration="1">
         <p>Learn how to get started with Amazon Web Services (AWS) APIs in Postman. If you are using AWS APIs for the first time, you can follow the steps in this guide to call the APIs using requests sent through the Postman client. You can use these requests to experiment with an API before you develop your application, or programmatically run a sequence of API calls to create and manage your infrastructure on AWS.</p>
@@ -77,10 +77,10 @@
 </ol>
 <ul>
 <li><strong>awsAccountId</strong> - Your <strong>Account ID</strong> can be found in the upper right hand corner of the <a href="https://console.aws.amazon.com/" target="_blank">AWS console</a></li>
-<li><strong>region</strong> - Your default AWS region can be found in the URL path when logged into the <a href="https://console.aws.amazon.com/" target="_blank">AWS console</a>. For example, <code>us-east-1</code> is the default region in <code>https://us-east-1.console.aws.amazon.com/</code>.</li>
-</ul>
-<aside class="warning"><p> If you are working in a public or team workspace, you may want to create <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">a Postman environment</a> and use <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">&#34;Current value&#34;</a> to prevent unintentional disclosure of sensitive data, such as authorization credentials. <img alt="current values" src="img/93d766bec4a14048.png"></p>
+<li><strong>region</strong> - Your default AWS region can be found in the URL path when logged into the <a href="https://console.aws.amazon.com/" target="_blank">AWS console</a>. For example, <code>us-east-1</code> is the default region in <code>https://us-east-1.console.aws.amazon.com/</code>. <aside class="warning"><p> If you are working in a public or team workspace, you may want to create <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">a Postman environment</a> and use <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">&#34;Current value&#34;</a> to prevent unintentional disclosure of sensitive data, such as authorization credentials. <img alt="current values" src="img/93d766bec4a14048.png"></p>
 </aside>
+</li>
+</ul>
 
 
       </google-codelab-step>
@@ -90,10 +90,10 @@
 <h2 is-upgraded>Get AWS credentials from AWS console</h2>
 <ol type="1">
 <li>In the <a href="https://console.aws.amazon.com/iam/home" target="_blank">AWS IAM console</a>, click <strong>Users</strong> in the <strong>Details</strong> pane, click the IAM user we created in the previous steps, and then click <strong>Create Access Key</strong> on the <strong>Security Credentials</strong> tab. <img alt="create access key in AWS console" src="img/73787ad2b3cc3692.png"></li>
-<li>Step through the configuration details, such as selecting the use case &#34;Application running outside AWS&#34;. Generate your <strong>Access key</strong> and <strong>Secret access key</strong>, which we will need for the next step. <img alt="Keys in AWS console" src="img/4fdd4aae23aa2200.png"></li>
-</ol>
-<aside class="warning"><p> To create a new secret access key for your root account, use the <a href="https://console.aws.amazon.com/iam/home?#security_credential" target="_blank">security credentials page</a>. Expand the <strong>Access Keys</strong> section, and then click <strong>Create New Root Key</strong>.</p>
+<li>Step through the configuration details, such as selecting the use case &#34;Application running outside AWS&#34;. Generate your <strong>Access key</strong> and <strong>Secret access key</strong>, which we will need for the next step. <img alt="Keys in AWS console" src="img/4fdd4aae23aa2200.png"><aside class="warning"><p> To create a new secret access key for your root account, use the <a href="https://console.aws.amazon.com/iam/home?#security_credential" target="_blank">security credentials page</a>. Expand the <strong>Access Keys</strong> section, and then click <strong>Create New Root Key</strong>.</p>
 </aside>
+</li>
+</ol>
 <p>For more information about <a href="https://aws.amazon.com/blogs/security/wheres-my-secret-access-key/" target="_blank">getting access keys</a>, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds.html" target="_blank">AWS General Reference</a>.</p>
 <h2 is-upgraded>Set AWS credentials in Postman</h2>
 <p>In Postman, we can use an authorization helper to compute an AWS signature to include with each request. <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html" target="_blank">To authenticate requests using AWS Signature Version 4</a>, add your AWS credentials to Postman:</p>
@@ -124,17 +124,14 @@
 <p>In the next steps, we will work with an Amazon S3 cloud storage resource called a bucket. To grant the user permissions on a bucket, the AWS account can use a bucket policy, a user policy, or both. Let&#39;s attach an IAM policy to our new user.</p>
 <ol type="1">
 <li>Open the <a href="https://console.aws.amazon.com/iam/" target="_blank">IAM console</a> in the AWS Management Console, and choose <strong>Policies</strong>. Search for <code>AmazonS3FullAccess</code>. Click on the policy, toggle over to <strong>JSON</strong>, and review the details. The <code>AmazonS3FullAccess</code> managed policy provides full access to all buckets. <pre><code language="language-json" class="language-json">{
-    &#34;Version&#34;: &#34;2012-10-17&#34;,
-    &#34;Statement&#34;: [
-        {
-            &#34;Effect&#34;: &#34;Allow&#34;,
-            &#34;Action&#34;: [
-                &#34;s3:*&#34;,
-                &#34;s3-object-lambda:*&#34;
-            ],
-            &#34;Resource&#34;: &#34;*&#34;
-        }
-    ]
+  &#34;Version&#34;: &#34;2012-10-17&#34;,
+  &#34;Statement&#34;: [
+    {
+      &#34;Effect&#34;: &#34;Allow&#34;,
+      &#34;Action&#34;: [&#34;s3:*&#34;, &#34;s3-object-lambda:*&#34;],
+      &#34;Resource&#34;: &#34;*&#34;
+    }
+  ]
 }
 </code></pre>
 </li>
@@ -243,7 +240,7 @@
 <p>For more hands-on tutorials, check out these resources.</p>
 <ul>
 <li>Check back for more <a href="https://quickstarts.postman.com/" target="_blank">AWS tutorials</a></li>
-<li>Contribute your own tutorials <a href="https://github.com/loopDelicious/pmquickstarts" target="_blank">here</a></li>
+<li>Contribute your own tutorials <a href="https://github.com/postmanlabs/pmquickstarts" target="_blank">here</a></li>
 </ul>
 <h2 is-upgraded>Other topics</h2>
 <ul>

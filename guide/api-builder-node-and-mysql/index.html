@@ -25,7 +25,7 @@
                   id="api-builder-node-and-mysql"
                   title="Build An API with Postman, Node.js &amp; MySQL"
                   environment="web"
-                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+                  feedback-link="https://github.com/postmanlabs/pmquickstarts">
     
       <google-codelab-step label="Overview" duration="2">
         <p>Let&#39;s create a ToDo API powered by MySQL and Node.js with the help of Postman&#39;s <a href="https://learning.postman.com/docs/designing-and-developing-your-api/creating-an-api/#creating-an-api" target="_blank">API Builder</a></p>
@@ -93,7 +93,7 @@ GRANT SELECT, INSERT, UPDATE ON todo.* TO &#39;todo_admin&#39;@&#39;localhost&#3
 
 use todo;
 
-INSERT INTO todos (id_code, to_do, completed) VALUES (&#39;todo1&#39;,&#39;Get something done&#39;, TRUE); 
+INSERT INTO todos (id_code, to_do, completed) VALUES (&#39;todo1&#39;,&#39;Get something done&#39;, TRUE);
 
 INSERT INTO todos (id_code, to_do, completed) VALUES (&#39;todo2&#39;,&#39;Get another thing done&#39;, FALSE);
 </code></pre>
@@ -129,11 +129,11 @@ info:
 <h2 is-upgraded>The <code>servers</code> array</h2>
 <p>Next is a <code>servers</code> array with an object for each server, like development and production. A <code>variables</code> object provides values for each server, such as the selection of port 8080 as the default.</p>
 <pre><code language="language-yaml" class="language-yaml">servers:
-- url: http://localhost
-  description: Development server
-  variables:
-    port:
-      default: 8080
+  - url: http://localhost
+    description: Development server
+    variables:
+      port:
+        default: 8080
 </code></pre>
 <h2 is-upgraded>The <code>components</code> object</h2>
 <p>In the <code>components</code> object, there is a <code>schemas</code> object to define each type of data the API will send or receive. Data types like the <code>id_code</code> will be used in multiple places. The <code>$ref: [path to object]</code> property reuses the existing <code>id_code</code> definition in the <code>to_do</code> object.</p>
@@ -145,7 +145,7 @@ info:
       type: string
       minLength: 1
       maxLength: 36
-    task: 
+    task:
       description: The text description of the task.
       type: string
       minLength: 2
@@ -156,26 +156,26 @@ info:
     complete:
       description: Use true to show all tasks, false to show only incomplete tasks.
       type: boolean
-    to_do: 
+    to_do:
       description: An object containing a task&#39;s information
       type: object
       properties:
         idcode:
-          $ref: &#39;#/components/schemas/id_code&#39;
+          $ref: &#34;#/components/schemas/id_code&#34;
         task:
-          $ref: &#39;#/components/schemas/task&#39;
+          $ref: &#34;#/components/schemas/task&#34;
         completed:
-          $ref: &#39;#/components/schemas/completed&#39;
-    to_do_list: 
+          $ref: &#34;#/components/schemas/completed&#34;
+    to_do_list:
       description: An array of toDo objects.
       type: array
       items:
-        $ref: &#39;#/components/schemas/ToDo&#39;
+        $ref: &#34;#/components/schemas/ToDo&#34;
     error_msg:
       type: object
       properties:
         message:
-          type: string          
+          type: string
 </code></pre>
 <h2 is-upgraded>The <code>paths</code> object</h2>
 <p>The <code>paths</code> object defines the paths for your API and how they handle various HTTP verbs like <code>PUT</code> and <code>GET</code>.</p>
@@ -196,18 +196,18 @@ info:
     get:
       description: Gets a list of all items or all incomplete items.
       parameters:
-      - name: complete
-        in: query
-        required: false
-        schema:
-          $ref: &#39;#/components/schemas/complete&#39;
+        - name: complete
+          in: query
+          required: false
+          schema:
+            $ref: &#34;#/components/schemas/complete&#34;
       responses:
-        &#39;200&#39;:
+        &#34;200&#34;:
           description: OK
-          content: 
+          content:
             application/json:
               schema:
-                $ref: &#39;#/components/schemas/to_do_list&#39;
+                $ref: &#34;#/components/schemas/to_do_list&#34;
     post:
       description: Create a to-do item.
       requestBody:
@@ -217,24 +217,24 @@ info:
               type: object
               properties:
                 task:
-                  $ref: &#39;#/components/schemas/task&#39;
+                  $ref: &#34;#/components/schemas/task&#34;
                 completed:
-                  $ref: &#39;#/components/schemas/completed&#39;
+                  $ref: &#34;#/components/schemas/completed&#34;
               required:
-              - task
+                - task
       responses:
-        &#39;200&#39;:
+        &#34;200&#34;:
           description: Returns a copy of the new ToDo object.
-          content: 
-            &#39;application/json&#39;: 
+          content:
+            &#34;application/json&#34;:
               schema:
-                $ref: &#39;#/components/schemas/to_do&#39;
-        &#39;400&#39;:
+                $ref: &#34;#/components/schemas/to_do&#34;
+        &#34;400&#34;:
           description: Creation failed. Returns an error.
-          content: 
-            &#39;application/json&#39;:
+          content:
+            &#34;application/json&#34;:
               schema:
-                $ref: &#39;#/components/schemas/error_msg&#39;
+                $ref: &#34;#/components/schemas/error_msg&#34;
     put:
       description: Update a to-do item.
       requestBody:
@@ -244,26 +244,26 @@ info:
               type: object
               properties:
                 id_code:
-                  $ref: &#39;#/components/schemas/id_code&#39;
+                  $ref: &#34;#/components/schemas/id_code&#34;
                 task:
-                  $ref: &#39;#/components/schemas/task&#39;
+                  $ref: &#34;#/components/schemas/task&#34;
                 completed:
-                  $ref: &#39;#/components/schemas/completed&#39;
+                  $ref: &#34;#/components/schemas/completed&#34;
               required:
-                - id_code 
+                - id_code
       responses:
-        &#39;200&#39;:
+        &#34;200&#34;:
           description: Item updated. Returns the item&#39;s updated ToDo object.
-          content: 
-            &#39;application/json&#39;:
+          content:
+            &#34;application/json&#34;:
               schema:
-                $ref: &#39;#/components/schemas/to_do&#39;
-        &#39;400&#39;:
+                $ref: &#34;#/components/schemas/to_do&#34;
+        &#34;400&#34;:
           description: Update failed. Returns an error message.
-          content: 
-            &#39;application/json&#39;:
+          content:
+            &#34;application/json&#34;:
               schema:
-                $ref: &#39;#/components/schemas/error_msg&#39;
+                $ref: &#34;#/components/schemas/error_msg&#34;
 </code></pre>
 <p>Read the <a href="https://spec.openapis.org/oas/latest.html" target="_blank">OpenAPI 3 standard</a> if you&#39;d like to dive deeper into constructing API definitions with it.</p>
 <p>Next, add the API to Postman.</p>
@@ -322,61 +322,60 @@ info:
 <h3 is-upgraded>Editing <code>services/todos.js</code></h3>
 <p>Navigate from the root folder of the project to the <code>services</code> folder and open <code>todos.js</code> in an editor. This file is where the business logic lives and where the root functions for the API methods live.</p>
 <p>Add the following code at the top.</p>
-<pre><code language="language-javascript" class="language-javascript">const crypto = require(&#39;crypto&#39;);
-const mysql = require(&#39;mysql&#39;)
+<pre><code language="language-javascript" class="language-javascript">const crypto = require(&#34;crypto&#34;);
+const mysql = require(&#34;mysql&#34;);
 const connection = mysql.createConnection({
-  host: &#39;localhost&#39;,
-  user: &#39;todo_admin&#39;,
-  password: &#39;leelu_dallas_multipass-6&#39;,
-  database: &#39;todo&#39;
-})
+  host: &#34;localhost&#34;,
+  user: &#34;todo_admin&#34;,
+  password: &#34;leelu_dallas_multipass-6&#34;,
+  database: &#34;todo&#34;,
+});
 
-connection.connect()
+connection.connect();
 
 // function to run your SQL queries
-runQuery = function(query){
-  return new Promise(function(resolve, reject){
-    connection.query(
-        query, 
-        function(err, rows){                                                
-          if(rows === undefined){
-            reject(new Error(&#34;Error rows is undefined&#34;));
-          }else{
-            resolve(rows);
-          }
-        }
-    )}
-)}
+runQuery = function (query) {
+  return new Promise(function (resolve, reject) {
+    connection.query(query, function (err, rows) {
+      if (rows === undefined) {
+        reject(new Error(&#34;Error rows is undefined&#34;));
+      } else {
+        resolve(rows);
+      }
+    });
+  });
+};
 </code></pre>
 <p>This pulls in Node&#39;s built-in <code>crypto</code> module to generate UUIDs for the <code>POST</code> function and sets up the <code>mysql</code> module with a database connection. Then it adds a function to run your SQL queries. The function is wrapped in a promise and resolves when the query results are returned.</p>
 <p>Let&#39;s look at the code for the <code>GET</code> function from above. It creates a demo of the array specified in the API description with mock values.</p>
-<pre><code language="language-javascript" class="language-javascript">    var data = [{
-        &#34;complete&#34;: &#34;&lt;Complete&gt;&#34;,
-        &#34;idcode&#34;: &#34;&lt;IdCode&gt;&#34;,
-        &#34;task&#34;: &#34;&lt;Task&gt;&#34;,
-      }],
-      status = &#39;200&#39;;
+<pre><code language="language-javascript" class="language-javascript">var data = [
+    {
+      complete: &#34;&lt;Complete&gt;&#34;,
+      idcode: &#34;&lt;IdCode&gt;&#34;,
+      task: &#34;&lt;Task&gt;&#34;,
+    },
+  ],
+  status = &#34;200&#34;;
 
-    return {
-      status: status,
-      data: data
-    };  
+return {
+  status: status,
+  data: data,
+};
 </code></pre>
 <p>Replace that code with this code and save the file.</p>
-<pre><code language="language-javascript" class="language-javascript">    //compose the query
-    let query = &#34;SELECT * FROM todos WHERE `completed` = 0&#34;;
-    if(options.complete &amp;&amp; (options.complete.toLowerCase() === &#39;true&#39;))
-    {
-      query = &#34;SELECT * FROM todos&#34;;
-    }
-    
-    //query the database
-    response = await runQuery(query);
+<pre><code language="language-javascript" class="language-javascript">//compose the query
+let query = &#34;SELECT * FROM todos WHERE `completed` = 0&#34;;
+if (options.complete &amp;&amp; options.complete.toLowerCase() === &#34;true&#34;) {
+  query = &#34;SELECT * FROM todos&#34;;
+}
 
-    return {
-      status: 200,
-      data: response
-    };  
+//query the database
+response = await runQuery(query);
+
+return {
+  status: 200,
+  data: response,
+};
 </code></pre>
 <p>Express provides the query string parameters in the <code>options</code> object. First, the code checks if there is a <code>completed</code> parameter and then if the value is <code>true</code> (as a string). The default is only to get all ToDos that are not completed. The modified query when <code>complete</code> is <code>true</code> gets all ToDos, regardless of status.</p>
 <p>If you want to dig into the code for the other two operations, download the complete working code at the <a href="https://github.com/LetMyPeopleCode/ToDO_API_with_Node_and_MySQL" target="_blank">ToDo API project repository on GitHub</a>.</p>

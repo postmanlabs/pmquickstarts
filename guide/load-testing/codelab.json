@@ -3,7 +3,7 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-06-20T16:08:57-07:00",
+  "updated": "2023-11-07T12:50:50-08:00",
   "id": "load-testing",
   "duration": 9,
   "title": "Load Testing",
@@ -24,6 +24,6 @@
     "tester",
     "web"
   ],
-  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "feedback": "https://github.com/postmanlabs/pmquickstarts",
   "url": "load-testing"
 }

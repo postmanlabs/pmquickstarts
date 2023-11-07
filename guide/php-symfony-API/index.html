@@ -25,7 +25,7 @@
                   id="php-symfony-API"
                   title="Create A REST API with PHP And Symfony"
                   environment="web"
-                  feedback-link="https://github.com/loopDelicious/pmquickstarts">
+                  feedback-link="https://github.com/postmanlabs/pmquickstarts">
     
       <google-codelab-step label="Overview" duration="1">
         <p>PHP is the programming language behind major web applications like WordPress (blog), Drupal (<a href="https://en.wikipedia.org/wiki/Content_management_system" target="_blank">CMS</a>), and Magento (e-commerce). It first appeared in 1995, less than 3 weeks after the Java programming language.</p>
@@ -134,7 +134,7 @@
 <p><strong>Note:</strong> This is the appropriate way to start an API project. Starting a web application project requires a little bit more. Refer to the <a href="https://symfony.com/doc/current/setup.html" target="_blank">Symfony setup instructions</a> for more information.</p>
 <h2 is-upgraded>Give it a test</h2>
 <p>Navigate into the <code>symfony_api</code> folder and enter the following command in the terminal:</p>
-<pre><code language="language-bash" class="language-bash">symfony server:start --port=8080   
+<pre><code language="language-bash" class="language-bash">symfony server:start --port=8080
 </code></pre>
 <p>This will launch your project at <code>http://localhost:8080</code>. Change the port to something else if you already have a process using the port. When it&#39;s running, visit the URL. It will return this homepage:</p>
 <p class="image-container"><img alt="Your Symfony project&amp;rsquo;s default homepage" src="img/a800c625f0b3f47d.png"></p>
@@ -171,10 +171,10 @@ class HelloController extends AbstractController
 
       //make sure we send a 200 OK status
       $response-&gt;setStatusCode(Response::HTTP_OK);
-      
+
       // set the response content type to plain text
       $response-&gt;headers-&gt;set(&#39;Content-Type&#39;, &#39;text/plain&#39;);
-      
+
       // send the response with appropriate headers
       $response-&gt;send();
     }
@@ -215,7 +215,7 @@ class ReverseController extends AbstractController
     //set the route, so [site URL]/hello will trigger this
     #[Route(&#39;/reverse&#39;, name: &#39;reverse_me&#39;)]
     public function reverse(): Response
-    {          
+    {
       //create a request object to get request data
       $request = Request::createFromGlobals();
 
@@ -225,9 +225,9 @@ class ReverseController extends AbstractController
       // make sure the reverse_this parameter exists and is a string
       if ($request-&gt;request-&gt;get(&#34;reverse_this&#34;) &amp;&amp; is_string($request-&gt;request-&gt;get(&#34;reverse_this&#34;))) {
 
-        //reverse the string and add it to the response 
+        //reverse the string and add it to the response
         $response-&gt;setContent(strrev($request-&gt;request-&gt;get(&#34;reverse_this&#34;)));
-        
+
         //make sure we send a 200 OK status
         $response-&gt;setStatusCode(Response::HTTP_OK);
 
@@ -243,7 +243,7 @@ class ReverseController extends AbstractController
 
       // set the response content type to plain text
       $response-&gt;headers-&gt;set(&#39;Content-Type&#39;, &#39;text/plain&#39;);
-      
+
       // send the response
       $response-&gt;send();
     }

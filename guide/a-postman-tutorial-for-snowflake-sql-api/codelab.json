@@ -3,7 +3,7 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-05-01T12:05:30-07:00",
+  "updated": "2023-11-07T12:50:50-08:00",
   "id": "a-postman-tutorial-for-snowflake-sql-api",
   "duration": 24,
   "title": "Get Started with the Snowflake SQL API in Postman",
@@ -24,6 +24,6 @@
     "rest",
     "web"
   ],
-  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "feedback": "https://github.com/postmanlabs/pmquickstarts",
   "url": "a-postman-tutorial-for-snowflake-sql-api"
 }

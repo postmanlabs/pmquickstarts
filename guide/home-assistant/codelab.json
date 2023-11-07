@@ -3,7 +3,7 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-06-23T11:36:54-07:00",
+  "updated": "2023-11-07T12:50:50-08:00",
   "id": "home-assistant",
   "duration": 9,
   "title": "Home Assistant with WebSocket APIs",
@@ -22,6 +22,6 @@
     "tester",
     "web"
   ],
-  "feedback": "https://github.com/loopDelicious/pmquickstarts",
+  "feedback": "https://github.com/postmanlabs/pmquickstarts",
   "url": "home-assistant"
 }
