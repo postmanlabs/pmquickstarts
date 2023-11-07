@@ -61,9 +61,9 @@ IAM (Identity and Access Management) enables you to manage users and user permis
 
 ### Input AWS data into Postman
 
-1. Click the orange **Run in Postman** button below to fork [this example collection]() to your own Postman workspace.
-   <br/>
-   [![Run in Postman](_shared_assets/button.svg)](https://god.gw.postman.com/run-collection/13191452-92632f93-a0c2-42f3-847e-ff7ffdfe688b?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D13191452-92632f93-a0c2-42f3-847e-ff7ffdfe688b%26entityType%3Dcollection%26workspaceId%3D0a0d015d-e451-49cd-87fe-e3772ddae97a)
+1. Click the orange **Run in Postman** button below to fork [this example collection](https://www.postman.com/devrel/workspace/cloud-onboarding-collections/collection/13191452-92632f93-a0c2-42f3-847e-ff7ffdfe688b) to your own Postman workspace.
+  <br/>
+  [![Run in Postman](_shared_assets/button.svg)](https://god.gw.postman.com/run-collection/13191452-92632f93-a0c2-42f3-847e-ff7ffdfe688b?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D13191452-92632f93-a0c2-42f3-847e-ff7ffdfe688b%26entityType%3Dcollection%26workspaceId%3D0a0d015d-e451-49cd-87fe-e3772ddae97a)
 1. In the Postman app, enter a label for your fork and select the workspace to fork the collection:
    ![fork label](./assets/fork.png)
 1. Select the Postman collection that you forked to your workspace. Find the **Variables** tab, and paste your new User's information into each variable value.
