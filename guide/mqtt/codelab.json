@@ -1,0 +1,27 @@
+{
+  "environment": "web",
+  "format": "../../../claat/render/template.html",
+  "prefix": "https://quickstarts.postman.com/elements",
+  "mainga": "G-GPC8QJXW1D",
+  "updated": "2023-11-17T08:32:53-08:00",
+  "id": "mqtt",
+  "duration": 11,
+  "title": "Home Assistant with the MQTT integration",
+  "summary": "Home Assistant with MQTT",
+  "source": "mqtt/mqtt.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "intermediate"
+  ],
+  "tags": [
+    "developer",
+    "intermediate",
+    "tester",
+    "web"
+  ],
+  "feedback": "https://github.com/postmanlabs/pmquickstarts",
+  "url": "mqtt"
+}

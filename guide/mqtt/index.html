@@ -1,0 +1,175 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Home Assistant with the MQTT integration</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="G-GPC8QJXW1D"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="mqtt"
+                  title="Home Assistant with the MQTT integration"
+                  environment="web"
+                  feedback-link="https://github.com/postmanlabs/pmquickstarts">
+    
+      <google-codelab-step label="Overview" duration="1">
+        <h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Familiarity with DIY home automation and Home Assistant</li>
+<li>Some connected device, such as smart lights, smart speakers, or digital assistant</li>
+</ul>
+<h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>how to establish an MQTT connection</li>
+<li>how to authorize Home Assistant APIs</li>
+<li>how to send and receive MQTT messages</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Need</h2>
+<ul>
+<li>a <a href="https://www.home-assistant.io/" target="_blank">Home Assistant Account</a></li>
+<li>Home Assistant instance running on local server, <a href="https://www.home-assistant.io/installation/raspberrypi" target="_blank">such as Raspberry Pi</a></li>
+<li>a <a href="https://identity.getpostman.com/signup" target="_blank">Postman Account</a></li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<ul>
+<li>A Postman collection with saved MQTT messages</li>
+</ul>
+<p><strong>Watch this video</strong> to follow along at each step: </p>
+<iframe class="youtube-video" src="https://www.youtube.com/embed/tZjW1IHZ3Lc?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Introduction to Home Assistant" duration="2">
+        <p>Home Assistant is a popular open-source home automation platform that provides a unified interface to control and monitor different smart devices. Instead of juggling separate apps for different brands, you can manage everything through a single Home Assistant web dashboard on a local server like Raspberry Pi.</p>
+<p>We&#39;ve previously explored <a href="https://quickstarts.postman.com/guide/home-assistant/index.html?index=..%2F..index#0" target="_blank">Home Assistant&#39;s WebSocket API</a> using Postman. Now let&#39;s delve into <a href="https://www.home-assistant.io/integrations/mqtt" target="_blank">Home Assistant&#39;s MQTT integration</a>, used by <a href="https://analytics.home-assistant.io/integrations" target="_blank">44%</a> of all active installations, to access smart devices across your connected home.</p>
+<h2 is-upgraded>REST, WebSockets, and MQTT for connected home</h2>
+<p>When it comes to transmitting data in a connected home environment, REST, WebSockets, and MQTT are commonly used protocols, but for different use cases.</p>
+<ul>
+<li><strong>With REST</strong>, you have a request-response pattern, where a client sends a request to a server, and the server responds with the requested data. This is good for turning on a light or retrieving information about a set of devices.</li>
+<li><strong>With WebSockets</strong>, you have bidirectional streaming between a client and server with real-time messages being relayed. This is helpful for ongoing updates, such as for a live dashboard displaying the status of all the connected devices in your home.</li>
+<li><strong>With MQTT</strong>, you have real-time data transmission, similar to WebSockets, but optimized for low-power and low-bandwidth devices. Clients publish data to a centralized broker or hub, who then relays this data to other clients who have subscribed to receive notifications about a particular topic. This publish-subscribe messaging pattern is good for smart home devices that might lose and then resume a connection.</li>
+</ul>
+<p>In the next section, let&#39;s try using MQTT with Home Assistant for home automation.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Add the MQTT integration to Home Assistant" duration="3">
+        <ol type="1">
+<li><strong>Create a new user</strong>: In the Home Assistant dashboard, under <strong>Settings</strong> &gt; <strong>People</strong>, <a href="http://homeassistant.local:8123/config/person" target="_blank">create a new user (or Person)</a> to log in and access Home Assistant. Make a note of the <code>username</code> and <code>password</code> for the new user, since we will use those credentials to configure our MQTT devices and authorize our MQTT messages.<aside class="warning"><ul>
+<li>This name cannot be <code>homeassistant</code> or <code>addons</code>, those are reserved usernames.</li>
+<li>If you do not see the option to create a new user, ensure that Advanced Mode is enabled in your Home Assistant profile.</li>
+</ul>
+</aside>
+  <img alt="create new user" style="width: 400.00px" src="img/c50d5aee90953f5e.png"></li>
+<li><strong>Choose an MQTT broker</strong>: In this tutorial, we will set up the <a href="https://github.com/home-assistant/addons/blob/master/mosquitto/DOCS.md" target="_blank">Mosquitto MQTT broker add-on</a>. Under <strong>Settings</strong> &gt; <strong>Add-ons</strong> &gt; <strong>Add-on store</strong>, find, install, and start <a href="http://homeassistant.local:8123/hassio/addon/core_mosquitto/info" target="_blank">&#34;Mosquitto broker&#34;</a>. This might take a few minutes. Once the add-on is started, make a note of the <code>Hostname</code> for the next step. <img alt="mosquitto broker" src="img/820fcfaa977127d9.png"></li>
+<li><strong>Add the MQTT integration</strong>: On the <a href="http://homeassistant.local:8123/config/integrations/dashboard" target="_blank">Integrations page</a> of your Home Assistance dashboard, you might already see an MQTT integration under &#34;Discovery&#34; that you can add. Otherwise, find and add the &#34;MQTT&#34; integration or using <a href="https://my.home-assistant.io/redirect/config_flow_start?domain=mqtt" target="_blank">this link</a>. You will need <code>Hostname</code> of the broker from Step 2, and <code>username</code> and <code>password</code> from the user created in Step 1.<aside class="warning"><p> If you have old MQTT settings available, remove this old integration and restart Home Assistant to see the new one.</p>
+</aside>
+  <img alt="MQTT configuration modal" style="width: 400.00px" src="img/eb10601c838ff41c.png"></li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Connect to the broker using Postman" duration="2">
+        <h2 is-upgraded>Fork the Postman collection</h2>
+<ol type="1">
+<li>Find the sample collection in Postman, <a href="https://www.postman.com/postman/workspace/program-smart-lights/collection/6553ec7cf22df0654f277729" target="_blank">Home Assistant MQTT</a>, and fork the collection to your own Postman workspace. <img alt="fork icon" src="img/3d359de153849c59.png"></li>
+<li>Enter a label for your fork and select the workspace to fork the collection: <img alt="fork label" src="img/e256457c78c10467.png"></li>
+</ol>
+<h2 is-upgraded>Authorize API requests</h2>
+<ol type="1">
+<li><strong>Add variables</strong>: Select the collection you just forked into your own Postman workspace, and add your new Home Assistant user credentials under the <strong>Variables</strong> tab, and <strong>Save</strong> your updates. <img alt="save variables" src="img/536d07c396f51a72.png"><aside class="warning"><p> If you are working in a public or team workspace, you may want to create <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">a Postman environment</a> and use <a href="https://learning.postman.com/docs/sending-requests/managing-environments/" target="_blank">&#34;Current value&#34;</a> to prevent unintentional disclosure of sensitive data, such as authorization credentials.</p>
+</aside>
+</li>
+<li><strong>Review authorization details</strong>: Notice the variables are used under the <strong>Authorization</strong> tab of each request in the collection. <img alt="authorization method" src="img/597bf77ead9385c0.png"></li>
+</ol>
+<h2 is-upgraded>Connect to the broker</h2>
+<ol type="1">
+<li><strong>Establish a connection</strong>: Connect to <code>mqtt://homeassistant.local</code> and observe the connection details reflected on the bottom. This is also where you will see inbound and outbound messages displayed. <img alt="establish connection" src="img/f597ef571a074ec7.png"></li>
+<li><strong>Send a message</strong>: Under the <strong>Message</strong> tab, publish data to a specified topic. For example, try inputting text like &#34;Hello&#34; to the topic <code>everything/smart/home</code> and hit <strong>Send</strong>. You can also save messages to re-use later on. <img alt="send message" src="img/d1a3f36edfd3c8dd.png"></li>
+<li><strong>Subscribe to a topic</strong>: Under the <strong>Topics</strong> tab, subscribe to a topic such as <code>everything/smart/home</code> by switching the toggle on. This means the Postman client is subscribed to receive any data published to that topic. <img alt="subscribe to topic" src="img/5cac6384c26f1e68.png"></li>
+<li><strong>Send a second message</strong>: Now try sending a different message to the same topic <code>everything/smart/home</code> to see what happens. Postman can send messages, and also receive messages published to the topic that it is subscribed to. This messaging pattern is called publish-subscribe. Notice outbound messages are displayed next to an up arrow, and inbound messages are displayed next to a down arrow. <img alt="pubsub" src="img/4d156a9391b010c8.png"></li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Device configuration example with Tasmota" duration="1">
+        <p>If you have a device that communicates over MQTT, you may need to configure the device <a href="https://www.home-assistant.io/integrations/mqtt#mqtt-discovery" target="_blank">to enable Home Assistant discovery</a>. Every device and manufacturer is likely to follow a different process, so the following steps are just one example.</p>
+<ol type="1">
+<li><strong>Configure Tasmota device</strong>: MQTT is the main protocol for controlling Tasmota devices. After you have a working MQTT broker you need <a href="https://tasmota.github.io/docs/MQTT/" target="_blank">to configure Tasmota</a> to communicate with it. <img alt="tasmota" src="img/e11bd797dfe1a331.png"></li>
+<li><strong>Control Tasmota device</strong>: The Tasmota documentation provides <a href="https://tasmota.github.io/docs/MQTT/#commands-over-mqtt" target="_blank">examples of commands</a> we can send over MQTT to control our Tasmota device. We can also save messages to re-use later on. <img alt="commands" src="img/f66fd314045c1fbd.png"></li>
+</ol>
+<aside class="warning"><p> For reading all messages sent on the topic <code>homeassistant</code> to a broker running on <code>localhost</code>, subscribe to topic <code>homeassistant/#</code>.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Data visualization example" duration="1">
+        <p>Depending on the response format, you can also select the <strong>Visualization</strong> tab of the response to show a message stream in a graphical format, a more comprehensible way to view telemetry data. Learn more about <a href="https://learning.postman.com/docs/sending-requests/mqtt-client/mqtt-request-interface/#the-mqtt-response" target="_blank">the MQTT response</a>.</p>
+<p class="image-container"><img alt="dataviz" src="img/51a31d23b50e15ba.jpeg"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Next Steps" duration="1">
+        <p><strong>Watch this video</strong> to recap the steps: </p>
+<iframe class="youtube-video" src="https://www.youtube.com/embed/tZjW1IHZ3Lc?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h2 class="checklist" is-upgraded>What we&#39;ve covered</h2>
+<ul class="checklist">
+<li>how to establish an MQTT connection</li>
+<li>how to authorize Home Assistant APIs</li>
+<li>how to send and receive MQTT messages</li>
+</ul>
+<p>For more hands-on tutorials, check out these resources.</p>
+<ul>
+<li><a href="https://quickstarts.postman.com/guide/home-assistant/index.html?index=..%2F..index#0" target="_blank">Home Assistant with WebSocket APIs</a> quickstart</li>
+<li>Contribute your own tutorials <a href="https://github.com/postmanlabs/pmquickstarts" target="_blank">here</a></li>
+</ul>
+<h2 is-upgraded>Additional resources for Home Assistant</h2>
+<ul>
+<li><a href="https://www.home-assistant.io/integrations/mqtt" target="_blank">Home Assistant MQTT integration</a></li>
+<li><a href="https://developers.home-assistant.io/docs/api/websocket" target="_blank">Home Assistant WebSocket API documentation</a></li>
+<li><a href="https://developers.home-assistant.io/docs/api/rest" target="_blank">Home Assistant REST API documentation</a></li>
+</ul>
+<h2 is-upgraded>Additional Postman resources</h2>
+<ul>
+<li><a href="https://www.postman.com/aaroncarson/workspace/aaroncarson-public/collection/16392798-e28a007f-b4ac-4849-9ba0-b2dd5a7970b9" target="_blank">Home Assistant REST API</a>: Postman collection</li>
+<li><a href="https://www.postman.com/postman/workspace/program-smart-lights/overview" target="_blank">Program smart lights</a>: Postman public workspace</li>
+<li><a href="https://learning.postman.com/docs/sending-requests/mqtt-client/mqtt-client-overview/" target="_blank">MQTT overview</a>: Postman documentation</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/native-shim.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/prettify.js"></script>
+  <script src="https://quickstarts.postman.com/elements/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+  <script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+    heap.load("2025084205");
+  </script>
+</body>
+</html>
