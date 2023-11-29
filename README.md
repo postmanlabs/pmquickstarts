@@ -76,7 +76,7 @@ export PATH=$PATH:$HOME/go/bin
 
 
    ```
-   pmquickstarts(main)$ npm run template securing-api-keys 
+   $ npm run template securing-api-keys 
    ```
 
 3. Navigate to the newly generated guide (`cd pmguides/src/<GUIDE-NAME>`) and edit your guide in a tool like vscode.
