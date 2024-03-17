@@ -53,7 +53,7 @@ $ pip install websockets
 $ touch websockets.py
 ```
 
-Next, open the `websockets.py` file in your favorite editor and add this code for a basic echo server (borrowed from the example in the `websockets` library documentation). Then save the file.
+Next, open the `myserver.py` file in your favorite editor and add this code for a basic echo server (borrowed from the example in the `websockets` library documentation). Then save the file.
 
 ```python
 import asyncio
@@ -73,7 +73,7 @@ asyncio.run(main())
 It’s time to run our server locally from the command line.
 
 ```bash
-$ python websockets.py
+$ python myserver.py
 ```
 
 In the next step, let's begin sending and receiving messages.
@@ -113,7 +113,7 @@ Let's pretend we're building an extremely simple chat room server. In this chat 
 
 Terminate the running server (**Ctrl + C**). This shuts down the server and Postman will register that the connection terminated.
 
-Update `websockets.py` to the code below so it will now _broadcast_ incoming messages to all connected clients. Save the changes.
+Update `myserver.py` to the code below so it will now _broadcast_ incoming messages to all connected clients. Save the changes.
 
 ```python
 import asyncio
@@ -137,7 +137,7 @@ asyncio.run(main())
 Run it.
 
 ```bash
-$ python websockets.py
+$ python myserver.py
 ```
 
 ### Open a second WebSockets connection
