@@ -20,7 +20,7 @@ Duration: 2
 
 Improve your skills by tackling a new Postman challenge for 30 days in a row.
 
-<img src="assets/30daysbadge.png" alt="30 day challenge badge" width="200"/>
+<img src="assets/30daysbadge.png" alt="30 day challenge" width="200"/>
 
 ### How it works
 
@@ -52,13 +52,12 @@ Improve your skills by tackling a new Postman challenge for 30 days in a row.
 ### Frequently Asked Questions
 
 - **How long does it take to complete the 30 days of Postman challenge?** Plan to spend 5 to 45 minutes every day to explore the topic and dive deeper into the topics you find interesting. Go at your own pace. There is no penalty for taking longer. **Note**: if a very long period of time elapses from when you fork a challenge to when you submit the final solution, you may need to pull the latest changes to ensure the solution you submit is up to date.
-- **Do I need to complete all 30 challenges?** Completing all 30 challenges is required to claim your **30 days of Postman** badge. You are welcome to dive into any of the topics that you find interesting. However, some challenges build on concepts introduced in earlier challenges. So you will receive less guidance for concepts covered earlier in the series.
+- **Do I need to complete all 30 challenges?** You are welcome to dive into any of the topics that you find interesting. However, some challenges build on concepts introduced in earlier challenges. So you will receive less guidance for concepts covered earlier in the series.
 - **I am new to code.** Is this challenge for me? The challenges are designed for developers and suitable for novice developers. If you know basic software programming concepts and beginner JavaScript (or some other programming language), this challenge is for you. If you're an API professional, but don't identify as a developer, you may need to do extra research to complete some challenges.
 - **I'm stuck. Can someone please help?**
   - Re-read the instructions carefully, and check out the documentation and additional resources listed in the instructions.
   - Try submitting an incomplete solution locally to reveal clues in the test results.
   - Look for similar examples in the [community forum](https://community.postman.com/). If you're asking for help, make sure to include a thorough explanation of your question, what you've tried already, and include a direct link to your own public workspace so others can see where you're stuck.
-  - If your question is related to the administration of this badge (e.g. not a technical Postman question), you can ask for guidance in the [Training](https://community.postman.com/c/training/38) section of the community forum.
 
 <!-- ------------------------ -->
 
@@ -732,15 +731,25 @@ Duration: 7
 
 <!-- ------------------------ -->
 
-## Day 30: Submit for badge
+## Day 30: Review your work
 
 Duration: 2
 
-1. **Get the challenge:** Fork [the parent collection `Day 30: Submit for badge`](https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-88dc2f3e-8335-40f5-857d-cc053bdaa8ee) to your own public workspace.
+By the end of this challenge, you should have some experience with most of the following Postman skills.
+
+- Postman Essentials: Learning how to send requests, manage environments, and use variables.
+- Testing APIs: Writing tests in JavaScript to automate API validation.
+- Automation and Workflows: Using Postman collections, monitors, and Newman for automation.
+- Advanced Features: Working with mock servers, API documentation, and integrating with CI/CD pipelines.
+- GraphQL and WebSockets: Exploring GraphQL APIs and real-time communication with WebSockets.
+- Security: Implementing authentication and authorization techniques.
+
+Don't forget to:
+
+- Fork [the parent collection `Day 30: Submit for badge`](https://www.postman.com/postman/workspace/30-days-of-postman-for-developers/documentation/1559645-88dc2f3e-8335-40f5-857d-cc053bdaa8ee) to your own public workspace.
    </br>
    [![Run in Postman](assets/button.svg)](https://god.gw.postman.com/run-collection/1559645-88dc2f3e-8335-40f5-857d-cc053bdaa8ee?action=collection%2Ffork&collection-url=entityId%3D1559645-88dc2f3e-8335-40f5-857d-cc053bdaa8ee%26entityType%3Dcollection%26workspaceId%3Df1c6b0a9-b930-4165-9aa4-f655dd7051b5)
-2. **Read the documentation:** In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.
-3. **Submit your solution:** Select the second folder `Submit for badge` and follow the instructions in the documentation to validate your solution.
+- In your fork, select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.
 
 <!-- ------------------------ -->
 

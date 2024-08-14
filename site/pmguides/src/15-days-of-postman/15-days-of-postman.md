@@ -5,7 +5,7 @@ categories: Tester, Intermediate
 environments: web
 status: Published
 feedback link: https://github.com/postmanlabs/pmquickstarts
-tags: Intermediate, Tester, Automation, Badge
+tags: Intermediate, Tester, Automation
 
 # 15 Days of Postman - for testers
 
@@ -21,7 +21,7 @@ Duration: 2
 
 Improve your skills by tackling a new Postman challenge for 15 days in a row.
 
-<img src="assets/tester.png" alt="15 day challenge badge" width="200"/>
+<img src="assets/tester.png" alt="15 day challenge" width="200"/>
 
 ### Assess your Postman experience level
 
@@ -69,7 +69,7 @@ Improve your skills by tackling a new Postman challenge for 15 days in a row.
 ### Frequently Asked Questions
 
 - **How long does it take to complete the 15 days of Postman challenge?** Plan to spend 5 to 45 minutes every day to explore the topic and dive deeper into the topics you find interesting. Go at your own pace. There is no penalty for taking longer. **Note**: if a very long period of time elapses from when you fork a challenge to when you submit the final solution, you may need to pull the latest changes to ensure the solution you submit is up to date.
-- **Do I need to complete all 15 challenges?** Completing all the challenges is required to claim your **15 days of Postman** badge. You are welcome to dive into any of the topics that you find interesting. However, some challenges build on concepts and samples introduced in earlier challenges. So you will receive less guidance for concepts covered earlier in the series.
+- **Do I need to complete all 15 challenges?** You are welcome to dive into any of the topics that you find interesting. However, some challenges build on concepts and samples introduced in earlier challenges. So you will receive less guidance for concepts covered earlier in the series.
 - **I am new to code. Is this challenge for me?** The challenges are designed for testers and suitable for novice testers. If you know basic software programming concepts and beginner JavaScript (or some other programming language), this challenge is for you. If you're an API professional, but don't identify as a tester, you may need to do extra research to complete some challenges.
 - **Do I need to create a public workspace?**: Yes. The validation requires all of your work to be located in a public workspace. If you belong to your company's Postman team, your company may not want the public workspace to be listed under their public team profile. In this case, use your personal Postman account, or create a separate Postman account, to complete the challenge.
 - **I'm stuck. Can someone please help?**
@@ -77,7 +77,6 @@ Improve your skills by tackling a new Postman challenge for 15 days in a row.
   - Try submitting an incomplete solution locally to reveal clues in the test results.
   - Look for similar examples in the [community forum](https://community.postman.com/).
   - If you're asking for help, try posting in the [Training](https://community.postman.com/c/training/38) section of the community forum. Make sure to include a thorough explanation of your question, what you've tried already, and include a direct link to your own public workspace so others can see where you're stuck.
-  - If your question is related to the administration of this badge (e.g. not a technical Postman question), you can ask for guidance in the [Training](https://community.postman.com/c/training/38) section of the community forum.
 
 <!-- ------------------------ -->
 
@@ -531,7 +530,7 @@ Fork the parent collection to your own workspace.
 
 <!-- ------------------------ -->
 
-## Day 15: Submit for badge
+## Day 15: Review your work
 
 Duration: 5
 
@@ -571,21 +570,13 @@ Make sure all of your tests are passing locally, and that you've completed the r
 
 If you need support figuring out how to complete the requirements, ask in the [Postman community forum using the "training" category](https://community.postman.com/c/training).
 
-### Submit your workspace
-
-Fork the parent collection and environment to your own workspace.
-</br>
-[![Run in Postman](_shared_assets/button.svg)](https://god.gw.postman.com/run-collection/1559645-b9fe5159-54c3-4fbc-a2fd-78969be49b8b?action=collection%2Ffork&collection-url=entityId%3D1559645-b9fe5159-54c3-4fbc-a2fd-78969be49b8b%26entityType%3Dcollection%26workspaceId%3D7a8604d2-6966-4313-8b07-282d2ba5501c#?env%5Bsecret%5D=W3sia2V5IjoidXJsIiwidmFsdWUiOiJodHRwczovL2YzMWY1MTFkLTYyNzEtNGE0ZS1iZWQ5LTQwMTAyNDc3MjU5MS5tb2NrLnBzdG1uLmlvIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJodHRwczovL2YzMWY1MTFkLTYyNzEtNGE0ZS1iZWQ5LTQwMTAyNDc3MjU5MS5tb2NrLnBzdG1uLmlvIiwic2Vzc2lvbkluZGV4IjowfV0=)
-
-On successful submission, you will receive the **[15 days of Postman - for testers](https://badgr.com/public/badges/bG6IYzbkTsKrP3t6C2q0BQ)** badge.
-
 <!-- ------------------------ -->
 
 ## Next Steps
 
 Duration: 1
 
-If you successfully earned your badge, don't stop now. You're on a roll! Check out some of our other learning labs, or learn how to test APIs in other protocols and patterns, like GraphQL, SOAP, gRPC, WebSockets, and more.
+Don't stop now. You're on a roll! Check out some of our other learning labs, or learn how to test APIs in other protocols and patterns, like GraphQL, SOAP, gRPC, WebSockets, and more.
 
 There's also a number of [integrations](https://learning.postman.com/docs/integrations/intro-integrations/) that weren't covered in these lessons.
 
@@ -600,6 +591,5 @@ There's also a number of [integrations](https://learning.postman.com/docs/integr
 - [Postman Quick Reference guide](https://postman-quick-reference-guide.readthedocs.io/en/latest/cheatsheet.html) community cheatsheet
 - [Community showcase](https://community.postman.com/c/content-showcase/7) with blog posts, tutorials, collections, and other really cool stuff by community members, just like you!
 - Additional [hands-on learning courses](https://quickstarts.postman.com) by Postman
-- Other opportunities to [earn badges from Postman](https://badgr.com/public/issuers/BC0x4AQaQPC7lFilsBP_tQ/badges)
 - Videos including [how-to, level ups, and exploratories](https://www.youtube.com/@postman)
 - Virtual learning [webinars](https://www.postman.com/events/intergalactic/)
