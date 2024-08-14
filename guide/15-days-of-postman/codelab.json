@@ -3,7 +3,7 @@
   "format": "../../../claat/render/template.html",
   "prefix": "https://quickstarts.postman.com/elements",
   "mainga": "G-GPC8QJXW1D",
-  "updated": "2023-11-07T12:50:50-08:00",
+  "updated": "2024-08-14T13:34:47+01:00",
   "id": "15-days-of-postman",
   "duration": 82,
   "title": "15 Days of Postman - for testers",
@@ -19,7 +19,6 @@
   ],
   "tags": [
     "automation",
-    "badge",
     "intermediate",
     "tester",
     "web"
