@@ -15,6 +15,9 @@ tags: Getting-Started, Developer, Badge
 
 Duration: 2
 
+> aside negative
+> We are retiring the badge awarding system for completion of this training. This training will continue to be available. Please read more [here](https://community.postman.com/t/important-announcement-badge-submissions-have-ended/64887).
+
 Improve your skills by tackling a new Postman challenge for 30 days in a row.
 
 <img src="assets/30daysbadge.png" alt="30 day challenge badge" width="200"/>
@@ -24,7 +27,6 @@ Improve your skills by tackling a new Postman challenge for 30 days in a row.
 1. **Get the daily challenge**: Fork the parent collection for each day to your own public Postman workspace.
 1. **Review the instructions**: Read the corresponding collection documentation for instructions on how to complete each challenge. Additional resources are available if you want to dive deeper into any of the topics.
 1. **Check your solutions**: When you think you've got it, validate your solution by following the instructions in the `Submit your solution` folder. For the first 29 days, you will be checking your own work.
-1. **Claim your badge**: For the final challenge, submit your final solution to the Postman team. Successfully completing all 30 challenges allows you to join the leaderboard and claim your [30 days of Postman badge](https://badgr.com/public/badges/dtlUH0IyTweMbXqk5P1KvA).
 
 **Watch this video** for some 30-day-challenge tips:
 <video id="bmQdaXaFjmM"></video>

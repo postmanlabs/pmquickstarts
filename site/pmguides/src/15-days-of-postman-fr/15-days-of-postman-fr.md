@@ -15,6 +15,9 @@ tags: Intermediate, Tester, Automation, Badge, fr
 
 Duration: 2
 
+> aside negative
+> We are retiring the badge awarding system for completion of this training. This training will continue to be available. Please read more [here](https://community.postman.com/t/important-announcement-badge-submissions-have-ended/64887).
+
 Améliorez vos compétences en vous attaquant à un challenge Postman par jour pendant 15 jours.
 
 <img src="assets/tester.png" alt="badge du challenge 15 jours" width="200"/>
@@ -32,7 +35,6 @@ Améliorez vos compétences en vous attaquant à un challenge Postman par jour p
 1. **Récupérer les challenges journaliers**: Forkez la collection correspondante à chaque jour dans votre propre workspace public sur Postman.
 1. **Passer les instructions en revue**: Lisez la documentation de la collection du jour pour voir comment compléter le challenge. Des ressources additionelles sont disponibles si vous voulez approfondir n'importe lequel des sujets.
 1. **Vérifier vos solutions**: Quand vous pensez avoir la solution, validez la en suivant les instructions dans le dossier `Submit your solution`. Vous pouvez vérifier votre travail pour chaque jour.
-1. **Réclamer votre badge**: Pour le challenge final, soumettez votre solution final à l'équipe Postman. Compléter tous les challenges avec succès vous permet de réclamer le badge [15 days of Postman](https://badgr.com/public/badges/bG6IYzbkTsKrP3t6C2q0BQ).
 
 **Regardez cette vidéo** pour des conseils sur le challenge de 15 jours :
 <video id="3_w2Bz0BnlY"></video>
