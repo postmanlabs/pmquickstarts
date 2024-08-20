@@ -15,6 +15,9 @@ tags: Getting-Started
 
 Duration: 1
 
+> aside negative
+> We are retiring the badge awarding system for completion of this training. This training will continue to be available. Please read more [here](https://community.postman.com/t/important-announcement-badge-submissions-have-ended/64887).
+
 This is a beginner's introduction to HTTP APIs in Postman. Complete this entire course to get started on your API journey with Postman. Spelling and capitalization matter, so make sure to follow the instructions precisely.
 
 ### Prerequisites

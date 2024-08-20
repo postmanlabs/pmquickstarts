@@ -16,7 +16,7 @@ tags: Getting-Started, Developer, Tester, Automation
 Duration: 1
 
 > aside negative
-> This course was originally created by [Sue Smith](https://github.com/SueSmith) and has been modified to suit the Quickstart format.
+> We are retiring the badge awarding system for completion of this training. This training will continue to be available. Please read more [here](https://community.postman.com/t/important-announcement-badge-submissions-have-ended/64887).
 
 This is an introduction to testing and automation in Postman. Complete this entire course to equip yourself with necessary skills needed to test and automate APIs in Postman.
 
