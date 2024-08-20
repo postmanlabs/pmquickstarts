@@ -5,7 +5,7 @@ categories: Getting-Started
 environments: web
 status: Published
 feedback link: https://github.com/postmanlabs/pmquickstarts
-tags: Getting-Started, Badge
+tags: Getting-Started
 
 # Introduction to HTTP APIs in Postman
 
@@ -15,9 +15,7 @@ tags: Getting-Started, Badge
 
 Duration: 1
 
-This is a beginner's introduction to HTTP APIs in Postman. Complete this entire course to get started on your API journey with Postman, and claim your [Introduction to Postman - HTTP APIs](https://badgr.com/public/badges/RAhpkJyBReKgLWVLx-Z7GA) badge. Spelling and capitalization matter, so make sure to follow the instructions precisely.
-
-<img src="assets/badge.png" alt="Intro to Postman and HTTP APIs badge" width="200"/>
+This is a beginner's introduction to HTTP APIs in Postman. Complete this entire course to get started on your API journey with Postman. Spelling and capitalization matter, so make sure to follow the instructions precisely.
 
 ### Prerequisites
 
@@ -634,19 +632,10 @@ You’ve gone through a lot in this module, from setting up your Postman workspa
 
 Duration: 1
 
-### Claim your badge
-
-To submit your solution for validation, your collection must be located in a public workspace. You will need your collection URL (see [instructions to "Share using the Postman API" here](https://learning.postman.com/docs/collaborating-in-postman/sharing/#sharing-using-the-postman-api)).
-
-Go to [this page](http://go.pstmn.io/submit-badge) to claim your `Postman Introduction - HTTP API` badge using the "Share via API" link previously created.
-
-<img src="assets/badge.png" alt="Intro to Postman and HTTP APIs badge" width="200"/>
-
-### Next Steps
-
 To continue your journey with Postman, here are some additional resources to check out.
 
 - [Postman community forum](https://community.postman.com/): Postman has a large and active community, and someone might be willing to help if you ask nicely.
 - [Hands-on learning courses](): additional quickstarts like this one by Postman.
-- [Earn badges from Postman](https://badgr.com/public/issuers/BC0x4AQaQPC7lFilsBP_tQ/badges): complete other learning courses to earn badges you can proudly display on your social media profiles.
 - [Webinars](https://www.postman.com/events/intergalactic/): register to attend virtual learning sessions with some of your favorite Postmanauts.
+
+<!-- ------------------------ -->
