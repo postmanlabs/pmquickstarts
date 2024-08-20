@@ -5,7 +5,7 @@ categories: Game
 environments: web
 status: Hidden
 feedback link: https://github.com/postmanlabs/pmquickstarts
-tags: Game, Badge, fr
+tags: Game, fr
 
 # Puzzle : Lost in Space
 
@@ -31,9 +31,6 @@ Pour activer les sous-titres automatiques en Français, consulter [cette page d'
 1. **Récupérer les instructions**: Forkez la collection [**Read Me First**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351) dans votre propre workspace. Partagez votre travail dans un [workspace de team ou workspace public](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-new-workspace) pour que vos co-équipiers puissent vous aider.
 2. **Éxaminer la mission**: Envoyez la requête API dans la collection pour savoir comment récupérer les indices.
 3. **Soumettre la solution finale**: Quand vous pensez avoir collecté toutes les données, validez votre solution en envoyant les informations nécessaires au [**Mission Control**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b?ctx=documentation).
-4. **Réclamer votre badge**: Compléter la mission avec succès vous permet de rejoindre le classement et de réclamer votre badge Postman [**Lost in Space**](https://badgr.com/public/badges/hkQxukdrTd6bEw9RT4MQcQ).
-
-<img src="assets/lost.png" alt="badge du jeu" width="200">
 
 ### Prérequis
 
@@ -61,7 +58,7 @@ Pour activer les sous-titres automatiques en Français, consulter [cette page d'
 
 - Lisez les instructions à nouveau et faites attention aux indices.
 - Si votre question est sur les APIs ou Postman, cherchez sur le [forum de la communauté](https://community.postman.com/). Si vous demandez de l'aide, soyez sûrs d'inclure une explication détaillée de votre question, ce que vous avez déjà essayé, et mettez le lien de votre workspace public pour que les autres puissent constater où vous êtes coincé.
-- Si votre question est à propos des règles du jeu ou de de l'administration du badge (i.e. pas une question technique sur Postman), vous pouvez demander de l'ade dans la catégorie [Training](https://community.postman.com/c/training/38) du forum de la communauté.
+- Si votre question est à propos des règles du jeu (i.e. pas une question technique sur Postman), vous pouvez demander de l'ade dans la catégorie [Training](https://community.postman.com/c/training/38) du forum de la communauté.
 
 <!-- ------------------------ -->
 
@@ -96,7 +93,6 @@ Ce challenge n'a pas pour but d'être une façon structurée ou compréhensive d
 Pour voir les autres choses que vous pouvez faire avec Postman, consultez les ressources suivantes:
 
 - [Cours pratiques additionels]() par Postman
-- Autres opportunités de [gagner des badges Postman](https://badgr.com/public/issuers/BC0x4AQaQPC7lFilsBP_tQ/badges)
 - Vidéos incluant [how-to, level ups, and exploratories](https://www.youtube.com/@postman)
 - Leçons en lignes [wébinaires]](https://www.postman.com/events/intergalactic/)
 

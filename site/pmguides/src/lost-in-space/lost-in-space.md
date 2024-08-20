@@ -5,7 +5,7 @@ categories: Game
 environments: web
 status: Published
 feedback link: https://github.com/postmanlabs/pmquickstarts
-tags: Game, Badge
+tags: Game
 
 # Lost in Space: puzzle hunt
 
@@ -30,9 +30,6 @@ Watch this video:
 1. **Get instructions**: Fork the [**Read Me First**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-d0f86bd4-ba8d-4876-8161-9b3361de1351) collection to your own workspace. Share your work in a [team or public workspace](https://learning.postman.com/docs/collaborating-in-postman/using-workspaces/creating-workspaces/#creating-a-new-workspace) so others can review issues.
 2. **Review mission**: Send the API call in the collection for instructions on how to collect the clues.
 3. **Submit final solution**: When you think you've gathered all the data, validate your solution by providing the required information to [**Mission Control**](https://www.postman.com/postman/workspace/lost-in-space/collection/1559645-4bc6b58a-3462-4e0a-ba10-79bc68761a9b?ctx=documentation).
-4. **Claim badge**: Successfully completing the mission allows you to join the leaderboard and claim your [**Lost in Space** Postman badge](https://badgr.com/public/badges/hkQxukdrTd6bEw9RT4MQcQ).
-
-<img src="assets/lost.png" alt="game badge" width="200">
 
 ### Prerequisites
 
@@ -60,7 +57,7 @@ Watch this video:
 
 - Re-read the instructions carefully for hints.
 - If your question is about APIs or Postman, look in the [community forum](https://community.postman.com/). If you're asking for help, make sure to include a thorough explanation of your question, what you've tried already, and include a direct link to your own public workspace so others can see where you're stuck.
-- If your question is related to the rules of the game or administration of this badge (e.g. not a technical Postman question), you can ask for guidance in the [Training](https://community.postman.com/c/training/38) section of the community forum.
+- If your question is related to the rules of the game (e.g. not a technical Postman question), you can ask for guidance in the [Training](https://community.postman.com/c/training/38) section of the community forum.
 
 <!-- ------------------------ -->
 
@@ -95,7 +92,6 @@ This challenge is not intended to be a comprehensive or structured learning expe
 To see what else you can do with Postman, check out the following resources:
 
 - Additional [hands-on learning courses](https://quickstarts.postman.com) by Postman
-- Other opportunities to [earn badges from Postman](https://badgr.com/public/issuers/BC0x4AQaQPC7lFilsBP_tQ/badges)
 - Videos including [how-to, level ups, and exploratories](https://www.youtube.com/@postman)
 - Virtual learning [webinars](https://www.postman.com/events/intergalactic/)
 

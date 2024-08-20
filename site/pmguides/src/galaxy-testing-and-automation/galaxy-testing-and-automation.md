@@ -5,7 +5,7 @@ categories: Getting-Started, Tester
 environments: web
 status: Published
 feedback link: https://github.com/postmanlabs/pmquickstarts
-tags: Getting-Started, Developer, Tester, Automation, Badge
+tags: Getting-Started, Developer, Tester, Automation
 
 # Galaxy Testing and Automation
 
@@ -18,9 +18,7 @@ Duration: 1
 > aside negative
 > This course was originally created by [Sue Smith](https://github.com/SueSmith) and has been modified to suit the Quickstart format.
 
-This is an introduction to testing and automation in Postman. Complete this entire course to claim a badge to display on your social media profiles.
-
-<img src="assets/tester.png" alt="API tester badge" width="200"/>
+This is an introduction to testing and automation in Postman. Complete this entire course to equip yourself with necessary skills needed to test and automate APIs in Postman.
 
 ### Prerequisites
 
@@ -38,7 +36,6 @@ This is an introduction to testing and automation in Postman. Complete this enti
 ### What You’ll Build
 
 - A Postman Collection consisting of requests, variables, and tests.
-- Badge for [Postman API Tester](https://badgr.com/public/badges/Q10KBL_YQXSW0lCQgYWx6Q).
 
 <!-- ------------------------ -->
 
@@ -447,45 +444,12 @@ You can set collection runs up to happen on a schedule using **Monitors**. Open 
 
 <!-- ------------------------ -->
 
-## Complete training
-
-Duration: 5
-
-### Check your collection for completeness before submitting it to get your badge!🤓
-
-This request is going to check your collection to make sure you've completed the requirements to receive the Postman **API Tester** badge.
-
-### Get your collection link
-
-You can generate a public link to share JSON representing your collection. **First make sure all of your requests are saved.**
-
-1. Open the collection and navigate to **Share** (click it on the left or use the right-click menu on it).
-2. Choose **Via API** and generate a new token if needed.
-3. Copy your collection link to the clipboard.
-4. Replace `{{your-collection-url}}` with your collection link in the `Complete training`  
-   request (you can save it as a variable using this name or just paste it straight into the address).
-5. Check out the **Test Results** to see if your collection is complete!
-
-> aside negative
-> Note that if you change your collection, you need to go back through the **Share** flow and update the link.
-
-### Submitting your collection
-
-Hopefully everything is good with your collection (if not plz try going back through the steps, referring to the request docs in each case, and remember to save your collection before sending this request after making changes to your scripts).
-
-If you need support figuring out how to complete your collection please ask in the session chat or in the [Postman community forum using the "training" category](https://community.postman.com/c/training).
-
-_**When your collection is complete, fill out the form**_ [**go.pstmn.io/submit-badge**](https://go.pstmn.io/submit-badge) _**including the export of your collection (**_[_see how here_](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-collections)_**) and we will process your submission for the API Tester badge!**_
-
-On successful submission you will receive the [Postman API Tester](https://badgr.com/public/badges/Q10KBL_YQXSW0lCQgYWx6Q) badge! 🎉🏆🚀
-
-<!-- ------------------------ -->
-
 ## Next Steps
 
 Duration: 1
 
 ### What we've covered
+We've been able to cover the following:
 
 - Writing scripts to test your response data
 - Passing data between requests using variables
@@ -494,9 +458,7 @@ Duration: 1
 - Automating your testing using dynamic faker data and the collection runner
 - Running collections with scheduled runs and monitors
 
-If you've completed all the steps, you should have a Postman Collection consisting of requests, variables, and tests in your workspace. And you have earned the [Postman API Tester](https://badgr.com/public/badges/Q10KBL_YQXSW0lCQgYWx6Q) badge!
-
-![API tester badge](assets/tester.png)
+If you've completed all the steps, you should have a Postman Collection consisting of requests, variables, and tests in your workspace.
 
 If you want to learn more about testing and automation in Postman, check out the following resources. The sky is the limit!
 
