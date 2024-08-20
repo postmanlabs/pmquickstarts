@@ -15,6 +15,9 @@ tags: Game
 
 Duration: 3
 
+> aside negative
+> We are retiring the badge awarding system for completion of this training. This training will continue to be available. Please read more [here](https://community.postman.com/t/important-announcement-badge-submissions-have-ended/64887).
+
 This online puzzle can be played by an individual, couple, or team. Play in one location or across multiple locations by communicating virtually.
 
 - **Team size**: 1 to 6 players recommended

@@ -15,6 +15,9 @@ tags: Game, fr
 
 Duration: 3
 
+> aside negative
+> We are retiring the badge awarding system for completion of this training. This training will continue to be available. Please read more [here](https://community.postman.com/t/important-announcement-badge-submissions-have-ended/64887).
+
 Ce puzzle en ligne peut être résolu seul, a deux, ou en équipe. Jouez depuis le même ordinateur ou à distance en communiquant virtuellement.
 
 - **Taille de l'équipe**: 1 à 6 joueurs recommandé
