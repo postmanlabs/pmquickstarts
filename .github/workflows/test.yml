@@ -12,6 +12,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+      with:
+        persist-credentials: false
     - uses: actions/setup-node@master
       with:
         node-version: '14'
